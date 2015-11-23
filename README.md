@@ -20,56 +20,39 @@
 
 ### Requirements
 
-* [Kubeclient](https://github.com/abonas/kubeclient) and
-  [Hocon](https://github.com/puppetlabs/ruby-hocon) ruby gems
+* [Kubeclient](https://github.com/abonas/kubeclient)  ruby gem
 
 ### Installing the Kubernetes module
 
-1. Install the required gems with this command:
+Install the required gems with this command:
 
   ~~~
-  /opt/puppet/bin/gem install kubeclient hocon --no-ri --no-rdoc
-  ~~~
-
-  If you are running Puppet Enterprise 2015.2.0 or later you need to use the updated path:
-
-  ~~~
-  /opt/puppetlabs/puppet/bin/gem install kubeclient hocon --no-ri --no-rdoc
+  /opt/puppetlabs/puppet/bin/gem install kubeclient --no-ri --no-rdoc
   ~~~
 
 #### Configuring credentials
 
-1. Set the following environment variables specific to your vSphere
-   installation:
-
-  * Required Settings:
-
-      ~~~
-      export KUBERNETES_MASTER='your-host'
-      ~~~
-
-   Alternatively, you can provide the information in a configuration
+You can provide the information in a standard kubectl configuration
 file. Store this as `kubernetes.conf` in the relevant
-[confdir](https://docs.puppetlabs.com/puppet/latest/reference/dirs_confdir.html). This should be:
+[confdir](https://docs.puppetlabs.com/puppet/latest/reference/dirs_confdir.html).
+This should be:
 
    * nix Systems: `/etc/puppetlabs/puppet`
    * Windows: `C:\ProgramData\PuppetLabs\puppet\etc`
    * non-root users: `~/.puppetlabs/etc/puppet`
 
-   The file format is:
+If you have a working kubectl setup you can export the file using the
+following command:
 
-      ~~~
-      kubernetes: {
-        master: "your-host"
-      }
-      ~~~
+  ~~~
+  kubectl config view --raw=true
+  ~~~
 
-    Note that you can use either the environment variables or the config file. If both are present the environment variables will be used. You **cannot** have some settings in environment variables and others in the config file.
+Finally install the module with:
 
-2. Finally install the module with:
-
-  `puppet module install garethr-kubernetes`
-
+  ~~~
+  puppet module install garethr-kubernetes
+  ~~~
 
 ## Getting started with Kubernetes
 
@@ -99,13 +82,18 @@ kubernetes_pod { 'garethr':
 
 ###List and manage Kubernetes resources
 
-In addition to creating and managing resources this module supports listing and interactive management of resources via `puppet resource`. For example:
+In addition to creating and managing resources this module supports listing
+and interactive management of resources via `puppet resource`. For example:
 
-`puppet resource kubernetes_node`
+  ~~~
+  puppet resource kubernetes_node
+  ~~~
 
-Or
+Or:
 
-`puppet resource kubernetes_service`
+  ~~~
+  puppet resource kubernetes_service
+  ~~~
 
 You can use this to describe the state of your Kubernetes cluster and
 export the results to a file, which can then be used to maintain that
@@ -116,7 +104,9 @@ state over time.
 You can also delete the resources we created above by setting the `ensure`
 property to `absent` in the manifest or using `puppet resouce` like so:
 
-    puppet resource kubernetes_pod garethr ensure=absent
+  ~~~
+  puppet resource kubernetes_pod garethr ensure=absent
+  ~~~
 
 ###More usage examples
 

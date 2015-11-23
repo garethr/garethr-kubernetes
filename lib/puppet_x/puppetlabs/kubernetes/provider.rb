@@ -1,7 +1,9 @@
+require 'puppet'
 require 'kubeclient'
 require 'recursive_open_struct'
 
 require 'puppet_x/puppetlabs/swagger/provider'
+require 'kubeclient/config'
 
 class RecursiveOpenStruct
   def ensure_value_at_path(klass, path, value)
@@ -29,8 +31,15 @@ module PuppetX
       class Provider < PuppetX::Puppetlabs::Swagger::Provider
         private
         def self.client
-          config = ::PuppetX::Puppetlabs::Azure::Config.new
-          ::Kubeclient::Client.new config.master # 'http://localhost:8080/api/'
+          Puppet.initialize_settings unless Puppet[:confdir]
+          file = File.join(Puppet[:confdir], 'kubernetes.conf')
+          Puppet.debug("Checking for config file at #{file}")
+          config = Kubeclient::Config.read(file)
+          ::Kubeclient::Client.new(
+            config.context.api_endpoint,
+            config.context.api_version,
+            ssl_options: config.context.ssl_options,
+          )
         end
 
         def self.list_instances_of(type)

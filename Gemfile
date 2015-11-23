@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+gem "kubeclient"
+
 group :test do
   gem "rake"
   gem "puppet", ENV['PUPPET_GEM_VERSION'] || '~> 3.8.0'
