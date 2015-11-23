@@ -116,6 +116,21 @@ The module examples folder contains additional usage examples:
 
 ###Types
 
+* kubernetes_pod
+* kubernetes_service
+* kubernetes_replication_controller
+* kubernetes_node
+* kubernetes_event
+* kubernetes_endpoint
+* kubernetes_namespace
+* kubernetes_secret
+* kubernetes_resource_quota
+* kubernetes_limit_range
+* kubernetes_peristent_volume
+* kubernetes_persistent_volume_claim
+* kubernetes_component_status
+* kubernetes_service_account
+
 ##Limitations
 
 This module is a proof of concept, demonstrating both the power of
