@@ -1,0 +1,62 @@
+require 'puppet_x/puppetlabs/swagger/prefetch_error'
+require 'puppet_x/puppetlabs/swagger/symbolize_keys'
+require 'puppet_x/puppetlabs/kubernetes/provider'
+
+Puppet::Type.type(:kubernetes_node_address).provide(:swagger, :parent => PuppetX::Puppetlabs::Kubernetes::Provider) do
+
+  mk_resource_methods
+
+  def self.instance_to_hash(instance)
+    {
+    ensure: :present,
+    name: instance.metadata.name,
+    
+      
+        type: instance.type.respond_to?(:to_hash) ? instance.type.to_hash : instance.type,
+      
+    
+      
+        address: instance.address.respond_to?(:to_hash) ? instance.address.to_hash : instance.address,
+      
+    
+    object: instance,
+    }
+  end
+
+  def create
+    Puppet.info("Creating #{name}")
+    create_instance_of('node_address', name, build_params)
+  end
+
+  def flush
+    if ! @property_hash.empty? and @property_hash[:ensure] != :absent
+      flush_instance_of('node_address', name, @property_hash[:object], build_params)
+    end
+  end
+
+  def destroy
+    Puppet.info("Deleting #{name}")
+    destroy_instance_of('node_address', name)
+  end
+
+  private
+  def self.list_instances
+    list_instances_of('node_address')
+  end
+
+  def build_params
+    params = {
+    
+      
+        type: resource[:type],
+      
+    
+      
+        address: resource[:address],
+      
+    
+    }
+    params.delete_if { |key, value| value.nil? }
+    params
+  end
+end
