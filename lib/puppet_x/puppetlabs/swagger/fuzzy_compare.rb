@@ -16,7 +16,7 @@ module PuppetX
             tests = normalized_should.keys.collect do |key|
               if [String, Fixnum].include? normalized_is[key].class
                 normalized_is[key].to_s == normalized_should[key].to_s
-              elsif
+              else
                 normalized_is[key].collect do |is_value|
                   normalized_should[key].collect do |should_value|
                     diff = if is_value.class == Hash
