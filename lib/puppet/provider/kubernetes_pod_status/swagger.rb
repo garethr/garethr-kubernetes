@@ -2,8 +2,6 @@
 # any manual changes are likely to be clobbered when the files
 # are regenerated.
 
-require 'puppet_x/puppetlabs/swagger/prefetch_error'
-require 'puppet_x/puppetlabs/swagger/symbolize_keys'
 require 'puppet_x/puppetlabs/kubernetes/provider'
 
 Puppet::Type.type(:kubernetes_pod_status).provide(:swagger, :parent => PuppetX::Puppetlabs::Kubernetes::Provider) do
