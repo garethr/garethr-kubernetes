@@ -1,16 +1,13 @@
-####Table of Contents
-
 1. [Overview](#overview)
-2. [Description - What the module does and why it is useful](#module-description)
+2. [Description - What the module does and why it is useful](#description)
 3. [Setup](#setup)
   * [Requirements](#requirements)
-  * [Installing the kubernetes module](#installing-the-kubernetes-module)
-4. [Getting Started with kubernetes](#getting-started-with-kubernetes)
+  * [Installing the Kubernetes module](#installing-the-kubernetes-module)
+4. [Getting Started with Kubernetes](#getting-started-with-kubernetes)
 5. [Usage - Configuration options and additional functionality](#usage)
 6. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
   * [Types](#types)
-7. [Known Issues](#known-issues)
-8. [Limitations - OS compatibility, etc.](#limitations)
+7. [Limitations - OS compatibility, etc.](#limitations)
 
 ## Overview
 
@@ -102,7 +99,7 @@ kubernetes_pod { 'sample-pod':
 
 ## Usage
 
-###List and manage Kubernetes resources
+### List and manage Kubernetes resources
 
 In addition to creating and managing resources this module supports listing
 and interactive management of resources via `puppet resource`. For example:
@@ -121,7 +118,7 @@ You can use this to describe the state of your Kubernetes cluster and
 export the results to a file, which can then be used to maintain that
 state over time.
 
-###Delete resources
+### Delete resources
 
 You can also delete the resources we created above by setting the `ensure`
 property to `absent` in the manifest or using `puppet resouce` like so:
@@ -130,13 +127,13 @@ property to `absent` in the manifest or using `puppet resouce` like so:
   puppet resource kubernetes_pod sample-pod ensure=absent
   ~~~
 
-###More usage examples
+### More usage examples
 
 The module examples folder contains additional usage examples:
 
-##Reference
+## Reference
 
-###Types
+### Types
 
 * kubernetes_pod
 * kubernetes_service
@@ -153,7 +150,7 @@ The module examples folder contains additional usage examples:
 * kubernetes_component_status
 * kubernetes_service_account
 
-##Limitations
+## Limitations
 
 This module is a proof of concept, demonstrating both the power of
 auto-generating Puppet types and providers from Swagger specifications
