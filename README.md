@@ -14,9 +14,34 @@
 
 ## Overview
 
+The garethr-kubernetes module allows you to use the Puppet DSL for managing Pods,
+ReplicationControllers, Services and more in Kubernetes. It doesn't install the various
+Kubernetes components.
+
 ## Description
 
+The module allows for defining Kubernetes resources in Puppet, and then
+for Puppet to create or update those resources. This improves on the
+basic YAML file approach in a few ways:
+
+* The Puppet language supports logic and abstractions, allowing for
+  the crafting of business specific user interfaces and avoiding
+  repetition
+* Modifications can be made to the Puppet code and Puppet will handle
+  updating the relevant resources, without having to describe the full
+  state of the resource
+* Puppet supports relationships between resources, so you can enforce
+  ordering where nessesary
+
+The user interface of the Puppet code however follows the API/YAML
+format exactly. This allows for a familiar interface for anyone used to
+the Kubernetes API, at the same time as providing a low level building
+block for creating higher level types.
+
 ## Setup
+
+Note that the following assumes you have a Kubernetes cluster up and
+running.
 
 ### Requirements
 
@@ -32,7 +57,7 @@ Install the required gems with this command:
 
 #### Configuring credentials
 
-You can provide the information in a standard kubectl configuration
+You can provide the required information in a standard kubectl configuration
 file. Store this as `kubernetes.conf` in the relevant
 [confdir](https://docs.puppetlabs.com/puppet/latest/reference/dirs_confdir.html).
 This should be:
@@ -61,7 +86,7 @@ Services and ReplicationControllers) using the Puppet DSL. To create a
 new Pod for example:
 
 ~~~puppet
-kubernetes_pod { 'garethr':
+kubernetes_pod { 'sample-pod':
   ensure   => present,
   metadata => {
     namespace => 'default',
@@ -69,9 +94,6 @@ kubernetes_pod { 'garethr':
   spec     => {
     containers => [{
       name  => 'container-name',
-      image => 'nginx',
-    },{
-      name  => 'container-name-2',
       image => 'nginx',
     }]
   },
@@ -105,7 +127,7 @@ You can also delete the resources we created above by setting the `ensure`
 property to `absent` in the manifest or using `puppet resouce` like so:
 
   ~~~
-  puppet resource kubernetes_pod garethr ensure=absent
+  puppet resource kubernetes_pod sample-pod ensure=absent
   ~~~
 
 ###More usage examples
@@ -136,7 +158,8 @@ The module examples folder contains additional usage examples:
 This module is a proof of concept, demonstrating both the power of
 auto-generating Puppet types and providers from Swagger specifications
 and of managing higher level tools like Kubernetes with Puppet. It
-likely has several bugs and rough edges.
+likely has several bugs and rough edges at the moment. Please report
+those on GitHub.
 
 ## Development
 

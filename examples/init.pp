@@ -1,4 +1,4 @@
-kubernetes_pod { 'garethr':
+kubernetes_pod { 'sample-pod':
   ensure   => present,
   metadata => {
     namespace => 'default',
@@ -7,9 +7,6 @@ kubernetes_pod { 'garethr':
     containers => [{
       name  => 'container-name',
       image => 'nginx',
-    },{
-      name  => 'container-name-2',
-      image => 'nginx',
-    }]
+    }],
   },
 }
