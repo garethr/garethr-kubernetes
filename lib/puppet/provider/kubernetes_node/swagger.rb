@@ -14,11 +14,7 @@ Puppet::Type.type(:kubernetes_node).provide(:swagger, :parent => PuppetX::Puppet
     name: instance.metadata.name,
     
       
-        kind: instance.kind.respond_to?(:to_hash) ? instance.kind.to_hash : instance.kind,
-      
     
-      
-        apiVersion: instance.apiVersion.respond_to?(:to_hash) ? instance.apiVersion.to_hash : instance.apiVersion,
       
     
       
@@ -43,7 +39,7 @@ Puppet::Type.type(:kubernetes_node).provide(:swagger, :parent => PuppetX::Puppet
   end
 
   def flush
-    if ! @property_hash.empty? and @property_hash[:ensure] != :absent
+    if ! @property_hash.empty? or resource[:ensure] != :absent
       flush_instance_of('node', name, @property_hash[:object], build_params)
     end
   end
@@ -62,11 +58,7 @@ Puppet::Type.type(:kubernetes_node).provide(:swagger, :parent => PuppetX::Puppet
     params = {
     
       
-        kind: resource[:kind],
-      
     
-      
-        apiVersion: resource[:apiVersion],
       
     
       

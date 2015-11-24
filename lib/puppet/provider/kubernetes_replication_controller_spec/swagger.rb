@@ -35,7 +35,7 @@ Puppet::Type.type(:kubernetes_replication_controller_spec).provide(:swagger, :pa
   end
 
   def flush
-    if ! @property_hash.empty? and @property_hash[:ensure] != :absent
+    if ! @property_hash.empty? or resource[:ensure] != :absent
       flush_instance_of('replication_controller_spec', name, @property_hash[:object], build_params)
     end
   end

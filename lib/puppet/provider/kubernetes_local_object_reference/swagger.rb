@@ -27,7 +27,7 @@ Puppet::Type.type(:kubernetes_local_object_reference).provide(:swagger, :parent 
   end
 
   def flush
-    if ! @property_hash.empty? and @property_hash[:ensure] != :absent
+    if ! @property_hash.empty? or resource[:ensure] != :absent
       flush_instance_of('local_object_reference', name, @property_hash[:object], build_params)
     end
   end

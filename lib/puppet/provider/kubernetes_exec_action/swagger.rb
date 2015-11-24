@@ -27,7 +27,7 @@ Puppet::Type.type(:kubernetes_exec_action).provide(:swagger, :parent => PuppetX:
   end
 
   def flush
-    if ! @property_hash.empty? and @property_hash[:ensure] != :absent
+    if ! @property_hash.empty? or resource[:ensure] != :absent
       flush_instance_of('exec_action', name, @property_hash[:object], build_params)
     end
   end

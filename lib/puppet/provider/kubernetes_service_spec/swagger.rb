@@ -55,7 +55,7 @@ Puppet::Type.type(:kubernetes_service_spec).provide(:swagger, :parent => PuppetX
   end
 
   def flush
-    if ! @property_hash.empty? and @property_hash[:ensure] != :absent
+    if ! @property_hash.empty? or resource[:ensure] != :absent
       flush_instance_of('service_spec', name, @property_hash[:object], build_params)
     end
   end

@@ -14,11 +14,7 @@ Puppet::Type.type(:kubernetes_component_status).provide(:swagger, :parent => Pup
     name: instance.metadata.name,
     
       
-        kind: instance.kind.respond_to?(:to_hash) ? instance.kind.to_hash : instance.kind,
-      
     
-      
-        apiVersion: instance.apiVersion.respond_to?(:to_hash) ? instance.apiVersion.to_hash : instance.apiVersion,
       
     
       
@@ -39,7 +35,7 @@ Puppet::Type.type(:kubernetes_component_status).provide(:swagger, :parent => Pup
   end
 
   def flush
-    if ! @property_hash.empty? and @property_hash[:ensure] != :absent
+    if ! @property_hash.empty? or resource[:ensure] != :absent
       flush_instance_of('component_status', name, @property_hash[:object], build_params)
     end
   end
@@ -58,11 +54,7 @@ Puppet::Type.type(:kubernetes_component_status).provide(:swagger, :parent => Pup
     params = {
     
       
-        kind: resource[:kind],
-      
     
-      
-        apiVersion: resource[:apiVersion],
       
     
       

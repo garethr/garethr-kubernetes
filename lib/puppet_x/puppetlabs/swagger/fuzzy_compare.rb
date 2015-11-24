@@ -14,8 +14,8 @@ module PuppetX
             true
           else
             tests = normalized_should.keys.collect do |key|
-              if normalized_is[key].class == String
-                normalized_is[key] == normalized_should[key]
+              if [String, Fixnum].include? normalized_is[key].class
+                normalized_is[key].to_s == normalized_should[key].to_s
               elsif
                 normalized_is[key].collect do |is_value|
                   normalized_should[key].collect do |should_value|

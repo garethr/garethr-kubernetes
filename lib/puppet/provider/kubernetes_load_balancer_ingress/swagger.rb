@@ -31,7 +31,7 @@ Puppet::Type.type(:kubernetes_load_balancer_ingress).provide(:swagger, :parent =
   end
 
   def flush
-    if ! @property_hash.empty? and @property_hash[:ensure] != :absent
+    if ! @property_hash.empty? or resource[:ensure] != :absent
       flush_instance_of('load_balancer_ingress', name, @property_hash[:object], build_params)
     end
   end

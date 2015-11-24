@@ -39,7 +39,7 @@ Puppet::Type.type(:kubernetes_node_spec).provide(:swagger, :parent => PuppetX::P
   end
 
   def flush
-    if ! @property_hash.empty? and @property_hash[:ensure] != :absent
+    if ! @property_hash.empty? or resource[:ensure] != :absent
       flush_instance_of('node_spec', name, @property_hash[:object], build_params)
     end
   end

@@ -27,7 +27,7 @@ Puppet::Type.type(:kubernetes_namespace_spec).provide(:swagger, :parent => Puppe
   end
 
   def flush
-    if ! @property_hash.empty? and @property_hash[:ensure] != :absent
+    if ! @property_hash.empty? or resource[:ensure] != :absent
       flush_instance_of('namespace_spec', name, @property_hash[:object], build_params)
     end
   end

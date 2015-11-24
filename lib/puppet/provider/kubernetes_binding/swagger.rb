@@ -39,7 +39,7 @@ Puppet::Type.type(:kubernetes_binding).provide(:swagger, :parent => PuppetX::Pup
   end
 
   def flush
-    if ! @property_hash.empty? and @property_hash[:ensure] != :absent
+    if ! @property_hash.empty? or resource[:ensure] != :absent
       flush_instance_of('binding', name, @property_hash[:object], build_params)
     end
   end

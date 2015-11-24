@@ -47,7 +47,7 @@ Puppet::Type.type(:kubernetes_pod_condition).provide(:swagger, :parent => Puppet
   end
 
   def flush
-    if ! @property_hash.empty? and @property_hash[:ensure] != :absent
+    if ! @property_hash.empty? or resource[:ensure] != :absent
       flush_instance_of('pod_condition', name, @property_hash[:object], build_params)
     end
   end

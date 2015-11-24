@@ -31,7 +31,7 @@ Puppet::Type.type(:kubernetes_endpoint_address).provide(:swagger, :parent => Pup
   end
 
   def flush
-    if ! @property_hash.empty? and @property_hash[:ensure] != :absent
+    if ! @property_hash.empty? or resource[:ensure] != :absent
       flush_instance_of('endpoint_address', name, @property_hash[:object], build_params)
     end
   end

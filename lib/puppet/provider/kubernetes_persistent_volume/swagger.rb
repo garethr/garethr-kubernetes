@@ -14,11 +14,7 @@ Puppet::Type.type(:kubernetes_persistent_volume).provide(:swagger, :parent => Pu
     name: instance.metadata.name,
     
       
-        kind: instance.kind.respond_to?(:to_hash) ? instance.kind.to_hash : instance.kind,
-      
     
-      
-        apiVersion: instance.apiVersion.respond_to?(:to_hash) ? instance.apiVersion.to_hash : instance.apiVersion,
       
     
       
@@ -43,7 +39,7 @@ Puppet::Type.type(:kubernetes_persistent_volume).provide(:swagger, :parent => Pu
   end
 
   def flush
-    if ! @property_hash.empty? and @property_hash[:ensure] != :absent
+    if ! @property_hash.empty? or resource[:ensure] != :absent
       flush_instance_of('persistent_volume', name, @property_hash[:object], build_params)
     end
   end
@@ -62,11 +58,7 @@ Puppet::Type.type(:kubernetes_persistent_volume).provide(:swagger, :parent => Pu
     params = {
     
       
-        kind: resource[:kind],
-      
     
-      
-        apiVersion: resource[:apiVersion],
       
     
       

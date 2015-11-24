@@ -23,7 +23,7 @@ Puppet::Type.type(:kubernetes_finalizer_name).provide(:swagger, :parent => Puppe
   end
 
   def flush
-    if ! @property_hash.empty? and @property_hash[:ensure] != :absent
+    if ! @property_hash.empty? or resource[:ensure] != :absent
       flush_instance_of('finalizer_name', name, @property_hash[:object], build_params)
     end
   end

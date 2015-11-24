@@ -51,7 +51,7 @@ Puppet::Type.type(:kubernetes_container_state_terminated).provide(:swagger, :par
   end
 
   def flush
-    if ! @property_hash.empty? and @property_hash[:ensure] != :absent
+    if ! @property_hash.empty? or resource[:ensure] != :absent
       flush_instance_of('container_state_terminated', name, @property_hash[:object], build_params)
     end
   end

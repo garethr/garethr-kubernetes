@@ -39,7 +39,7 @@ Puppet::Type.type(:kubernetes_secret_list).provide(:swagger, :parent => PuppetX:
   end
 
   def flush
-    if ! @property_hash.empty? and @property_hash[:ensure] != :absent
+    if ! @property_hash.empty? or resource[:ensure] != :absent
       flush_instance_of('secret_list', name, @property_hash[:object], build_params)
     end
   end

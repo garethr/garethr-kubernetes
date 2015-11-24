@@ -83,7 +83,7 @@ Puppet::Type.type(:kubernetes_persistent_volume_spec).provide(:swagger, :parent 
   end
 
   def flush
-    if ! @property_hash.empty? and @property_hash[:ensure] != :absent
+    if ! @property_hash.empty? or resource[:ensure] != :absent
       flush_instance_of('persistent_volume_spec', name, @property_hash[:object], build_params)
     end
   end

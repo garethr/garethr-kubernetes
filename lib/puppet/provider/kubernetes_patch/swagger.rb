@@ -23,7 +23,7 @@ Puppet::Type.type(:kubernetes_patch).provide(:swagger, :parent => PuppetX::Puppe
   end
 
   def flush
-    if ! @property_hash.empty? and @property_hash[:ensure] != :absent
+    if ! @property_hash.empty? or resource[:ensure] != :absent
       flush_instance_of('patch', name, @property_hash[:object], build_params)
     end
   end
