@@ -35,14 +35,17 @@ Puppet::Type.type(:kubernetes_env_var).provide(:swagger, :parent => PuppetX::Pup
   end
 
   def flush
-    if ! @property_hash.empty? or resource[:ensure] != :absent
-      flush_instance_of('env_var', name, @property_hash[:object], build_params)
+   unless @property_hash.empty?
+     unless resource[:ensure] == :absent
+        flush_instance_of('env_var', name, @property_hash[:object], build_params)
+      end
     end
   end
 
   def destroy
     Puppet.info("Deleting kubernetes_env_var #{name}")
     destroy_instance_of('env_var', name)
+    @property_hash[:ensure] = :absent
   end
 
   private

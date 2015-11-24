@@ -39,14 +39,17 @@ Puppet::Type.type(:kubernetes_pod).provide(:swagger, :parent => PuppetX::Puppetl
   end
 
   def flush
-    if ! @property_hash.empty? or resource[:ensure] != :absent
-      flush_instance_of('pod', name, @property_hash[:object], build_params)
+   unless @property_hash.empty?
+     unless resource[:ensure] == :absent
+        flush_instance_of('pod', name, @property_hash[:object], build_params)
+      end
     end
   end
 
   def destroy
     Puppet.info("Deleting kubernetes_pod #{name}")
     destroy_instance_of('pod', name)
+    @property_hash[:ensure] = :absent
   end
 
   private

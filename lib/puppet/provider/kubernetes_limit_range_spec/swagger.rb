@@ -27,14 +27,17 @@ Puppet::Type.type(:kubernetes_limit_range_spec).provide(:swagger, :parent => Pup
   end
 
   def flush
-    if ! @property_hash.empty? or resource[:ensure] != :absent
-      flush_instance_of('limit_range_spec', name, @property_hash[:object], build_params)
+   unless @property_hash.empty?
+     unless resource[:ensure] == :absent
+        flush_instance_of('limit_range_spec', name, @property_hash[:object], build_params)
+      end
     end
   end
 
   def destroy
     Puppet.info("Deleting kubernetes_limit_range_spec #{name}")
     destroy_instance_of('limit_range_spec', name)
+    @property_hash[:ensure] = :absent
   end
 
   private

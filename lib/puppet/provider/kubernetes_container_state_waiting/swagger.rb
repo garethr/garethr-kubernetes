@@ -31,14 +31,17 @@ Puppet::Type.type(:kubernetes_container_state_waiting).provide(:swagger, :parent
   end
 
   def flush
-    if ! @property_hash.empty? or resource[:ensure] != :absent
-      flush_instance_of('container_state_waiting', name, @property_hash[:object], build_params)
+   unless @property_hash.empty?
+     unless resource[:ensure] == :absent
+        flush_instance_of('container_state_waiting', name, @property_hash[:object], build_params)
+      end
     end
   end
 
   def destroy
     Puppet.info("Deleting kubernetes_container_state_waiting #{name}")
     destroy_instance_of('container_state_waiting', name)
+    @property_hash[:ensure] = :absent
   end
 
   private

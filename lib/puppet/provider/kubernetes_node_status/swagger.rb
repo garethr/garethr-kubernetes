@@ -47,14 +47,17 @@ Puppet::Type.type(:kubernetes_node_status).provide(:swagger, :parent => PuppetX:
   end
 
   def flush
-    if ! @property_hash.empty? or resource[:ensure] != :absent
-      flush_instance_of('node_status', name, @property_hash[:object], build_params)
+   unless @property_hash.empty?
+     unless resource[:ensure] == :absent
+        flush_instance_of('node_status', name, @property_hash[:object], build_params)
+      end
     end
   end
 
   def destroy
     Puppet.info("Deleting kubernetes_node_status #{name}")
     destroy_instance_of('node_status', name)
+    @property_hash[:ensure] = :absent
   end
 
   private

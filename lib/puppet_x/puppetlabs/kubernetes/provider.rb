@@ -3,6 +3,7 @@ require 'kubeclient'
 require 'recursive_open_struct'
 
 require 'puppet_x/puppetlabs/swagger/provider'
+require 'puppet_x/puppetlabs/kubernetes/fixnumify'
 require 'kubeclient/config'
 
 class RecursiveOpenStruct
@@ -11,7 +12,7 @@ class RecursiveOpenStruct
       if index == (path.size - 1)
         obj.send("#{attr}=", value)
       else
-        if a.class == Fixnum
+        if attr.class == Fixnum
           if obj.send(:at, attr).nil?
             obj.append(Object::const_get("Kubeclient::#{klass}").new)
           end
@@ -48,7 +49,8 @@ module PuppetX
 
         def make_object(type, name, params)
           klass = type.split('_').collect(&:capitalize).join
-          object = Object::const_get("Kubeclient::#{klass}").new(params.symbolize_keys)
+          p = params.symbolize_keys.fixnumify
+          object = Object::const_get("Kubeclient::#{klass}").new(p)
           object.metadata.name = name
           object.metadata.namespace = namespace
           object

@@ -55,14 +55,17 @@ Puppet::Type.type(:kubernetes_rbd_volume_source).provide(:swagger, :parent => Pu
   end
 
   def flush
-    if ! @property_hash.empty? or resource[:ensure] != :absent
-      flush_instance_of('rbd_volume_source', name, @property_hash[:object], build_params)
+   unless @property_hash.empty?
+     unless resource[:ensure] == :absent
+        flush_instance_of('rbd_volume_source', name, @property_hash[:object], build_params)
+      end
     end
   end
 
   def destroy
     Puppet.info("Deleting kubernetes_rbd_volume_source #{name}")
     destroy_instance_of('rbd_volume_source', name)
+    @property_hash[:ensure] = :absent
   end
 
   private

@@ -43,14 +43,17 @@ Puppet::Type.type(:kubernetes_service_port).provide(:swagger, :parent => PuppetX
   end
 
   def flush
-    if ! @property_hash.empty? or resource[:ensure] != :absent
-      flush_instance_of('service_port', name, @property_hash[:object], build_params)
+   unless @property_hash.empty?
+     unless resource[:ensure] == :absent
+        flush_instance_of('service_port', name, @property_hash[:object], build_params)
+      end
     end
   end
 
   def destroy
     Puppet.info("Deleting kubernetes_service_port #{name}")
     destroy_instance_of('service_port', name)
+    @property_hash[:ensure] = :absent
   end
 
   private
