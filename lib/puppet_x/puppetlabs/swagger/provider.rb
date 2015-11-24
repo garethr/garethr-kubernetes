@@ -1,3 +1,5 @@
+require 'puppet_x/puppetlabs/swagger/prefetch_error'
+
 module PuppetX
   module Puppetlabs
     module Swagger
@@ -19,7 +21,7 @@ module PuppetX
                 new(hash) if hash
               end
             end.compact
-          rescue StandardError => e
+          rescue Timeout::Error, StandardError => e
             raise PuppetX::Puppetlabs::Swagger::PrefetchError.new(self.resource_type.name.to_s, e)
           end
         end
