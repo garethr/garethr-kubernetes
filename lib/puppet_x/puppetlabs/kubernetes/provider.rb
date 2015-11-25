@@ -65,12 +65,12 @@ module PuppetX
           input.each do |key,value|
             value.each do |inner_key,inner_value|
               if inner_value.class == String
-                data << [[key,inner_key], inner_value]
+                data << [[key,inner_key], inner_value.fixnumify]
               end
               if inner_value.class == Array
                 inner_value.each_with_index do |item,index|
                   item.each do |k,v|
-                    data << [[key, inner_key, index, k], v]
+                    data << [[key, inner_key, index, k], v.fixnumify]
                   end
                 end
               end
