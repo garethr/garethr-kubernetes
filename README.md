@@ -28,7 +28,7 @@ basic YAML file approach in a few ways:
   updating the relevant resources, without having to describe the full
   state of the resource
 * Puppet supports relationships between resources, so you can enforce
-  ordering where nessesary
+  ordering where necessary
 
 The user interface of the Puppet code however follows the API/YAML
 format exactly. This allows for a familiar interface for anyone used to
