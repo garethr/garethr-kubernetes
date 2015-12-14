@@ -4,7 +4,7 @@ gem "kubeclient"
 
 group :test do
   gem "rake"
-  gem "puppet", ENV['PUPPET_GEM_VERSION'] || '~> 3.8.0'
+  gem "puppet", ENV['PUPPET_GEM_VERSION'] || '~> 4.2.0'
   gem "puppet-lint"
   gem "puppet-lint-unquoted_string-check"
   gem "rspec-puppet", :git => 'https://github.com/rodjek/rspec-puppet.git'
