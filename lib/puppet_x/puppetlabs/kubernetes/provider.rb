@@ -3,7 +3,7 @@ require 'kubeclient'
 require 'recursive_open_struct'
 
 require 'puppet_x/puppetlabs/swagger/provider'
-require 'puppet_x/puppetlabs/kubernetes/fixnumify'
+require 'puppet_x/puppetlabs/swagger/fixnumify'
 require 'kubeclient/config'
 
 class RecursiveOpenStruct
