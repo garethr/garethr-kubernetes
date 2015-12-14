@@ -1,13 +1,16 @@
+# A common pattern in Kubernetes is to have a service associated
+# with a replication controller. This type provides some simple
+# default assumptions and combines the definition of the controller
+# and service into a single type.
 define controller_service_pair(
-  $app,
-  $role,
-  $tier,
-  $port,
-  $image = $app,
-  $replicas = 1,
-  $service_type = 'ClusterIP',
+  String $app,
+  String $role,
+  String $tier,
+  Integer $port,
+  String $image = $app,
+  Integer $replicas = 1,
+  String $service_type = 'ClusterIP',
 ) {
-
   kubernetes_replication_controller { $title:
     ensure   => 'present',
     metadata => {
@@ -56,6 +59,3 @@ define controller_service_pair(
     }
   }
 }
-
-
-

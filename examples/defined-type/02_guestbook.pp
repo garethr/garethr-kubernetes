@@ -21,4 +21,3 @@ controller_service_pair { 'frontend':
   replicas     => 3,
   service_type => 'LoadBalancer',
 }
-
