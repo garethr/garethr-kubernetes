@@ -1,3 +1,12 @@
+[![Puppet
+Forge](http://img.shields.io/puppetforge/v/garethr/kubernetes.svg)](https://forge.puppetlabs.com/garethr/kubernetes)
+[![Build
+Status](https://secure.travis-ci.org/garethr/garethr-kubernetes.png)](http://travis-ci.org/garethr/garethr-kubernetes)
+[![Documentation
+Status](http://img.shields.io/badge/docs-puppet--strings-lightgrey.svg)](https://garethr.github.io/garethr-kubernetes)
+[![Puppet Forge
+Downloads](http://img.shields.io/puppetforge/dt/garethr/kubernetes.svg)](https://forge.puppetlabs.com/garethr/kubernetes)
+
 1. [Overview](#overview)
 2. [Description - What the module does and why it is useful](#description)
 3. [Setup](#setup)
