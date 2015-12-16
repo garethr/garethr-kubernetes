@@ -7,47 +7,7 @@
   "source": "https://github.com/garethr/garethr-kubernetes.git",
   "project_page": "https://github.com/garethr/garethr-kubernetes",
   "issues_url": "https://github.com/garethr/garethr-kubernetes/issues",
-  "operatingsystem_support": [
-    {
-      "operatingsystem": "RedHat",
-      "operatingsystemrelease": [
-        "7"
-      ]
-    },{
-      "operatingsystem": "CentOS",
-      "operatingsystemrelease": [
-        "7",
-        "6.6"
-      ]
-    },{
-      "operatingsystem": "Ubuntu",
-      "operatingsystemrelease": [
-        "12.04",
-        "14.04"
-      ]
-    },{
-      "operatingsystem": "Debian",
-      "operatingsystemrelease": [
-        "7.8",
-        "8.0"
-      ]
-    },{
-      "operatingsystem": "Fedora",
-      "operatingsystemrelease": [
-        "21"
-      ]
-    }
-  ],
-  "requirements": [
-    {
-      "name": "pe",
-      "version_requirement": "2015.2"
-    },
-    {
-      "name": "puppet",
-      "version_requirement": "3.8"
-    }
-  ],
   "dependencies": [
+  
   ]
 }
