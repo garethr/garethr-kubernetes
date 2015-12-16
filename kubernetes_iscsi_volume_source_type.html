@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Type: kubernetes_iscsi_volume_source_type
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!kubernetes_iscsi_volume_source_type.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (k)</a> &raquo;
+    
+    
+    <span class="title">kubernetes_iscsi_volume_source_type</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="puppet_manifest_list_link"
+        href="puppet_manifest_list.html">
+      Puppet Manifest List
+    </a>
+  
+    <a class="full_list_link" id="puppet_plugin_list_link"
+        href="puppet_plugin_list.html">
+      Puppet Plugin List
+    </a>
+  
+    <a class="full_list_link" id="puppet_type_list_link"
+        href="puppet_type_list.html">
+      Puppet Type List
+    </a>
+  
+    <a class="full_list_link" id="puppet_provider_list_link"
+        href="puppet_provider_list.html">
+      Puppet Provider List
+    </a>
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div class='module_header'>
+  <h1>
+    Puppet Type: kubernetes_iscsi_volume_source_type
+  </h1>
+</div>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/puppet/type/kubernetes_iscsi_volume_source.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+<p>ISCSIVolumeSource describes an ISCSI Disk can only be mounted as read/write
+once.</p>
+</p>
+  </div>
+</div>
+<div class="tags">
+  
+  
+  
+</div>
+<h2>Parameter Summary</h2>
+<div class="tags">
+  <ul class="param">
+    <li><span class="name">fsType </span><span class="type">(Property) </span> - <div class="inline"><p> 
+<p>Filesystem type of the volume that you want to mount. Tip: Ensure that the
+filesystem type is supported by the host operating system. Examples:
+&#39;ext4&#39;, &#39;xfs&#39;, &#39;ntfs&#39;. More info: <a
+href="http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#iscsi">releases.k8s.io/HEAD/docs/user-guide/volumes.md#iscsi</a></p>
+ </p></div></li><li><span class="name">iqn </span><span class="type">(Property) </span> - <div class="inline"><p> 
+<p>Target iSCSI Qualified Name.</p>
+ </p></div></li><li><span class="name">lun </span><span class="type">(Property) </span> - <div class="inline"><p> 
+<p>iSCSI target lun number.</p>
+ </p></div></li><li><span class="name">name </span><span class="type">(Parameter) </span> - <div class="inline"><p> 
+<p>Name of the iscsi_volume_source.</p>
+ </p></div></li><li><span class="name">readOnly </span><span class="type">(Property) </span> - <div class="inline"><p> 
+<p>ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to
+false.</p>
+ </p></div></li><li><span class="name">targetPortal </span><span class="type">(Property) </span> - <div class="inline"><p> 
+<p>iSCSI target portal. The portal is either an IP or ip_addr:port if the port
+is other than default (typically TCP ports 860 and 3260).</p>
+ </p></div></li>
+  </ul>
+</div>
+<h2>Features</h2>
+<div class="tags">
+  <ul class="feature">
+    
+  </ul>
+</div>
+<h2>Available Providers</h2>
+
+</div>
+
+    <div id="footer">
+  Generated on Wed Dec 16 10:17:40 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+  </body>
+</html>

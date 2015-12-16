@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!file.README.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="puppet_manifest_list_link"
+        href="puppet_manifest_list.html">
+      Puppet Manifest List
+    </a>
+  
+    <a class="full_list_link" id="puppet_plugin_list_link"
+        href="puppet_plugin_list.html">
+      Puppet Plugin List
+    </a>
+  
+    <a class="full_list_link" id="puppet_type_list_link"
+        href="puppet_type_list.html">
+      Puppet Type List
+    </a>
+  
+    <a class="full_list_link" id="puppet_provider_list_link"
+        href="puppet_provider_list.html">
+      Puppet Provider List
+    </a>
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'><ol><li>
+<p><a href="#overview">Overview</a></p>
+</li><li>
+<p><a href="#description">Description - What the module does and why it is
+useful</a></p>
+</li><li>
+<p><a href="#setup">Setup</a></p>
+</li><li>
+<p><a href="#requirements">Requirements</a></p>
+</li><li>
+<p><a href="#installing-the-kubernetes-module">Installing the Kubernetes
+module</a></p>
+</li><li>
+<p><a href="#getting-started-with-kubernetes">Getting Started with
+Kubernetes</a></p>
+</li><li>
+<p><a href="#usage">Usage - Configuration options and additional
+functionality</a></p>
+</li><li>
+<p><a href="#reference">Reference - An under-the-hood peek at what the module
+is doing and how</a></p>
+</li><li>
+<p><a href="#types">Types</a></p>
+</li><li>
+<p><a href="#limitations">Limitations - OS compatibility, etc.</a></p>
+</li></ol>
+
+<h2 id="label-Overview">Overview</h2>
+
+<p>The garethr-kubernetes module allows you to use the Puppet DSL for managing
+Pods, ReplicationControllers, Services and more in Kubernetes. It
+doesn&#39;t install the various Kubernetes components.</p>
+
+<h2 id="label-Description">Description</h2>
+
+<p>The module allows for defining Kubernetes resources in Puppet, and then for
+Puppet to create or update those resources. This improves on the basic YAML
+file approach in a few ways:</p>
+<ul><li>
+<p>The Puppet language supports logic and abstractions, allowing for  the
+crafting of business specific user interfaces and avoiding  repetition</p>
+</li><li>
+<p>Modifications can be made to the Puppet code and Puppet will handle 
+updating the relevant resources, without having to describe the full  state
+of the resource</p>
+</li><li>
+<p>Puppet supports relationships between resources, so you can enforce 
+ordering where necessary</p>
+</li></ul>
+
+<p>The user interface of the Puppet code however follows the API/YAML format
+exactly. This allows for a familiar interface for anyone used to the
+Kubernetes API, at the same time as providing a low level building block
+for creating higher level types.</p>
+
+<h2 id="label-Setup">Setup</h2>
+
+<p>Note that the following assumes you have a Kubernetes cluster up and
+running.</p>
+
+<h3 id="label-Requirements">Requirements</h3>
+<ul><li>
+<p><a href="https://github.com/abonas/kubeclient">Kubeclient</a> ruby gem</p>
+</li></ul>
+
+<h3 id="label-Installing+the+Kubernetes+module">Installing the Kubernetes module</h3>
+
+<p>Install the required gems with this command:</p>
+
+<pre class="code ruby"><code class="ruby">/opt/puppetlabs/puppet/bin/gem install kubeclient --no-ri --no-rdoc</code></pre>
+
+<h4 id="label-Configuring+credentials">Configuring credentials</h4>
+
+<p>You can provide the required information in a standard kubectl
+configuration file. Store this as <code>kubernetes.conf</code> in the
+relevant <a
+href="https://docs.puppetlabs.com/puppet/latest/reference/dirs_confdir.html">confdir</a>.
+This should be:</p>
+<ul><li>
+<p>nix Systems: <code>/etc/puppetlabs/puppet</code></p>
+</li><li>
+<p>Windows: <code>C:\ProgramData\PuppetLabs\puppet\etc</code></p>
+</li><li>
+<p>non-root users: <code>~/.puppetlabs/etc/puppet</code></p>
+</li></ul>
+
+<p>If you have a working kubectl setup you can export the file using the
+following command:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_kubectl'>kubectl</span> <span class='id identifier rubyid_config'>config</span> <span class='id identifier rubyid_view'>view</span> <span class='op'>-</span><span class='op'>-</span><span class='id identifier rubyid_raw'>raw</span><span class='op'>=</span><span class='kw'>true</span></code></pre>
+
+<p>Finally install the module with:</p>
+
+<pre class="code ruby"><code class="ruby">puppet module install garethr-kubernetes
+</code></pre>
+
+<h2 id="label-Getting+started+with+Kubernetes">Getting started with Kubernetes</h2>
+
+<p>This module allows for describing resources in Kubernetes (like Pods,
+Services and ReplicationControllers) using the Puppet DSL. To create a new
+Pod for example:</p>
+
+<pre class="code ruby"><code class="ruby">kubernetes_pod { &#39;sample-pod&#39;:
+  ensure   =&gt; present,
+  metadata =&gt; {
+    namespace =&gt; &#39;default&#39;,
+  },
+  spec     =&gt; {
+    containers =&gt; [{
+      name  =&gt; &#39;container-name&#39;,
+      image =&gt; &#39;nginx&#39;,
+    }]
+  },
+}
+</code></pre>
+
+<h2 id="label-Usage">Usage</h2>
+
+<h3 id="label-List+and+manage+Kubernetes+resources">List and manage Kubernetes resources</h3>
+
+<p>In addition to creating and managing resources this module supports listing
+and interactive management of resources via <code>puppet resource</code>.
+For example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_puppet'>puppet</span> <span class='id identifier rubyid_resource'>resource</span> <span class='id identifier rubyid_kubernetes_node'>kubernetes_node</span></code></pre>
+
+<p>Or:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_puppet'>puppet</span> <span class='id identifier rubyid_resource'>resource</span> <span class='id identifier rubyid_kubernetes_service'>kubernetes_service</span></code></pre>
+
+<p>You can use this to describe the state of your Kubernetes cluster and
+export the results to a file, which can then be used to maintain that state
+over time.</p>
+
+<h3 id="label-Delete+resources">Delete resources</h3>
+
+<p>You can also delete the resources we created above by setting the
+<code>ensure</code> property to <code>absent</code> in the manifest or
+using <code>puppet resouce</code> like so:</p>
+
+<pre class="code ruby"><code class="ruby">puppet resource kubernetes_pod sample-pod ensure=absent</code></pre>
+
+<h3 id="label-More+usage+examples">More usage examples</h3>
+
+<p>The module examples folder contains additional usage examples:</p>
+
+<h2 id="label-Reference">Reference</h2>
+
+<h3 id="label-Types">Types</h3>
+<ul><li>
+<p>kubernetes_pod</p>
+</li><li>
+<p>kubernetes_service</p>
+</li><li>
+<p>kubernetes_replication_controller</p>
+</li><li>
+<p>kubernetes_node</p>
+</li><li>
+<p>kubernetes_event</p>
+</li><li>
+<p>kubernetes_endpoint</p>
+</li><li>
+<p>kubernetes_namespace</p>
+</li><li>
+<p>kubernetes_secret</p>
+</li><li>
+<p>kubernetes_resource_quota</p>
+</li><li>
+<p>kubernetes_limit_range</p>
+</li><li>
+<p>kubernetes_peristent_volume</p>
+</li><li>
+<p>kubernetes_persistent_volume_claim</p>
+</li><li>
+<p>kubernetes_component_status</p>
+</li><li>
+<p>kubernetes_service_account</p>
+</li></ul>
+
+<h2 id="label-Limitations">Limitations</h2>
+
+<p>This module is a proof of concept, demonstrating both the power of
+auto-generating Puppet types and providers from Swagger specifications and
+of managing higher level tools like Kubernetes with Puppet. It likely has
+several bugs and rough edges at the moment. Please report those on GitHub.</p>
+
+<h2 id="label-Development">Development</h2>
+
+<p>Much of the code for this module is auto-generated using the <a
+href="https://github.com/garethr/puppet-swagger-generator">puppet-swagger-generator</a>
+project. This means modifications to the types and providers should be done
+there, rather than within this project. Files which are auto-generated
+should have a suitable comment indicating as such.</p>
+</div></div>
+
+    <div id="footer">
+  Generated on Wed Dec 16 10:17:39 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+  </body>
+</html>
