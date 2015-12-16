@@ -48,9 +48,7 @@ running.
 
 Install the required gems with this command:
 
-  ~~~
-  /opt/puppetlabs/puppet/bin/gem install kubeclient --no-ri --no-rdoc
-  ~~~
+    /opt/puppetlabs/puppet/bin/gem install kubeclient --no-ri --no-rdoc
 
 #### Configuring credentials
 
@@ -66,15 +64,11 @@ This should be:
 If you have a working kubectl setup you can export the file using the
 following command:
 
-  ~~~
-  kubectl config view --raw=true
-  ~~~
+    kubectl config view --raw=true
 
 Finally install the module with:
 
-  ~~~
-  puppet module install garethr-kubernetes
-  ~~~
+    puppet module install garethr-kubernetes
 
 ## Getting started with Kubernetes
 
@@ -82,7 +76,7 @@ This module allows for describing resources in Kubernetes (like Pods,
 Services and ReplicationControllers) using the Puppet DSL. To create a
 new Pod for example:
 
-~~~puppet
+```puppet
 kubernetes_pod { 'sample-pod':
   ensure   => present,
   metadata => {
@@ -95,7 +89,7 @@ kubernetes_pod { 'sample-pod':
     }]
   },
 }
-~~~
+```
 
 ## Usage
 
@@ -104,15 +98,11 @@ kubernetes_pod { 'sample-pod':
 In addition to creating and managing resources this module supports listing
 and interactive management of resources via `puppet resource`. For example:
 
-  ~~~
-  puppet resource kubernetes_node
-  ~~~
+    puppet resource kubernetes_node
 
 Or:
 
-  ~~~
-  puppet resource kubernetes_service
-  ~~~
+    puppet resource kubernetes_service
 
 You can use this to describe the state of your Kubernetes cluster and
 export the results to a file, which can then be used to maintain that
@@ -123,9 +113,7 @@ state over time.
 You can also delete the resources we created above by setting the `ensure`
 property to `absent` in the manifest or using `puppet resouce` like so:
 
-  ~~~
-  puppet resource kubernetes_pod sample-pod ensure=absent
-  ~~~
+    puppet resource kubernetes_pod sample-pod ensure=absent
 
 ### More usage examples
 
