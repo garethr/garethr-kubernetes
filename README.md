@@ -51,7 +51,8 @@ running.
 
 ### Requirements
 
-* [Kubeclient](https://github.com/abonas/kubeclient)  ruby gem
+* [Kubeclient](https://github.com/abonas/kubeclient) ruby gem
+* Ruby 2.x, Kubeclient won't work with 1.8.7 or 1.9.x
 
 ### Installing the Kubernetes module
 
