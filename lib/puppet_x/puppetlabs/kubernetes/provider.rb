@@ -49,10 +49,11 @@ module PuppetX
 
         def make_object(type, name, params)
           klass = type.split('_').collect(&:capitalize).join
+          params[:metadata] = {} unless params.key?(:metadata)
           p = params.symbolize_keys.fixnumify
           object = Object::const_get("Kubeclient::#{klass}").new(p)
           object.metadata.name = name
-          object.metadata.namespace = namespace
+          object.metadata.namespace = namespace unless namespace.nil?
           object
         end
 
@@ -107,9 +108,18 @@ module PuppetX
 
         def namespace
           if self.metadata == :absent
-            resource[:metadata]['namespace'] || 'default'
+            # This means the resource doesn't exist already
+            if resource[:metadata]
+              resource[:metadata]['namespace'] || 'default'
+            else
+              # for resources without metadata like namespaces
+              # we don't need to set a namespace
+              nil
+            end
           else
-            self.metadata[:namespace] || 'default'
+            # here we're reading from the API so we don't need to
+            # provide any default values
+            self.metadata[:namespace] || nil
           end
         end
       end
