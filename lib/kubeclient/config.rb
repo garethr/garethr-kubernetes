@@ -62,7 +62,7 @@ module Kubeclient
     private
 
     def ext_file_path(path)
-      File.join(@kcfg_path, path)
+      File.absolute_path(path, @kcfg_path)
     end
 
     def fetch_context(context_name)
