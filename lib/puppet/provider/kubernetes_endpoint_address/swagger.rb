@@ -2,7 +2,7 @@
 # any manual changes are likely to be clobbered when the files
 # are regenerated.
 
-require 'puppet_x/puppetlabs/kubernetes/provider'
+require_relative '../../../puppet_x/puppetlabs/kubernetes/provider'
 
 Puppet::Type.type(:kubernetes_endpoint_address).provide(:swagger, :parent => PuppetX::Puppetlabs::Kubernetes::Provider) do
 

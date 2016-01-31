@@ -2,7 +2,7 @@
 # any manual changes are likely to be clobbered when the files
 # are regenerated.
 
-require 'puppet_x/puppetlabs/swagger/fuzzy_compare'
+require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 
 Puppet::Type.newtype(:kubernetes_limit_range) do
