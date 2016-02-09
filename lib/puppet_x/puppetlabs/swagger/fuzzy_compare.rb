@@ -9,7 +9,7 @@ module PuppetX
         def self.fuzzy_compare(existing, intended)
           normalized_is = existing.symbolize_keys.fixnumify
           normalized_should = intended.symbolize_keys.fixnumify
-          if normalized_is.all? { |k,v| v.class == String }
+          if normalized_is.respond_to? :all? and normalized_is.all? { |k,v| v.class == String }
             diff = normalized_is.merge(normalized_should)
             diff == normalized_is
           elsif normalized_is == normalized_should
