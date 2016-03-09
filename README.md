@@ -58,6 +58,7 @@ running.
 
 Install the required gems with this command:
 
+    /opt/puppetlabs/puppet/bin/gem install activesupport -v 4.1.14
     /opt/puppetlabs/puppet/bin/gem install kubeclient --no-ri --no-rdoc
 
 #### Configuring credentials
