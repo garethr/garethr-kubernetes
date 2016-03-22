@@ -1,4 +1,4 @@
-require 'puppet_x/puppetlabs/swagger/prefetch_error'
+require_relative 'prefetch_error'
 
 module PuppetX
   module Puppetlabs

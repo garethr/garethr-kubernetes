@@ -2,9 +2,9 @@ require 'puppet'
 require 'kubeclient'
 require 'recursive_open_struct'
 
-require 'puppet_x/puppetlabs/swagger/provider'
-require 'puppet_x/puppetlabs/swagger/fixnumify'
-require 'kubeclient/config'
+require_relative '../swagger/provider'
+require_relative '../swagger/fixnumify'
+require_relative '../../../kubeclient/config'
 
 class RecursiveOpenStruct
   def ensure_value_at_path(klass, path, value)

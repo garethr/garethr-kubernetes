@@ -1,5 +1,5 @@
-require 'puppet_x/puppetlabs/swagger/symbolize_keys'
-require 'puppet_x/puppetlabs/swagger/fixnumify'
+require_relative 'symbolize_keys'
+require_relative 'fixnumify'
 
 
 module PuppetX
