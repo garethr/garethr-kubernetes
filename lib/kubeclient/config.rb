@@ -7,12 +7,13 @@ require 'base64'
 module Kubeclient
   class Config
     class Context
-      attr_reader :api_endpoint, :api_version, :ssl_options
+      attr_reader :api_endpoint, :api_version, :ssl_options, :auth_options
 
-      def initialize(api_endpoint, api_version, ssl_options)
+      def initialize(api_endpoint, api_version, ssl_options, auth_options)
         @api_endpoint = api_endpoint
         @api_version = api_version
         @ssl_options = ssl_options
+        @auth_options = auth_options
       end
     end
 
@@ -36,8 +37,10 @@ module Kubeclient
       ca_cert_data     = fetch_cluster_ca_data(cluster)
       client_cert_data = fetch_user_cert_data(user)
       client_key_data  = fetch_user_key_data(user)
+      client_token     = fetch_user_token(user)
 
       ssl_options = {}
+      auth_options = {}
 
       unless ca_cert_data.nil?
         cert_store = OpenSSL::X509::Store.new
@@ -57,7 +60,11 @@ module Kubeclient
         ssl_options[:client_key] = OpenSSL::PKey.read(client_key_data)
       end
 
-      Context.new(cluster['server'], @kcfg['apiVersion'], ssl_options)
+      unless client_token.nil?
+        auth_options[:bearer_token] = client_token
+      end
+
+      Context.new(cluster['server'], @kcfg['apiVersion'], ssl_options, auth_options)
     end
 
     private
@@ -109,6 +116,12 @@ module Kubeclient
         return File.read(ext_file_path(user['client-key']))
       elsif user.key?('client-key-data')
         return Base64.decode64(user['client-key-data'])
+      end
+    end
+
+    def fetch_user_token(user)
+      if user.key?('token')
+        return user['token']
       end
     end
   end

@@ -51,6 +51,7 @@ module PuppetX
             config.context.api_endpoint,
             config.context.api_version,
             ssl_options: config.context.ssl_options,
+            auth_options: config.context.auth_options,
           )
 
           client.headers = client.headers.merge({:content_type => :json, :accept => :json})
