@@ -1,29 +1,8 @@
 require 'puppet'
-require 'kubeclient'
-require 'recursive_open_struct'
 
 require_relative '../swagger/provider'
 require_relative '../swagger/fixnumify'
 require_relative '../../../kubeclient/config'
-
-class RecursiveOpenStruct
-  def ensure_value_at_path(klass, path, value)
-    path.each_with_index.inject(self) { |obj, (attr, index)|
-      if index == (path.size - 1)
-        obj.send("#{attr}=", value)
-      else
-        if attr.class == Fixnum
-          if obj.send(:at, attr).nil?
-            obj.append(Object::const_get("Kubeclient::#{klass}").new)
-          end
-          obj.send(:at, attr)
-        else
-          obj.send(attr)
-        end
-      end
-    }
-  end
-end
 
 # With the Kiubernetes proxy on OpenShift (or maybe a change in Kuberenetes 1.2)
 # the API requires that the accept headers be correctly set. At the moment this
@@ -37,10 +16,17 @@ module Kubeclient
   end
 end
 
+
 module PuppetX
   module Puppetlabs
     module Kubernetes
       class Provider < PuppetX::Puppetlabs::Swagger::Provider
+
+        def self.inherited(subclass)
+          subclass.confine :feature => :kubeclient
+          super
+        end
+
         private
         def self.client
           Puppet.initialize_settings unless Puppet[:confdir]
@@ -76,6 +62,23 @@ module PuppetX
           client.send("create_#{type}", make_object(type, name, params))
         end
 
+        def ensure_value_at_path(object, klass, path, value)
+          path.each_with_index.inject(object) { |obj, (attr, index)|
+            if index == (path.size - 1)
+              obj.send("#{attr}=", value)
+            else
+              if attr.class == Fixnum
+                if obj.send(:at, attr).nil?
+                  obj.append(Object::const_get("Kubeclient::#{klass}").new)
+                end
+                obj.send(:at, attr)
+              else
+                obj.send(attr)
+              end
+            end
+          }
+        end
+
         def build_applicator(input)
           data = []
           input.each do |key,value|
@@ -98,7 +101,7 @@ module PuppetX
         def apply_applicator(type, object, changes)
           klass = type.split('_').collect(&:capitalize).join
           changes.each do |path, value|
-            object.ensure_value_at_path(klass, path, value)
+            ensure_value_at_path(object, klass, path, value)
           end
           object
         end
