@@ -25,6 +25,17 @@ class RecursiveOpenStruct
   end
 end
 
+# With the Kiubernetes proxy on OpenShift (or maybe a change in Kuberenetes 1.2)
+# the API requires that the accept headers be correctly set. At the moment this
+# is not done nor exposed by the client library. So lets monkeypatch it to allow
+# us to override the headers.
+module Kubeclient
+  class Client
+    def headers=(value)
+      @headers = value
+    end
+  end
+end
 
 module PuppetX
   module Puppetlabs
@@ -36,11 +47,14 @@ module PuppetX
           file = File.join(Puppet[:confdir], 'kubernetes.conf')
           Puppet.debug("Checking for config file at #{file}")
           config = Kubeclient::Config.read(file)
-          ::Kubeclient::Client.new(
+          client = ::Kubeclient::Client.new(
             config.context.api_endpoint,
             config.context.api_version,
             ssl_options: config.context.ssl_options,
           )
+
+          client.headers = client.headers.merge({:content_type => :json, :accept => :json})
+          client
         end
 
         def self.list_instances_of(type)
