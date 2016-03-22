@@ -42,7 +42,8 @@ module Kubeclient
       unless ca_cert_data.nil?
         cert_store = OpenSSL::X509::Store.new
         cert_store.add_cert(OpenSSL::X509::Certificate.new(ca_cert_data))
-        ssl_options[:verify_ssl] = OpenSSL::SSL::VERIFY_PEER
+        #ssl_options[:verify_ssl] = OpenSSL::SSL::VERIFY_PEER
+        ssl_options[:verify_ssl] = OpenSSL::SSL::VERIFY_NONE
         ssl_options[:cert_store] = cert_store
       else
         ssl_options[:verify_ssl] = OpenSSL::SSL::VERIFY_NONE
