@@ -41,7 +41,6 @@ Puppet::Type.type(:kubernetes_replication_controller).provide(:swagger, :parent 
   def flush
    unless @property_hash.empty?
      unless resource[:ensure] == :absent
-        Puppet.info("Updating kubernetes_replication_controller #{name}")
         flush_instance_of('replication_controller', name, @property_hash[:object], build_params)
       end
     end
