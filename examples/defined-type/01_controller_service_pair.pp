@@ -7,7 +7,7 @@ define controller_service_pair(
   String $role,
   String $tier,
   Integer $port,
-  String $image = $app,
+  $image = $app,
   Integer $replicas = 1,
   String $service_type = 'ClusterIP',
 ) {
