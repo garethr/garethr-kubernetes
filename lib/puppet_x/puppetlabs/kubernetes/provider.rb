@@ -65,7 +65,7 @@ module PuppetX
           data = []
           input.each do |key,value|
             value.each do |inner_key,inner_value|
-              if inner_value.class == String
+              if [Fixnum, String].include? inner_value.class
                 data << [[key,inner_key], inner_value.fixnumify]
               end
               if inner_value.class == Array
