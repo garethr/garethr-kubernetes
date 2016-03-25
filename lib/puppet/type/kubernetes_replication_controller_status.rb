@@ -34,7 +34,16 @@ Puppet::Type.newtype(:kubernetes_replication_controller_status) do
   
     
       newproperty(:replicas) do
-        desc "Replicas is the most recently oberved number of replicas. More info: http://releases.k8s.io/HEAD/docs/user-guide/replication-controller.md#what-is-a-replication-controller"
+        desc "Replicas is the most recently oberved number of replicas. More info: http://releases.k8s.io/release-1.2/docs/user-guide/replication-controller.md#what-is-a-replication-controller"
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:fullyLabeledReplicas) do
+        desc "The number of pods that have labels matching the labels of the pod template of the replication controller."
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

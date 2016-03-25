@@ -28,8 +28,17 @@ Puppet::Type.newtype(:kubernetes_status_details) do
     
   
     
+      newproperty(:group) do
+        desc "The group attribute of the resource associated with the status StatusReason."
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
       newproperty(:kind) do
-        desc "The kind attribute of the resource associated with the status StatusReason. On some operations may differ from the requested resource Kind. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+        desc "The kind attribute of the resource associated with the status StatusReason. On some operations may differ from the requested resource Kind. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

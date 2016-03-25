@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_downward_api_volume_source) do
   
-  @doc = "DownwardAPIVolumeSource represents a volume containing downward API info"
+  @doc = "DownwardAPIVolumeSource represents a volume containing downward API info. Downward API volumes support ownership management and SELinux relabeling."
   
 
   ensurable

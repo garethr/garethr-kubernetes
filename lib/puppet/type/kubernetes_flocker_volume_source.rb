@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_flocker_volume_source) do
   
-  @doc = "FlockerVolumeSource represents a Flocker volume mounted by the Flocker agent."
+  @doc = "Represents a Flocker volume mounted by the Flocker agent. Flocker volumes do not support ownership management or SELinux relabeling."
   
 
   ensurable

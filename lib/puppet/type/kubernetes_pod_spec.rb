@@ -34,7 +34,7 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
   
     
       newproperty(:volumes) do
-        desc "List of volumes that can be mounted by containers belonging to the pod. More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md"
+        desc "List of volumes that can be mounted by containers belonging to the pod. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -43,7 +43,7 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
   
     
       newproperty(:containers) do
-        desc "List of containers belonging to the pod. Containers cannot currently be added or removed. There must be at least one container in a Pod. Cannot be updated. More info: http://releases.k8s.io/HEAD/docs/user-guide/containers.md"
+        desc "List of containers belonging to the pod. Containers cannot currently be added or removed. There must be at least one container in a Pod. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/containers.md"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -52,7 +52,7 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
   
     
       newproperty(:restartPolicy) do
-        desc "Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to Always. More info: http://releases.k8s.io/HEAD/docs/user-guide/pod-states.md#restartpolicy"
+        desc "Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to Always. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#restartpolicy"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -88,7 +88,7 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
   
     
       newproperty(:nodeSelector) do
-        desc "NodeSelector is a selector which must be true for the pod to fit on a node. Selector which must match a node's labels for the pod to be scheduled on that node. More info: http://releases.k8s.io/HEAD/docs/user-guide/node-selection/README.md"
+        desc "NodeSelector is a selector which must be true for the pod to fit on a node. Selector which must match a node's labels for the pod to be scheduled on that node. More info: http://releases.k8s.io/release-1.2/docs/user-guide/node-selection/README.md"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -97,7 +97,7 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
   
     
       newproperty(:serviceAccountName) do
-        desc "ServiceAccountName is the name of the ServiceAccount to use to run this pod. More info: http://releases.k8s.io/HEAD/docs/design/service_accounts.md"
+        desc "ServiceAccountName is the name of the ServiceAccount to use to run this pod. More info: http://releases.k8s.io/release-1.2/docs/design/service_accounts.md"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -151,7 +151,7 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
   
     
       newproperty(:securityContext) do
-        desc "SecurityContext holds pod-level security attributes and common container settings"
+        desc "SecurityContext holds pod-level security attributes and common container settings. Optional: Defaults to empty.  See type description for default values of each field."
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -160,7 +160,7 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
   
     
       newproperty(:imagePullSecrets) do
-        desc "ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec. If specified, these secrets will be passed to individual puller implementations for them to use. For example, in the case of docker, only DockerConfig type secrets are honored. More info: http://releases.k8s.io/HEAD/docs/user-guide/images.md#specifying-imagepullsecrets-on-a-pod"
+        desc "ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec. If specified, these secrets will be passed to individual puller implementations for them to use. For example, in the case of docker, only DockerConfig type secrets are honored. More info: http://releases.k8s.io/release-1.2/docs/user-guide/images.md#specifying-imagepullsecrets-on-a-pod"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

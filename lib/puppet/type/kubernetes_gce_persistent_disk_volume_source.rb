@@ -7,9 +7,9 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_gce_persistent_disk_volume_source) do
   
-  @doc = "GCEPersistentDiskVolumeSource represents a Persistent Disk resource in Google Compute Engine.
+  @doc = "Represents a Persistent Disk resource in Google Compute Engine.
 
-A GCE PD must exist and be formatted before mounting to a container. The disk must also be in the same GCE project and zone as the kubelet. A GCE PD can only be mounted as read/write once."
+A GCE PD must exist before mounting to a container. The disk must also be in the same GCE project and zone as the kubelet. A GCE PD can only be mounted as read/write once or read-only many times. GCE PDs support ownership management and SELinux relabeling."
   
 
   ensurable
@@ -19,8 +19,6 @@ A GCE PD must exist and be formatted before mounting to a container. The disk mu
     required_properties = [
     
       pdName,
-    
-      fsType,
     
     ]
     required_properties.each do |property|
@@ -38,7 +36,7 @@ A GCE PD must exist and be formatted before mounting to a container. The disk mu
   
     
       newproperty(:pdName) do
-        desc "Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#gcepersistentdisk"
+        desc "Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -47,7 +45,7 @@ A GCE PD must exist and be formatted before mounting to a container. The disk mu
   
     
       newproperty(:fsType) do
-        desc "Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: 'ext4', 'xfs', 'ntfs'. More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#gcepersistentdisk"
+        desc "Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: 'ext4', 'xfs', 'ntfs'. Implicitly inferred to be 'ext4' if unspecified. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -56,7 +54,7 @@ A GCE PD must exist and be formatted before mounting to a container. The disk mu
   
     
       newproperty(:partition) do
-        desc "The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as '1'. Similarly, the volume partition for /dev/sda is '0' (or you can leave the property empty). More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#gcepersistentdisk"
+        desc "The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as '1'. Similarly, the volume partition for /dev/sda is '0' (or you can leave the property empty). More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -65,7 +63,7 @@ A GCE PD must exist and be formatted before mounting to a container. The disk mu
   
     
       newproperty(:readOnly) do
-        desc "ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#gcepersistentdisk"
+        desc "ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

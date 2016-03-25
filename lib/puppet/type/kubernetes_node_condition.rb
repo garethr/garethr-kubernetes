@@ -36,7 +36,7 @@ Puppet::Type.newtype(:kubernetes_node_condition) do
   
     
       newproperty(:type) do
-        desc "Type of node condition, currently only Ready."
+        desc "Type of node condition."
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

@@ -40,7 +40,7 @@ Puppet::Type.newtype(:kubernetes_event) do
   
     
       newproperty(:metadata) do
-        desc "Standard object's metadata. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata"
+        desc "Standard object's metadata. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#metadata"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -104,6 +104,15 @@ Puppet::Type.newtype(:kubernetes_event) do
     
       newproperty(:count) do
         desc "The number of times this event has occurred."
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:type) do
+        desc "Type of this event (Normal, Warning), new types could be added in the future"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

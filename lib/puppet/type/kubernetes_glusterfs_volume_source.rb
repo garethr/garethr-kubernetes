@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_glusterfs_volume_source) do
   
-  @doc = "GlusterfsVolumeSource represents a Glusterfs Mount that lasts the lifetime of a pod."
+  @doc = "Represents a Glusterfs mount that lasts the lifetime of a pod. Glusterfs volumes do not support ownership management or SELinux relabeling."
   
 
   ensurable
@@ -36,7 +36,7 @@ Puppet::Type.newtype(:kubernetes_glusterfs_volume_source) do
   
     
       newproperty(:endpoints) do
-        desc "EndpointsName is the endpoint name that details Glusterfs topology. More info: http://releases.k8s.io/HEAD/examples/glusterfs/README.md#create-a-pod"
+        desc "EndpointsName is the endpoint name that details Glusterfs topology. More info: http://releases.k8s.io/release-1.2/examples/glusterfs/README.md#create-a-pod"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -45,7 +45,7 @@ Puppet::Type.newtype(:kubernetes_glusterfs_volume_source) do
   
     
       newproperty(:path) do
-        desc "Path is the Glusterfs volume path. More info: http://releases.k8s.io/HEAD/examples/glusterfs/README.md#create-a-pod"
+        desc "Path is the Glusterfs volume path. More info: http://releases.k8s.io/release-1.2/examples/glusterfs/README.md#create-a-pod"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -54,7 +54,7 @@ Puppet::Type.newtype(:kubernetes_glusterfs_volume_source) do
   
     
       newproperty(:readOnly) do
-        desc "ReadOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/glusterfs/README.md#create-a-pod"
+        desc "ReadOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: http://releases.k8s.io/release-1.2/examples/glusterfs/README.md#create-a-pod"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

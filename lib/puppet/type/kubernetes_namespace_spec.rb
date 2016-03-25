@@ -20,7 +20,7 @@ Puppet::Type.newtype(:kubernetes_namespace_spec) do
   
     
       newproperty(:finalizers) do
-        desc "Finalizers is an opaque list of values that must be empty to permanently remove object from storage. More info: http://releases.k8s.io/HEAD/docs/design/namespaces.md#finalizers"
+        desc "Finalizers is an opaque list of values that must be empty to permanently remove object from storage. More info: http://releases.k8s.io/release-1.2/docs/design/namespaces.md#finalizers"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

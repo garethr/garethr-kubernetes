@@ -24,7 +24,7 @@ Puppet::Type.newtype(:kubernetes_replication_controller) do
   
     
       newproperty(:metadata) do
-        desc "If the Labels of a ReplicationController are empty, they are defaulted to be the same as the Pod(s) that the replication controller manages. Standard object's metadata. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata"
+        desc "If the Labels of a ReplicationController are empty, they are defaulted to be the same as the Pod(s) that the replication controller manages. Standard object's metadata. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#metadata"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -33,7 +33,7 @@ Puppet::Type.newtype(:kubernetes_replication_controller) do
   
     
       newproperty(:spec) do
-        desc "Spec defines the specification of the desired behavior of the replication controller. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status"
+        desc "Spec defines the specification of the desired behavior of the replication controller. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#spec-and-status"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -42,7 +42,7 @@ Puppet::Type.newtype(:kubernetes_replication_controller) do
   
     
       newproperty(:status) do
-        desc "Status is the most recently observed status of the replication controller. This data may be out of date by some window of time. Populated by the system. Read-only. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status"
+        desc "Status is the most recently observed status of the replication controller. This data may be out of date by some window of time. Populated by the system. Read-only. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#spec-and-status"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

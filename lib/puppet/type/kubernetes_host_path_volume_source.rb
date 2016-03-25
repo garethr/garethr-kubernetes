@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_host_path_volume_source) do
   
-  @doc = "HostPathVolumeSource represents bare host directory volume."
+  @doc = "Represents a host path mapped into a pod. Host path volumes do not support ownership management or SELinux relabeling."
   
 
   ensurable
@@ -34,7 +34,7 @@ Puppet::Type.newtype(:kubernetes_host_path_volume_source) do
   
     
       newproperty(:path) do
-        desc "Path of the directory on the host. More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#hostpath"
+        desc "Path of the directory on the host. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#hostpath"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

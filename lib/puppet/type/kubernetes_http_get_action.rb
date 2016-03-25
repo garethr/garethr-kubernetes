@@ -52,7 +52,7 @@ Puppet::Type.newtype(:kubernetes_http_get_action) do
   
     
       newproperty(:host) do
-        desc "Host name to connect to, defaults to the pod IP."
+        desc "Host name to connect to, defaults to the pod IP. You probably want to set 'Host' in httpHeaders instead."
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -62,6 +62,15 @@ Puppet::Type.newtype(:kubernetes_http_get_action) do
     
       newproperty(:scheme) do
         desc "Scheme to use for connecting to the host. Defaults to HTTP."
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:httpHeaders) do
+        desc "Custom headers to set in the request. HTTP allows repeated headers."
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

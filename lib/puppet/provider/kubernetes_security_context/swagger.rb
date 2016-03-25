@@ -33,6 +33,10 @@ Puppet::Type.type(:kubernetes_security_context).provide(:swagger, :parent => Pup
         runAsNonRoot: instance.runAsNonRoot.respond_to?(:to_hash) ? instance.runAsNonRoot.to_hash : instance.runAsNonRoot,
       
     
+      
+        readOnlyRootFilesystem: instance.readOnlyRootFilesystem.respond_to?(:to_hash) ? instance.readOnlyRootFilesystem.to_hash : instance.readOnlyRootFilesystem,
+      
+    
     object: instance,
     }
   end
@@ -82,6 +86,10 @@ Puppet::Type.type(:kubernetes_security_context).provide(:swagger, :parent => Pup
     
       
         runAsNonRoot: resource[:runAsNonRoot],
+      
+    
+      
+        readOnlyRootFilesystem: resource[:readOnlyRootFilesystem],
       
     
     }

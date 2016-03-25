@@ -18,6 +18,10 @@ Puppet::Type.type(:kubernetes_status_details).provide(:swagger, :parent => Puppe
       
     
       
+        group: instance.group.respond_to?(:to_hash) ? instance.group.to_hash : instance.group,
+      
+    
+      
         kind: instance.kind.respond_to?(:to_hash) ? instance.kind.to_hash : instance.kind,
       
     
@@ -62,6 +66,10 @@ Puppet::Type.type(:kubernetes_status_details).provide(:swagger, :parent => Puppe
     
       
         name: resource[:name],
+      
+    
+      
+        group: resource[:group],
       
     
       

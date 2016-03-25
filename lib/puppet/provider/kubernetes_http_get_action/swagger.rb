@@ -29,6 +29,10 @@ Puppet::Type.type(:kubernetes_http_get_action).provide(:swagger, :parent => Pupp
         scheme: instance.scheme.respond_to?(:to_hash) ? instance.scheme.to_hash : instance.scheme,
       
     
+      
+        httpHeaders: instance.httpHeaders.respond_to?(:to_hash) ? instance.httpHeaders.to_hash : instance.httpHeaders,
+      
+    
     object: instance,
     }
   end
@@ -74,6 +78,10 @@ Puppet::Type.type(:kubernetes_http_get_action).provide(:swagger, :parent => Pupp
     
       
         scheme: resource[:scheme],
+      
+    
+      
+        httpHeaders: resource[:httpHeaders],
       
     
     }

@@ -49,6 +49,10 @@ Puppet::Type.type(:kubernetes_event).provide(:swagger, :parent => PuppetX::Puppe
         count: instance.count.respond_to?(:to_hash) ? instance.count.to_hash : instance.count,
       
     
+      
+        type: instance.type.respond_to?(:to_hash) ? instance.type.to_hash : instance.type,
+      
+    
     object: instance,
     }
   end
@@ -114,6 +118,10 @@ Puppet::Type.type(:kubernetes_event).provide(:swagger, :parent => PuppetX::Puppe
     
       
         count: resource[:count],
+      
+    
+      
+        type: resource[:type],
       
     
     }

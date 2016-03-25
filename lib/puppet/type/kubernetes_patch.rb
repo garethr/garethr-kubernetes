@@ -7,6 +7,8 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_patch) do
   
+  @doc = "Patch is provided to give a concrete name and type to the Kubernetes PATCH request body."
+  
 
   ensurable
 

@@ -13,20 +13,6 @@ Puppet::Type.newtype(:kubernetes_env_var_source) do
   ensurable
 
   
-  validate do
-    required_properties = [
-    
-      fieldRef,
-    
-    ]
-    required_properties.each do |property|
-      # We check for both places so as to cover the puppet resource path as well
-      if self[property].nil? and self.provider.send(property) == :absent
-        fail "You must provide a #{property}"
-      end
-    end
-  end
-  
 
   newparam(:name, namevar: true) do
     desc 'Name of the env_var_source.'
@@ -34,7 +20,25 @@ Puppet::Type.newtype(:kubernetes_env_var_source) do
   
     
       newproperty(:fieldRef) do
-        desc "Selects a field of the pod. Only name and namespace are supported."
+        desc "Selects a field of the pod; only name and namespace are supported."
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:configMapKeyRef) do
+        desc "Selects a key of a ConfigMap."
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:secretKeyRef) do
+        desc "Selects a key of a secret in the pod's namespace"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

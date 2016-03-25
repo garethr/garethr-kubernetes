@@ -36,7 +36,7 @@ Puppet::Type.newtype(:kubernetes_pod_condition) do
   
     
       newproperty(:type) do
-        desc "Type is the type of the condition. Currently only Ready. More info: http://releases.k8s.io/HEAD/docs/user-guide/pod-states.md#pod-conditions"
+        desc "Type is the type of the condition. Currently only Ready. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#pod-conditions"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -45,7 +45,7 @@ Puppet::Type.newtype(:kubernetes_pod_condition) do
   
     
       newproperty(:status) do
-        desc "Status is the status of the condition. Can be True, False, Unknown. More info: http://releases.k8s.io/HEAD/docs/user-guide/pod-states.md#pod-conditions"
+        desc "Status is the status of the condition. Can be True, False, Unknown. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#pod-conditions"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

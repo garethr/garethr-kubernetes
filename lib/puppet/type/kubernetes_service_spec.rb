@@ -34,7 +34,7 @@ Puppet::Type.newtype(:kubernetes_service_spec) do
   
     
       newproperty(:ports) do
-        desc "The list of ports that are exposed by this service. More info: http://releases.k8s.io/HEAD/docs/user-guide/services.md#virtual-ips-and-service-proxies"
+        desc "The list of ports that are exposed by this service. More info: http://releases.k8s.io/release-1.2/docs/user-guide/services.md#virtual-ips-and-service-proxies"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -43,7 +43,7 @@ Puppet::Type.newtype(:kubernetes_service_spec) do
   
     
       newproperty(:selector) do
-        desc "This service will route traffic to pods having labels matching this selector. Label keys and values that must match in order to receive traffic for this service. If empty, all pods are selected, if not specified, endpoints must be manually specified. More info: http://releases.k8s.io/HEAD/docs/user-guide/services.md#overview"
+        desc "This service will route traffic to pods having labels matching this selector. Label keys and values that must match in order to receive traffic for this service. If empty, all pods are selected, if not specified, endpoints must be manually specified. More info: http://releases.k8s.io/release-1.2/docs/user-guide/services.md#overview"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -52,7 +52,7 @@ Puppet::Type.newtype(:kubernetes_service_spec) do
   
     
       newproperty(:clusterIP) do
-        desc "ClusterIP is usually assigned by the master and is the IP address of the service. If specified, it will be allocated to the service if it is unused or else creation of the service will fail. Valid values are None, empty string (''), or a valid IP address. 'None' can be specified for a headless service when proxying is not required. Cannot be updated. More info: http://releases.k8s.io/HEAD/docs/user-guide/services.md#virtual-ips-and-service-proxies"
+        desc "ClusterIP is usually assigned by the master and is the IP address of the service. If specified, it will be allocated to the service if it is unused or else creation of the service will fail. Valid values are None, empty string (''), or a valid IP address. 'None' can be specified for a headless service when proxying is not required. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/services.md#virtual-ips-and-service-proxies"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -61,7 +61,7 @@ Puppet::Type.newtype(:kubernetes_service_spec) do
   
     
       newproperty(:type) do
-        desc "Type of exposed service. Must be ClusterIP, NodePort, or LoadBalancer. Defaults to ClusterIP. More info: http://releases.k8s.io/HEAD/docs/user-guide/services.md#external-services"
+        desc "Type of exposed service. Must be ClusterIP, NodePort, or LoadBalancer. Defaults to ClusterIP. More info: http://releases.k8s.io/release-1.2/docs/user-guide/services.md#external-services"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -88,7 +88,7 @@ Puppet::Type.newtype(:kubernetes_service_spec) do
   
     
       newproperty(:sessionAffinity) do
-        desc "Supports 'ClientIP' and 'None'. Used to maintain session affinity. Enable client IP based session affinity. Must be ClientIP or None. Defaults to None. More info: http://releases.k8s.io/HEAD/docs/user-guide/services.md#virtual-ips-and-service-proxies"
+        desc "Supports 'ClientIP' and 'None'. Used to maintain session affinity. Enable client IP based session affinity. Must be ClientIP or None. Defaults to None. More info: http://releases.k8s.io/release-1.2/docs/user-guide/services.md#virtual-ips-and-service-proxies"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

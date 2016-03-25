@@ -20,7 +20,7 @@ Puppet::Type.newtype(:kubernetes_resource_requirements) do
   
     
       newproperty(:limits) do
-        desc "Limits describes the maximum amount of compute resources allowed. More info: http://releases.k8s.io/HEAD/docs/design/resources.md#resource-specifications"
+        desc "Limits describes the maximum amount of compute resources allowed. More info: http://releases.k8s.io/release-1.2/docs/design/resources.md#resource-specifications"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -29,7 +29,7 @@ Puppet::Type.newtype(:kubernetes_resource_requirements) do
   
     
       newproperty(:requests) do
-        desc "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: http://releases.k8s.io/HEAD/docs/design/resources.md#resource-specifications"
+        desc "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: http://releases.k8s.io/release-1.2/docs/design/resources.md#resource-specifications"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_empty_dir_volume_source) do
   
-  @doc = "EmptyDirVolumeSource is temporary directory that shares a pod's lifetime."
+  @doc = "Represents an empty directory for a pod. Empty directory volumes support ownership management and SELinux relabeling."
   
 
   ensurable
@@ -20,7 +20,7 @@ Puppet::Type.newtype(:kubernetes_empty_dir_volume_source) do
   
     
       newproperty(:medium) do
-        desc "What type of storage medium should back this directory. The default is '' which means to use the node's default medium. Must be an empty string (default) or Memory. More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#emptydir"
+        desc "What type of storage medium should back this directory. The default is '' which means to use the node's default medium. Must be an empty string (default) or Memory. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#emptydir"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

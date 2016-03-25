@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_fc_volume_source) do
   
-  @doc = "A Fibre Channel Disk can only be mounted as read/write once."
+  @doc = "Represents a Fibre Channel volume. Fibre Channel volumes can only be mounted as read/write once. Fibre Channel volumes support ownership management and SELinux relabeling."
   
 
   ensurable
@@ -19,8 +19,6 @@ Puppet::Type.newtype(:kubernetes_fc_volume_source) do
       targetWWNs,
     
       lun,
-    
-      fsType,
     
     ]
     required_properties.each do |property|
@@ -56,7 +54,7 @@ Puppet::Type.newtype(:kubernetes_fc_volume_source) do
   
     
       newproperty(:fsType) do
-        desc "Required: Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. 'ext4', 'xfs', 'ntfs'"
+        desc "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. 'ext4', 'xfs', 'ntfs'. Implicitly inferred to be 'ext4' if unspecified."
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

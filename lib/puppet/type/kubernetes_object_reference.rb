@@ -20,7 +20,7 @@ Puppet::Type.newtype(:kubernetes_object_reference) do
   
     
       newproperty(:kind) do
-        desc "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+        desc "Kind of the referent. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -29,7 +29,7 @@ Puppet::Type.newtype(:kubernetes_object_reference) do
   
     
       newproperty(:namespace) do
-        desc "Namespace of the referent. More info: http://releases.k8s.io/HEAD/docs/user-guide/namespaces.md"
+        desc "Namespace of the referent. More info: http://releases.k8s.io/release-1.2/docs/user-guide/namespaces.md"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -38,7 +38,7 @@ Puppet::Type.newtype(:kubernetes_object_reference) do
   
     
       newproperty(:name) do
-        desc "Name of the referent. More info: http://releases.k8s.io/HEAD/docs/user-guide/identifiers.md#names"
+        desc "Name of the referent. More info: http://releases.k8s.io/release-1.2/docs/user-guide/identifiers.md#names"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -47,7 +47,7 @@ Puppet::Type.newtype(:kubernetes_object_reference) do
   
     
       newproperty(:uid) do
-        desc "UID of the referent. More info: http://releases.k8s.io/HEAD/docs/user-guide/identifiers.md#uids"
+        desc "UID of the referent. More info: http://releases.k8s.io/release-1.2/docs/user-guide/identifiers.md#uids"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -65,7 +65,7 @@ Puppet::Type.newtype(:kubernetes_object_reference) do
   
     
       newproperty(:resourceVersion) do
-        desc "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+        desc "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#concurrency-control-and-consistency"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

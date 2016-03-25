@@ -20,7 +20,7 @@ Puppet::Type.newtype(:kubernetes_se_linux_options) do
   
     
       newproperty(:user) do
-        desc "User is a SELinux user label that applies to the container. More info: http://releases.k8s.io/HEAD/docs/user-guide/labels.md"
+        desc "User is a SELinux user label that applies to the container."
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -29,7 +29,7 @@ Puppet::Type.newtype(:kubernetes_se_linux_options) do
   
     
       newproperty(:role) do
-        desc "Role is a SELinux role label that applies to the container. More info: http://releases.k8s.io/HEAD/docs/user-guide/labels.md"
+        desc "Role is a SELinux role label that applies to the container."
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -38,7 +38,7 @@ Puppet::Type.newtype(:kubernetes_se_linux_options) do
   
     
       newproperty(:type) do
-        desc "Type is a SELinux type label that applies to the container. More info: http://releases.k8s.io/HEAD/docs/user-guide/labels.md"
+        desc "Type is a SELinux type label that applies to the container."
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -47,7 +47,7 @@ Puppet::Type.newtype(:kubernetes_se_linux_options) do
   
     
       newproperty(:level) do
-        desc "Level is SELinux level label that applies to the container. More info: http://releases.k8s.io/HEAD/docs/user-guide/labels.md"
+        desc "Level is SELinux level label that applies to the container."
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

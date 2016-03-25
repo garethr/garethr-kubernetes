@@ -20,7 +20,7 @@ Puppet::Type.newtype(:kubernetes_pod_status) do
   
     
       newproperty(:phase) do
-        desc "Current condition of the pod. More info: http://releases.k8s.io/HEAD/docs/user-guide/pod-states.md#pod-phase"
+        desc "Current condition of the pod. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#pod-phase"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -29,7 +29,7 @@ Puppet::Type.newtype(:kubernetes_pod_status) do
   
     
       newproperty(:conditions) do
-        desc "Current service state of pod. More info: http://releases.k8s.io/HEAD/docs/user-guide/pod-states.md#pod-conditions"
+        desc "Current service state of pod. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#pod-conditions"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -83,7 +83,7 @@ Puppet::Type.newtype(:kubernetes_pod_status) do
   
     
       newproperty(:containerStatuses) do
-        desc "The list has one entry per container in the manifest. Each entry is currently the output of `docker inspect`. More info: http://releases.k8s.io/HEAD/docs/user-guide/pod-states.md#container-statuses"
+        desc "The list has one entry per container in the manifest. Each entry is currently the output of `docker inspect`. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#container-statuses"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
