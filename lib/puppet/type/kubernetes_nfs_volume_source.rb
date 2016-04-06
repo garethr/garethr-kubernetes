@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_nfs_volume_source) do
   
-  @doc = "NFSVolumeSource represents an NFS mount that lasts the lifetime of a pod"
+  @doc = "Represents an NFS mount that lasts the lifetime of a pod. NFS volumes do not support ownership management or SELinux relabeling."
   
 
   ensurable
@@ -36,7 +36,7 @@ Puppet::Type.newtype(:kubernetes_nfs_volume_source) do
   
     
       newproperty(:server) do
-        desc "Server is the hostname or IP address of the NFS server. More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#nfs"
+        desc "Server is the hostname or IP address of the NFS server. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#nfs"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -45,7 +45,7 @@ Puppet::Type.newtype(:kubernetes_nfs_volume_source) do
   
     
       newproperty(:path) do
-        desc "Path that is exported by the NFS server. More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#nfs"
+        desc "Path that is exported by the NFS server. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#nfs"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -54,7 +54,7 @@ Puppet::Type.newtype(:kubernetes_nfs_volume_source) do
   
     
       newproperty(:readOnly) do
-        desc "ReadOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#nfs"
+        desc "ReadOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#nfs"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

@@ -62,6 +62,14 @@ Puppet::Type.type(:kubernetes_persistent_volume_spec).provide(:swagger, :parent 
       
     
       
+        flexVolume: instance.flexVolume.respond_to?(:to_hash) ? instance.flexVolume.to_hash : instance.flexVolume,
+      
+    
+      
+        azureFile: instance.azureFile.respond_to?(:to_hash) ? instance.azureFile.to_hash : instance.azureFile,
+      
+    
+      
         accessModes: instance.accessModes.respond_to?(:to_hash) ? instance.accessModes.to_hash : instance.accessModes,
       
     
@@ -150,6 +158,14 @@ Puppet::Type.type(:kubernetes_persistent_volume_spec).provide(:swagger, :parent 
     
       
         flocker: resource[:flocker],
+      
+    
+      
+        flexVolume: resource[:flexVolume],
+      
+    
+      
+        azureFile: resource[:azureFile],
       
     
       

@@ -169,6 +169,7 @@ above.
 * kubernetes_persistent_volume_claim
 * kubernetes_component_status
 * kubernetes_service_account
+* kubernetes_config_map
 
 ## Limitations
 

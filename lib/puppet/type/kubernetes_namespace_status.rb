@@ -20,7 +20,7 @@ Puppet::Type.newtype(:kubernetes_namespace_status) do
   
     
       newproperty(:phase) do
-        desc "Phase is the current lifecycle phase of the namespace. More info: http://releases.k8s.io/HEAD/docs/design/namespaces.md#phases"
+        desc "Phase is the current lifecycle phase of the namespace. More info: http://releases.k8s.io/release-1.2/docs/design/namespaces.md#phases"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

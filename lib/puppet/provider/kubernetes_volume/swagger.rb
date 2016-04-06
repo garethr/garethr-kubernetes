@@ -62,6 +62,10 @@ Puppet::Type.type(:kubernetes_volume).provide(:swagger, :parent => PuppetX::Pupp
       
     
       
+        flexVolume: instance.flexVolume.respond_to?(:to_hash) ? instance.flexVolume.to_hash : instance.flexVolume,
+      
+    
+      
         cinder: instance.cinder.respond_to?(:to_hash) ? instance.cinder.to_hash : instance.cinder,
       
     
@@ -79,6 +83,14 @@ Puppet::Type.type(:kubernetes_volume).provide(:swagger, :parent => PuppetX::Pupp
     
       
         fc: instance.fc.respond_to?(:to_hash) ? instance.fc.to_hash : instance.fc,
+      
+    
+      
+        azureFile: instance.azureFile.respond_to?(:to_hash) ? instance.azureFile.to_hash : instance.azureFile,
+      
+    
+      
+        configMap: instance.configMap.respond_to?(:to_hash) ? instance.configMap.to_hash : instance.configMap,
       
     
     object: instance,
@@ -161,6 +173,10 @@ Puppet::Type.type(:kubernetes_volume).provide(:swagger, :parent => PuppetX::Pupp
       
     
       
+        flexVolume: resource[:flexVolume],
+      
+    
+      
         cinder: resource[:cinder],
       
     
@@ -178,6 +194,14 @@ Puppet::Type.type(:kubernetes_volume).provide(:swagger, :parent => PuppetX::Pupp
     
       
         fc: resource[:fc],
+      
+    
+      
+        azureFile: resource[:azureFile],
+      
+    
+      
+        configMap: resource[:configMap],
       
     
     }

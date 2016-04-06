@@ -7,9 +7,9 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_aws_elastic_block_store_volume_source) do
   
-  @doc = "Represents a persistent disk resource in AWS.
+  @doc = "Represents a Persistent Disk resource in AWS.
 
-An Amazon Elastic Block Store (EBS) must already be created, formatted, and reside in the same AWS zone as the kubelet before it can be mounted. Note: Amazon EBS volumes can be mounted to only one instance at a time."
+An AWS EBS disk must exist before mounting to a container. The disk must also be in the same AWS zone as the kubelet. An AWS EBS disk can only be mounted as read/write once. AWS EBS volumes support ownership management and SELinux relabeling."
   
 
   ensurable
@@ -19,8 +19,6 @@ An Amazon Elastic Block Store (EBS) must already be created, formatted, and resi
     required_properties = [
     
       volumeID,
-    
-      fsType,
     
     ]
     required_properties.each do |property|
@@ -38,7 +36,7 @@ An Amazon Elastic Block Store (EBS) must already be created, formatted, and resi
   
     
       newproperty(:volumeID) do
-        desc "Unique ID of the persistent disk resource in AWS (Amazon EBS volume). More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#awselasticblockstore"
+        desc "Unique ID of the persistent disk resource in AWS (Amazon EBS volume). More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#awselasticblockstore"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -47,7 +45,7 @@ An Amazon Elastic Block Store (EBS) must already be created, formatted, and resi
   
     
       newproperty(:fsType) do
-        desc "Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: 'ext4', 'xfs', 'ntfs'. More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#awselasticblockstore"
+        desc "Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: 'ext4', 'xfs', 'ntfs'. Implicitly inferred to be 'ext4' if unspecified. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#awselasticblockstore"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -65,7 +63,7 @@ An Amazon Elastic Block Store (EBS) must already be created, formatted, and resi
   
     
       newproperty(:readOnly) do
-        desc "Specify 'true' to force and set the ReadOnly property in VolumeMounts to 'true'. If omitted, the default is 'false'. More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#awselasticblockstore"
+        desc "Specify 'true' to force and set the ReadOnly property in VolumeMounts to 'true'. If omitted, the default is 'false'. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#awselasticblockstore"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

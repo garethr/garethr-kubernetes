@@ -18,6 +18,10 @@ Puppet::Type.type(:kubernetes_ceph_fs_volume_source).provide(:swagger, :parent =
       
     
       
+        path: instance.path.respond_to?(:to_hash) ? instance.path.to_hash : instance.path,
+      
+    
+      
         user: instance.user.respond_to?(:to_hash) ? instance.user.to_hash : instance.user,
       
     
@@ -66,6 +70,10 @@ Puppet::Type.type(:kubernetes_ceph_fs_volume_source).provide(:swagger, :parent =
     
       
         monitors: resource[:monitors],
+      
+    
+      
+        path: resource[:path],
       
     
       

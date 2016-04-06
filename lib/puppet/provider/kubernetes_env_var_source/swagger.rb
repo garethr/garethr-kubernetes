@@ -17,6 +17,14 @@ Puppet::Type.type(:kubernetes_env_var_source).provide(:swagger, :parent => Puppe
         fieldRef: instance.fieldRef.respond_to?(:to_hash) ? instance.fieldRef.to_hash : instance.fieldRef,
       
     
+      
+        configMapKeyRef: instance.configMapKeyRef.respond_to?(:to_hash) ? instance.configMapKeyRef.to_hash : instance.configMapKeyRef,
+      
+    
+      
+        secretKeyRef: instance.secretKeyRef.respond_to?(:to_hash) ? instance.secretKeyRef.to_hash : instance.secretKeyRef,
+      
+    
     object: instance,
     }
   end
@@ -50,6 +58,14 @@ Puppet::Type.type(:kubernetes_env_var_source).provide(:swagger, :parent => Puppe
     
       
         fieldRef: resource[:fieldRef],
+      
+    
+      
+        configMapKeyRef: resource[:configMapKeyRef],
+      
+    
+      
+        secretKeyRef: resource[:secretKeyRef],
       
     
     }

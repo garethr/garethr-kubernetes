@@ -17,6 +17,10 @@ Puppet::Type.type(:kubernetes_resource_quota_spec).provide(:swagger, :parent => 
         hard: instance.hard.respond_to?(:to_hash) ? instance.hard.to_hash : instance.hard,
       
     
+      
+        scopes: instance.scopes.respond_to?(:to_hash) ? instance.scopes.to_hash : instance.scopes,
+      
+    
     object: instance,
     }
   end
@@ -50,6 +54,10 @@ Puppet::Type.type(:kubernetes_resource_quota_spec).provide(:swagger, :parent => 
     
       
         hard: resource[:hard],
+      
+    
+      
+        scopes: resource[:scopes],
       
     
     }

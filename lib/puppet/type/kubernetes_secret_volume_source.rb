@@ -7,25 +7,13 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_secret_volume_source) do
   
-  @doc = "SecretVolumeSource adapts a Secret into a VolumeSource. More info: http://releases.k8s.io/HEAD/docs/design/secrets.md"
+  @doc = "Adapts a Secret into a volume.
+
+The contents of the target Secret's Data field will be presented in a volume as files using the keys in the Data field as the file names. Secret volumes support ownership management and SELinux relabeling."
   
 
   ensurable
 
-  
-  validate do
-    required_properties = [
-    
-      secretName,
-    
-    ]
-    required_properties.each do |property|
-      # We check for both places so as to cover the puppet resource path as well
-      if self[property].nil? and self.provider.send(property) == :absent
-        fail "You must provide a #{property}"
-      end
-    end
-  end
   
 
   newparam(:name, namevar: true) do
@@ -34,7 +22,7 @@ Puppet::Type.newtype(:kubernetes_secret_volume_source) do
   
     
       newproperty(:secretName) do
-        desc "SecretName is the name of a secret in the pod's namespace. More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#secrets"
+        desc "Name of the secret in the pod's namespace to use. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#secrets"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

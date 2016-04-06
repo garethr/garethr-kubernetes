@@ -24,7 +24,7 @@ Puppet::Type.newtype(:kubernetes_limit_range) do
   
     
       newproperty(:metadata) do
-        desc "Standard object's metadata. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata"
+        desc "Standard object's metadata. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#metadata"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -33,7 +33,7 @@ Puppet::Type.newtype(:kubernetes_limit_range) do
   
     
       newproperty(:spec) do
-        desc "Spec defines the limits enforced. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status"
+        desc "Spec defines the limits enforced. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#spec-and-status"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

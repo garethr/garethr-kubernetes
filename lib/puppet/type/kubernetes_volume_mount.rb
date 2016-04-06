@@ -54,7 +54,7 @@ Puppet::Type.newtype(:kubernetes_volume_mount) do
   
     
       newproperty(:mountPath) do
-        desc "Path within the container at which the volume should be mounted."
+        desc "Path within the container at which the volume should be mounted.  Must not contain ':'."
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

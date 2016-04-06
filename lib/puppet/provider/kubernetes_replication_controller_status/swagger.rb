@@ -18,6 +18,10 @@ Puppet::Type.type(:kubernetes_replication_controller_status).provide(:swagger, :
       
     
       
+        fullyLabeledReplicas: instance.fullyLabeledReplicas.respond_to?(:to_hash) ? instance.fullyLabeledReplicas.to_hash : instance.fullyLabeledReplicas,
+      
+    
+      
         observedGeneration: instance.observedGeneration.respond_to?(:to_hash) ? instance.observedGeneration.to_hash : instance.observedGeneration,
       
     
@@ -54,6 +58,10 @@ Puppet::Type.type(:kubernetes_replication_controller_status).provide(:swagger, :
     
       
         replicas: resource[:replicas],
+      
+    
+      
+        fullyLabeledReplicas: resource[:fullyLabeledReplicas],
       
     
       

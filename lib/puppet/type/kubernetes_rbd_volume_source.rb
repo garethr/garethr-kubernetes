@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_rbd_volume_source) do
   
-  @doc = "RBDVolumeSource represents a Rados Block Device Mount that lasts the lifetime of a pod"
+  @doc = "Represents a Rados Block Device mount that lasts the lifetime of a pod. RBD volumes support ownership management and SELinux relabeling."
   
 
   ensurable
@@ -44,7 +44,7 @@ Puppet::Type.newtype(:kubernetes_rbd_volume_source) do
   
     
       newproperty(:monitors) do
-        desc "A collection of Ceph monitors. More info: http://releases.k8s.io/HEAD/examples/rbd/README.md#how-to-use-it"
+        desc "A collection of Ceph monitors. More info: http://releases.k8s.io/release-1.2/examples/rbd/README.md#how-to-use-it"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -53,7 +53,7 @@ Puppet::Type.newtype(:kubernetes_rbd_volume_source) do
   
     
       newproperty(:image) do
-        desc "The rados image name. More info: http://releases.k8s.io/HEAD/examples/rbd/README.md#how-to-use-it"
+        desc "The rados image name. More info: http://releases.k8s.io/release-1.2/examples/rbd/README.md#how-to-use-it"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -62,7 +62,7 @@ Puppet::Type.newtype(:kubernetes_rbd_volume_source) do
   
     
       newproperty(:fsType) do
-        desc "Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: 'ext4', 'xfs', 'ntfs'. More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#rbd"
+        desc "Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: 'ext4', 'xfs', 'ntfs'. Implicitly inferred to be 'ext4' if unspecified. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#rbd"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -71,7 +71,7 @@ Puppet::Type.newtype(:kubernetes_rbd_volume_source) do
   
     
       newproperty(:pool) do
-        desc "The rados pool name. Default is rbd. More info: http://releases.k8s.io/HEAD/examples/rbd/README.md#how-to-use-it."
+        desc "The rados pool name. Default is rbd. More info: http://releases.k8s.io/release-1.2/examples/rbd/README.md#how-to-use-it."
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -80,7 +80,7 @@ Puppet::Type.newtype(:kubernetes_rbd_volume_source) do
   
     
       newproperty(:user) do
-        desc "The rados user name. Default is admin. More info: http://releases.k8s.io/HEAD/examples/rbd/README.md#how-to-use-it"
+        desc "The rados user name. Default is admin. More info: http://releases.k8s.io/release-1.2/examples/rbd/README.md#how-to-use-it"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -89,7 +89,7 @@ Puppet::Type.newtype(:kubernetes_rbd_volume_source) do
   
     
       newproperty(:keyring) do
-        desc "Keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: http://releases.k8s.io/HEAD/examples/rbd/README.md#how-to-use-it"
+        desc "Keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: http://releases.k8s.io/release-1.2/examples/rbd/README.md#how-to-use-it"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -98,7 +98,7 @@ Puppet::Type.newtype(:kubernetes_rbd_volume_source) do
   
     
       newproperty(:secretRef) do
-        desc "SecretRef is name of the authentication secret for RBDUser. If provided overrides keyring. Default is empty. More info: http://releases.k8s.io/HEAD/examples/rbd/README.md#how-to-use-it"
+        desc "SecretRef is name of the authentication secret for RBDUser. If provided overrides keyring. Default is empty. More info: http://releases.k8s.io/release-1.2/examples/rbd/README.md#how-to-use-it"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -107,7 +107,7 @@ Puppet::Type.newtype(:kubernetes_rbd_volume_source) do
   
     
       newproperty(:readOnly) do
-        desc "ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/rbd/README.md#how-to-use-it"
+        desc "ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/release-1.2/examples/rbd/README.md#how-to-use-it"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

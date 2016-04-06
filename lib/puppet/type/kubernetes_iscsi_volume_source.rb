@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_iscsi_volume_source) do
   
-  @doc = "ISCSIVolumeSource describes an ISCSI Disk can only be mounted as read/write once."
+  @doc = "Represents an ISCSI disk. ISCSI volumes can only be mounted as read/write once. ISCSI volumes support ownership management and SELinux relabeling."
   
 
   ensurable
@@ -21,8 +21,6 @@ Puppet::Type.newtype(:kubernetes_iscsi_volume_source) do
       iqn,
     
       lun,
-    
-      fsType,
     
     ]
     required_properties.each do |property|
@@ -66,8 +64,17 @@ Puppet::Type.newtype(:kubernetes_iscsi_volume_source) do
     
   
     
+      newproperty(:iscsiInterface) do
+        desc "Optional: Defaults to 'default' (tcp). iSCSI interface name that uses an iSCSI transport."
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
       newproperty(:fsType) do
-        desc "Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: 'ext4', 'xfs', 'ntfs'. More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#iscsi"
+        desc "Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: 'ext4', 'xfs', 'ntfs'. Implicitly inferred to be 'ext4' if unspecified. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#iscsi"
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
