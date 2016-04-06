@@ -16,3 +16,8 @@ This is the initial release of the Kubernetes module.
 * Fixes for object comparison involving arrays of values
 
 Thanks to @modax for much of the work in this release.
+
+##2016-04-06 - Version 0.3.0
+
+* Added an experimental Puppet command (puppet kubernetes convert)
+  which converts standard Kubernetes YAML files into Puppet code
