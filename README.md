@@ -130,6 +130,27 @@ property to `absent` in the manifest or using `puppet resouce` like so:
 
 The module examples folder contains additional usage examples:
 
+### Converting existing Kubernetes YAML files
+
+You may already have YAML files describing your Kubernetes resources, or
+be using [Helm](http://helm.sh) to download existing
+[Charts](https://github.com/helm/charts). The module includes an
+experimental `puppet kubernetes convert` command for just this
+situation.
+
+    puppet kubernetes convert examples/guestbook.yaml
+
+The above command will output to stdout the Puppet equivalent to the
+YAML description of Kubernetes resources, including correctly handling
+multi-document files like the example guestbook.
+
+    puppet kubernetes convert examples/guestbook.yaml > guestbook.pp
+    puppet apply --test guestbook.pp
+
+If you want to then use that Puppet file the simplest way to do so is to
+redirect the output to a file and then run it with Puppet as shown
+above.
+
 ## Reference
 
 ### Types
