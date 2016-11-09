@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_node_condition) do
   
-  @doc = "NodeCondition contains condition infromation for a node."
+  @doc = "NodeCondition contains condition information for a node."
   
 
   ensurable
@@ -36,7 +36,9 @@ Puppet::Type.newtype(:kubernetes_node_condition) do
   
     
       newproperty(:type) do
-        desc "Type of node condition, currently only Ready."
+        
+        desc "Type of node condition."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -45,7 +47,9 @@ Puppet::Type.newtype(:kubernetes_node_condition) do
   
     
       newproperty(:status) do
+        
         desc "Status of the condition, one of True, False, Unknown."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -54,7 +58,9 @@ Puppet::Type.newtype(:kubernetes_node_condition) do
   
     
       newproperty(:lastHeartbeatTime) do
+        
         desc "Last time we got an update on a given condition."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -63,7 +69,9 @@ Puppet::Type.newtype(:kubernetes_node_condition) do
   
     
       newproperty(:lastTransitionTime) do
+        
         desc "Last time the condition transit from one status to another."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -72,7 +80,9 @@ Puppet::Type.newtype(:kubernetes_node_condition) do
   
     
       newproperty(:reason) do
+        
         desc "(brief) reason for the condition's last transition."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -81,7 +91,9 @@ Puppet::Type.newtype(:kubernetes_node_condition) do
   
     
       newproperty(:message) do
+        
         desc "Human readable message indicating details about last transition."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

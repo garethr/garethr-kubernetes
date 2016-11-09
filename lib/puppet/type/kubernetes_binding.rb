@@ -34,7 +34,9 @@ Puppet::Type.newtype(:kubernetes_binding) do
   
     
       newproperty(:kind) do
+        
         desc "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -43,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_binding) do
   
     
       newproperty(:apiVersion) do
+        
         desc "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -52,7 +56,9 @@ Puppet::Type.newtype(:kubernetes_binding) do
   
     
       newproperty(:metadata) do
+        
         desc "Standard object's metadata. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -61,7 +67,9 @@ Puppet::Type.newtype(:kubernetes_binding) do
   
     
       newproperty(:target) do
+        
         desc "The target object that you want to bind to the standard object."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

@@ -34,7 +34,9 @@ Puppet::Type.newtype(:kubernetes_object_field_selector) do
   
     
       newproperty(:apiVersion) do
+        
         desc "Version of the schema the FieldPath is written in terms of, defaults to 'v1'."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -43,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_object_field_selector) do
   
     
       newproperty(:fieldPath) do
+        
         desc "Path of the field to select in the specified API version."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

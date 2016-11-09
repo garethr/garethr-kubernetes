@@ -20,7 +20,9 @@ Puppet::Type.newtype(:kubernetes_service_status) do
   
     
       newproperty(:loadBalancer) do
+        
         desc "LoadBalancer contains the current status of the load-balancer, if one is present."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

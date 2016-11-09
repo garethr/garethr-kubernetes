@@ -34,7 +34,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_volume_source) do
   
     
       newproperty(:claimName) do
-        desc "ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#persistentvolumeclaims"
+        
+        desc "ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#persistentvolumeclaims"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -43,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_volume_source) do
   
     
       newproperty(:readOnly) do
+        
         desc "Will force the ReadOnly setting in VolumeMounts. Default false."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

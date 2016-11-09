@@ -20,7 +20,9 @@ Puppet::Type.newtype(:kubernetes_node_spec) do
   
     
       newproperty(:podCIDR) do
+        
         desc "PodCIDR represents the pod IP range assigned to the node."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -29,7 +31,9 @@ Puppet::Type.newtype(:kubernetes_node_spec) do
   
     
       newproperty(:externalID) do
+        
         desc "External ID of the node assigned by some machine database (e.g. a cloud provider). Deprecated."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -38,7 +42,9 @@ Puppet::Type.newtype(:kubernetes_node_spec) do
   
     
       newproperty(:providerID) do
+        
         desc "ID of the node assigned by the cloud provider in the format: <ProviderName>://<ProviderSpecificNodeID>"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -47,7 +53,9 @@ Puppet::Type.newtype(:kubernetes_node_spec) do
   
     
       newproperty(:unschedulable) do
+        
         desc "Unschedulable controls node schedulability of new pods. By default, node is schedulable. More info: http://releases.k8s.io/HEAD/docs/admin/node.md#manual-node-administration'`"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

@@ -18,6 +18,10 @@ Puppet::Type.type(:kubernetes_persistent_volume_claim_spec).provide(:swagger, :p
       
     
       
+        selector: instance.selector.respond_to?(:to_hash) ? instance.selector.to_hash : instance.selector,
+      
+    
+      
         resources: instance.resources.respond_to?(:to_hash) ? instance.resources.to_hash : instance.resources,
       
     
@@ -58,6 +62,10 @@ Puppet::Type.type(:kubernetes_persistent_volume_claim_spec).provide(:swagger, :p
     
       
         accessModes: resource[:accessModes],
+      
+    
+      
+        selector: resource[:selector],
       
     
       

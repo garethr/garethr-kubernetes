@@ -18,6 +18,14 @@ Puppet::Type.type(:kubernetes_endpoint_address).provide(:swagger, :parent => Pup
       
     
       
+        hostname: instance.hostname.respond_to?(:to_hash) ? instance.hostname.to_hash : instance.hostname,
+      
+    
+      
+        nodeName: instance.nodeName.respond_to?(:to_hash) ? instance.nodeName.to_hash : instance.nodeName,
+      
+    
+      
         targetRef: instance.targetRef.respond_to?(:to_hash) ? instance.targetRef.to_hash : instance.targetRef,
       
     
@@ -54,6 +62,14 @@ Puppet::Type.type(:kubernetes_endpoint_address).provide(:swagger, :parent => Pup
     
       
         ip: resource[:ip],
+      
+    
+      
+        hostname: resource[:hostname],
+      
+    
+      
+        nodeName: resource[:nodeName],
       
     
       

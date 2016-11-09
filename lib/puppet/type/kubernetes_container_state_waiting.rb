@@ -20,7 +20,9 @@ Puppet::Type.newtype(:kubernetes_container_state_waiting) do
   
     
       newproperty(:reason) do
+        
         desc "(brief) reason the container is not yet running."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -29,7 +31,9 @@ Puppet::Type.newtype(:kubernetes_container_state_waiting) do
   
     
       newproperty(:message) do
+        
         desc "Message regarding why the container is not yet running."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

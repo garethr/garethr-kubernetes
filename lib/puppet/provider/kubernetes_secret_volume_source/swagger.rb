@@ -17,6 +17,14 @@ Puppet::Type.type(:kubernetes_secret_volume_source).provide(:swagger, :parent =>
         secretName: instance.secretName.respond_to?(:to_hash) ? instance.secretName.to_hash : instance.secretName,
       
     
+      
+        items: instance.items.respond_to?(:to_hash) ? instance.items.to_hash : instance.items,
+      
+    
+      
+        defaultMode: instance.defaultMode.respond_to?(:to_hash) ? instance.defaultMode.to_hash : instance.defaultMode,
+      
+    
     object: instance,
     }
   end
@@ -50,6 +58,14 @@ Puppet::Type.type(:kubernetes_secret_volume_source).provide(:swagger, :parent =>
     
       
         secretName: resource[:secretName],
+      
+    
+      
+        items: resource[:items],
+      
+    
+      
+        defaultMode: resource[:defaultMode],
       
     
     }

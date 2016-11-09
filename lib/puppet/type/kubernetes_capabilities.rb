@@ -20,7 +20,9 @@ Puppet::Type.newtype(:kubernetes_capabilities) do
   
     
       newproperty(:add) do
+        
         desc "Added capabilities"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -29,7 +31,9 @@ Puppet::Type.newtype(:kubernetes_capabilities) do
   
     
       newproperty(:drop) do
+        
         desc "Removed capabilities"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

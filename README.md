@@ -155,6 +155,9 @@ above.
 
 ### Types
 
+The following are some of the types avaiable in the module. For a full
+list use `puppet resouce --types | grep kubernetes`.
+
 * kubernetes_pod
 * kubernetes_service
 * kubernetes_replication_controller
@@ -169,6 +172,7 @@ above.
 * kubernetes_persistent_volume_claim
 * kubernetes_component_status
 * kubernetes_service_account
+* kubernetes_deployment
 
 ## Limitations
 

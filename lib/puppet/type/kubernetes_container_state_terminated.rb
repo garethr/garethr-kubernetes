@@ -34,7 +34,9 @@ Puppet::Type.newtype(:kubernetes_container_state_terminated) do
   
     
       newproperty(:exitCode) do
+        
         desc "Exit status from the last termination of the container"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -43,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_container_state_terminated) do
   
     
       newproperty(:signal) do
+        
         desc "Signal from the last termination of the container"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -52,7 +56,9 @@ Puppet::Type.newtype(:kubernetes_container_state_terminated) do
   
     
       newproperty(:reason) do
+        
         desc "(brief) reason from the last termination of the container"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -61,7 +67,9 @@ Puppet::Type.newtype(:kubernetes_container_state_terminated) do
   
     
       newproperty(:message) do
+        
         desc "Message regarding the last termination of the container"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -70,7 +78,9 @@ Puppet::Type.newtype(:kubernetes_container_state_terminated) do
   
     
       newproperty(:startedAt) do
+        
         desc "Time at which previous execution of the container started"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -79,7 +89,9 @@ Puppet::Type.newtype(:kubernetes_container_state_terminated) do
   
     
       newproperty(:finishedAt) do
+        
         desc "Time at which the container last terminated"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -88,7 +100,9 @@ Puppet::Type.newtype(:kubernetes_container_state_terminated) do
   
     
       newproperty(:containerID) do
+        
         desc "Container's ID in the format 'docker://<container_id>'"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

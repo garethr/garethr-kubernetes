@@ -20,7 +20,20 @@ Puppet::Type.newtype(:kubernetes_status_details) do
   
     
       newproperty(:name) do
+        
         desc "The name attribute of the resource associated with the status StatusReason (when there is a single name which can be described)."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:group) do
+        
+        desc "The group attribute of the resource associated with the status StatusReason."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -29,7 +42,9 @@ Puppet::Type.newtype(:kubernetes_status_details) do
   
     
       newproperty(:kind) do
+        
         desc "The kind attribute of the resource associated with the status StatusReason. On some operations may differ from the requested resource Kind. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -38,7 +53,9 @@ Puppet::Type.newtype(:kubernetes_status_details) do
   
     
       newproperty(:causes) do
+        
         desc "The Causes array includes more details associated with the StatusReason failure. Not all StatusReasons may provide detailed causes."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -47,7 +64,9 @@ Puppet::Type.newtype(:kubernetes_status_details) do
   
     
       newproperty(:retryAfterSeconds) do
+        
         desc "If specified, the time in seconds before the operation should be retried."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

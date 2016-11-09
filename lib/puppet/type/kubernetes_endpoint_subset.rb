@@ -27,7 +27,9 @@ The resulting set of endpoints can be viewed as:
   
     
       newproperty(:addresses) do
+        
         desc "IP addresses which offer the related ports that are marked as ready. These endpoints should be considered safe for load balancers and clients to utilize."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -36,7 +38,9 @@ The resulting set of endpoints can be viewed as:
   
     
       newproperty(:notReadyAddresses) do
+        
         desc "IP addresses which offer the related ports but are not currently marked as ready because they have not yet finished starting, have recently failed a readiness check, or have recently failed a liveness check."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -45,7 +49,9 @@ The resulting set of endpoints can be viewed as:
   
     
       newproperty(:ports) do
+        
         desc "Port numbers available on the related IP addresses."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

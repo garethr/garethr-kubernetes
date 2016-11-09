@@ -20,7 +20,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_status) do
   
     
       newproperty(:phase) do
+        
         desc "Phase represents the current phase of PersistentVolumeClaim."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -29,7 +31,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_status) do
   
     
       newproperty(:accessModes) do
-        desc "AccessModes contains the actual access modes the volume backing the PVC has. More info: http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#access-modes-1"
+        
+        desc "AccessModes contains the actual access modes the volume backing the PVC has. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#access-modes-1"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -38,7 +42,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_status) do
   
     
       newproperty(:capacity) do
+        
         desc "Represents the actual resources of the underlying volume."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

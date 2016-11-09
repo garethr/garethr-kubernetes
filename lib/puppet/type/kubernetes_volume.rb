@@ -34,7 +34,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
   
     
       newproperty(:name) do
-        desc "Volume's name. Must be a DNS_LABEL and unique within the pod. More info: http://releases.k8s.io/HEAD/docs/user-guide/identifiers.md#names"
+        
+        desc "Volume's name. Must be a DNS_LABEL and unique within the pod. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -43,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
   
     
       newproperty(:hostPath) do
-        desc "HostPath represents a pre-existing file or directory on the host machine that is directly exposed to the container. This is generally used for system agents or other privileged things that are allowed to see the host machine. Most containers will NOT need this. More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#hostpath"
+        
+        desc "HostPath represents a pre-existing file or directory on the host machine that is directly exposed to the container. This is generally used for system agents or other privileged things that are allowed to see the host machine. Most containers will NOT need this. More info: http://kubernetes.io/docs/user-guide/volumes#hostpath"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -52,7 +56,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
   
     
       newproperty(:emptyDir) do
-        desc "EmptyDir represents a temporary directory that shares a pod's lifetime. More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#emptydir"
+        
+        desc "EmptyDir represents a temporary directory that shares a pod's lifetime. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -61,7 +67,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
   
     
       newproperty(:gcePersistentDisk) do
-        desc "GCEPersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#gcepersistentdisk"
+        
+        desc "GCEPersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -70,7 +78,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
   
     
       newproperty(:awsElasticBlockStore) do
-        desc "AWSElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#awselasticblockstore"
+        
+        desc "AWSElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -79,7 +89,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
   
     
       newproperty(:gitRepo) do
+        
         desc "GitRepo represents a git repository at a particular revision."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -88,7 +100,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
   
     
       newproperty(:secret) do
-        desc "Secret represents a secret that should populate this volume. More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#secrets"
+        
+        desc "Secret represents a secret that should populate this volume. More info: http://kubernetes.io/docs/user-guide/volumes#secrets"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -97,7 +111,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
   
     
       newproperty(:nfs) do
-        desc "NFS represents an NFS mount on the host that shares a pod's lifetime More info: http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#nfs"
+        
+        desc "NFS represents an NFS mount on the host that shares a pod's lifetime More info: http://kubernetes.io/docs/user-guide/volumes#nfs"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -106,7 +122,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
   
     
       newproperty(:iscsi) do
-        desc "ISCSI represents an ISCSI Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: http://releases.k8s.io/HEAD/examples/iscsi/README.md"
+        
+        desc "ISCSI represents an ISCSI Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: http://releases.k8s.io/HEAD/examples/volumes/iscsi/README.md"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -115,7 +133,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
   
     
       newproperty(:glusterfs) do
-        desc "Glusterfs represents a Glusterfs mount on the host that shares a pod's lifetime. More info: http://releases.k8s.io/HEAD/examples/glusterfs/README.md"
+        
+        desc "Glusterfs represents a Glusterfs mount on the host that shares a pod's lifetime. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -124,7 +144,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
   
     
       newproperty(:persistentVolumeClaim) do
-        desc "PersistentVolumeClaimVolumeSource represents a reference to a PersistentVolumeClaim in the same namespace. More info: http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#persistentvolumeclaims"
+        
+        desc "PersistentVolumeClaimVolumeSource represents a reference to a PersistentVolumeClaim in the same namespace. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#persistentvolumeclaims"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -133,7 +155,20 @@ Puppet::Type.newtype(:kubernetes_volume) do
   
     
       newproperty(:rbd) do
-        desc "RBD represents a Rados Block Device mount on the host that shares a pod's lifetime. More info: http://releases.k8s.io/HEAD/examples/rbd/README.md"
+        
+        desc "RBD represents a Rados Block Device mount on the host that shares a pod's lifetime. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md"
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:flexVolume) do
+        
+        desc "FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin. This is an alpha feature and may change in future."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -142,7 +177,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
   
     
       newproperty(:cinder) do
+        
         desc "Cinder represents a cinder volume attached and mounted on kubelets host machine More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -151,7 +188,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
   
     
       newproperty(:cephfs) do
+        
         desc "CephFS represents a Ceph FS mount on the host that shares a pod's lifetime"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -160,7 +199,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
   
     
       newproperty(:flocker) do
+        
         desc "Flocker represents a Flocker volume attached to a kubelet's host machine. This depends on the Flocker control service being running"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -169,7 +210,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
   
     
       newproperty(:downwardAPI) do
+        
         desc "DownwardAPI represents downward API about the pod that should populate this volume"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -178,7 +221,64 @@ Puppet::Type.newtype(:kubernetes_volume) do
   
     
       newproperty(:fc) do
+        
         desc "FC represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:azureFile) do
+        
+        desc "AzureFile represents an Azure File Service mount on the host and bind mount to the pod."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:configMap) do
+        
+        desc "ConfigMap represents a configMap that should populate this volume"
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:vsphereVolume) do
+        
+        desc "VsphereVolume represents a vSphere volume attached and mounted on kubelets host machine"
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:quobyte) do
+        
+        desc "Quobyte represents a Quobyte mount on the host that shares a pod's lifetime"
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:azureDisk) do
+        
+        desc "AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

@@ -78,6 +78,10 @@ Puppet::Type.type(:kubernetes_container).provide(:swagger, :parent => PuppetX::P
       
     
       
+        stdinOnce: instance.stdinOnce.respond_to?(:to_hash) ? instance.stdinOnce.to_hash : instance.stdinOnce,
+      
+    
+      
         tty: instance.tty.respond_to?(:to_hash) ? instance.tty.to_hash : instance.tty,
       
     
@@ -174,6 +178,10 @@ Puppet::Type.type(:kubernetes_container).provide(:swagger, :parent => PuppetX::P
     
       
         stdin: resource[:stdin],
+      
+    
+      
+        stdinOnce: resource[:stdinOnce],
       
     
       

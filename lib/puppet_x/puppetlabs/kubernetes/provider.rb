@@ -28,24 +28,50 @@ module PuppetX
         end
 
         private
-        def self.client
-          Puppet.initialize_settings unless Puppet[:confdir]
-          file = File.join(Puppet[:confdir], 'kubernetes.conf')
-          Puppet.debug("Checking for config file at #{file}")
-          config = Kubeclient::Config.read(file)
+        def self.config
+          @config ||= begin
+            Puppet.initialize_settings unless Puppet[:confdir]
+            file = File.join(Puppet[:confdir], 'kubernetes.conf')
+            Puppet.debug("Checking for config file at #{file}")
+            Kubeclient::Config.read(file)
+          end
+        end
+
+        def self.add_headers(subject)
+          subject.headers = subject.headers.merge({:content_type => :json, :accept => :json})
+          subject
+        end
+
+        def self.v1_client
           client = ::Kubeclient::Client.new(
             config.context.api_endpoint,
             config.context.api_version,
             ssl_options: config.context.ssl_options,
             auth_options: config.context.auth_options,
           )
+          add_headers(client)
+        end
 
-          client.headers = client.headers.merge({:content_type => :json, :accept => :json})
-          client
+        def self.beta_client
+          client = ::Kubeclient::Client.new(
+            "#{config.context.api_endpoint}/apis/extensions",
+            "#{config.context.api_version}beta1",
+            ssl_options: config.context.ssl_options,
+            auth_options: config.context.auth_options,
+          )
+          add_headers(client)
+        end
+
+        def self.call(method, *object)
+          if v1_client.respond_to?(method)
+            v1_client.send(method, *object)
+          else
+            beta_client.send(method, *object)
+          end
         end
 
         def self.list_instances_of(type)
-          client.send("get_#{type}s")
+          call("get_#{type}s")
         end
 
         def make_object(type, name, params)
@@ -59,7 +85,7 @@ module PuppetX
         end
 
         def create_instance_of(type, name, params)
-          client.send("create_#{type}", make_object(type, name, params))
+          call("create_#{type}", make_object(type, name, params))
         end
 
         def ensure_value_at_path(object, klass, path, value)
@@ -113,19 +139,19 @@ module PuppetX
         def flush_instance_of(type, name, object, params)
           applicator = build_applicator(params)
           updated = apply_applicator(type, object, applicator)
-          client.send("update_#{type}", updated)
+          call("update_#{type}", updated)
         end
 
         def self.method_missing(method_sym, *arguments, &block)
-          client.send(method_sym, *arguments, &block)
+          call(method_sym, *arguments, &block)
         end
 
         def destroy_instance_of(type, name)
-          client.send("delete_#{type}", name, namespace)
+          call("delete_#{type}", name, namespace)
         end
 
-        def client
-          self.class.client
+        def call(method, *object)
+          self.class.call(method, *object)
         end
 
         def namespace

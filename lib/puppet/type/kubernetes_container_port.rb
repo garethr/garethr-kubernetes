@@ -34,7 +34,9 @@ Puppet::Type.newtype(:kubernetes_container_port) do
   
     
       newproperty(:name) do
+        
         desc "If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -43,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_container_port) do
   
     
       newproperty(:hostPort) do
+        
         desc "Number of port to expose on the host. If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -52,7 +56,9 @@ Puppet::Type.newtype(:kubernetes_container_port) do
   
     
       newproperty(:containerPort) do
+        
         desc "Number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -61,7 +67,9 @@ Puppet::Type.newtype(:kubernetes_container_port) do
   
     
       newproperty(:protocol) do
+        
         desc "Protocol for port. Must be UDP or TCP. Defaults to 'TCP'."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -70,7 +78,9 @@ Puppet::Type.newtype(:kubernetes_container_port) do
   
     
       newproperty(:hostIP) do
+        
         desc "What host IP to bind the external port to."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

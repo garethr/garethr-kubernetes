@@ -20,7 +20,9 @@ Puppet::Type.newtype(:kubernetes_handler) do
   
     
       newproperty(:exec) do
+        
         desc "One and only one of the following should be specified. Exec specifies the action to take."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -29,7 +31,9 @@ Puppet::Type.newtype(:kubernetes_handler) do
   
     
       newproperty(:httpGet) do
+        
         desc "HTTPGet specifies the http request to perform."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -38,7 +42,9 @@ Puppet::Type.newtype(:kubernetes_handler) do
   
     
       newproperty(:tcpSocket) do
+        
         desc "TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

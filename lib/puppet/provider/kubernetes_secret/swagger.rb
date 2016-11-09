@@ -26,6 +26,10 @@ Puppet::Type.type(:kubernetes_secret).provide(:swagger, :parent => PuppetX::Pupp
       
     
       
+        stringData: instance.stringData.respond_to?(:to_hash) ? instance.stringData.to_hash : instance.stringData,
+      
+    
+      
         type: instance.type.respond_to?(:to_hash) ? instance.type.to_hash : instance.type,
       
     
@@ -70,6 +74,10 @@ Puppet::Type.type(:kubernetes_secret).provide(:swagger, :parent => PuppetX::Pupp
     
       
         data: resource[:data],
+      
+    
+      
+        stringData: resource[:stringData],
       
     
       

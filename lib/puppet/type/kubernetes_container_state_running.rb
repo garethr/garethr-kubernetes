@@ -20,7 +20,9 @@ Puppet::Type.newtype(:kubernetes_container_state_running) do
   
     
       newproperty(:startedAt) do
+        
         desc "Time at which the container was last (re-)started"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

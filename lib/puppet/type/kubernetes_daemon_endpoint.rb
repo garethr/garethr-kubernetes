@@ -34,7 +34,9 @@ Puppet::Type.newtype(:kubernetes_daemon_endpoint) do
   
     
       newproperty(:Port) do
+        
         desc "Port number of the given endpoint."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

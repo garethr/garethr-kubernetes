@@ -45,6 +45,14 @@ Puppet::Type.type(:kubernetes_node_system_info).provide(:swagger, :parent => Pup
         kubeProxyVersion: instance.kubeProxyVersion.respond_to?(:to_hash) ? instance.kubeProxyVersion.to_hash : instance.kubeProxyVersion,
       
     
+      
+        operatingSystem: instance.operatingSystem.respond_to?(:to_hash) ? instance.operatingSystem.to_hash : instance.operatingSystem,
+      
+    
+      
+        architecture: instance.architecture.respond_to?(:to_hash) ? instance.architecture.to_hash : instance.architecture,
+      
+    
     object: instance,
     }
   end
@@ -106,6 +114,14 @@ Puppet::Type.type(:kubernetes_node_system_info).provide(:swagger, :parent => Pup
     
       
         kubeProxyVersion: resource[:kubeProxyVersion],
+      
+    
+      
+        operatingSystem: resource[:operatingSystem],
+      
+    
+      
+        architecture: resource[:architecture],
       
     
     }

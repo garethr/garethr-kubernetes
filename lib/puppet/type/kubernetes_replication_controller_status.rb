@@ -34,7 +34,42 @@ Puppet::Type.newtype(:kubernetes_replication_controller_status) do
   
     
       newproperty(:replicas) do
-        desc "Replicas is the most recently oberved number of replicas. More info: http://releases.k8s.io/HEAD/docs/user-guide/replication-controller.md#what-is-a-replication-controller"
+        
+        desc "Replicas is the most recently oberved number of replicas. More info: http://kubernetes.io/docs/user-guide/replication-controller#what-is-a-replication-controller"
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:fullyLabeledReplicas) do
+        
+        desc "The number of pods that have labels matching the labels of the pod template of the replication controller."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:readyReplicas) do
+        
+        desc "The number of ready replicas for this replication controller."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:availableReplicas) do
+        
+        desc "The number of available replicas (ready for at least minReadySeconds) for this replication controller."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -43,7 +78,20 @@ Puppet::Type.newtype(:kubernetes_replication_controller_status) do
   
     
       newproperty(:observedGeneration) do
+        
         desc "ObservedGeneration reflects the generation of the most recently observed replication controller."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:conditions) do
+        
+        desc "Represents the latest available observations of a replication controller's current state."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

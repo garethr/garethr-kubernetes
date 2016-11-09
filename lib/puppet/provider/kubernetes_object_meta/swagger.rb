@@ -61,6 +61,18 @@ Puppet::Type.type(:kubernetes_object_meta).provide(:swagger, :parent => PuppetX:
         annotations: instance.annotations.respond_to?(:to_hash) ? instance.annotations.to_hash : instance.annotations,
       
     
+      
+        ownerReferences: instance.ownerReferences.respond_to?(:to_hash) ? instance.ownerReferences.to_hash : instance.ownerReferences,
+      
+    
+      
+        finalizers: instance.finalizers.respond_to?(:to_hash) ? instance.finalizers.to_hash : instance.finalizers,
+      
+    
+      
+        clusterName: instance.clusterName.respond_to?(:to_hash) ? instance.clusterName.to_hash : instance.clusterName,
+      
+    
     object: instance,
     }
   end
@@ -138,6 +150,18 @@ Puppet::Type.type(:kubernetes_object_meta).provide(:swagger, :parent => PuppetX:
     
       
         annotations: resource[:annotations],
+      
+    
+      
+        ownerReferences: resource[:ownerReferences],
+      
+    
+      
+        finalizers: resource[:finalizers],
+      
+    
+      
+        clusterName: resource[:clusterName],
       
     
     }

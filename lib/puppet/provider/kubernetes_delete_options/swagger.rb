@@ -25,6 +25,14 @@ Puppet::Type.type(:kubernetes_delete_options).provide(:swagger, :parent => Puppe
         gracePeriodSeconds: instance.gracePeriodSeconds.respond_to?(:to_hash) ? instance.gracePeriodSeconds.to_hash : instance.gracePeriodSeconds,
       
     
+      
+        preconditions: instance.preconditions.respond_to?(:to_hash) ? instance.preconditions.to_hash : instance.preconditions,
+      
+    
+      
+        orphanDependents: instance.orphanDependents.respond_to?(:to_hash) ? instance.orphanDependents.to_hash : instance.orphanDependents,
+      
+    
     object: instance,
     }
   end
@@ -66,6 +74,14 @@ Puppet::Type.type(:kubernetes_delete_options).provide(:swagger, :parent => Puppe
     
       
         gracePeriodSeconds: resource[:gracePeriodSeconds],
+      
+    
+      
+        preconditions: resource[:preconditions],
+      
+    
+      
+        orphanDependents: resource[:orphanDependents],
       
     
     }

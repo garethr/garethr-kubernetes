@@ -45,6 +45,14 @@ Puppet::Type.type(:kubernetes_service_spec).provide(:swagger, :parent => PuppetX
         loadBalancerIP: instance.loadBalancerIP.respond_to?(:to_hash) ? instance.loadBalancerIP.to_hash : instance.loadBalancerIP,
       
     
+      
+        loadBalancerSourceRanges: instance.loadBalancerSourceRanges.respond_to?(:to_hash) ? instance.loadBalancerSourceRanges.to_hash : instance.loadBalancerSourceRanges,
+      
+    
+      
+        externalName: instance.externalName.respond_to?(:to_hash) ? instance.externalName.to_hash : instance.externalName,
+      
+    
     object: instance,
     }
   end
@@ -106,6 +114,14 @@ Puppet::Type.type(:kubernetes_service_spec).provide(:swagger, :parent => PuppetX
     
       
         loadBalancerIP: resource[:loadBalancerIP],
+      
+    
+      
+        loadBalancerSourceRanges: resource[:loadBalancerSourceRanges],
+      
+    
+      
+        externalName: resource[:externalName],
       
     
     }
