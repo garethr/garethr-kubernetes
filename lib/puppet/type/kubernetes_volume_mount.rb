@@ -36,7 +36,9 @@ Puppet::Type.newtype(:kubernetes_volume_mount) do
   
     
       newproperty(:name) do
+        
         desc "This must match the Name of a Volume."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -45,7 +47,9 @@ Puppet::Type.newtype(:kubernetes_volume_mount) do
   
     
       newproperty(:readOnly) do
+        
         desc "Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -54,7 +58,20 @@ Puppet::Type.newtype(:kubernetes_volume_mount) do
   
     
       newproperty(:mountPath) do
-        desc "Path within the container at which the volume should be mounted."
+        
+        desc "Path within the container at which the volume should be mounted.  Must not contain ':'."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:subPath) do
+        
+        desc "Path within the volume from which the container's volume should be mounted. Defaults to '' (volume's root)."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

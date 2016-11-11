@@ -36,7 +36,9 @@ Puppet::Type.newtype(:kubernetes_node_address) do
   
     
       newproperty(:type) do
+        
         desc "Node address type, one of Hostname, ExternalIP or InternalIP."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -45,7 +47,9 @@ Puppet::Type.newtype(:kubernetes_node_address) do
   
     
       newproperty(:address) do
+        
         desc "The node address."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

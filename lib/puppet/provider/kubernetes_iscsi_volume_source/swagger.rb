@@ -26,6 +26,10 @@ Puppet::Type.type(:kubernetes_iscsi_volume_source).provide(:swagger, :parent => 
       
     
       
+        iscsiInterface: instance.iscsiInterface.respond_to?(:to_hash) ? instance.iscsiInterface.to_hash : instance.iscsiInterface,
+      
+    
+      
         fsType: instance.fsType.respond_to?(:to_hash) ? instance.fsType.to_hash : instance.fsType,
       
     
@@ -74,6 +78,10 @@ Puppet::Type.type(:kubernetes_iscsi_volume_source).provide(:swagger, :parent => 
     
       
         lun: resource[:lun],
+      
+    
+      
+        iscsiInterface: resource[:iscsiInterface],
       
     
       

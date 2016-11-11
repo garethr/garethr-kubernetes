@@ -20,7 +20,9 @@ Puppet::Type.newtype(:kubernetes_container_state) do
   
     
       newproperty(:waiting) do
+        
         desc "Details about a waiting container"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -29,7 +31,9 @@ Puppet::Type.newtype(:kubernetes_container_state) do
   
     
       newproperty(:running) do
+        
         desc "Details about a running container"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -38,7 +42,9 @@ Puppet::Type.newtype(:kubernetes_container_state) do
   
     
       newproperty(:terminated) do
+        
         desc "Details about a terminated container"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

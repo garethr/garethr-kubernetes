@@ -25,6 +25,10 @@ Puppet::Type.type(:kubernetes_volume_mount).provide(:swagger, :parent => PuppetX
         mountPath: instance.mountPath.respond_to?(:to_hash) ? instance.mountPath.to_hash : instance.mountPath,
       
     
+      
+        subPath: instance.subPath.respond_to?(:to_hash) ? instance.subPath.to_hash : instance.subPath,
+      
+    
     object: instance,
     }
   end
@@ -66,6 +70,10 @@ Puppet::Type.type(:kubernetes_volume_mount).provide(:swagger, :parent => PuppetX
     
       
         mountPath: resource[:mountPath],
+      
+    
+      
+        subPath: resource[:subPath],
       
     
     }

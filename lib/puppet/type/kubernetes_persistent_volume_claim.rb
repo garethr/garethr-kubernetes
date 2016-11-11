@@ -24,7 +24,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim) do
   
     
       newproperty(:metadata) do
+        
         desc "Standard object's metadata. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -33,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim) do
   
     
       newproperty(:spec) do
-        desc "Spec defines the desired characteristics of a volume requested by a pod author. More info: http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#persistentvolumeclaims"
+        
+        desc "Spec defines the desired characteristics of a volume requested by a pod author. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#persistentvolumeclaims"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -42,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim) do
   
     
       newproperty(:status) do
-        desc "Status represents the current information/status of a persistent volume claim. Read-only. More info: http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#persistentvolumeclaims"
+        
+        desc "Status represents the current information/status of a persistent volume claim. Read-only. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#persistentvolumeclaims"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

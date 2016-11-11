@@ -7,25 +7,11 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_flocker_volume_source) do
   
-  @doc = "FlockerVolumeSource represents a Flocker volume mounted by the Flocker agent."
+  @doc = "Represents a Flocker volume mounted by the Flocker agent. One and only one of datasetName and datasetUUID should be set. Flocker volumes do not support ownership management or SELinux relabeling."
   
 
   ensurable
 
-  
-  validate do
-    required_properties = [
-    
-      datasetName,
-    
-    ]
-    required_properties.each do |property|
-      # We check for both places so as to cover the puppet resource path as well
-      if self[property].nil? and self.provider.send(property) == :absent
-        fail "You must provide a #{property}"
-      end
-    end
-  end
   
 
   newparam(:name, namevar: true) do
@@ -34,7 +20,20 @@ Puppet::Type.newtype(:kubernetes_flocker_volume_source) do
   
     
       newproperty(:datasetName) do
-        desc "Required: the volume name. This is going to be store on metadata -> name on the payload for Flocker"
+        
+        desc "Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated"
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:datasetUUID) do
+        
+        desc "UUID of the dataset. This is unique identifier of a Flocker dataset"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

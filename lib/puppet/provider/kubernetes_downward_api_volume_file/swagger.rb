@@ -21,6 +21,14 @@ Puppet::Type.type(:kubernetes_downward_api_volume_file).provide(:swagger, :paren
         fieldRef: instance.fieldRef.respond_to?(:to_hash) ? instance.fieldRef.to_hash : instance.fieldRef,
       
     
+      
+        resourceFieldRef: instance.resourceFieldRef.respond_to?(:to_hash) ? instance.resourceFieldRef.to_hash : instance.resourceFieldRef,
+      
+    
+      
+        mode: instance.mode.respond_to?(:to_hash) ? instance.mode.to_hash : instance.mode,
+      
+    
     object: instance,
     }
   end
@@ -58,6 +66,14 @@ Puppet::Type.type(:kubernetes_downward_api_volume_file).provide(:swagger, :paren
     
       
         fieldRef: resource[:fieldRef],
+      
+    
+      
+        resourceFieldRef: resource[:resourceFieldRef],
+      
+    
+      
+        mode: resource[:mode],
       
     
     }

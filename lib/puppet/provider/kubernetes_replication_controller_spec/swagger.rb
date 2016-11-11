@@ -18,6 +18,10 @@ Puppet::Type.type(:kubernetes_replication_controller_spec).provide(:swagger, :pa
       
     
       
+        minReadySeconds: instance.minReadySeconds.respond_to?(:to_hash) ? instance.minReadySeconds.to_hash : instance.minReadySeconds,
+      
+    
+      
         selector: instance.selector.respond_to?(:to_hash) ? instance.selector.to_hash : instance.selector,
       
     
@@ -58,6 +62,10 @@ Puppet::Type.type(:kubernetes_replication_controller_spec).provide(:swagger, :pa
     
       
         replicas: resource[:replicas],
+      
+    
+      
+        minReadySeconds: resource[:minReadySeconds],
       
     
       

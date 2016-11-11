@@ -34,7 +34,9 @@ Puppet::Type.newtype(:kubernetes_http_get_action) do
   
     
       newproperty(:path) do
+        
         desc "Path to access on the HTTP server."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -43,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_http_get_action) do
   
     
       newproperty(:port) do
+        
         desc "Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -52,7 +56,9 @@ Puppet::Type.newtype(:kubernetes_http_get_action) do
   
     
       newproperty(:host) do
-        desc "Host name to connect to, defaults to the pod IP."
+        
+        desc "Host name to connect to, defaults to the pod IP. You probably want to set 'Host' in httpHeaders instead."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -61,7 +67,20 @@ Puppet::Type.newtype(:kubernetes_http_get_action) do
   
     
       newproperty(:scheme) do
+        
         desc "Scheme to use for connecting to the host. Defaults to HTTP."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:httpHeaders) do
+        
+        desc "Custom headers to set in the request. HTTP allows repeated headers."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

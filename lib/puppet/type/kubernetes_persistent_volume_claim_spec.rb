@@ -20,7 +20,20 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_spec) do
   
     
       newproperty(:accessModes) do
-        desc "AccessModes contains the desired access modes the volume should have. More info: http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#access-modes-1"
+        
+        desc "AccessModes contains the desired access modes the volume should have. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#access-modes-1"
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:selector) do
+        
+        desc "A label query over volumes to consider for binding."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -29,7 +42,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_spec) do
   
     
       newproperty(:resources) do
-        desc "Resources represents the minimum resources the volume should have. More info: http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#resources"
+        
+        desc "Resources represents the minimum resources the volume should have. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#resources"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -38,7 +53,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_spec) do
   
     
       newproperty(:volumeName) do
+        
         desc "VolumeName is the binding reference to the PersistentVolume backing this claim."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

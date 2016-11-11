@@ -17,6 +17,10 @@ Puppet::Type.type(:kubernetes_downward_api_volume_source).provide(:swagger, :par
         items: instance.items.respond_to?(:to_hash) ? instance.items.to_hash : instance.items,
       
     
+      
+        defaultMode: instance.defaultMode.respond_to?(:to_hash) ? instance.defaultMode.to_hash : instance.defaultMode,
+      
+    
     object: instance,
     }
   end
@@ -50,6 +54,10 @@ Puppet::Type.type(:kubernetes_downward_api_volume_source).provide(:swagger, :par
     
       
         items: resource[:items],
+      
+    
+      
+        defaultMode: resource[:defaultMode],
       
     
     }

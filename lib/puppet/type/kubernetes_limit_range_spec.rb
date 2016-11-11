@@ -34,7 +34,9 @@ Puppet::Type.newtype(:kubernetes_limit_range_spec) do
   
     
       newproperty(:limits) do
+        
         desc "Limits is the list of LimitRangeItem objects that are enforced."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

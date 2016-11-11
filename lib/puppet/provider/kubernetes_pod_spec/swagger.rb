@@ -73,6 +73,14 @@ Puppet::Type.type(:kubernetes_pod_spec).provide(:swagger, :parent => PuppetX::Pu
         imagePullSecrets: instance.imagePullSecrets.respond_to?(:to_hash) ? instance.imagePullSecrets.to_hash : instance.imagePullSecrets,
       
     
+      
+        hostname: instance.hostname.respond_to?(:to_hash) ? instance.hostname.to_hash : instance.hostname,
+      
+    
+      
+        subdomain: instance.subdomain.respond_to?(:to_hash) ? instance.subdomain.to_hash : instance.subdomain,
+      
+    
     object: instance,
     }
   end
@@ -162,6 +170,14 @@ Puppet::Type.type(:kubernetes_pod_spec).provide(:swagger, :parent => PuppetX::Pu
     
       
         imagePullSecrets: resource[:imagePullSecrets],
+      
+    
+      
+        hostname: resource[:hostname],
+      
+    
+      
+        subdomain: resource[:subdomain],
       
     
     }

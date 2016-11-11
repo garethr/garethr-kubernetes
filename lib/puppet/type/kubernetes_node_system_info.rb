@@ -32,6 +32,10 @@ Puppet::Type.newtype(:kubernetes_node_system_info) do
     
       kubeProxyVersion,
     
+      operatingSystem,
+    
+      architecture,
+    
     ]
     required_properties.each do |property|
       # We check for both places so as to cover the puppet resource path as well
@@ -48,7 +52,9 @@ Puppet::Type.newtype(:kubernetes_node_system_info) do
   
     
       newproperty(:machineID) do
-        desc "Machine ID reported by the node."
+        
+        desc "MachineID reported by the node. For unique machine identification in the cluster this field is prefered. Learn more from man(5) machine-id: http://man7.org/linux/man-pages/man5/machine-id.5.html"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -57,7 +63,9 @@ Puppet::Type.newtype(:kubernetes_node_system_info) do
   
     
       newproperty(:systemUUID) do
-        desc "System UUID reported by the node."
+        
+        desc "SystemUUID reported by the node. For unique machine identification MachineID is prefered. This field is specific to Red Hat hosts https://access.redhat.com/documentation/en-US/Red_Hat_Subscription_Management/1/html/RHSM/getting-system-uuid.html"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -66,7 +74,9 @@ Puppet::Type.newtype(:kubernetes_node_system_info) do
   
     
       newproperty(:bootID) do
+        
         desc "Boot ID reported by the node."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -75,7 +85,9 @@ Puppet::Type.newtype(:kubernetes_node_system_info) do
   
     
       newproperty(:kernelVersion) do
+        
         desc "Kernel Version reported by the node from 'uname -r' (e.g. 3.16.0-0.bpo.4-amd64)."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -84,7 +96,9 @@ Puppet::Type.newtype(:kubernetes_node_system_info) do
   
     
       newproperty(:osImage) do
+        
         desc "OS Image reported by the node from /etc/os-release (e.g. Debian GNU/Linux 7 (wheezy))."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -93,7 +107,9 @@ Puppet::Type.newtype(:kubernetes_node_system_info) do
   
     
       newproperty(:containerRuntimeVersion) do
+        
         desc "ContainerRuntime Version reported by the node through runtime remote API (e.g. docker://1.5.0)."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -102,7 +118,9 @@ Puppet::Type.newtype(:kubernetes_node_system_info) do
   
     
       newproperty(:kubeletVersion) do
+        
         desc "Kubelet Version reported by the node."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -111,7 +129,31 @@ Puppet::Type.newtype(:kubernetes_node_system_info) do
   
     
       newproperty(:kubeProxyVersion) do
+        
         desc "KubeProxy Version reported by the node."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:operatingSystem) do
+        
+        desc "The Operating System reported by the node"
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:architecture) do
+        
+        desc "The Architecture reported by the node"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

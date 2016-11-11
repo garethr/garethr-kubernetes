@@ -34,7 +34,9 @@ Puppet::Type.newtype(:kubernetes_tcp_socket_action) do
   
     
       newproperty(:port) do
+        
         desc "Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

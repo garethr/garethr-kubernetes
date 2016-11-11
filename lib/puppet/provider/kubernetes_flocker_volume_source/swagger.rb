@@ -17,6 +17,10 @@ Puppet::Type.type(:kubernetes_flocker_volume_source).provide(:swagger, :parent =
         datasetName: instance.datasetName.respond_to?(:to_hash) ? instance.datasetName.to_hash : instance.datasetName,
       
     
+      
+        datasetUUID: instance.datasetUUID.respond_to?(:to_hash) ? instance.datasetUUID.to_hash : instance.datasetUUID,
+      
+    
     object: instance,
     }
   end
@@ -50,6 +54,10 @@ Puppet::Type.type(:kubernetes_flocker_volume_source).provide(:swagger, :parent =
     
       
         datasetName: resource[:datasetName],
+      
+    
+      
+        datasetUUID: resource[:datasetUUID],
       
     
     }

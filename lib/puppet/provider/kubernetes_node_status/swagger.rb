@@ -18,6 +18,10 @@ Puppet::Type.type(:kubernetes_node_status).provide(:swagger, :parent => PuppetX:
       
     
       
+        allocatable: instance.allocatable.respond_to?(:to_hash) ? instance.allocatable.to_hash : instance.allocatable,
+      
+    
+      
         phase: instance.phase.respond_to?(:to_hash) ? instance.phase.to_hash : instance.phase,
       
     
@@ -35,6 +39,18 @@ Puppet::Type.type(:kubernetes_node_status).provide(:swagger, :parent => PuppetX:
     
       
         nodeInfo: instance.nodeInfo.respond_to?(:to_hash) ? instance.nodeInfo.to_hash : instance.nodeInfo,
+      
+    
+      
+        images: instance.images.respond_to?(:to_hash) ? instance.images.to_hash : instance.images,
+      
+    
+      
+        volumesInUse: instance.volumesInUse.respond_to?(:to_hash) ? instance.volumesInUse.to_hash : instance.volumesInUse,
+      
+    
+      
+        volumesAttached: instance.volumesAttached.respond_to?(:to_hash) ? instance.volumesAttached.to_hash : instance.volumesAttached,
       
     
     object: instance,
@@ -73,6 +89,10 @@ Puppet::Type.type(:kubernetes_node_status).provide(:swagger, :parent => PuppetX:
       
     
       
+        allocatable: resource[:allocatable],
+      
+    
+      
         phase: resource[:phase],
       
     
@@ -90,6 +110,18 @@ Puppet::Type.type(:kubernetes_node_status).provide(:swagger, :parent => PuppetX:
     
       
         nodeInfo: resource[:nodeInfo],
+      
+    
+      
+        images: resource[:images],
+      
+    
+      
+        volumesInUse: resource[:volumesInUse],
+      
+    
+      
+        volumesAttached: resource[:volumesAttached],
       
     
     }

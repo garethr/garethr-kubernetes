@@ -20,7 +20,9 @@ Puppet::Type.newtype(:kubernetes_load_balancer_status) do
   
     
       newproperty(:ingress) do
+        
         desc "Ingress is a list containing ingress points for the load-balancer. Traffic intended for the service should be sent to these ingress points."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

@@ -33,6 +33,18 @@ Puppet::Type.type(:kubernetes_probe).provide(:swagger, :parent => PuppetX::Puppe
         timeoutSeconds: instance.timeoutSeconds.respond_to?(:to_hash) ? instance.timeoutSeconds.to_hash : instance.timeoutSeconds,
       
     
+      
+        periodSeconds: instance.periodSeconds.respond_to?(:to_hash) ? instance.periodSeconds.to_hash : instance.periodSeconds,
+      
+    
+      
+        successThreshold: instance.successThreshold.respond_to?(:to_hash) ? instance.successThreshold.to_hash : instance.successThreshold,
+      
+    
+      
+        failureThreshold: instance.failureThreshold.respond_to?(:to_hash) ? instance.failureThreshold.to_hash : instance.failureThreshold,
+      
+    
     object: instance,
     }
   end
@@ -82,6 +94,18 @@ Puppet::Type.type(:kubernetes_probe).provide(:swagger, :parent => PuppetX::Puppe
     
       
         timeoutSeconds: resource[:timeoutSeconds],
+      
+    
+      
+        periodSeconds: resource[:periodSeconds],
+      
+    
+      
+        successThreshold: resource[:successThreshold],
+      
+    
+      
+        failureThreshold: resource[:failureThreshold],
       
     
     }

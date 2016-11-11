@@ -36,7 +36,9 @@ Puppet::Type.newtype(:kubernetes_component_condition) do
   
     
       newproperty(:type) do
+        
         desc "Type of condition for a component. Valid value: 'Healthy'"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -45,7 +47,9 @@ Puppet::Type.newtype(:kubernetes_component_condition) do
   
     
       newproperty(:status) do
+        
         desc "Status of the condition for a component. Valid values for 'Healthy': 'True', 'False', or 'Unknown'."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -54,7 +58,9 @@ Puppet::Type.newtype(:kubernetes_component_condition) do
   
     
       newproperty(:message) do
+        
         desc "Message about the condition for a component. For example, information about a health check."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -63,7 +69,9 @@ Puppet::Type.newtype(:kubernetes_component_condition) do
   
     
       newproperty(:error) do
+        
         desc "Condition error code for a component. For example, a health check error code."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

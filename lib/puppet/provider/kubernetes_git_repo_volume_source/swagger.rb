@@ -21,6 +21,10 @@ Puppet::Type.type(:kubernetes_git_repo_volume_source).provide(:swagger, :parent 
         revision: instance.revision.respond_to?(:to_hash) ? instance.revision.to_hash : instance.revision,
       
     
+      
+        directory: instance.directory.respond_to?(:to_hash) ? instance.directory.to_hash : instance.directory,
+      
+    
     object: instance,
     }
   end
@@ -58,6 +62,10 @@ Puppet::Type.type(:kubernetes_git_repo_volume_source).provide(:swagger, :parent 
     
       
         revision: resource[:revision],
+      
+    
+      
+        directory: resource[:directory],
       
     
     }

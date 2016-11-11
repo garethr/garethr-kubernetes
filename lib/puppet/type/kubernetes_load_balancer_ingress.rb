@@ -20,7 +20,9 @@ Puppet::Type.newtype(:kubernetes_load_balancer_ingress) do
   
     
       newproperty(:ip) do
+        
         desc "IP is set for load-balancer ingress points that are IP based (typically GCE or OpenStack load-balancers)"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -29,7 +31,9 @@ Puppet::Type.newtype(:kubernetes_load_balancer_ingress) do
   
     
       newproperty(:hostname) do
+        
         desc "Hostname is set for load-balancer ingress points that are DNS based (typically AWS load-balancers)"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

@@ -42,7 +42,9 @@ Puppet::Type.newtype(:kubernetes_container_status) do
   
     
       newproperty(:name) do
+        
         desc "This must be a DNS_LABEL. Each container in a pod must have a unique name. Cannot be updated."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -51,7 +53,9 @@ Puppet::Type.newtype(:kubernetes_container_status) do
   
     
       newproperty(:state) do
+        
         desc "Details about the container's current condition."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -60,7 +64,9 @@ Puppet::Type.newtype(:kubernetes_container_status) do
   
     
       newproperty(:lastState) do
+        
         desc "Details about the container's last termination condition."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -69,7 +75,9 @@ Puppet::Type.newtype(:kubernetes_container_status) do
   
     
       newproperty(:ready) do
+        
         desc "Specifies whether the container has passed its readiness probe."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -78,7 +86,9 @@ Puppet::Type.newtype(:kubernetes_container_status) do
   
     
       newproperty(:restartCount) do
+        
         desc "The number of times the container has been restarted, currently based on the number of dead containers that have not yet been removed. Note that this is calculated from dead containers. But those containers are subject to garbage collection. This value will get capped at 5 by GC."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -87,7 +97,9 @@ Puppet::Type.newtype(:kubernetes_container_status) do
   
     
       newproperty(:image) do
-        desc "The image the container is running. More info: http://releases.k8s.io/HEAD/docs/user-guide/images.md"
+        
+        desc "The image the container is running. More info: http://kubernetes.io/docs/user-guide/images"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -96,7 +108,9 @@ Puppet::Type.newtype(:kubernetes_container_status) do
   
     
       newproperty(:imageID) do
+        
         desc "ImageID of the container's image."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -105,7 +119,9 @@ Puppet::Type.newtype(:kubernetes_container_status) do
   
     
       newproperty(:containerID) do
-        desc "Container's ID in the format 'docker://<container_id>'. More info: http://releases.k8s.io/HEAD/docs/user-guide/container-environment.md#container-information"
+        
+        desc "Container's ID in the format 'docker://<container_id>'. More info: http://kubernetes.io/docs/user-guide/container-environment#container-information"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_node) do
   
-  @doc = "Node is a worker node in Kubernetes, formerly known as minion. Each node will have a unique identifier in the cache (i.e. in etcd)."
+  @doc = "Node is a worker node in Kubernetes. Each node will have a unique identifier in the cache (i.e. in etcd)."
   
 
   ensurable
@@ -24,7 +24,9 @@ Puppet::Type.newtype(:kubernetes_node) do
   
     
       newproperty(:metadata) do
+        
         desc "Standard object's metadata. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -33,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_node) do
   
     
       newproperty(:spec) do
+        
         desc "Spec defines the behavior of a node. http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -42,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_node) do
   
     
       newproperty(:status) do
+        
         desc "Most recently observed status of the node. Populated by the system. Read-only. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

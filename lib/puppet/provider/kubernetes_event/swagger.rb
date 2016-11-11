@@ -14,39 +14,11 @@ Puppet::Type.type(:kubernetes_event).provide(:swagger, :parent => PuppetX::Puppe
     name: instance.metadata.name,
     
       
-    
+        type: instance.type.respond_to?(:to_hash) ? instance.type.to_hash : instance.type,
       
     
       
-        metadata: instance.metadata.respond_to?(:to_hash) ? instance.metadata.to_hash : instance.metadata,
-      
-    
-      
-        involvedObject: instance.involvedObject.respond_to?(:to_hash) ? instance.involvedObject.to_hash : instance.involvedObject,
-      
-    
-      
-        reason: instance.reason.respond_to?(:to_hash) ? instance.reason.to_hash : instance.reason,
-      
-    
-      
-        message: instance.message.respond_to?(:to_hash) ? instance.message.to_hash : instance.message,
-      
-    
-      
-        source: instance.source.respond_to?(:to_hash) ? instance.source.to_hash : instance.source,
-      
-    
-      
-        firstTimestamp: instance.firstTimestamp.respond_to?(:to_hash) ? instance.firstTimestamp.to_hash : instance.firstTimestamp,
-      
-    
-      
-        lastTimestamp: instance.lastTimestamp.respond_to?(:to_hash) ? instance.lastTimestamp.to_hash : instance.lastTimestamp,
-      
-    
-      
-        count: instance.count.respond_to?(:to_hash) ? instance.count.to_hash : instance.count,
+        object: instance.object.respond_to?(:to_hash) ? instance.object.to_hash : instance.object,
       
     
     object: instance,
@@ -81,39 +53,11 @@ Puppet::Type.type(:kubernetes_event).provide(:swagger, :parent => PuppetX::Puppe
     params = {
     
       
-    
+        type: resource[:type],
       
     
       
-        metadata: resource[:metadata],
-      
-    
-      
-        involvedObject: resource[:involvedObject],
-      
-    
-      
-        reason: resource[:reason],
-      
-    
-      
-        message: resource[:message],
-      
-    
-      
-        source: resource[:source],
-      
-    
-      
-        firstTimestamp: resource[:firstTimestamp],
-      
-    
-      
-        lastTimestamp: resource[:lastTimestamp],
-      
-    
-      
-        count: resource[:count],
+        object: resource[:object],
       
     
     }

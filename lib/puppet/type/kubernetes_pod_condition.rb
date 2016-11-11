@@ -36,7 +36,9 @@ Puppet::Type.newtype(:kubernetes_pod_condition) do
   
     
       newproperty(:type) do
-        desc "Type is the type of the condition. Currently only Ready. More info: http://releases.k8s.io/HEAD/docs/user-guide/pod-states.md#pod-conditions"
+        
+        desc "Type is the type of the condition. Currently only Ready. More info: http://kubernetes.io/docs/user-guide/pod-states#pod-conditions"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -45,7 +47,9 @@ Puppet::Type.newtype(:kubernetes_pod_condition) do
   
     
       newproperty(:status) do
-        desc "Status is the status of the condition. Can be True, False, Unknown. More info: http://releases.k8s.io/HEAD/docs/user-guide/pod-states.md#pod-conditions"
+        
+        desc "Status is the status of the condition. Can be True, False, Unknown. More info: http://kubernetes.io/docs/user-guide/pod-states#pod-conditions"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -54,7 +58,9 @@ Puppet::Type.newtype(:kubernetes_pod_condition) do
   
     
       newproperty(:lastProbeTime) do
+        
         desc "Last time we probed the condition."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -63,7 +69,9 @@ Puppet::Type.newtype(:kubernetes_pod_condition) do
   
     
       newproperty(:lastTransitionTime) do
+        
         desc "Last time the condition transitioned from one status to another."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -72,7 +80,9 @@ Puppet::Type.newtype(:kubernetes_pod_condition) do
   
     
       newproperty(:reason) do
+        
         desc "Unique, one-word, CamelCase reason for the condition's last transition."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -81,7 +91,9 @@ Puppet::Type.newtype(:kubernetes_pod_condition) do
   
     
       newproperty(:message) do
+        
         desc "Human-readable message indicating details about last transition."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

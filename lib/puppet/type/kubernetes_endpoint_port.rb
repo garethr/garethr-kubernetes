@@ -34,7 +34,9 @@ Puppet::Type.newtype(:kubernetes_endpoint_port) do
   
     
       newproperty(:name) do
+        
         desc "The name of this port (corresponds to ServicePort.Name). Must be a DNS_LABEL. Optional only if one port is defined."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -43,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_endpoint_port) do
   
     
       newproperty(:port) do
+        
         desc "The port number of the endpoint."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -52,7 +56,9 @@ Puppet::Type.newtype(:kubernetes_endpoint_port) do
   
     
       newproperty(:protocol) do
+        
         desc "The IP protocol for this port. Must be UDP or TCP. Default is TCP."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end

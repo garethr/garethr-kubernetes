@@ -20,7 +20,9 @@ Puppet::Type.newtype(:kubernetes_event_source) do
   
     
       newproperty(:component) do
+        
         desc "Component from which the event is generated."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -29,7 +31,9 @@ Puppet::Type.newtype(:kubernetes_event_source) do
   
     
       newproperty(:host) do
-        desc "Host name on which the event is generated."
+        
+        desc "Node name on which the event is generated."
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
