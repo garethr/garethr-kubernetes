@@ -77,7 +77,7 @@ module PuppetX
         def make_object(type, name, params)
           klass = type.split('_').collect(&:capitalize).join
           params[:metadata] = {} unless params.key?(:metadata)
-          p = params.kube_symbolize_keys.fixnumify
+          p = params.swagger_symbolize_keys.fixnumify
           object = Object::const_get("Kubeclient::#{klass}").new(p)
           object.metadata.name = name
           object.metadata.namespace = namespace unless namespace.nil?
