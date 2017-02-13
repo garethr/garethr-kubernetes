@@ -122,7 +122,7 @@ state over time.
 ### Delete resources
 
 You can also delete the resources we created above by setting the `ensure`
-property to `absent` in the manifest or using `puppet resouce` like so:
+property to `absent` in the manifest or using `puppet resource` like so:
 
     puppet resource kubernetes_pod sample-pod ensure=absent
 
