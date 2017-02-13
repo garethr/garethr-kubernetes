@@ -155,7 +155,7 @@ above.
 
 ### Types
 
-The following are some of the types avaiable in the module. For a full
+The following are some of the types available in the module. For a full
 list use `puppet resource --types | grep kubernetes`.
 
 * kubernetes_pod
