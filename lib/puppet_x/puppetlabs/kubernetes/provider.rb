@@ -2,7 +2,6 @@ require 'puppet'
 
 require_relative '../swagger/provider'
 require_relative '../swagger/fixnumify'
-require_relative '../../../kubeclient/config'
 
 # With the Kiubernetes proxy on OpenShift (or maybe a change in Kuberenetes 1.2)
 # the API requires that the accept headers be correctly set. At the moment this
