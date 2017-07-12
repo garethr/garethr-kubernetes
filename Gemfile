@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "kubeclient"
+gem "kubeclient", '>= 1.1.4'
 
 group :test do
   gem "rake", "~> 10.0"
