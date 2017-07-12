@@ -12,6 +12,7 @@ group :test do
   gem "puppetlabs_spec_helper"
   gem "metadata-json-lint"
   gem "rspec"
+  gem "CFPropertyList"
 end
 
 group :development do
