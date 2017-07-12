@@ -21,3 +21,7 @@ Thanks to @modax for much of the work in this release.
 
 * Added an experimental Puppet command (puppet kubernetes convert)
   which converts standard Kubernetes YAML files into Puppet code
+
+##2017-07-12 - Version 0.5.0
+
+* Update resources to 1.7.0
