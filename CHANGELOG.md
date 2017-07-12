@@ -25,3 +25,8 @@ Thanks to @modax for much of the work in this release.
 ##2017-07-12 - Version 0.5.0
 
 * Update resources to 1.7.0
+
+##2017-07-12 - Version 0.5.1
+
+* Resolve issue with namespaced monkey patch clashing with AIO gem
+* Remove forked kubeclient configuration class as fixed upstream
