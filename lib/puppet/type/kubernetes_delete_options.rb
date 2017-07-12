@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_delete_options) do
   
-  @doc = "DeleteOptions may be provided when deleting an API object"
+  @doc = "DeleteOptions may be provided when deleting an API object."
   
 
   ensurable
@@ -47,7 +47,18 @@ Puppet::Type.newtype(:kubernetes_delete_options) do
     
       newproperty(:orphan_dependents) do
         
-        desc "Should the dependent objects be orphaned. If true/false, the 'orphan' finalizer will be added to/removed from the object's finalizers list."
+        desc "Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the 'orphan' finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:propagation_policy) do
+        
+        desc "Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

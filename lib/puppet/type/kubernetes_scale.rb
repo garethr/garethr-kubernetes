@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_scale) do
   
-  @doc = "Scale represents a scaling request for a resource."
+  @doc = "represents a scaling request for a resource."
   
 
   ensurable
@@ -25,7 +25,7 @@ Puppet::Type.newtype(:kubernetes_scale) do
     
       newproperty(:metadata) do
         
-        desc "Standard object metadata; More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata."
+        desc "Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -36,7 +36,7 @@ Puppet::Type.newtype(:kubernetes_scale) do
     
       newproperty(:spec) do
         
-        desc "defines the behavior of the scale. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status."
+        desc "defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -47,7 +47,7 @@ Puppet::Type.newtype(:kubernetes_scale) do
     
       newproperty(:status) do
         
-        desc "current status of the scale. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status. Read-only."
+        desc "current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

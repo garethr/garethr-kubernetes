@@ -21,7 +21,7 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_spec) do
     
       newproperty(:access_modes) do
         
-        desc "AccessModes contains the desired access modes the volume should have. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#access-modes-1"
+        desc "AccessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -43,7 +43,7 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_spec) do
     
       newproperty(:resources) do
         
-        desc "Resources represents the minimum resources the volume should have. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#resources"
+        desc "Resources represents the minimum resources the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -55,6 +55,17 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_spec) do
       newproperty(:volume_name) do
         
         desc "VolumeName is the binding reference to the PersistentVolume backing this claim."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:storage_class_name) do
+        
+        desc "Name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

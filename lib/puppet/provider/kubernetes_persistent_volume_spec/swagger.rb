@@ -83,6 +83,26 @@ Puppet::Type.type(:kubernetes_persistent_volume_spec).provide(:swagger, :parent 
       
     
       
+        photon_persistent_disk: instance.photonPersistentDisk.respond_to?(:to_hash) ? instance.photonPersistentDisk.to_hash : instance.photonPersistentDisk,
+      
+    
+      
+        portworx_volume: instance.portworxVolume.respond_to?(:to_hash) ? instance.portworxVolume.to_hash : instance.portworxVolume,
+      
+    
+      
+        scale_io: instance.scaleIO.respond_to?(:to_hash) ? instance.scaleIO.to_hash : instance.scaleIO,
+      
+    
+      
+        local: instance.local.respond_to?(:to_hash) ? instance.local.to_hash : instance.local,
+      
+    
+      
+        storageos: instance.storageos.respond_to?(:to_hash) ? instance.storageos.to_hash : instance.storageos,
+      
+    
+      
         access_modes: instance.accessModes.respond_to?(:to_hash) ? instance.accessModes.to_hash : instance.accessModes,
       
     
@@ -92,6 +112,10 @@ Puppet::Type.type(:kubernetes_persistent_volume_spec).provide(:swagger, :parent 
     
       
         persistent_volume_reclaim_policy: instance.persistentVolumeReclaimPolicy.respond_to?(:to_hash) ? instance.persistentVolumeReclaimPolicy.to_hash : instance.persistentVolumeReclaimPolicy,
+      
+    
+      
+        storage_class_name: instance.storageClassName.respond_to?(:to_hash) ? instance.storageClassName.to_hash : instance.storageClassName,
       
     
     object: instance,
@@ -194,6 +218,26 @@ Puppet::Type.type(:kubernetes_persistent_volume_spec).provide(:swagger, :parent 
       
     
       
+        photonPersistentDisk: resource[:photon_persistent_disk],
+      
+    
+      
+        portworxVolume: resource[:portworx_volume],
+      
+    
+      
+        scaleIO: resource[:scale_io],
+      
+    
+      
+        local: resource[:local],
+      
+    
+      
+        storageos: resource[:storageos],
+      
+    
+      
         accessModes: resource[:access_modes],
       
     
@@ -203,6 +247,10 @@ Puppet::Type.type(:kubernetes_persistent_volume_spec).provide(:swagger, :parent 
     
       
         persistentVolumeReclaimPolicy: resource[:persistent_volume_reclaim_policy],
+      
+    
+      
+        storageClassName: resource[:storage_class_name],
       
     
     }

@@ -26,6 +26,10 @@ Puppet::Type.type(:kubernetes_config_map_volume_source).provide(:swagger, :paren
         default_mode: instance.defaultMode.respond_to?(:to_hash) ? instance.defaultMode.to_hash : instance.defaultMode,
       
     
+      
+        optional: instance.optional.respond_to?(:to_hash) ? instance.optional.to_hash : instance.optional,
+      
+    
     object: instance,
     }
   end
@@ -67,6 +71,10 @@ Puppet::Type.type(:kubernetes_config_map_volume_source).provide(:swagger, :paren
     
       
         defaultMode: resource[:default_mode],
+      
+    
+      
+        optional: resource[:optional],
       
     
     }

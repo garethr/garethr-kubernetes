@@ -30,6 +30,10 @@ Puppet::Type.type(:kubernetes_persistent_volume_claim_spec).provide(:swagger, :p
         volume_name: instance.volumeName.respond_to?(:to_hash) ? instance.volumeName.to_hash : instance.volumeName,
       
     
+      
+        storage_class_name: instance.storageClassName.respond_to?(:to_hash) ? instance.storageClassName.to_hash : instance.storageClassName,
+      
+    
     object: instance,
     }
   end
@@ -75,6 +79,10 @@ Puppet::Type.type(:kubernetes_persistent_volume_claim_spec).provide(:swagger, :p
     
       
         volumeName: resource[:volume_name],
+      
+    
+      
+        storageClassName: resource[:storage_class_name],
       
     
     }

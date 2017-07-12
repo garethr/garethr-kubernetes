@@ -52,6 +52,17 @@ Puppet::Type.newtype(:kubernetes_deployment_status) do
     
   
     
+      newproperty(:ready_replicas) do
+        
+        desc "Total number of ready pods targeted by this deployment."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
       newproperty(:available_replicas) do
         
         desc "Total number of available pods (ready for at least minReadySeconds) targeted by this deployment."
@@ -77,6 +88,17 @@ Puppet::Type.newtype(:kubernetes_deployment_status) do
       newproperty(:conditions) do
         
         desc "Represents the latest available observations of a deployment's current state."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:collision_count) do
+        
+        desc "Count of hash collisions for the Deployment. The Deployment controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ReplicaSet."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

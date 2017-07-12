@@ -21,7 +21,7 @@ Puppet::Type.newtype(:kubernetes_pod_status) do
     
       newproperty(:phase) do
         
-        desc "Current condition of the pod. More info: http://kubernetes.io/docs/user-guide/pod-states#pod-phase"
+        desc "Current condition of the pod. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-phase"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -32,7 +32,7 @@ Puppet::Type.newtype(:kubernetes_pod_status) do
     
       newproperty(:conditions) do
         
-        desc "Current service state of pod. More info: http://kubernetes.io/docs/user-guide/pod-states#pod-conditions"
+        desc "Current service state of pod. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -96,9 +96,31 @@ Puppet::Type.newtype(:kubernetes_pod_status) do
     
   
     
+      newproperty(:init_container_statuses) do
+        
+        desc "The list has one entry per init container in the manifest. The most recent successful init container will have ready = true, the most recently started container will have startTime set. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status"
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
       newproperty(:container_statuses) do
         
-        desc "The list has one entry per container in the manifest. Each entry is currently the output of `docker inspect`. More info: http://kubernetes.io/docs/user-guide/pod-states#container-statuses"
+        desc "The list has one entry per container in the manifest. Each entry is currently the output of `docker inspect`. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status"
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:qos_class) do
+        
+        desc "The Quality of Service (QOS) classification assigned to the pod based on resource requirements See PodQOSClass type for available QOS classes More info: https://github.com/kubernetes/kubernetes/blob/master/docs/design/resource-qos.md"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

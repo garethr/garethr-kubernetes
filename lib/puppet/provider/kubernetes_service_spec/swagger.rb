@@ -35,10 +35,6 @@ Puppet::Type.type(:kubernetes_service_spec).provide(:swagger, :parent => PuppetX
       
     
       
-        deprecated_public_i_ps: instance.deprecatedPublicIPs.respond_to?(:to_hash) ? instance.deprecatedPublicIPs.to_hash : instance.deprecatedPublicIPs,
-      
-    
-      
         session_affinity: instance.sessionAffinity.respond_to?(:to_hash) ? instance.sessionAffinity.to_hash : instance.sessionAffinity,
       
     
@@ -52,6 +48,14 @@ Puppet::Type.type(:kubernetes_service_spec).provide(:swagger, :parent => PuppetX
     
       
         external_name: instance.externalName.respond_to?(:to_hash) ? instance.externalName.to_hash : instance.externalName,
+      
+    
+      
+        external_traffic_policy: instance.externalTrafficPolicy.respond_to?(:to_hash) ? instance.externalTrafficPolicy.to_hash : instance.externalTrafficPolicy,
+      
+    
+      
+        health_check_node_port: instance.healthCheckNodePort.respond_to?(:to_hash) ? instance.healthCheckNodePort.to_hash : instance.healthCheckNodePort,
       
     
     object: instance,
@@ -106,10 +110,6 @@ Puppet::Type.type(:kubernetes_service_spec).provide(:swagger, :parent => PuppetX
       
     
       
-        deprecatedPublicIPs: resource[:deprecated_public_i_ps],
-      
-    
-      
         sessionAffinity: resource[:session_affinity],
       
     
@@ -123,6 +123,14 @@ Puppet::Type.type(:kubernetes_service_spec).provide(:swagger, :parent => PuppetX
     
       
         externalName: resource[:external_name],
+      
+    
+      
+        externalTrafficPolicy: resource[:external_traffic_policy],
+      
+    
+      
+        healthCheckNodePort: resource[:health_check_node_port],
       
     
     }

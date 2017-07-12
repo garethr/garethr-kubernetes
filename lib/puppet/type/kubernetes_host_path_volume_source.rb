@@ -35,7 +35,7 @@ Puppet::Type.newtype(:kubernetes_host_path_volume_source) do
     
       newproperty(:path) do
         
-        desc "Path of the directory on the host. More info: http://kubernetes.io/docs/user-guide/volumes#hostpath"
+        desc "Path of the directory on the host. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

@@ -30,6 +30,26 @@ Puppet::Type.type(:kubernetes_daemon_set_status).provide(:swagger, :parent => Pu
         number_ready: instance.numberReady.respond_to?(:to_hash) ? instance.numberReady.to_hash : instance.numberReady,
       
     
+      
+        observed_generation: instance.observedGeneration.respond_to?(:to_hash) ? instance.observedGeneration.to_hash : instance.observedGeneration,
+      
+    
+      
+        updated_number_scheduled: instance.updatedNumberScheduled.respond_to?(:to_hash) ? instance.updatedNumberScheduled.to_hash : instance.updatedNumberScheduled,
+      
+    
+      
+        number_available: instance.numberAvailable.respond_to?(:to_hash) ? instance.numberAvailable.to_hash : instance.numberAvailable,
+      
+    
+      
+        number_unavailable: instance.numberUnavailable.respond_to?(:to_hash) ? instance.numberUnavailable.to_hash : instance.numberUnavailable,
+      
+    
+      
+        collision_count: instance.collisionCount.respond_to?(:to_hash) ? instance.collisionCount.to_hash : instance.collisionCount,
+      
+    
     object: instance,
     }
   end
@@ -75,6 +95,26 @@ Puppet::Type.type(:kubernetes_daemon_set_status).provide(:swagger, :parent => Pu
     
       
         numberReady: resource[:number_ready],
+      
+    
+      
+        observedGeneration: resource[:observed_generation],
+      
+    
+      
+        updatedNumberScheduled: resource[:updated_number_scheduled],
+      
+    
+      
+        numberAvailable: resource[:number_available],
+      
+    
+      
+        numberUnavailable: resource[:number_unavailable],
+      
+    
+      
+        collisionCount: resource[:collision_count],
       
     
     }

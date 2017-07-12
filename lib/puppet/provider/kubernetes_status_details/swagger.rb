@@ -25,6 +25,10 @@ Puppet::Type.type(:kubernetes_status_details).provide(:swagger, :parent => Puppe
       
     
       
+        uid: instance.uid.respond_to?(:to_hash) ? instance.uid.to_hash : instance.uid,
+      
+    
+      
         causes: instance.causes.respond_to?(:to_hash) ? instance.causes.to_hash : instance.causes,
       
     
@@ -71,6 +75,10 @@ Puppet::Type.type(:kubernetes_status_details).provide(:swagger, :parent => Puppe
         group: resource[:group],
       
     
+      
+    
+      
+        uid: resource[:uid],
       
     
       

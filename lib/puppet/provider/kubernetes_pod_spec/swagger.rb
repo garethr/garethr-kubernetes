@@ -19,6 +19,10 @@ Puppet::Type.type(:kubernetes_pod_spec).provide(:swagger, :parent => PuppetX::Pu
       
     
       
+        init_containers: instance.initContainers.respond_to?(:to_hash) ? instance.initContainers.to_hash : instance.initContainers,
+      
+    
+      
         containers: instance.containers.respond_to?(:to_hash) ? instance.containers.to_hash : instance.containers,
       
     
@@ -51,6 +55,10 @@ Puppet::Type.type(:kubernetes_pod_spec).provide(:swagger, :parent => PuppetX::Pu
       
     
       
+        automount_service_account_token: instance.automountServiceAccountToken.respond_to?(:to_hash) ? instance.automountServiceAccountToken.to_hash : instance.automountServiceAccountToken,
+      
+    
+      
         node_name: instance.nodeName.respond_to?(:to_hash) ? instance.nodeName.to_hash : instance.nodeName,
       
     
@@ -80,6 +88,22 @@ Puppet::Type.type(:kubernetes_pod_spec).provide(:swagger, :parent => PuppetX::Pu
     
       
         subdomain: instance.subdomain.respond_to?(:to_hash) ? instance.subdomain.to_hash : instance.subdomain,
+      
+    
+      
+        affinity: instance.affinity.respond_to?(:to_hash) ? instance.affinity.to_hash : instance.affinity,
+      
+    
+      
+        scheduler_name: instance.schedulerName.respond_to?(:to_hash) ? instance.schedulerName.to_hash : instance.schedulerName,
+      
+    
+      
+        tolerations: instance.tolerations.respond_to?(:to_hash) ? instance.tolerations.to_hash : instance.tolerations,
+      
+    
+      
+        host_aliases: instance.hostAliases.respond_to?(:to_hash) ? instance.hostAliases.to_hash : instance.hostAliases,
       
     
     object: instance,
@@ -118,6 +142,10 @@ Puppet::Type.type(:kubernetes_pod_spec).provide(:swagger, :parent => PuppetX::Pu
       
     
       
+        initContainers: resource[:init_containers],
+      
+    
+      
         containers: resource[:containers],
       
     
@@ -150,6 +178,10 @@ Puppet::Type.type(:kubernetes_pod_spec).provide(:swagger, :parent => PuppetX::Pu
       
     
       
+        automountServiceAccountToken: resource[:automount_service_account_token],
+      
+    
+      
         nodeName: resource[:node_name],
       
     
@@ -179,6 +211,22 @@ Puppet::Type.type(:kubernetes_pod_spec).provide(:swagger, :parent => PuppetX::Pu
     
       
         subdomain: resource[:subdomain],
+      
+    
+      
+        affinity: resource[:affinity],
+      
+    
+      
+        schedulerName: resource[:scheduler_name],
+      
+    
+      
+        tolerations: resource[:tolerations],
+      
+    
+      
+        hostAliases: resource[:host_aliases],
       
     
     }

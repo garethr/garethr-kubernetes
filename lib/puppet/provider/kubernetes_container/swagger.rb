@@ -39,6 +39,10 @@ Puppet::Type.type(:kubernetes_container).provide(:swagger, :parent => PuppetX::P
       
     
       
+        env_from: instance.envFrom.respond_to?(:to_hash) ? instance.envFrom.to_hash : instance.envFrom,
+      
+    
+      
         env: instance.env.respond_to?(:to_hash) ? instance.env.to_hash : instance.env,
       
     
@@ -64,6 +68,10 @@ Puppet::Type.type(:kubernetes_container).provide(:swagger, :parent => PuppetX::P
     
       
         termination_message_path: instance.terminationMessagePath.respond_to?(:to_hash) ? instance.terminationMessagePath.to_hash : instance.terminationMessagePath,
+      
+    
+      
+        termination_message_policy: instance.terminationMessagePolicy.respond_to?(:to_hash) ? instance.terminationMessagePolicy.to_hash : instance.terminationMessagePolicy,
       
     
       
@@ -142,6 +150,10 @@ Puppet::Type.type(:kubernetes_container).provide(:swagger, :parent => PuppetX::P
       
     
       
+        envFrom: resource[:env_from],
+      
+    
+      
         env: resource[:env],
       
     
@@ -167,6 +179,10 @@ Puppet::Type.type(:kubernetes_container).provide(:swagger, :parent => PuppetX::P
     
       
         terminationMessagePath: resource[:termination_message_path],
+      
+    
+      
+        terminationMessagePolicy: resource[:termination_message_policy],
       
     
       

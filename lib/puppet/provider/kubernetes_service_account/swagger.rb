@@ -30,6 +30,10 @@ Puppet::Type.type(:kubernetes_service_account).provide(:swagger, :parent => Pupp
         image_pull_secrets: instance.imagePullSecrets.respond_to?(:to_hash) ? instance.imagePullSecrets.to_hash : instance.imagePullSecrets,
       
     
+      
+        automount_service_account_token: instance.automountServiceAccountToken.respond_to?(:to_hash) ? instance.automountServiceAccountToken.to_hash : instance.automountServiceAccountToken,
+      
+    
     object: instance,
     }
   end
@@ -75,6 +79,10 @@ Puppet::Type.type(:kubernetes_service_account).provide(:swagger, :parent => Pupp
     
       
         imagePullSecrets: resource[:image_pull_secrets],
+      
+    
+      
+        automountServiceAccountToken: resource[:automount_service_account_token],
       
     
     }

@@ -98,7 +98,7 @@ Puppet::Type.newtype(:kubernetes_container_status) do
     
       newproperty(:image) do
         
-        desc "The image the container is running. More info: http://kubernetes.io/docs/user-guide/images"
+        desc "The image the container is running. More info: https://kubernetes.io/docs/concepts/containers/images"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -120,7 +120,7 @@ Puppet::Type.newtype(:kubernetes_container_status) do
     
       newproperty(:container_id) do
         
-        desc "Container's ID in the format 'docker://<container_id>'. More info: http://kubernetes.io/docs/user-guide/container-environment#container-information"
+        desc "Container's ID in the format 'docker://<container_id>'."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

@@ -25,7 +25,7 @@ Puppet::Type.newtype(:kubernetes_config_map) do
     
       newproperty(:metadata) do
         
-        desc "Standard object's metadata. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata"
+        desc "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -36,7 +36,7 @@ Puppet::Type.newtype(:kubernetes_config_map) do
     
       newproperty(:data) do
         
-        desc "Data contains the configuration data. Each key must be a valid DNS_SUBDOMAIN with an optional leading dot."
+        desc "Data contains the configuration data. Each key must consist of alphanumeric characters, '-', '_' or '.'."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

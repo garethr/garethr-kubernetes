@@ -22,6 +22,22 @@ Puppet::Type.type(:kubernetes_daemon_set_spec).provide(:swagger, :parent => Pupp
         template: instance.template.respond_to?(:to_hash) ? instance.template.to_hash : instance.template,
       
     
+      
+        update_strategy: instance.updateStrategy.respond_to?(:to_hash) ? instance.updateStrategy.to_hash : instance.updateStrategy,
+      
+    
+      
+        min_ready_seconds: instance.minReadySeconds.respond_to?(:to_hash) ? instance.minReadySeconds.to_hash : instance.minReadySeconds,
+      
+    
+      
+        template_generation: instance.templateGeneration.respond_to?(:to_hash) ? instance.templateGeneration.to_hash : instance.templateGeneration,
+      
+    
+      
+        revision_history_limit: instance.revisionHistoryLimit.respond_to?(:to_hash) ? instance.revisionHistoryLimit.to_hash : instance.revisionHistoryLimit,
+      
+    
     object: instance,
     }
   end
@@ -59,6 +75,22 @@ Puppet::Type.type(:kubernetes_daemon_set_spec).provide(:swagger, :parent => Pupp
     
       
         template: resource[:template],
+      
+    
+      
+        updateStrategy: resource[:update_strategy],
+      
+    
+      
+        minReadySeconds: resource[:min_ready_seconds],
+      
+    
+      
+        templateGeneration: resource[:template_generation],
+      
+    
+      
+        revisionHistoryLimit: resource[:revision_history_limit],
       
     
     }

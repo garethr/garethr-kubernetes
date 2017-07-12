@@ -30,6 +30,10 @@ Puppet::Type.type(:kubernetes_delete_options).provide(:swagger, :parent => Puppe
         orphan_dependents: instance.orphanDependents.respond_to?(:to_hash) ? instance.orphanDependents.to_hash : instance.orphanDependents,
       
     
+      
+        propagation_policy: instance.propagationPolicy.respond_to?(:to_hash) ? instance.propagationPolicy.to_hash : instance.propagationPolicy,
+      
+    
     object: instance,
     }
   end
@@ -75,6 +79,10 @@ Puppet::Type.type(:kubernetes_delete_options).provide(:swagger, :parent => Puppe
     
       
         orphanDependents: resource[:orphan_dependents],
+      
+    
+      
+        propagationPolicy: resource[:propagation_policy],
       
     
     }

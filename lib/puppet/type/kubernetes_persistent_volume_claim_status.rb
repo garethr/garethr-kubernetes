@@ -32,7 +32,7 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_status) do
     
       newproperty(:access_modes) do
         
-        desc "AccessModes contains the actual access modes the volume backing the PVC has. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#access-modes-1"
+        desc "AccessModes contains the actual access modes the volume backing the PVC has. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

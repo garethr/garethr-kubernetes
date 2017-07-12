@@ -39,7 +39,7 @@ Puppet::Type.newtype(:kubernetes_config_map_list) do
     
       newproperty(:metadata) do
         
-        desc "More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata"
+        desc "More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

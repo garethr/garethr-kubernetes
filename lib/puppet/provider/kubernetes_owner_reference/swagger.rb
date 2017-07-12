@@ -30,6 +30,10 @@ Puppet::Type.type(:kubernetes_owner_reference).provide(:swagger, :parent => Pupp
         controller: instance.controller.respond_to?(:to_hash) ? instance.controller.to_hash : instance.controller,
       
     
+      
+        block_owner_deletion: instance.blockOwnerDeletion.respond_to?(:to_hash) ? instance.blockOwnerDeletion.to_hash : instance.blockOwnerDeletion,
+      
+    
     object: instance,
     }
   end
@@ -75,6 +79,10 @@ Puppet::Type.type(:kubernetes_owner_reference).provide(:swagger, :parent => Pupp
     
       
         controller: resource[:controller],
+      
+    
+      
+        blockOwnerDeletion: resource[:block_owner_deletion],
       
     
     }

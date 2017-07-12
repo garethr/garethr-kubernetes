@@ -39,7 +39,7 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_list) do
     
       newproperty(:metadata) do
         
-        desc "Standard list metadata. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+        desc "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -50,7 +50,7 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_list) do
     
       newproperty(:items) do
         
-        desc "A list of persistent volume claims. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#persistentvolumeclaims"
+        desc "A list of persistent volume claims. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

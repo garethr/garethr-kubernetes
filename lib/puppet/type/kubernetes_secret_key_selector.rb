@@ -35,7 +35,7 @@ Puppet::Type.newtype(:kubernetes_secret_key_selector) do
     
       newproperty(:name) do
         
-        desc "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+        desc "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -47,6 +47,17 @@ Puppet::Type.newtype(:kubernetes_secret_key_selector) do
       newproperty(:key) do
         
         desc "The key of the secret to select from.  Must be a valid secret key."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:optional) do
+        
+        desc "Specify whether the Secret or it's key must be defined"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

@@ -83,7 +83,7 @@ Puppet::Type.newtype(:kubernetes_iscsi_volume_source) do
     
       newproperty(:fs_type) do
         
-        desc "Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: 'ext4', 'xfs', 'ntfs'. Implicitly inferred to be 'ext4' if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#iscsi"
+        desc "Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: 'ext4', 'xfs', 'ntfs'. Implicitly inferred to be 'ext4' if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -95,6 +95,50 @@ Puppet::Type.newtype(:kubernetes_iscsi_volume_source) do
       newproperty(:read_only) do
         
         desc "ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:portals) do
+        
+        desc "iSCSI target portal List. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260)."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:chap_auth_discovery) do
+        
+        desc "whether support iSCSI Discovery CHAP authentication"
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:chap_auth_session) do
+        
+        desc "whether support iSCSI Session CHAP authentication"
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:secret_ref) do
+        
+        desc "CHAP secret for iSCSI target and initiator authentication"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

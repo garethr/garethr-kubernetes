@@ -25,7 +25,7 @@ Puppet::Type.newtype(:kubernetes_status) do
     
       newproperty(:metadata) do
         
-        desc "Standard list metadata. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+        desc "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -36,7 +36,7 @@ Puppet::Type.newtype(:kubernetes_status) do
     
       newproperty(:status) do
         
-        desc "Status of the operation. One of: 'Success' or 'Failure'. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status"
+        desc "Status of the operation. One of: 'Success' or 'Failure'. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

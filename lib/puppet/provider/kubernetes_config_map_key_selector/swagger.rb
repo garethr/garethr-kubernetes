@@ -22,6 +22,10 @@ Puppet::Type.type(:kubernetes_config_map_key_selector).provide(:swagger, :parent
         key: instance.key.respond_to?(:to_hash) ? instance.key.to_hash : instance.key,
       
     
+      
+        optional: instance.optional.respond_to?(:to_hash) ? instance.optional.to_hash : instance.optional,
+      
+    
     object: instance,
     }
   end
@@ -59,6 +63,10 @@ Puppet::Type.type(:kubernetes_config_map_key_selector).provide(:swagger, :parent
     
       
         key: resource[:key],
+      
+    
+      
+        optional: resource[:optional],
       
     
     }

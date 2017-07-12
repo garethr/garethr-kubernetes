@@ -21,7 +21,7 @@ Puppet::Type.newtype(:kubernetes_local_object_reference) do
     
       newproperty(:name) do
         
-        desc "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+        desc "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

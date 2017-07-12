@@ -30,6 +30,10 @@ Puppet::Type.type(:kubernetes_node_spec).provide(:swagger, :parent => PuppetX::P
         unschedulable: instance.unschedulable.respond_to?(:to_hash) ? instance.unschedulable.to_hash : instance.unschedulable,
       
     
+      
+        taints: instance.taints.respond_to?(:to_hash) ? instance.taints.to_hash : instance.taints,
+      
+    
     object: instance,
     }
   end
@@ -75,6 +79,10 @@ Puppet::Type.type(:kubernetes_node_spec).provide(:swagger, :parent => PuppetX::P
     
       
         unschedulable: resource[:unschedulable],
+      
+    
+      
+        taints: resource[:taints],
       
     
     }

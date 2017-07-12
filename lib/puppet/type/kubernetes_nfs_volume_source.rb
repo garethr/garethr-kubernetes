@@ -37,7 +37,7 @@ Puppet::Type.newtype(:kubernetes_nfs_volume_source) do
     
       newproperty(:server) do
         
-        desc "Server is the hostname or IP address of the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs"
+        desc "Server is the hostname or IP address of the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -48,7 +48,7 @@ Puppet::Type.newtype(:kubernetes_nfs_volume_source) do
     
       newproperty(:path) do
         
-        desc "Path that is exported by the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs"
+        desc "Path that is exported by the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -59,7 +59,7 @@ Puppet::Type.newtype(:kubernetes_nfs_volume_source) do
     
       newproperty(:read_only) do
         
-        desc "ReadOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#nfs"
+        desc "ReadOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

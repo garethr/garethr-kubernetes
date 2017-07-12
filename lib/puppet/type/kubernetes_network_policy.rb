@@ -7,6 +7,8 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_network_policy) do
   
+  @doc = "NetworkPolicy describes what network traffic is allowed for a set of Pods"
+  
 
   ensurable
 
@@ -23,6 +25,8 @@ Puppet::Type.newtype(:kubernetes_network_policy) do
     
       newproperty(:metadata) do
         
+        desc "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
+        
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
         end
@@ -31,6 +35,8 @@ Puppet::Type.newtype(:kubernetes_network_policy) do
   
     
       newproperty(:spec) do
+        
+        desc "Specification of the desired behavior for this NetworkPolicy."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

@@ -43,6 +43,17 @@ Puppet::Type.newtype(:kubernetes_status_details) do
     
   
     
+      newproperty(:uid) do
+        
+        desc "UID of the resource. (when there is a single resource which can be described). More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
       newproperty(:causes) do
         
         desc "The Causes array includes more details associated with the StatusReason failure. Not all StatusReasons may provide detailed causes."

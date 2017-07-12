@@ -38,6 +38,22 @@ Puppet::Type.type(:kubernetes_iscsi_volume_source).provide(:swagger, :parent => 
         read_only: instance.readOnly.respond_to?(:to_hash) ? instance.readOnly.to_hash : instance.readOnly,
       
     
+      
+        portals: instance.portals.respond_to?(:to_hash) ? instance.portals.to_hash : instance.portals,
+      
+    
+      
+        chap_auth_discovery: instance.chapAuthDiscovery.respond_to?(:to_hash) ? instance.chapAuthDiscovery.to_hash : instance.chapAuthDiscovery,
+      
+    
+      
+        chap_auth_session: instance.chapAuthSession.respond_to?(:to_hash) ? instance.chapAuthSession.to_hash : instance.chapAuthSession,
+      
+    
+      
+        secret_ref: instance.secretRef.respond_to?(:to_hash) ? instance.secretRef.to_hash : instance.secretRef,
+      
+    
     object: instance,
     }
   end
@@ -91,6 +107,22 @@ Puppet::Type.type(:kubernetes_iscsi_volume_source).provide(:swagger, :parent => 
     
       
         readOnly: resource[:read_only],
+      
+    
+      
+        portals: resource[:portals],
+      
+    
+      
+        chapAuthDiscovery: resource[:chap_auth_discovery],
+      
+    
+      
+        chapAuthSession: resource[:chap_auth_session],
+      
+    
+      
+        secretRef: resource[:secret_ref],
       
     
     }

@@ -18,9 +18,13 @@ Puppet::Type.newtype(:kubernetes_api_resource) do
     
       name,
     
+      singular_name,
+    
       namespaced,
     
       kind,
+    
+      verbs,
     
     ]
     required_properties.each do |property|
@@ -39,7 +43,18 @@ Puppet::Type.newtype(:kubernetes_api_resource) do
     
       newproperty(:name) do
         
-        desc "name is the name of the resource."
+        desc "name is the plural name of the resource."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:singular_name) do
+        
+        desc "singularName is the singular name of the resource.  This allows clients to handle plural and singular opaquely. The singularName is more correct for reporting status on a single item and both singular and plural are allowed from the kubectl CLI interface."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -58,6 +73,39 @@ Puppet::Type.newtype(:kubernetes_api_resource) do
       end
     
   
+    
+  
+    
+      newproperty(:verbs) do
+        
+        desc "verbs is a list of supported kube verbs (this includes get, list, watch, create, update, patch, delete, deletecollection, and proxy)"
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:short_names) do
+        
+        desc "shortNames is a list of suggested short names of the resource."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:categories) do
+        
+        desc "categories is a list of the grouped resources this resource belongs to (e.g. 'all')"
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
     
   
 end

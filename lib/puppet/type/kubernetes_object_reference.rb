@@ -23,7 +23,7 @@ Puppet::Type.newtype(:kubernetes_object_reference) do
     
       newproperty(:namespace) do
         
-        desc "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
+        desc "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -34,7 +34,7 @@ Puppet::Type.newtype(:kubernetes_object_reference) do
     
       newproperty(:name) do
         
-        desc "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+        desc "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -45,7 +45,7 @@ Puppet::Type.newtype(:kubernetes_object_reference) do
     
       newproperty(:uid) do
         
-        desc "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+        desc "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -58,7 +58,7 @@ Puppet::Type.newtype(:kubernetes_object_reference) do
     
       newproperty(:resource_version) do
         
-        desc "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+        desc "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

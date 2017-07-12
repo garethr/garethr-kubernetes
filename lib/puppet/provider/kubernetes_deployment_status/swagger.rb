@@ -27,6 +27,10 @@ Puppet::Type.type(:kubernetes_deployment_status).provide(:swagger, :parent => Pu
       
     
       
+        ready_replicas: instance.readyReplicas.respond_to?(:to_hash) ? instance.readyReplicas.to_hash : instance.readyReplicas,
+      
+    
+      
         available_replicas: instance.availableReplicas.respond_to?(:to_hash) ? instance.availableReplicas.to_hash : instance.availableReplicas,
       
     
@@ -36,6 +40,10 @@ Puppet::Type.type(:kubernetes_deployment_status).provide(:swagger, :parent => Pu
     
       
         conditions: instance.conditions.respond_to?(:to_hash) ? instance.conditions.to_hash : instance.conditions,
+      
+    
+      
+        collision_count: instance.collisionCount.respond_to?(:to_hash) ? instance.collisionCount.to_hash : instance.collisionCount,
       
     
     object: instance,
@@ -82,6 +90,10 @@ Puppet::Type.type(:kubernetes_deployment_status).provide(:swagger, :parent => Pu
       
     
       
+        readyReplicas: resource[:ready_replicas],
+      
+    
+      
         availableReplicas: resource[:available_replicas],
       
     
@@ -91,6 +103,10 @@ Puppet::Type.type(:kubernetes_deployment_status).provide(:swagger, :parent => Pu
     
       
         conditions: resource[:conditions],
+      
+    
+      
+        collisionCount: resource[:collision_count],
       
     
     }

@@ -18,6 +18,10 @@ Puppet::Type.type(:kubernetes_tcp_socket_action).provide(:swagger, :parent => Pu
         port: instance.port.respond_to?(:to_hash) ? instance.port.to_hash : instance.port,
       
     
+      
+        host: instance.host.respond_to?(:to_hash) ? instance.host.to_hash : instance.host,
+      
+    
     object: instance,
     }
   end
@@ -51,6 +55,10 @@ Puppet::Type.type(:kubernetes_tcp_socket_action).provide(:swagger, :parent => Pu
     
       
         port: resource[:port],
+      
+    
+      
+        host: resource[:host],
       
     
     }

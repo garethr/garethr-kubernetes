@@ -67,6 +67,10 @@ Puppet::Type.type(:kubernetes_object_meta).provide(:swagger, :parent => PuppetX:
       
     
       
+        initializers: instance.initializers.respond_to?(:to_hash) ? instance.initializers.to_hash : instance.initializers,
+      
+    
+      
         finalizers: instance.finalizers.respond_to?(:to_hash) ? instance.finalizers.to_hash : instance.finalizers,
       
     
@@ -155,6 +159,10 @@ Puppet::Type.type(:kubernetes_object_meta).provide(:swagger, :parent => PuppetX:
     
       
         ownerReferences: resource[:owner_references],
+      
+    
+      
+        initializers: resource[:initializers],
       
     
       

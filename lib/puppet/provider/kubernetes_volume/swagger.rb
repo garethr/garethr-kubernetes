@@ -106,6 +106,26 @@ Puppet::Type.type(:kubernetes_volume).provide(:swagger, :parent => PuppetX::Pupp
         azure_disk: instance.azureDisk.respond_to?(:to_hash) ? instance.azureDisk.to_hash : instance.azureDisk,
       
     
+      
+        photon_persistent_disk: instance.photonPersistentDisk.respond_to?(:to_hash) ? instance.photonPersistentDisk.to_hash : instance.photonPersistentDisk,
+      
+    
+      
+        projected: instance.projected.respond_to?(:to_hash) ? instance.projected.to_hash : instance.projected,
+      
+    
+      
+        portworx_volume: instance.portworxVolume.respond_to?(:to_hash) ? instance.portworxVolume.to_hash : instance.portworxVolume,
+      
+    
+      
+        scale_io: instance.scaleIO.respond_to?(:to_hash) ? instance.scaleIO.to_hash : instance.scaleIO,
+      
+    
+      
+        storageos: instance.storageos.respond_to?(:to_hash) ? instance.storageos.to_hash : instance.storageos,
+      
+    
     object: instance,
     }
   end
@@ -227,6 +247,26 @@ Puppet::Type.type(:kubernetes_volume).provide(:swagger, :parent => PuppetX::Pupp
     
       
         azureDisk: resource[:azure_disk],
+      
+    
+      
+        photonPersistentDisk: resource[:photon_persistent_disk],
+      
+    
+      
+        projected: resource[:projected],
+      
+    
+      
+        portworxVolume: resource[:portworx_volume],
+      
+    
+      
+        scaleIO: resource[:scale_io],
+      
+    
+      
+        storageos: resource[:storageos],
       
     
     }

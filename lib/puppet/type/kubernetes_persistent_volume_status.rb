@@ -21,7 +21,7 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_status) do
     
       newproperty(:phase) do
         
-        desc "Phase indicates if a volume is available, bound to a claim, or released by a claim. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#phase"
+        desc "Phase indicates if a volume is available, bound to a claim, or released by a claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

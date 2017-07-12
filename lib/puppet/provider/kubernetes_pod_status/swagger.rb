@@ -43,7 +43,15 @@ Puppet::Type.type(:kubernetes_pod_status).provide(:swagger, :parent => PuppetX::
       
     
       
+        init_container_statuses: instance.initContainerStatuses.respond_to?(:to_hash) ? instance.initContainerStatuses.to_hash : instance.initContainerStatuses,
+      
+    
+      
         container_statuses: instance.containerStatuses.respond_to?(:to_hash) ? instance.containerStatuses.to_hash : instance.containerStatuses,
+      
+    
+      
+        qos_class: instance.qosClass.respond_to?(:to_hash) ? instance.qosClass.to_hash : instance.qosClass,
       
     
     object: instance,
@@ -106,7 +114,15 @@ Puppet::Type.type(:kubernetes_pod_status).provide(:swagger, :parent => PuppetX::
       
     
       
+        initContainerStatuses: resource[:init_container_statuses],
+      
+    
+      
         containerStatuses: resource[:container_statuses],
+      
+    
+      
+        qosClass: resource[:qos_class],
       
     
     }

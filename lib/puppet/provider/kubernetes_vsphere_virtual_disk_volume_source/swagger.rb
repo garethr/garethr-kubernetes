@@ -22,6 +22,14 @@ Puppet::Type.type(:kubernetes_vsphere_virtual_disk_volume_source).provide(:swagg
         fs_type: instance.fsType.respond_to?(:to_hash) ? instance.fsType.to_hash : instance.fsType,
       
     
+      
+        storage_policy_name: instance.storagePolicyName.respond_to?(:to_hash) ? instance.storagePolicyName.to_hash : instance.storagePolicyName,
+      
+    
+      
+        storage_policy_id: instance.storagePolicyID.respond_to?(:to_hash) ? instance.storagePolicyID.to_hash : instance.storagePolicyID,
+      
+    
     object: instance,
     }
   end
@@ -59,6 +67,14 @@ Puppet::Type.type(:kubernetes_vsphere_virtual_disk_volume_source).provide(:swagg
     
       
         fsType: resource[:fs_type],
+      
+    
+      
+        storagePolicyName: resource[:storage_policy_name],
+      
+    
+      
+        storagePolicyID: resource[:storage_policy_id],
       
     
     }

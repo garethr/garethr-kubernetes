@@ -39,7 +39,7 @@ Puppet::Type.newtype(:kubernetes_secret_list) do
     
       newproperty(:metadata) do
         
-        desc "Standard list metadata. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+        desc "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -50,7 +50,7 @@ Puppet::Type.newtype(:kubernetes_secret_list) do
     
       newproperty(:items) do
         
-        desc "Items is a list of secret objects. More info: http://kubernetes.io/docs/user-guide/secrets"
+        desc "Items is a list of secret objects. More info: https://kubernetes.io/docs/concepts/configuration/secret"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

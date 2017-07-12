@@ -43,4 +43,15 @@ Puppet::Type.newtype(:kubernetes_tcp_socket_action) do
       end
     
   
+    
+      newproperty(:host) do
+        
+        desc "Optional: Host name to connect to, defaults to the pod IP."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
 end

@@ -34,6 +34,8 @@ Puppet::Type.type(:kubernetes_azure_disk_volume_source).provide(:swagger, :paren
         read_only: instance.readOnly.respond_to?(:to_hash) ? instance.readOnly.to_hash : instance.readOnly,
       
     
+      
+    
     object: instance,
     }
   end
@@ -83,6 +85,8 @@ Puppet::Type.type(:kubernetes_azure_disk_volume_source).provide(:swagger, :paren
     
       
         readOnly: resource[:read_only],
+      
+    
       
     
     }

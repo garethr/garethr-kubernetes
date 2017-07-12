@@ -54,4 +54,26 @@ Puppet::Type.newtype(:kubernetes_vsphere_virtual_disk_volume_source) do
       end
     
   
+    
+      newproperty(:storage_policy_name) do
+        
+        desc "Storage Policy Based Management (SPBM) profile name."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:storage_policy_id) do
+        
+        desc "Storage Policy Based Management (SPBM) profile ID associated with the StoragePolicyName."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
 end
