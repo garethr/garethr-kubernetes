@@ -5,9 +5,6 @@ require 'puppetlabs_spec_helper/rake_tasks'
 require 'puppet-lint/tasks/puppet-lint'
 require 'puppet-syntax/tasks/puppet-syntax'
 
-# These two gems aren't always present, for instance
-# on Travis with --without development
-
 begin
   require 'puppet_blacksmith/rake_tasks'
 rescue LoadError
@@ -15,7 +12,6 @@ end
 
 PuppetLint.configuration.relative = true
 PuppetLint.configuration.send("disable_80chars")
-PuppetLint.configuration.log_format = "%{path}:%{linenumber}:%{check}:%{KIND}:%{message}"
 PuppetLint.configuration.send('disable_case_without_default')
 PuppetLint.configuration.fail_on_warnings = true
 
@@ -33,10 +29,4 @@ exclude_paths = [
 PuppetLint.configuration.ignore_paths = exclude_paths
 PuppetSyntax.exclude_paths = exclude_paths
 
-desc "Run syntax, lint, and spec tests."
-task :test => [
-  :syntax,
-  :lint,
-  :spec,
-  :metadata,
-]
+task :default => :metadata_lint
