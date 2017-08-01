@@ -3,7 +3,7 @@ require 'puppet'
 require_relative '../swagger/provider'
 require_relative '../swagger/fixnumify'
 
-# With the Kiubernetes proxy on OpenShift (or maybe a change in Kuberenetes 1.2)
+# With the Kubernetes proxy on OpenShift (or maybe a change in Kubernetes 1.2)
 # the API requires that the accept headers be correctly set. At the moment this
 # is not done nor exposed by the client library. So lets monkeypatch it to allow
 # us to override the headers.
