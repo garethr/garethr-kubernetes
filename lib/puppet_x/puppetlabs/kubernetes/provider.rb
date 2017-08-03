@@ -157,7 +157,7 @@ module PuppetX
           if self.metadata == :absent
             # This means the resource doesn't exist already
             if resource[:metadata]
-              resource[:metadata]['namespace'] || 'default'
+              resource[:metadata]['namespace']
             else
               # for resources without metadata like namespaces
               # we don't need to set a namespace
