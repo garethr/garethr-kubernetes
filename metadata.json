@@ -1,6 +1,6 @@
 {
   "name": "garethr-kubernetes",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "author": "Gareth Rushgrove",
   "summary": "Module for creating resources in Kubernetes",
   "license": "Apache-2.0",
