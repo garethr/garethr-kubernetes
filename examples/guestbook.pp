@@ -54,7 +54,7 @@ kubernetes_replication_controller { 'redis-slave':
     'namespace' => 'default',
   },
   spec     => {
-    'replicas' => '2',
+    'replicas' => 2,
     'template' => {
       'metadata' => {
         'labels' => {'app' => 'redis', 'role' => 'slave', 'tier' => 'backend'}
@@ -66,7 +66,7 @@ kubernetes_replication_controller { 'redis-slave':
             'image' => 'gcr.io/google_samples/gb-redisslave:v1',
             'name' => 'slave',
             'ports' => [
-              {'containerPort' => '6379', 'protocol' => 'TCP'}
+              {'containerPort' => 6379, 'protocol' => 'TCP'}
             ],
             'resources' => {'requests' => {'cpu' => '100m', 'memory' => '100Mi'}},
           }
@@ -99,7 +99,7 @@ kubernetes_replication_controller { 'frontend':
     'namespace' => 'default',
   },
   spec     => {
-    'replicas' => '3',
+    'replicas' => 3,
     'template' => {
       'metadata' => {
         'labels' => {'app' => 'guestbook', 'tier' => 'frontend'}
@@ -111,7 +111,7 @@ kubernetes_replication_controller { 'frontend':
             'image' => 'gcr.io/google_samples/gb-frontend:v3',
             'name' => 'php-redis',
             'ports' => [
-              {'containerPort' => '80', 'protocol' => 'TCP'}
+              {'containerPort' => 80, 'protocol' => 'TCP'}
             ],
             'resources' => {'requests' => {'cpu' => '100m', 'memory' => '100Mi'}},
           }

@@ -151,6 +151,16 @@ If you want to then use that Puppet file the simplest way to do so is to
 redirect the output to a file and then run it with Puppet as shown
 above.
 
+### Compile Puppet DSL to Kubernetes YAML
+
+You might want to see the YAML being sent over the wire, or integrate Puppet
+with other Kubernetes tooling. For this we have the `compile` subcommand.
+
+    puppet kubernetes compile --manifest examples/guestbook.pp
+
+The above will output YAML to stdout which could them be used with `kubectl`
+or similar tooling.
+
 ## Reference
 
 ### Types
