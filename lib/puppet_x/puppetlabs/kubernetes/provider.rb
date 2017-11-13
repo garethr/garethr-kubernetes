@@ -110,18 +110,24 @@ module PuppetX
             if value.respond_to? :each
               value.each do |inner_key,inner_value|
                 if [Fixnum, String].include? inner_value.class
-                  data << [[key,inner_key], inner_value.fixnumify]
+                  data << [[key,inner_key], inner_value]
                 end
                 if inner_value.class == Array
                   inner_value.each_with_index do |item,index|
                     item.each do |k,v|
-                      data << [[key, inner_key, index, k], v.fixnumify]
+                      data << [[key, inner_key, index, k], v]
                     end
+                  end
+                end
+                if inner_value.class == Hash
+                  applicator = build_applicator(inner_value)
+                  applicator.each do |k,v|
+                    data << [[key, inner_key, k].flatten, v]
                   end
                 end
               end
             else
-              data << [[key], value.fixnumify]
+              data << [[key], value]
             end
           end
           data
