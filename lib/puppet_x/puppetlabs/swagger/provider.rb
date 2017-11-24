@@ -35,7 +35,7 @@ module PuppetX
         end
 
         def exists?
-          Puppet.info("Checking if #{name} exists")
+          Puppet.debug("Checking if #{resource.type}[#{name}] exists")
           @property_hash[:ensure] and @property_hash[:ensure] != :absent
         end
 
