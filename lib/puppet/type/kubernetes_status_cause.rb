@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_status_cause) do
   end
   
     
+      
       newproperty(:reason) do
+      
         
         desc "A machine-readable description of the cause of the error. If this value is empty there is no information available."
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_status_cause) do
     
   
     
+      
       newproperty(:message) do
+      
         
         desc "A human-readable description of the cause of the error.  This field may be presented as-is to a reader."
         
@@ -41,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_status_cause) do
     
   
     
+      
       newproperty(:field) do
+      
         
         desc "The field of the resource that has caused this error, as named by its JSON serialization. May include dot and postfix notation for nested attributes. Arrays are zero-indexed.  Fields may appear more than once in an array of causes due to fields having multiple errors. Optional.
 

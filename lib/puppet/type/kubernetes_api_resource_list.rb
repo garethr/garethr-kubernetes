@@ -39,7 +39,9 @@ Puppet::Type.newtype(:kubernetes_api_resource_list) do
     
   
     
+      
       newproperty(:group_version) do
+      
         
         desc "groupVersion is the group and version this APIResourceList is for."
         
@@ -50,7 +52,9 @@ Puppet::Type.newtype(:kubernetes_api_resource_list) do
     
   
     
-      newproperty(:resources) do
+      
+      newproperty(:resources, :array_matching => :all) do
+      
         
         desc "resources contains the name of the resources and if they are namespaced."
         

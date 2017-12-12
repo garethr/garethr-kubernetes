@@ -61,11 +61,23 @@ module PuppetX
           add_headers(client)
         end
 
+        def self.rbac_client
+          client = ::Kubeclient::Client.new(
+            "#{config.context.api_endpoint}/apis/rbac.authorization.k8s.io",
+            "#{config.context.api_version}",
+            ssl_options: config.context.ssl_options,
+            auth_options: config.context.auth_options,
+          )
+          add_headers(client)
+        end
+
         def self.call(method, *object)
           if v1_client.respond_to?(method)
             v1_client.send(method, *object)
-          else
+          elsif beta_client.respond_to?(method)
             beta_client.send(method, *object)
+          else
+            rbac_client.send(method, *object)
           end
         end
 
@@ -157,7 +169,7 @@ module PuppetX
           if self.metadata == :absent
             # This means the resource doesn't exist already
             if resource[:metadata]
-              resource[:metadata]['namespace'] || 'default'
+              resource[:metadata]['namespace']
             else
               # for resources without metadata like namespaces
               # we don't need to set a namespace

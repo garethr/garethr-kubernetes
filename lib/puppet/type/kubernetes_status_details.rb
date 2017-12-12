@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_status_details) do
   end
   
     
+      
       newproperty(:name) do
+      
         
         desc "The name attribute of the resource associated with the status StatusReason (when there is a single name which can be described)."
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_status_details) do
     
   
     
+      
       newproperty(:group) do
+      
         
         desc "The group attribute of the resource associated with the status StatusReason."
         
@@ -43,7 +47,9 @@ Puppet::Type.newtype(:kubernetes_status_details) do
     
   
     
+      
       newproperty(:uid) do
+      
         
         desc "UID of the resource. (when there is a single resource which can be described). More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
         
@@ -54,7 +60,9 @@ Puppet::Type.newtype(:kubernetes_status_details) do
     
   
     
-      newproperty(:causes) do
+      
+      newproperty(:causes, :array_matching => :all) do
+      
         
         desc "The Causes array includes more details associated with the StatusReason failure. Not all StatusReasons may provide detailed causes."
         
@@ -65,7 +73,9 @@ Puppet::Type.newtype(:kubernetes_status_details) do
     
   
     
+      
       newproperty(:retry_after_seconds) do
+      
         
         desc "If specified, the time in seconds before the operation should be retried. Some errors may indicate the client must take an alternate action - for those errors this field may indicate how long to wait before taking the alternate action."
         

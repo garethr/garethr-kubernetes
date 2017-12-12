@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_preconditions) do
   end
   
     
+      
       newproperty(:uid) do
+      
         
         desc "Specifies the target UID."
         

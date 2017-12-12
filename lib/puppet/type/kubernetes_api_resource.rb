@@ -41,7 +41,9 @@ Puppet::Type.newtype(:kubernetes_api_resource) do
   end
   
     
+      
       newproperty(:name) do
+      
         
         desc "name is the plural name of the resource."
         
@@ -52,7 +54,9 @@ Puppet::Type.newtype(:kubernetes_api_resource) do
     
   
     
+      
       newproperty(:singular_name) do
+      
         
         desc "singularName is the singular name of the resource.  This allows clients to handle plural and singular opaquely. The singularName is more correct for reporting status on a single item and both singular and plural are allowed from the kubectl CLI interface."
         
@@ -63,7 +67,9 @@ Puppet::Type.newtype(:kubernetes_api_resource) do
     
   
     
+      
       newproperty(:namespaced) do
+      
         
         desc "namespaced indicates if a resource is namespaced or not."
         
@@ -74,7 +80,9 @@ Puppet::Type.newtype(:kubernetes_api_resource) do
     
   
     
+      
       newproperty(:group) do
+      
         
         desc "group is the preferred group of the resource.  Empty implies the group of the containing resource list. For subresources, this may have a different value, for example: Scale'."
         
@@ -85,7 +93,9 @@ Puppet::Type.newtype(:kubernetes_api_resource) do
     
   
     
+      
       newproperty(:version) do
+      
         
         desc "version is the preferred version of the resource.  Empty implies the version of the containing resource list For subresources, this may have a different value, for example: v1 (while inside a v1beta1 version of the core resource's group)'."
         
@@ -98,7 +108,9 @@ Puppet::Type.newtype(:kubernetes_api_resource) do
     
   
     
-      newproperty(:verbs) do
+      
+      newproperty(:verbs, :array_matching => :all) do
+      
         
         desc "verbs is a list of supported kube verbs (this includes get, list, watch, create, update, patch, delete, deletecollection, and proxy)"
         
@@ -109,7 +121,9 @@ Puppet::Type.newtype(:kubernetes_api_resource) do
     
   
     
-      newproperty(:short_names) do
+      
+      newproperty(:short_names, :array_matching => :all) do
+      
         
         desc "shortNames is a list of suggested short names of the resource."
         
@@ -120,7 +134,9 @@ Puppet::Type.newtype(:kubernetes_api_resource) do
     
   
     
-      newproperty(:categories) do
+      
+      newproperty(:categories, :array_matching => :all) do
+      
         
         desc "categories is a list of the grouped resources this resource belongs to (e.g. 'all')"
         

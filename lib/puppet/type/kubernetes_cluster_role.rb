@@ -5,9 +5,9 @@
 
 require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
-Puppet::Type.newtype(:kubernetes_initializer) do
+Puppet::Type.newtype(:kubernetes_cluster_role) do
   
-  @doc = "Initializer is information about an initializer that has not yet completed."
+  @doc = "ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding."
   
 
   ensurable
@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_initializer) do
   validate do
     required_properties = [
     
-      :name,
+      :rules,
     
     ]
     required_properties.each do |property|
@@ -29,15 +29,32 @@ Puppet::Type.newtype(:kubernetes_initializer) do
   
 
   newparam(:name, namevar: true) do
-    desc 'Name of the initializer.'
+    desc 'Name of the cluster_role.'
   end
   
     
+  
+    
+  
+    
       
-      newproperty(:name) do
+      newproperty(:metadata) do
       
         
-        desc "name of the process that is responsible for initializing this object."
+        desc "Standard object's metadata."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      
+      newproperty(:rules, :array_matching => :all) do
+      
+        
+        desc "Rules holds all the PolicyRules for this ClusterRole"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

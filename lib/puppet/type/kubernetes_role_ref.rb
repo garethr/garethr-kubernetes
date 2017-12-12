@@ -5,9 +5,9 @@
 
 require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
-Puppet::Type.newtype(:kubernetes_initializer) do
+Puppet::Type.newtype(:kubernetes_role_ref) do
   
-  @doc = "Initializer is information about an initializer that has not yet completed."
+  @doc = "RoleRef contains information that points to the role being used"
   
 
   ensurable
@@ -15,6 +15,10 @@ Puppet::Type.newtype(:kubernetes_initializer) do
   
   validate do
     required_properties = [
+    
+      :api_group,
+    
+      :kind,
     
       :name,
     
@@ -29,15 +33,30 @@ Puppet::Type.newtype(:kubernetes_initializer) do
   
 
   newparam(:name, namevar: true) do
-    desc 'Name of the initializer.'
+    desc 'Name of the role_ref.'
   end
+  
+    
+      
+      newproperty(:api_group) do
+      
+        
+        desc "APIGroup is the group for the resource being referenced"
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
   
     
       
       newproperty(:name) do
       
         
-        desc "name of the process that is responsible for initializing this object."
+        desc "Name is the name of resource being referenced"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

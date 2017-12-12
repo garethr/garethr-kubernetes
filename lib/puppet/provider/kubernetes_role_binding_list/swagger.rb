@@ -5,7 +5,7 @@
 
 require_relative '../../../puppet_x/puppetlabs/kubernetes/provider'
 
-Puppet::Type.type(:kubernetes_ingress).provide(:swagger, :parent => PuppetX::Puppetlabs::Kubernetes::Provider) do
+Puppet::Type.type(:kubernetes_role_binding_list).provide(:swagger, :parent => PuppetX::Puppetlabs::Kubernetes::Provider) do
 
   mk_resource_methods
 
@@ -13,70 +13,62 @@ Puppet::Type.type(:kubernetes_ingress).provide(:swagger, :parent => PuppetX::Pup
     {
     ensure: :present,
     name: instance.metadata.name,
-
-
-
-
-
-
+    
+      
+    
+      
+    
+      
         metadata: instance.metadata.respond_to?(:to_hash) ? instance.metadata.to_hash : instance.metadata,
-
-
-
-        spec: instance.spec.respond_to?(:to_hash) ? instance.spec.to_hash : instance.spec,
-
-
-
-        status: instance.status.respond_to?(:to_hash) ? instance.status.to_hash : instance.status,
-
-
+      
+    
+      
+        items: instance.items.respond_to?(:to_hash) ? instance.items.to_hash : instance.items,
+      
+    
     object: instance,
     }
   end
 
   def create
-    Puppet.info("Creating kubernetes_ingress #{name}")
-    create_instance_of('ingress', name, build_params)
+    Puppet.info("Creating kubernetes_role_binding_list #{name}")
+    create_instance_of('role_binding_list', name, build_params)
   end
 
   def flush
    unless @property_hash.empty?
      unless resource[:ensure] == :absent
-        flush_instance_of('ingress', name, @property_hash[:object], build_params)
+        flush_instance_of('role_binding_list', name, @property_hash[:object], build_params)
       end
     end
   end
 
   def destroy
-    Puppet.info("Deleting kubernetes_ingress #{name}")
-    destroy_instance_of('ingress', name)
+    Puppet.info("Deleting kubernetes_role_binding_list #{name}")
+    destroy_instance_of('role_binding_list', name)
     @property_hash[:ensure] = :absent
   end
 
   private
   def self.list_instances
-    list_instances_of('ingresse')
+    list_instances_of('role_binding_list')
   end
 
   def build_params
     params = {
-
-
-
-
-
-
+    
+      
+    
+      
+    
+      
         metadata: resource[:metadata],
-
-
-
-        spec: resource[:spec],
-
-
-
-        status: resource[:status],
-
-
+      
+    
+      
+        items: resource[:items],
+      
+    
     }
     params.delete_if { |key, value| value.nil? }
     params

@@ -5,7 +5,9 @@
 
 require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
-Puppet::Type.newtype(:kubernetes_watch_event) do
+Puppet::Type.newtype(:kubernetes_cluster_role_binding) do
+  
+  @doc = "ClusterRoleBinding references a ClusterRole, but not contain it.  It can reference a ClusterRole in the global namespace, and adds who information via Subject."
   
 
   ensurable
@@ -14,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_watch_event) do
   validate do
     required_properties = [
     
-      :type,
+      :subjects,
     
-      :object,
+      :role_ref,
     
     ]
     required_properties.each do |property|
@@ -29,13 +31,19 @@ Puppet::Type.newtype(:kubernetes_watch_event) do
   
 
   newparam(:name, namevar: true) do
-    desc 'Name of the watch_event.'
+    desc 'Name of the cluster_role_binding.'
   end
   
     
+  
+    
+  
+    
       
-      newproperty(:type) do
+      newproperty(:metadata) do
       
+        
+        desc "Standard object's metadata."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -45,8 +53,23 @@ Puppet::Type.newtype(:kubernetes_watch_event) do
   
     
       
-      newproperty(:object) do
+      newproperty(:subjects, :array_matching => :all) do
       
+        
+        desc "Subjects holds references to the objects the role applies to."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      
+      newproperty(:role_ref) do
+      
+        
+        desc "RoleRef can only reference a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
