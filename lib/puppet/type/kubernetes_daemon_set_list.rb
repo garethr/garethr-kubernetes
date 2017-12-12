@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_daemon_set_list) do
   validate do
     required_properties = [
     
-      items,
+      :items,
     
     ]
     required_properties.each do |property|

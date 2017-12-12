@@ -7,6 +7,8 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_rollback_config) do
   
+  @doc = "DEPRECATED."
+  
 
   ensurable
 
@@ -18,6 +20,8 @@ Puppet::Type.newtype(:kubernetes_rollback_config) do
   
     
       newproperty(:revision) do
+        
+        desc "The revision to rollback to. If set to 0, rollback to the last revision."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

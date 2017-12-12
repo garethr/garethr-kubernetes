@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_se_linux_strategy_options) do
   validate do
     required_properties = [
     
-      rule,
+      :rule,
     
     ]
     required_properties.each do |property|

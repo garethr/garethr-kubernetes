@@ -16,13 +16,13 @@ Puppet::Type.newtype(:kubernetes_pod_security_policy_spec) do
   validate do
     required_properties = [
     
-      se_linux,
+      :se_linux,
     
-      run_as_user,
+      :run_as_user,
     
-      supplemental_groups,
+      :supplemental_groups,
     
-      fs_group,
+      :fs_group,
     
     ]
     required_properties.each do |property|
@@ -185,6 +185,39 @@ Puppet::Type.newtype(:kubernetes_pod_security_policy_spec) do
       newproperty(:read_only_root_filesystem) do
         
         desc "ReadOnlyRootFilesystem when set to true will force containers to run with a read only root file system.  If the container specifically requests to run with a non-read only root file system the PSP should deny the pod. If set to false the container may run with a read only root file system if it wishes but it will not be forced to."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:default_allow_privilege_escalation) do
+        
+        desc "DefaultAllowPrivilegeEscalation controls the default setting for whether a process can gain more privileges than its parent process."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:allow_privilege_escalation) do
+        
+        desc "AllowPrivilegeEscalation determines if a pod can request to allow privilege escalation. If unspecified, defaults to true."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:allowed_host_paths) do
+        
+        desc "is a white list of allowed host paths. Empty indicates that all host paths may be used."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

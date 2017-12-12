@@ -70,6 +70,18 @@ Puppet::Type.type(:kubernetes_pod_security_policy_spec).provide(:swagger, :paren
         read_only_root_filesystem: instance.readOnlyRootFilesystem.respond_to?(:to_hash) ? instance.readOnlyRootFilesystem.to_hash : instance.readOnlyRootFilesystem,
       
     
+      
+        default_allow_privilege_escalation: instance.defaultAllowPrivilegeEscalation.respond_to?(:to_hash) ? instance.defaultAllowPrivilegeEscalation.to_hash : instance.defaultAllowPrivilegeEscalation,
+      
+    
+      
+        allow_privilege_escalation: instance.allowPrivilegeEscalation.respond_to?(:to_hash) ? instance.allowPrivilegeEscalation.to_hash : instance.allowPrivilegeEscalation,
+      
+    
+      
+        allowed_host_paths: instance.allowedHostPaths.respond_to?(:to_hash) ? instance.allowedHostPaths.to_hash : instance.allowedHostPaths,
+      
+    
     object: instance,
     }
   end
@@ -155,6 +167,18 @@ Puppet::Type.type(:kubernetes_pod_security_policy_spec).provide(:swagger, :paren
     
       
         readOnlyRootFilesystem: resource[:read_only_root_filesystem],
+      
+    
+      
+        defaultAllowPrivilegeEscalation: resource[:default_allow_privilege_escalation],
+      
+    
+      
+        allowPrivilegeEscalation: resource[:allow_privilege_escalation],
+      
+    
+      
+        allowedHostPaths: resource[:allowed_host_paths],
       
     
     }

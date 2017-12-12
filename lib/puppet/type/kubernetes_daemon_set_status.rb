@@ -16,13 +16,13 @@ Puppet::Type.newtype(:kubernetes_daemon_set_status) do
   validate do
     required_properties = [
     
-      current_number_scheduled,
+      :current_number_scheduled,
     
-      number_misscheduled,
+      :number_misscheduled,
     
-      desired_number_scheduled,
+      :desired_number_scheduled,
     
-      number_ready,
+      :number_ready,
     
     ]
     required_properties.each do |property|

@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_http_ingress_rule_value) do
   validate do
     required_properties = [
     
-      paths,
+      :paths,
     
     ]
     required_properties.each do |property|

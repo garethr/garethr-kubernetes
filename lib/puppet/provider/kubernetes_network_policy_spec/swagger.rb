@@ -22,6 +22,14 @@ Puppet::Type.type(:kubernetes_network_policy_spec).provide(:swagger, :parent => 
         ingress: instance.ingress.respond_to?(:to_hash) ? instance.ingress.to_hash : instance.ingress,
       
     
+      
+        egress: instance.egress.respond_to?(:to_hash) ? instance.egress.to_hash : instance.egress,
+      
+    
+      
+        policy_types: instance.policyTypes.respond_to?(:to_hash) ? instance.policyTypes.to_hash : instance.policyTypes,
+      
+    
     object: instance,
     }
   end
@@ -59,6 +67,14 @@ Puppet::Type.type(:kubernetes_network_policy_spec).provide(:swagger, :parent => 
     
       
         ingress: resource[:ingress],
+      
+    
+      
+        egress: resource[:egress],
+      
+    
+      
+        policyTypes: resource[:policy_types],
       
     
     }

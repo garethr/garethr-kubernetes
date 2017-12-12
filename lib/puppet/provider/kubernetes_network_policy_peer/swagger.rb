@@ -22,6 +22,10 @@ Puppet::Type.type(:kubernetes_network_policy_peer).provide(:swagger, :parent => 
         namespace_selector: instance.namespaceSelector.respond_to?(:to_hash) ? instance.namespaceSelector.to_hash : instance.namespaceSelector,
       
     
+      
+        ip_block: instance.ipBlock.respond_to?(:to_hash) ? instance.ipBlock.to_hash : instance.ipBlock,
+      
+    
     object: instance,
     }
   end
@@ -59,6 +63,10 @@ Puppet::Type.type(:kubernetes_network_policy_peer).provide(:swagger, :parent => 
     
       
         namespaceSelector: resource[:namespace_selector],
+      
+    
+      
+        ipBlock: resource[:ip_block],
       
     
     }

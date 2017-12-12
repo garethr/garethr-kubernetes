@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_ingress_backend) do
   validate do
     required_properties = [
     
-      service_name,
+      :service_name,
     
-      service_port,
+      :service_port,
     
     ]
     required_properties.each do |property|

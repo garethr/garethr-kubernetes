@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_id_range) do
   validate do
     required_properties = [
     
-      min,
+      :min,
     
-      max,
+      :max,
     
     ]
     required_properties.each do |property|

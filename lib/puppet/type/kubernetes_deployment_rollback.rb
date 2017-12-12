@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_deployment_rollback) do
   
-  @doc = "DeploymentRollback stores the information required to rollback a deployment."
+  @doc = "DEPRECATED. DeploymentRollback stores the information required to rollback a deployment."
   
 
   ensurable
@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_deployment_rollback) do
   validate do
     required_properties = [
     
-      name,
+      :name,
     
-      rollback_to,
+      :rollback_to,
     
     ]
     required_properties.each do |property|

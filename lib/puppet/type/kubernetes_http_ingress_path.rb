@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_http_ingress_path) do
   validate do
     required_properties = [
     
-      backend,
+      :backend,
     
     ]
     required_properties.each do |property|

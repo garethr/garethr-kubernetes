@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_deployment_spec) do
   validate do
     required_properties = [
     
-      template,
+      :template,
     
     ]
     required_properties.each do |property|
@@ -112,7 +112,7 @@ Puppet::Type.newtype(:kubernetes_deployment_spec) do
     
       newproperty(:rollback_to) do
         
-        desc "The config this deployment is rolling back to. Will be cleared after rollback is done."
+        desc "DEPRECATED. The config this deployment is rolling back to. Will be cleared after rollback is done."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -123,7 +123,7 @@ Puppet::Type.newtype(:kubernetes_deployment_spec) do
     
       newproperty(:progress_deadline_seconds) do
         
-        desc "The maximum time in seconds for a deployment to make progress before it is considered to be failed. The deployment controller will continue to process failed deployments and a condition with a ProgressDeadlineExceeded reason will be surfaced in the deployment status. Once autoRollback is implemented, the deployment controller will automatically rollback failed deployments. Note that progress will not be estimated during the time a deployment is paused. This is not set by default."
+        desc "The maximum time in seconds for a deployment to make progress before it is considered to be failed. The deployment controller will continue to process failed deployments and a condition with a ProgressDeadlineExceeded reason will be surfaced in the deployment status. Note that progress will not be estimated during the time a deployment is paused. This is not set by default."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
