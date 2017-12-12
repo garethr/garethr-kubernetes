@@ -67,7 +67,7 @@ Puppet::Type.newtype(:kubernetes_status_details) do
     
       newproperty(:retry_after_seconds) do
         
-        desc "If specified, the time in seconds before the operation should be retried."
+        desc "If specified, the time in seconds before the operation should be retried. Some errors may indicate the client must take an alternate action - for those errors this field may indicate how long to wait before taking the alternate action."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

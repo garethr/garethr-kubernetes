@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_volume_mount) do
   validate do
     required_properties = [
     
-      name,
+      :name,
     
-      mount_path,
+      :mount_path,
     
     ]
     required_properties.each do |property|
@@ -71,6 +71,17 @@ Puppet::Type.newtype(:kubernetes_volume_mount) do
       newproperty(:sub_path) do
         
         desc "Path within the volume from which the container's volume should be mounted. Defaults to '' (volume's root)."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:mount_propagation) do
+        
+        desc "mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationHostToContainer is used. This field is alpha in 1.8 and can be reworked or removed in a future release."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_node_address) do
   validate do
     required_properties = [
     
-      type,
+      :type,
     
-      address,
+      :address,
     
     ]
     required_properties.each do |property|

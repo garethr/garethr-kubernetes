@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_preferred_scheduling_term) do
   validate do
     required_properties = [
     
-      weight,
+      :weight,
     
-      preference,
+      :preference,
     
     ]
     required_properties.each do |property|

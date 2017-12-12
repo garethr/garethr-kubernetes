@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_http_header) do
   validate do
     required_properties = [
     
-      name,
+      :name,
     
-      value,
+      :value,
     
     ]
     required_properties.each do |property|

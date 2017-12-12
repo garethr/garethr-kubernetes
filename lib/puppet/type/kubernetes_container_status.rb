@@ -16,15 +16,15 @@ Puppet::Type.newtype(:kubernetes_container_status) do
   validate do
     required_properties = [
     
-      name,
+      :name,
     
-      ready,
+      :ready,
     
-      restart_count,
+      :restart_count,
     
-      image,
+      :image,
     
-      image_id,
+      :image_id,
     
     ]
     required_properties.each do |property|

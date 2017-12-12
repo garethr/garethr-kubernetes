@@ -16,11 +16,11 @@ Puppet::Type.newtype(:kubernetes_scale_io_volume_source) do
   validate do
     required_properties = [
     
-      gateway,
+      :gateway,
     
-      system,
+      :system,
     
-      secret_ref,
+      :secret_ref,
     
     ]
     required_properties.each do |property|
@@ -83,7 +83,7 @@ Puppet::Type.newtype(:kubernetes_scale_io_volume_source) do
     
       newproperty(:protection_domain) do
         
-        desc "The name of the Protection Domain for the configured storage (defaults to 'default')."
+        desc "The name of the ScaleIO Protection Domain for the configured storage."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -94,7 +94,7 @@ Puppet::Type.newtype(:kubernetes_scale_io_volume_source) do
     
       newproperty(:storage_pool) do
         
-        desc "The Storage Pool associated with the protection domain (defaults to 'default')."
+        desc "The ScaleIO Storage Pool associated with the protection domain."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -105,7 +105,7 @@ Puppet::Type.newtype(:kubernetes_scale_io_volume_source) do
     
       newproperty(:storage_mode) do
         
-        desc "Indicates whether the storage for a volume should be thick or thin (defaults to 'thin')."
+        desc "Indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

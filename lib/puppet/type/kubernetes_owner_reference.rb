@@ -16,13 +16,13 @@ Puppet::Type.newtype(:kubernetes_owner_reference) do
   validate do
     required_properties = [
     
-      api_version,
+      :api_version,
     
-      kind,
+      :kind,
     
-      name,
+      :name,
     
-      uid,
+      :uid,
     
     ]
     required_properties.each do |property|

@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_ceph_fs_volume_source) do
   validate do
     required_properties = [
     
-      monitors,
+      :monitors,
     
     ]
     required_properties.each do |property|

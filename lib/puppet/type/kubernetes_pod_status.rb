@@ -54,7 +54,7 @@ Puppet::Type.newtype(:kubernetes_pod_status) do
     
       newproperty(:reason) do
         
-        desc "A brief CamelCase message indicating details about why the pod is in this state. e.g. 'OutOfDisk'"
+        desc "A brief CamelCase message indicating details about why the pod is in this state. e.g. 'Evicted'"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

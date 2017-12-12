@@ -14,9 +14,9 @@ Puppet::Type.newtype(:kubernetes_watch_event) do
   validate do
     required_properties = [
     
-      type,
+      :type,
     
-      object,
+      :object,
     
     ]
     required_properties.each do |property|

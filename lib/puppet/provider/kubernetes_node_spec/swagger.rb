@@ -34,6 +34,10 @@ Puppet::Type.type(:kubernetes_node_spec).provide(:swagger, :parent => PuppetX::P
         taints: instance.taints.respond_to?(:to_hash) ? instance.taints.to_hash : instance.taints,
       
     
+      
+        config_source: instance.configSource.respond_to?(:to_hash) ? instance.configSource.to_hash : instance.configSource,
+      
+    
     object: instance,
     }
   end
@@ -83,6 +87,10 @@ Puppet::Type.type(:kubernetes_node_spec).provide(:swagger, :parent => PuppetX::P
     
       
         taints: resource[:taints],
+      
+    
+      
+        configSource: resource[:config_source],
       
     
     }

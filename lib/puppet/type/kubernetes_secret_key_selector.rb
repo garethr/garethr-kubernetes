@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_secret_key_selector) do
   validate do
     required_properties = [
     
-      key,
+      :key,
     
     ]
     required_properties.each do |property|

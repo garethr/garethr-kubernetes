@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_weighted_pod_affinity_term) do
   validate do
     required_properties = [
     
-      weight,
+      :weight,
     
-      pod_affinity_term,
+      :pod_affinity_term,
     
     ]
     required_properties.each do |property|

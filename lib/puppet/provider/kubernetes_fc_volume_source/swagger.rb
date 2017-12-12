@@ -30,6 +30,10 @@ Puppet::Type.type(:kubernetes_fc_volume_source).provide(:swagger, :parent => Pup
         read_only: instance.readOnly.respond_to?(:to_hash) ? instance.readOnly.to_hash : instance.readOnly,
       
     
+      
+        wwids: instance.wwids.respond_to?(:to_hash) ? instance.wwids.to_hash : instance.wwids,
+      
+    
     object: instance,
     }
   end
@@ -75,6 +79,10 @@ Puppet::Type.type(:kubernetes_fc_volume_source).provide(:swagger, :parent => Pup
     
       
         readOnly: resource[:read_only],
+      
+    
+      
+        wwids: resource[:wwids],
       
     
     }

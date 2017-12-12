@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
   validate do
     required_properties = [
     
-      containers,
+      :containers,
     
     ]
     required_properties.each do |property|
@@ -278,6 +278,28 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
       newproperty(:host_aliases) do
         
         desc "HostAliases is an optional list of hosts and IPs that will be injected into the pod's hosts file if specified. This is only valid for non-hostNetwork pods."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:priority_class_name) do
+        
+        desc "If specified, indicates the pod's priority. 'SYSTEM' is a special keyword which indicates the highest priority. Any other name must be defined by creating a PriorityClass object with that name. If not specified, the pod priority will be default or zero if there is no default."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:priority) do
+        
+        desc "The priority value. Various system components use this field to find the priority of the pod. When Priority Admission Controller is enabled, it prevents users from setting this field. The admission controller populates this field from PriorityClassName. The higher the value, the higher the priority."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_volume_source) do
   validate do
     required_properties = [
     
-      claim_name,
+      :claim_name,
     
     ]
     required_properties.each do |property|

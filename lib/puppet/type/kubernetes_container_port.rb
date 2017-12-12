@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_container_port) do
   validate do
     required_properties = [
     
-      container_port,
+      :container_port,
     
     ]
     required_properties.each do |property|

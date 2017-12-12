@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_attached_volume) do
   validate do
     required_properties = [
     
-      name,
+      :name,
     
-      device_path,
+      :device_path,
     
     ]
     required_properties.each do |property|

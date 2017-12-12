@@ -54,6 +54,10 @@ Puppet::Type.type(:kubernetes_iscsi_volume_source).provide(:swagger, :parent => 
         secret_ref: instance.secretRef.respond_to?(:to_hash) ? instance.secretRef.to_hash : instance.secretRef,
       
     
+      
+        initiator_name: instance.initiatorName.respond_to?(:to_hash) ? instance.initiatorName.to_hash : instance.initiatorName,
+      
+    
     object: instance,
     }
   end
@@ -123,6 +127,10 @@ Puppet::Type.type(:kubernetes_iscsi_volume_source).provide(:swagger, :parent => 
     
       
         secretRef: resource[:secret_ref],
+      
+    
+      
+        initiatorName: resource[:initiator_name],
       
     
     }

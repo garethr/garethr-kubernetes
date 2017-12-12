@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_initializers) do
   validate do
     required_properties = [
     
-      pending,
+      :pending,
     
     ]
     required_properties.each do |property|

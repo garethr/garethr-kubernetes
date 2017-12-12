@@ -18,7 +18,7 @@ A GCE PD must exist before mounting to a container. The disk must also be in the
   validate do
     required_properties = [
     
-      pd_name,
+      :pd_name,
     
     ]
     required_properties.each do |property|

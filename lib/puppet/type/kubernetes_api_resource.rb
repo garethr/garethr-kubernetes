@@ -16,15 +16,15 @@ Puppet::Type.newtype(:kubernetes_api_resource) do
   validate do
     required_properties = [
     
-      name,
+      :name,
     
-      singular_name,
+      :singular_name,
     
-      namespaced,
+      :namespaced,
     
-      kind,
+      :kind,
     
-      verbs,
+      :verbs,
     
     ]
     required_properties.each do |property|
@@ -66,6 +66,28 @@ Puppet::Type.newtype(:kubernetes_api_resource) do
       newproperty(:namespaced) do
         
         desc "namespaced indicates if a resource is namespaced or not."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:group) do
+        
+        desc "group is the preferred group of the resource.  Empty implies the group of the containing resource list. For subresources, this may have a different value, for example: Scale'."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:version) do
+        
+        desc "version is the preferred version of the resource.  Empty implies the version of the containing resource list For subresources, this may have a different value, for example: v1 (while inside a v1beta1 version of the core resource's group)'."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

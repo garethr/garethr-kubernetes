@@ -22,6 +22,10 @@ Puppet::Type.type(:kubernetes_list_meta).provide(:swagger, :parent => PuppetX::P
         resource_version: instance.resourceVersion.respond_to?(:to_hash) ? instance.resourceVersion.to_hash : instance.resourceVersion,
       
     
+      
+        continue: instance.continue.respond_to?(:to_hash) ? instance.continue.to_hash : instance.continue,
+      
+    
     object: instance,
     }
   end
@@ -59,6 +63,10 @@ Puppet::Type.type(:kubernetes_list_meta).provide(:swagger, :parent => PuppetX::P
     
       
         resourceVersion: resource[:resource_version],
+      
+    
+      
+        continue: resource[:continue],
       
     
     }

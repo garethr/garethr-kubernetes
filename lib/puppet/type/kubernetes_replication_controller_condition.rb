@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_replication_controller_condition) do
   validate do
     required_properties = [
     
-      type,
+      :type,
     
-      status,
+      :status,
     
     ]
     required_properties.each do |property|

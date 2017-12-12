@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_local_volume_source) do
   validate do
     required_properties = [
     
-      path,
+      :path,
     
     ]
     required_properties.each do |property|

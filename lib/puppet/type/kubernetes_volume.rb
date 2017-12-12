@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_volume) do
   validate do
     required_properties = [
     
-      name,
+      :name,
     
     ]
     required_properties.each do |property|

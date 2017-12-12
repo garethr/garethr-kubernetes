@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_resource_field_selector) do
   validate do
     required_properties = [
     
-      resource,
+      :resource,
     
     ]
     required_properties.each do |property|

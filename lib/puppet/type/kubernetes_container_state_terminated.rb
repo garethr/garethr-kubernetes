@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_container_state_terminated) do
   validate do
     required_properties = [
     
-      exit_code,
+      :exit_code,
     
     ]
     required_properties.each do |property|

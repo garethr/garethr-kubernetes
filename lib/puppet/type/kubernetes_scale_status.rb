@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_scale_status) do
   
-  @doc = "represents the current status of a scale subresource."
+  @doc = "ScaleStatus represents the current status of a scale subresource."
   
 
   ensurable
@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_scale_status) do
   validate do
     required_properties = [
     
-      replicas,
+      :replicas,
     
     ]
     required_properties.each do |property|
@@ -46,18 +46,7 @@ Puppet::Type.newtype(:kubernetes_scale_status) do
     
       newproperty(:selector) do
         
-        desc "label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors"
-        
-        def insync?(is)
-          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
-        end
-      end
-    
-  
-    
-      newproperty(:target_selector) do
-        
-        desc "label selector for pods that should match the replicas count. This is a serializated version of both map-based and more expressive set-based selectors. This is done to avoid introspection in the clients. The string will be in the same format as the query-param syntax. If the target type only supports map-based selectors, both this field and map-based selector field are populated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors"
+        desc "label query over pods that should match the replicas count. This is same as the label selector but in the string format to avoid introspection by clients. The string will be in the same format as the query-param syntax. More info about label selectors: http://kubernetes.io/docs/user-guide/labels#label-selectors"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

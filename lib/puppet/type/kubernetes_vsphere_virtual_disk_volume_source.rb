@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_vsphere_virtual_disk_volume_source) do
   validate do
     required_properties = [
     
-      volume_path,
+      :volume_path,
     
     ]
     required_properties.each do |property|

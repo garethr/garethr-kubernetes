@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_scale) do
   
-  @doc = "represents a scaling request for a resource."
+  @doc = "Scale represents a scaling request for a resource."
   
 
   ensurable

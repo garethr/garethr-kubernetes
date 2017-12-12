@@ -38,6 +38,10 @@ Puppet::Type.type(:kubernetes_security_context).provide(:swagger, :parent => Pup
         read_only_root_filesystem: instance.readOnlyRootFilesystem.respond_to?(:to_hash) ? instance.readOnlyRootFilesystem.to_hash : instance.readOnlyRootFilesystem,
       
     
+      
+        allow_privilege_escalation: instance.allowPrivilegeEscalation.respond_to?(:to_hash) ? instance.allowPrivilegeEscalation.to_hash : instance.allowPrivilegeEscalation,
+      
+    
     object: instance,
     }
   end
@@ -91,6 +95,10 @@ Puppet::Type.type(:kubernetes_security_context).provide(:swagger, :parent => Pup
     
       
         readOnlyRootFilesystem: resource[:read_only_root_filesystem],
+      
+    
+      
+        allowPrivilegeEscalation: resource[:allow_privilege_escalation],
       
     
     }

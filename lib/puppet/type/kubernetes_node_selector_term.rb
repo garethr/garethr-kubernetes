@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_node_selector_term) do
   validate do
     required_properties = [
     
-      match_expressions,
+      :match_expressions,
     
     ]
     required_properties.each do |property|

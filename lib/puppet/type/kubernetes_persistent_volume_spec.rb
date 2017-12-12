@@ -304,4 +304,15 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_spec) do
       end
     
   
+    
+      newproperty(:mount_options) do
+        
+        desc "A list of mount options, e.g. ['ro', 'soft']. Not validated - mount will simply fail if one is invalid. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#mount-options"
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
 end

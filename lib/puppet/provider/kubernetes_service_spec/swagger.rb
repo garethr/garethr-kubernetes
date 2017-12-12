@@ -58,6 +58,14 @@ Puppet::Type.type(:kubernetes_service_spec).provide(:swagger, :parent => PuppetX
         health_check_node_port: instance.healthCheckNodePort.respond_to?(:to_hash) ? instance.healthCheckNodePort.to_hash : instance.healthCheckNodePort,
       
     
+      
+        publish_not_ready_addresses: instance.publishNotReadyAddresses.respond_to?(:to_hash) ? instance.publishNotReadyAddresses.to_hash : instance.publishNotReadyAddresses,
+      
+    
+      
+        session_affinity_config: instance.sessionAffinityConfig.respond_to?(:to_hash) ? instance.sessionAffinityConfig.to_hash : instance.sessionAffinityConfig,
+      
+    
     object: instance,
     }
   end
@@ -131,6 +139,14 @@ Puppet::Type.type(:kubernetes_service_spec).provide(:swagger, :parent => PuppetX
     
       
         healthCheckNodePort: resource[:health_check_node_port],
+      
+    
+      
+        publishNotReadyAddresses: resource[:publish_not_ready_addresses],
+      
+    
+      
+        sessionAffinityConfig: resource[:session_affinity_config],
       
     
     }

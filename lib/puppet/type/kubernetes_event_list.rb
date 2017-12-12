@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_event_list) do
   validate do
     required_properties = [
     
-      items,
+      :items,
     
     ]
     required_properties.each do |property|

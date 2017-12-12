@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_downward_api_volume_file) do
   validate do
     required_properties = [
     
-      path,
+      :path,
     
     ]
     required_properties.each do |property|

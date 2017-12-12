@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_tcp_socket_action) do
   validate do
     required_properties = [
     
-      port,
+      :port,
     
     ]
     required_properties.each do |property|

@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_api_resource_list) do
   validate do
     required_properties = [
     
-      group_version,
+      :group_version,
     
-      resources,
+      :resources,
     
     ]
     required_properties.each do |property|

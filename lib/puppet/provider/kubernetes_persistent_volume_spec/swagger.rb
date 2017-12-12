@@ -118,6 +118,10 @@ Puppet::Type.type(:kubernetes_persistent_volume_spec).provide(:swagger, :parent 
         storage_class_name: instance.storageClassName.respond_to?(:to_hash) ? instance.storageClassName.to_hash : instance.storageClassName,
       
     
+      
+        mount_options: instance.mountOptions.respond_to?(:to_hash) ? instance.mountOptions.to_hash : instance.mountOptions,
+      
+    
     object: instance,
     }
   end
@@ -251,6 +255,10 @@ Puppet::Type.type(:kubernetes_persistent_volume_spec).provide(:swagger, :parent 
     
       
         storageClassName: resource[:storage_class_name],
+      
+    
+      
+        mountOptions: resource[:mount_options],
       
     
     }

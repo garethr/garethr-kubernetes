@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_key_to_path) do
   validate do
     required_properties = [
     
-      key,
+      :key,
     
-      path,
+      :path,
     
     ]
     required_properties.each do |property|

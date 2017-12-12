@@ -73,4 +73,15 @@ Puppet::Type.newtype(:kubernetes_node_spec) do
       end
     
   
+    
+      newproperty(:config_source) do
+        
+        desc "If specified, the source to get node configuration from The DynamicKubeletConfig feature gate must be enabled for the Kubelet to use this field"
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
 end

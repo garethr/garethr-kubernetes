@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_quobyte_volume_source) do
   validate do
     required_properties = [
     
-      registry,
+      :registry,
     
-      volume,
+      :volume,
     
     ]
     required_properties.each do |property|

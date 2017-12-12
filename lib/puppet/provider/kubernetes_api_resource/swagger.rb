@@ -27,6 +27,14 @@ Puppet::Type.type(:kubernetes_api_resource).provide(:swagger, :parent => PuppetX
       
     
       
+        group: instance.group.respond_to?(:to_hash) ? instance.group.to_hash : instance.group,
+      
+    
+      
+        version: instance.version.respond_to?(:to_hash) ? instance.version.to_hash : instance.version,
+      
+    
+      
     
       
         verbs: instance.verbs.respond_to?(:to_hash) ? instance.verbs.to_hash : instance.verbs,
@@ -81,6 +89,14 @@ Puppet::Type.type(:kubernetes_api_resource).provide(:swagger, :parent => PuppetX
     
       
         namespaced: resource[:namespaced],
+      
+    
+      
+        group: resource[:group],
+      
+    
+      
+        version: resource[:version],
       
     
       

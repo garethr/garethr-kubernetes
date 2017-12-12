@@ -16,9 +16,7 @@ Puppet::Type.newtype(:kubernetes_container) do
   validate do
     required_properties = [
     
-      name,
-    
-      image,
+      :name,
     
     ]
     required_properties.each do |property|
@@ -48,7 +46,7 @@ Puppet::Type.newtype(:kubernetes_container) do
     
       newproperty(:image) do
         
-        desc "Docker image name. More info: https://kubernetes.io/docs/concepts/containers/images"
+        desc "Docker image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

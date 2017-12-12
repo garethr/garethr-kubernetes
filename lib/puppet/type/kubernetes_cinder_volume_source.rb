@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_cinder_volume_source) do
   validate do
     required_properties = [
     
-      volume_id,
+      :volume_id,
     
     ]
     required_properties.each do |property|

@@ -16,11 +16,11 @@ Puppet::Type.newtype(:kubernetes_iscsi_volume_source) do
   validate do
     required_properties = [
     
-      target_portal,
+      :target_portal,
     
-      iqn,
+      :iqn,
     
-      lun,
+      :lun,
     
     ]
     required_properties.each do |property|
@@ -139,6 +139,17 @@ Puppet::Type.newtype(:kubernetes_iscsi_volume_source) do
       newproperty(:secret_ref) do
         
         desc "CHAP secret for iSCSI target and initiator authentication"
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:initiator_name) do
+        
+        desc "Custom iSCSI initiator name. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface <target portal>:<volume name> will be created for the connection."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

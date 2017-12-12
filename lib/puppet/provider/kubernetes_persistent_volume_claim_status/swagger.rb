@@ -26,6 +26,10 @@ Puppet::Type.type(:kubernetes_persistent_volume_claim_status).provide(:swagger, 
         capacity: instance.capacity.respond_to?(:to_hash) ? instance.capacity.to_hash : instance.capacity,
       
     
+      
+        conditions: instance.conditions.respond_to?(:to_hash) ? instance.conditions.to_hash : instance.conditions,
+      
+    
     object: instance,
     }
   end
@@ -67,6 +71,10 @@ Puppet::Type.type(:kubernetes_persistent_volume_claim_status).provide(:swagger, 
     
       
         capacity: resource[:capacity],
+      
+    
+      
+        conditions: resource[:conditions],
       
     
     }

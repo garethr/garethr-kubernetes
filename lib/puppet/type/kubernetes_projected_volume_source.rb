@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_projected_volume_source) do
   validate do
     required_properties = [
     
-      sources,
+      :sources,
     
     ]
     required_properties.each do |property|

@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_endpoint_address) do
   validate do
     required_properties = [
     
-      ip,
+      :ip,
     
     ]
     required_properties.each do |property|

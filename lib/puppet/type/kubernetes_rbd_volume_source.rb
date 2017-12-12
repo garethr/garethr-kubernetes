@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_rbd_volume_source) do
   validate do
     required_properties = [
     
-      monitors,
+      :monitors,
     
-      image,
+      :image,
     
     ]
     required_properties.each do |property|

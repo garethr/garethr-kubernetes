@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_photon_persistent_disk_volume_source) do
   validate do
     required_properties = [
     
-      pd_id,
+      :pd_id,
     
     ]
     required_properties.each do |property|

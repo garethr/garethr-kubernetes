@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_azure_file_volume_source) do
   validate do
     required_properties = [
     
-      secret_name,
+      :secret_name,
     
-      share_name,
+      :share_name,
     
     ]
     required_properties.each do |property|

@@ -27,7 +27,7 @@ Puppet::Type.newtype(:kubernetes_endpoints) do
   validate do
     required_properties = [
     
-      subsets,
+      :subsets,
     
     ]
     required_properties.each do |property|

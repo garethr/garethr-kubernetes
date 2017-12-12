@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_taint) do
   
-  @doc = "The node this Taint is attached to has the effect 'effect' on any pod that that does not tolerate the Taint."
+  @doc = "The node this Taint is attached to has the 'effect' on any pod that does not tolerate the Taint."
   
 
   ensurable
@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_taint) do
   validate do
     required_properties = [
     
-      key,
+      :key,
     
-      effect,
+      :effect,
     
     ]
     required_properties.each do |property|

@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_git_repo_volume_source) do
   validate do
     required_properties = [
     
-      repository,
+      :repository,
     
     ]
     required_properties.each do |property|

@@ -13,22 +13,6 @@ Puppet::Type.newtype(:kubernetes_fc_volume_source) do
   ensurable
 
   
-  validate do
-    required_properties = [
-    
-      target_ww_ns,
-    
-      lun,
-    
-    ]
-    required_properties.each do |property|
-      # We check for both places so as to cover the puppet resource path as well
-      if self[property].nil? and self.provider.send(property) == :absent
-        fail "You must provide a #{property}"
-      end
-    end
-  end
-  
 
   newparam(:name, namevar: true) do
     desc 'Name of the fc_volume_source.'
@@ -37,7 +21,7 @@ Puppet::Type.newtype(:kubernetes_fc_volume_source) do
     
       newproperty(:target_ww_ns) do
         
-        desc "Required: FC target worldwide names (WWNs)"
+        desc "Optional: FC target worldwide names (WWNs)"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -48,7 +32,7 @@ Puppet::Type.newtype(:kubernetes_fc_volume_source) do
     
       newproperty(:lun) do
         
-        desc "Required: FC target lun number"
+        desc "Optional: FC target lun number"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -71,6 +55,17 @@ Puppet::Type.newtype(:kubernetes_fc_volume_source) do
       newproperty(:read_only) do
         
         desc "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      newproperty(:wwids) do
+        
+        desc "Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs and lun must be set, but not both simultaneously."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

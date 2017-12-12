@@ -16,25 +16,25 @@ Puppet::Type.newtype(:kubernetes_node_system_info) do
   validate do
     required_properties = [
     
-      machine_id,
+      :machine_id,
     
-      system_uuid,
+      :system_uuid,
     
-      boot_id,
+      :boot_id,
     
-      kernel_version,
+      :kernel_version,
     
-      os_image,
+      :os_image,
     
-      container_runtime_version,
+      :container_runtime_version,
     
-      kubelet_version,
+      :kubelet_version,
     
-      kube_proxy_version,
+      :kube_proxy_version,
     
-      operating_system,
+      :operating_system,
     
-      architecture,
+      :architecture,
     
     ]
     required_properties.each do |property|

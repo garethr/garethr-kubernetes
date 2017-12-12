@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_flex_volume_source) do
   validate do
     required_properties = [
     
-      driver,
+      :driver,
     
     ]
     required_properties.each do |property|

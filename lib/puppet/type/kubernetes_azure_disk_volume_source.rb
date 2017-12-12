@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_azure_disk_volume_source) do
   validate do
     required_properties = [
     
-      disk_name,
+      :disk_name,
     
-      disk_uri,
+      :disk_uri,
     
     ]
     required_properties.each do |property|

@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_limit_range_spec) do
   validate do
     required_properties = [
     
-      limits,
+      :limits,
     
     ]
     required_properties.each do |property|

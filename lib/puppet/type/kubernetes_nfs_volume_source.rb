@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_nfs_volume_source) do
   validate do
     required_properties = [
     
-      server,
+      :server,
     
-      path,
+      :path,
     
     ]
     required_properties.each do |property|

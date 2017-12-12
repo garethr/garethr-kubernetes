@@ -106,6 +106,14 @@ Puppet::Type.type(:kubernetes_pod_spec).provide(:swagger, :parent => PuppetX::Pu
         host_aliases: instance.hostAliases.respond_to?(:to_hash) ? instance.hostAliases.to_hash : instance.hostAliases,
       
     
+      
+        priority_class_name: instance.priorityClassName.respond_to?(:to_hash) ? instance.priorityClassName.to_hash : instance.priorityClassName,
+      
+    
+      
+        priority: instance.priority.respond_to?(:to_hash) ? instance.priority.to_hash : instance.priority,
+      
+    
     object: instance,
     }
   end
@@ -227,6 +235,14 @@ Puppet::Type.type(:kubernetes_pod_spec).provide(:swagger, :parent => PuppetX::Pu
     
       
         hostAliases: resource[:host_aliases],
+      
+    
+      
+        priorityClassName: resource[:priority_class_name],
+      
+    
+      
+        priority: resource[:priority],
       
     
     }

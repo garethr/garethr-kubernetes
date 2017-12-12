@@ -18,7 +18,7 @@ An AWS EBS disk must exist before mounting to a container. The disk must also be
   validate do
     required_properties = [
     
-      volume_id,
+      :volume_id,
     
     ]
     required_properties.each do |property|

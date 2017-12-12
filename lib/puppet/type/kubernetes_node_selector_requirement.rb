@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_node_selector_requirement) do
   validate do
     required_properties = [
     
-      key,
+      :key,
     
-      operator,
+      :operator,
     
     ]
     required_properties.each do |property|

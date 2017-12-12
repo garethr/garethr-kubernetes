@@ -51,4 +51,15 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_status) do
       end
     
   
+    
+      newproperty(:conditions) do
+        
+        desc "Current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'ResizeStarted'."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
 end

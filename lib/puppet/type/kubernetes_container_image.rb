@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_container_image) do
   validate do
     required_properties = [
     
-      names,
+      :names,
     
     ]
     required_properties.each do |property|

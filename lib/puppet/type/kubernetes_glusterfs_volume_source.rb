@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_glusterfs_volume_source) do
   validate do
     required_properties = [
     
-      endpoints,
+      :endpoints,
     
-      path,
+      :path,
     
     ]
     required_properties.each do |property|
