@@ -82,7 +82,9 @@ module PuppetX
         end
 
         def self.list_instances_of(type)
-          call("get_#{type}s")
+          collection = "#{type}s"
+          collection = "#{type}es" if type =~ /s$/
+          call("get_#{collection}")
         end
 
         def make_object(type, name, params)
