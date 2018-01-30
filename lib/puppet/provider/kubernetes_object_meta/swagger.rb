@@ -15,67 +15,99 @@ Puppet::Type.type(:kubernetes_object_meta).provide(:swagger, :parent => PuppetX:
     name: instance.metadata.name,
     
       
+        
         name: instance.name.respond_to?(:to_hash) ? instance.name.to_hash : instance.name,
+        
       
     
       
+        
         generate_name: instance.generateName.respond_to?(:to_hash) ? instance.generateName.to_hash : instance.generateName,
+        
       
     
       
+        
         namespace: instance.namespace.respond_to?(:to_hash) ? instance.namespace.to_hash : instance.namespace,
+        
       
     
       
+        
         self_link: instance.selfLink.respond_to?(:to_hash) ? instance.selfLink.to_hash : instance.selfLink,
+        
       
     
       
+        
         uid: instance.uid.respond_to?(:to_hash) ? instance.uid.to_hash : instance.uid,
+        
       
     
       
+        
         resource_version: instance.resourceVersion.respond_to?(:to_hash) ? instance.resourceVersion.to_hash : instance.resourceVersion,
+        
       
     
       
+        
         generation: instance.generation.respond_to?(:to_hash) ? instance.generation.to_hash : instance.generation,
+        
       
     
       
+        
         creation_timestamp: instance.creationTimestamp.respond_to?(:to_hash) ? instance.creationTimestamp.to_hash : instance.creationTimestamp,
+        
       
     
       
+        
         deletion_timestamp: instance.deletionTimestamp.respond_to?(:to_hash) ? instance.deletionTimestamp.to_hash : instance.deletionTimestamp,
+        
       
     
       
+        
         deletion_grace_period_seconds: instance.deletionGracePeriodSeconds.respond_to?(:to_hash) ? instance.deletionGracePeriodSeconds.to_hash : instance.deletionGracePeriodSeconds,
+        
       
     
       
+        
         labels: instance.labels.respond_to?(:to_hash) ? instance.labels.to_hash : instance.labels,
+        
       
     
       
+        
         annotations: instance.annotations.respond_to?(:to_hash) ? instance.annotations.to_hash : instance.annotations,
+        
       
     
       
-        owner_references: instance.ownerReferences.respond_to?(:to_hash) ? instance.ownerReferences.to_hash : instance.ownerReferences,
+        
+        owner_references: hash_arrays(instance.ownerReferences),
+        
       
     
       
+        
         initializers: instance.initializers.respond_to?(:to_hash) ? instance.initializers.to_hash : instance.initializers,
+        
       
     
       
-        finalizers: instance.finalizers.respond_to?(:to_hash) ? instance.finalizers.to_hash : instance.finalizers,
+        
+        finalizers: hash_arrays(instance.finalizers),
+        
       
     
       
+        
         cluster_name: instance.clusterName.respond_to?(:to_hash) ? instance.clusterName.to_hash : instance.clusterName,
+        
       
     
     object: instance,

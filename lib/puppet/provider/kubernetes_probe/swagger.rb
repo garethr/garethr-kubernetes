@@ -15,35 +15,51 @@ Puppet::Type.type(:kubernetes_probe).provide(:swagger, :parent => PuppetX::Puppe
     name: instance.metadata.name,
     
       
+        
         exec: instance.exec.respond_to?(:to_hash) ? instance.exec.to_hash : instance.exec,
+        
       
     
       
+        
         http_get: instance.httpGet.respond_to?(:to_hash) ? instance.httpGet.to_hash : instance.httpGet,
+        
       
     
       
+        
         tcp_socket: instance.tcpSocket.respond_to?(:to_hash) ? instance.tcpSocket.to_hash : instance.tcpSocket,
+        
       
     
       
+        
         initial_delay_seconds: instance.initialDelaySeconds.respond_to?(:to_hash) ? instance.initialDelaySeconds.to_hash : instance.initialDelaySeconds,
+        
       
     
       
+        
         timeout_seconds: instance.timeoutSeconds.respond_to?(:to_hash) ? instance.timeoutSeconds.to_hash : instance.timeoutSeconds,
+        
       
     
       
+        
         period_seconds: instance.periodSeconds.respond_to?(:to_hash) ? instance.periodSeconds.to_hash : instance.periodSeconds,
+        
       
     
       
+        
         success_threshold: instance.successThreshold.respond_to?(:to_hash) ? instance.successThreshold.to_hash : instance.successThreshold,
+        
       
     
       
+        
         failure_threshold: instance.failureThreshold.respond_to?(:to_hash) ? instance.failureThreshold.to_hash : instance.failureThreshold,
+        
       
     
     object: instance,

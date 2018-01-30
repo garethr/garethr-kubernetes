@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_flocker_volume_source).provide(:swagger, :parent =
     name: instance.metadata.name,
     
       
+        
         dataset_name: instance.datasetName.respond_to?(:to_hash) ? instance.datasetName.to_hash : instance.datasetName,
+        
       
     
       
+        
         dataset_uuid: instance.datasetUUID.respond_to?(:to_hash) ? instance.datasetUUID.to_hash : instance.datasetUUID,
+        
       
     
     object: instance,

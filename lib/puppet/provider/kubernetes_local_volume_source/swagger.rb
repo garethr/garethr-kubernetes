@@ -15,7 +15,9 @@ Puppet::Type.type(:kubernetes_local_volume_source).provide(:swagger, :parent => 
     name: instance.metadata.name,
     
       
+        
         path: instance.path.respond_to?(:to_hash) ? instance.path.to_hash : instance.path,
+        
       
     
     object: instance,

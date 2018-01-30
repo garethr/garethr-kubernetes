@@ -19,7 +19,9 @@ Puppet::Type.type(:kubernetes_node_config_source).provide(:swagger, :parent => P
       
     
       
+        
         config_map_ref: instance.configMapRef.respond_to?(:to_hash) ? instance.configMapRef.to_hash : instance.configMapRef,
+        
       
     
     object: instance,

@@ -15,19 +15,27 @@ Puppet::Type.type(:kubernetes_secret_volume_source).provide(:swagger, :parent =>
     name: instance.metadata.name,
     
       
+        
         secret_name: instance.secretName.respond_to?(:to_hash) ? instance.secretName.to_hash : instance.secretName,
+        
       
     
       
-        items: instance.items.respond_to?(:to_hash) ? instance.items.to_hash : instance.items,
+        
+        items: hash_arrays(instance.items),
+        
       
     
       
+        
         default_mode: instance.defaultMode.respond_to?(:to_hash) ? instance.defaultMode.to_hash : instance.defaultMode,
+        
       
     
       
+        
         optional: instance.optional.respond_to?(:to_hash) ? instance.optional.to_hash : instance.optional,
+        
       
     
     object: instance,

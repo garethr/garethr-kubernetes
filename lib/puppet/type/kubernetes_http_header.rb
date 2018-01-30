@@ -35,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_http_header) do
   end
   
     
+      
       newproperty(:name) do
+      
         
         desc "The header field name"
         
@@ -46,7 +48,9 @@ Puppet::Type.newtype(:kubernetes_http_header) do
     
   
     
+      
       newproperty(:value) do
+      
         
         desc "The header field value"
         

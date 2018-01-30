@@ -17,15 +17,21 @@ Puppet::Type.type(:kubernetes_subject).provide(:swagger, :parent => PuppetX::Pup
       
     
       
+        
         api_group: instance.apiGroup.respond_to?(:to_hash) ? instance.apiGroup.to_hash : instance.apiGroup,
+        
       
     
       
+        
         name: instance.name.respond_to?(:to_hash) ? instance.name.to_hash : instance.name,
+        
       
     
       
+        
         namespace: instance.namespace.respond_to?(:to_hash) ? instance.namespace.to_hash : instance.namespace,
+        
       
     
     object: instance,

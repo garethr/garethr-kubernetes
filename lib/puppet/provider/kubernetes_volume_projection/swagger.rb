@@ -15,15 +15,21 @@ Puppet::Type.type(:kubernetes_volume_projection).provide(:swagger, :parent => Pu
     name: instance.metadata.name,
     
       
+        
         secret: instance.secret.respond_to?(:to_hash) ? instance.secret.to_hash : instance.secret,
+        
       
     
       
+        
         downward_api: instance.downwardAPI.respond_to?(:to_hash) ? instance.downwardAPI.to_hash : instance.downwardAPI,
+        
       
     
       
+        
         config_map: instance.configMap.respond_to?(:to_hash) ? instance.configMap.to_hash : instance.configMap,
+        
       
     
     object: instance,

@@ -15,111 +15,165 @@ Puppet::Type.type(:kubernetes_persistent_volume_spec).provide(:swagger, :parent 
     name: instance.metadata.name,
     
       
+        
         capacity: instance.capacity.respond_to?(:to_hash) ? instance.capacity.to_hash : instance.capacity,
+        
       
     
       
+        
         gce_persistent_disk: instance.gcePersistentDisk.respond_to?(:to_hash) ? instance.gcePersistentDisk.to_hash : instance.gcePersistentDisk,
+        
       
     
       
+        
         aws_elastic_block_store: instance.awsElasticBlockStore.respond_to?(:to_hash) ? instance.awsElasticBlockStore.to_hash : instance.awsElasticBlockStore,
+        
       
     
       
+        
         host_path: instance.hostPath.respond_to?(:to_hash) ? instance.hostPath.to_hash : instance.hostPath,
+        
       
     
       
+        
         glusterfs: instance.glusterfs.respond_to?(:to_hash) ? instance.glusterfs.to_hash : instance.glusterfs,
+        
       
     
       
+        
         nfs: instance.nfs.respond_to?(:to_hash) ? instance.nfs.to_hash : instance.nfs,
+        
       
     
       
+        
         rbd: instance.rbd.respond_to?(:to_hash) ? instance.rbd.to_hash : instance.rbd,
+        
       
     
       
+        
         iscsi: instance.iscsi.respond_to?(:to_hash) ? instance.iscsi.to_hash : instance.iscsi,
+        
       
     
       
+        
         cinder: instance.cinder.respond_to?(:to_hash) ? instance.cinder.to_hash : instance.cinder,
+        
       
     
       
+        
         cephfs: instance.cephfs.respond_to?(:to_hash) ? instance.cephfs.to_hash : instance.cephfs,
+        
       
     
       
+        
         fc: instance.fc.respond_to?(:to_hash) ? instance.fc.to_hash : instance.fc,
+        
       
     
       
+        
         flocker: instance.flocker.respond_to?(:to_hash) ? instance.flocker.to_hash : instance.flocker,
+        
       
     
       
+        
         flex_volume: instance.flexVolume.respond_to?(:to_hash) ? instance.flexVolume.to_hash : instance.flexVolume,
+        
       
     
       
+        
         azure_file: instance.azureFile.respond_to?(:to_hash) ? instance.azureFile.to_hash : instance.azureFile,
+        
       
     
       
+        
         vsphere_volume: instance.vsphereVolume.respond_to?(:to_hash) ? instance.vsphereVolume.to_hash : instance.vsphereVolume,
+        
       
     
       
+        
         quobyte: instance.quobyte.respond_to?(:to_hash) ? instance.quobyte.to_hash : instance.quobyte,
+        
       
     
       
+        
         azure_disk: instance.azureDisk.respond_to?(:to_hash) ? instance.azureDisk.to_hash : instance.azureDisk,
+        
       
     
       
+        
         photon_persistent_disk: instance.photonPersistentDisk.respond_to?(:to_hash) ? instance.photonPersistentDisk.to_hash : instance.photonPersistentDisk,
+        
       
     
       
+        
         portworx_volume: instance.portworxVolume.respond_to?(:to_hash) ? instance.portworxVolume.to_hash : instance.portworxVolume,
+        
       
     
       
+        
         scale_io: instance.scaleIO.respond_to?(:to_hash) ? instance.scaleIO.to_hash : instance.scaleIO,
+        
       
     
       
+        
         local: instance.local.respond_to?(:to_hash) ? instance.local.to_hash : instance.local,
+        
       
     
       
+        
         storageos: instance.storageos.respond_to?(:to_hash) ? instance.storageos.to_hash : instance.storageos,
+        
       
     
       
-        access_modes: instance.accessModes.respond_to?(:to_hash) ? instance.accessModes.to_hash : instance.accessModes,
+        
+        access_modes: hash_arrays(instance.accessModes),
+        
       
     
       
+        
         claim_ref: instance.claimRef.respond_to?(:to_hash) ? instance.claimRef.to_hash : instance.claimRef,
+        
       
     
       
+        
         persistent_volume_reclaim_policy: instance.persistentVolumeReclaimPolicy.respond_to?(:to_hash) ? instance.persistentVolumeReclaimPolicy.to_hash : instance.persistentVolumeReclaimPolicy,
+        
       
     
       
+        
         storage_class_name: instance.storageClassName.respond_to?(:to_hash) ? instance.storageClassName.to_hash : instance.storageClassName,
+        
       
     
       
-        mount_options: instance.mountOptions.respond_to?(:to_hash) ? instance.mountOptions.to_hash : instance.mountOptions,
+        
+        mount_options: hash_arrays(instance.mountOptions),
+        
       
     
     object: instance,

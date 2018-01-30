@@ -19,11 +19,15 @@ Puppet::Type.type(:kubernetes_pod_security_policy_list).provide(:swagger, :paren
       
     
       
+        
         metadata: instance.metadata.respond_to?(:to_hash) ? instance.metadata.to_hash : instance.metadata,
+        
       
     
       
-        items: instance.items.respond_to?(:to_hash) ? instance.items.to_hash : instance.items,
+        
+        items: hash_arrays(instance.items),
+        
       
     
     object: instance,

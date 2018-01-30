@@ -39,7 +39,9 @@ Puppet::Type.newtype(:kubernetes_deployment_rollback) do
     
   
     
+      
       newproperty(:name) do
+      
         
         desc "Required: This must match the Name of a deployment."
         
@@ -50,7 +52,9 @@ Puppet::Type.newtype(:kubernetes_deployment_rollback) do
     
   
     
+      
       newproperty(:updated_annotations) do
+      
         
         desc "The annotations to be updated to a deployment"
         
@@ -61,7 +65,9 @@ Puppet::Type.newtype(:kubernetes_deployment_rollback) do
     
   
     
+      
       newproperty(:rollback_to) do
+      
         
         desc "The config of this deployment rollback."
         

@@ -15,23 +15,33 @@ Puppet::Type.type(:kubernetes_azure_disk_volume_source).provide(:swagger, :paren
     name: instance.metadata.name,
     
       
+        
         disk_name: instance.diskName.respond_to?(:to_hash) ? instance.diskName.to_hash : instance.diskName,
+        
       
     
       
+        
         disk_uri: instance.diskURI.respond_to?(:to_hash) ? instance.diskURI.to_hash : instance.diskURI,
+        
       
     
       
+        
         caching_mode: instance.cachingMode.respond_to?(:to_hash) ? instance.cachingMode.to_hash : instance.cachingMode,
+        
       
     
       
+        
         fs_type: instance.fsType.respond_to?(:to_hash) ? instance.fsType.to_hash : instance.fsType,
+        
       
     
       
+        
         read_only: instance.readOnly.respond_to?(:to_hash) ? instance.readOnly.to_hash : instance.readOnly,
+        
       
     
       

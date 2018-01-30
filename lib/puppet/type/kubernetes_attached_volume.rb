@@ -35,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_attached_volume) do
   end
   
     
+      
       newproperty(:name) do
+      
         
         desc "Name of the attached volume"
         
@@ -46,7 +48,9 @@ Puppet::Type.newtype(:kubernetes_attached_volume) do
     
   
     
+      
       newproperty(:device_path) do
+      
         
         desc "DevicePath represents the device path where the volume should be available"
         

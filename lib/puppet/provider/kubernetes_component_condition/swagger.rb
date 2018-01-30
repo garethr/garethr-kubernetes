@@ -15,19 +15,27 @@ Puppet::Type.type(:kubernetes_component_condition).provide(:swagger, :parent => 
     name: instance.metadata.name,
     
       
+        
         type: instance.type.respond_to?(:to_hash) ? instance.type.to_hash : instance.type,
+        
       
     
       
+        
         status: instance.status.respond_to?(:to_hash) ? instance.status.to_hash : instance.status,
+        
       
     
       
+        
         message: instance.message.respond_to?(:to_hash) ? instance.message.to_hash : instance.message,
+        
       
     
       
+        
         error: instance.error.respond_to?(:to_hash) ? instance.error.to_hash : instance.error,
+        
       
     
     object: instance,

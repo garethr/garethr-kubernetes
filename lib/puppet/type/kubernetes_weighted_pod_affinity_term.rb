@@ -35,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_weighted_pod_affinity_term) do
   end
   
     
+      
       newproperty(:weight) do
+      
         
         desc "weight associated with matching the corresponding podAffinityTerm, in the range 1-100."
         
@@ -46,7 +48,9 @@ Puppet::Type.newtype(:kubernetes_weighted_pod_affinity_term) do
     
   
     
+      
       newproperty(:pod_affinity_term) do
+      
         
         desc "Required. A pod affinity term, associated with the corresponding weight."
         

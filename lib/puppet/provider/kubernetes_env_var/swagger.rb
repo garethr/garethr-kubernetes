@@ -15,15 +15,21 @@ Puppet::Type.type(:kubernetes_env_var).provide(:swagger, :parent => PuppetX::Pup
     name: instance.metadata.name,
     
       
+        
         name: instance.name.respond_to?(:to_hash) ? instance.name.to_hash : instance.name,
+        
       
     
       
+        
         value: instance.value.respond_to?(:to_hash) ? instance.value.to_hash : instance.value,
+        
       
     
       
+        
         value_from: instance.valueFrom.respond_to?(:to_hash) ? instance.valueFrom.to_hash : instance.valueFrom,
+        
       
     
     object: instance,

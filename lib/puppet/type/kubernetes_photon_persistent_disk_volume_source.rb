@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_photon_persistent_disk_volume_source) do
   end
   
     
+      
       newproperty(:pd_id) do
+      
         
         desc "ID that identifies Photon Controller persistent disk"
         
@@ -44,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_photon_persistent_disk_volume_source) do
     
   
     
+      
       newproperty(:fs_type) do
+      
         
         desc "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. 'ext4', 'xfs', 'ntfs'. Implicitly inferred to be 'ext4' if unspecified."
         

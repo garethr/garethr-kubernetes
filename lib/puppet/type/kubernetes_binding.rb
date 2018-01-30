@@ -37,7 +37,9 @@ Puppet::Type.newtype(:kubernetes_binding) do
     
   
     
+      
       newproperty(:metadata) do
+      
         
         desc "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
         
@@ -48,7 +50,9 @@ Puppet::Type.newtype(:kubernetes_binding) do
     
   
     
+      
       newproperty(:target) do
+      
         
         desc "The target object that you want to bind to the standard object."
         

@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_se_linux_strategy_options).provide(:swagger, :pare
     name: instance.metadata.name,
     
       
+        
         rule: instance.rule.respond_to?(:to_hash) ? instance.rule.to_hash : instance.rule,
+        
       
     
       
+        
         se_linux_options: instance.seLinuxOptions.respond_to?(:to_hash) ? instance.seLinuxOptions.to_hash : instance.seLinuxOptions,
+        
       
     
     object: instance,

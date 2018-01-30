@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_ip_block).provide(:swagger, :parent => PuppetX::Pu
     name: instance.metadata.name,
     
       
+        
         cidr: instance.cidr.respond_to?(:to_hash) ? instance.cidr.to_hash : instance.cidr,
+        
       
     
       
-        except: instance.except.respond_to?(:to_hash) ? instance.except.to_hash : instance.except,
+        
+        except: hash_arrays(instance.except),
+        
       
     
     object: instance,

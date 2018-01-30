@@ -19,11 +19,15 @@ Puppet::Type.type(:kubernetes_replication_controller_list).provide(:swagger, :pa
       
     
       
+        
         metadata: instance.metadata.respond_to?(:to_hash) ? instance.metadata.to_hash : instance.metadata,
+        
       
     
       
-        items: instance.items.respond_to?(:to_hash) ? instance.items.to_hash : instance.items,
+        
+        items: hash_arrays(instance.items),
+        
       
     
     object: instance,

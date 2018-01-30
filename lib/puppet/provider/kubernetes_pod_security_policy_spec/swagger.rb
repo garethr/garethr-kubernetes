@@ -15,71 +15,105 @@ Puppet::Type.type(:kubernetes_pod_security_policy_spec).provide(:swagger, :paren
     name: instance.metadata.name,
     
       
+        
         privileged: instance.privileged.respond_to?(:to_hash) ? instance.privileged.to_hash : instance.privileged,
+        
       
     
       
-        default_add_capabilities: instance.defaultAddCapabilities.respond_to?(:to_hash) ? instance.defaultAddCapabilities.to_hash : instance.defaultAddCapabilities,
+        
+        default_add_capabilities: hash_arrays(instance.defaultAddCapabilities),
+        
       
     
       
-        required_drop_capabilities: instance.requiredDropCapabilities.respond_to?(:to_hash) ? instance.requiredDropCapabilities.to_hash : instance.requiredDropCapabilities,
+        
+        required_drop_capabilities: hash_arrays(instance.requiredDropCapabilities),
+        
       
     
       
-        allowed_capabilities: instance.allowedCapabilities.respond_to?(:to_hash) ? instance.allowedCapabilities.to_hash : instance.allowedCapabilities,
+        
+        allowed_capabilities: hash_arrays(instance.allowedCapabilities),
+        
       
     
       
-        volumes: instance.volumes.respond_to?(:to_hash) ? instance.volumes.to_hash : instance.volumes,
+        
+        volumes: hash_arrays(instance.volumes),
+        
       
     
       
+        
         host_network: instance.hostNetwork.respond_to?(:to_hash) ? instance.hostNetwork.to_hash : instance.hostNetwork,
+        
       
     
       
-        host_ports: instance.hostPorts.respond_to?(:to_hash) ? instance.hostPorts.to_hash : instance.hostPorts,
+        
+        host_ports: hash_arrays(instance.hostPorts),
+        
       
     
       
+        
         host_pid: instance.hostPID.respond_to?(:to_hash) ? instance.hostPID.to_hash : instance.hostPID,
+        
       
     
       
+        
         host_ipc: instance.hostIPC.respond_to?(:to_hash) ? instance.hostIPC.to_hash : instance.hostIPC,
+        
       
     
       
+        
         se_linux: instance.seLinux.respond_to?(:to_hash) ? instance.seLinux.to_hash : instance.seLinux,
+        
       
     
       
+        
         run_as_user: instance.runAsUser.respond_to?(:to_hash) ? instance.runAsUser.to_hash : instance.runAsUser,
+        
       
     
       
+        
         supplemental_groups: instance.supplementalGroups.respond_to?(:to_hash) ? instance.supplementalGroups.to_hash : instance.supplementalGroups,
+        
       
     
       
+        
         fs_group: instance.fsGroup.respond_to?(:to_hash) ? instance.fsGroup.to_hash : instance.fsGroup,
+        
       
     
       
+        
         read_only_root_filesystem: instance.readOnlyRootFilesystem.respond_to?(:to_hash) ? instance.readOnlyRootFilesystem.to_hash : instance.readOnlyRootFilesystem,
+        
       
     
       
+        
         default_allow_privilege_escalation: instance.defaultAllowPrivilegeEscalation.respond_to?(:to_hash) ? instance.defaultAllowPrivilegeEscalation.to_hash : instance.defaultAllowPrivilegeEscalation,
+        
       
     
       
+        
         allow_privilege_escalation: instance.allowPrivilegeEscalation.respond_to?(:to_hash) ? instance.allowPrivilegeEscalation.to_hash : instance.allowPrivilegeEscalation,
+        
       
     
       
-        allowed_host_paths: instance.allowedHostPaths.respond_to?(:to_hash) ? instance.allowedHostPaths.to_hash : instance.allowedHostPaths,
+        
+        allowed_host_paths: hash_arrays(instance.allowedHostPaths),
+        
       
     
     object: instance,

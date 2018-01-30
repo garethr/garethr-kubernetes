@@ -15,23 +15,33 @@ Puppet::Type.type(:kubernetes_volume_mount).provide(:swagger, :parent => PuppetX
     name: instance.metadata.name,
     
       
+        
         name: instance.name.respond_to?(:to_hash) ? instance.name.to_hash : instance.name,
+        
       
     
       
+        
         read_only: instance.readOnly.respond_to?(:to_hash) ? instance.readOnly.to_hash : instance.readOnly,
+        
       
     
       
+        
         mount_path: instance.mountPath.respond_to?(:to_hash) ? instance.mountPath.to_hash : instance.mountPath,
+        
       
     
       
+        
         sub_path: instance.subPath.respond_to?(:to_hash) ? instance.subPath.to_hash : instance.subPath,
+        
       
     
       
+        
         mount_propagation: instance.mountPropagation.respond_to?(:to_hash) ? instance.mountPropagation.to_hash : instance.mountPropagation,
+        
       
     
     object: instance,

@@ -23,7 +23,9 @@ Puppet::Type.newtype(:kubernetes_service_account) do
     
   
     
+      
       newproperty(:metadata) do
+      
         
         desc "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
         
@@ -34,7 +36,9 @@ Puppet::Type.newtype(:kubernetes_service_account) do
     
   
     
-      newproperty(:secrets) do
+      
+      newproperty(:secrets, :array_matching => :all) do
+      
         
         desc "Secrets is the list of secrets allowed to be used by pods running using this ServiceAccount. More info: https://kubernetes.io/docs/concepts/configuration/secret"
         
@@ -45,7 +49,9 @@ Puppet::Type.newtype(:kubernetes_service_account) do
     
   
     
-      newproperty(:image_pull_secrets) do
+      
+      newproperty(:image_pull_secrets, :array_matching => :all) do
+      
         
         desc "ImagePullSecrets is a list of references to secrets in the same namespace to use for pulling any images in pods that reference this ServiceAccount. ImagePullSecrets are distinct from Secrets because Secrets can be mounted in the pod, but ImagePullSecrets are only accessed by the kubelet. More info: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod"
         
@@ -56,7 +62,9 @@ Puppet::Type.newtype(:kubernetes_service_account) do
     
   
     
+      
       newproperty(:automount_service_account_token) do
+      
         
         desc "AutomountServiceAccountToken indicates whether pods running as this service account should have an API token automatically mounted. Can be overridden at the pod level."
         

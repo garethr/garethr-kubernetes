@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_session_affinity_config) do
   end
   
     
+      
       newproperty(:client_ip) do
+      
         
         desc "clientIP contains the configurations of Client IP based session affinity."
         

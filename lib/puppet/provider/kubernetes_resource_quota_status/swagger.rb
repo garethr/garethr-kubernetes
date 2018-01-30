@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_resource_quota_status).provide(:swagger, :parent =
     name: instance.metadata.name,
     
       
+        
         hard: instance.hard.respond_to?(:to_hash) ? instance.hard.to_hash : instance.hard,
+        
       
     
       
+        
         used: instance.used.respond_to?(:to_hash) ? instance.used.to_hash : instance.used,
+        
       
     
     object: instance,

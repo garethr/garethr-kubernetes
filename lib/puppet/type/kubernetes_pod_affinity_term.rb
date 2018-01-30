@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_pod_affinity_term) do
   end
   
     
+      
       newproperty(:label_selector) do
+      
         
         desc "A label query over a set of resources, in this case pods."
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_pod_affinity_term) do
     
   
     
-      newproperty(:namespaces) do
+      
+      newproperty(:namespaces, :array_matching => :all) do
+      
         
         desc "namespaces specifies which namespaces the labelSelector applies to (matches against); null or empty list means 'this pod's namespace'"
         
@@ -41,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_pod_affinity_term) do
     
   
     
+      
       newproperty(:topology_key) do
+      
         
         desc "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. For PreferredDuringScheduling pod anti-affinity, empty topologyKey is interpreted as 'all topologies' ('all topologies' here means all the topologyKeys indicated by scheduler command-line argument --failure-domains); for affinity and for RequiredDuringScheduling pod anti-affinity, empty topologyKey is not allowed."
         

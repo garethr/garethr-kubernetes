@@ -35,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_taint) do
   end
   
     
+      
       newproperty(:key) do
+      
         
         desc "Required. The taint key to be applied to a node."
         
@@ -46,7 +48,9 @@ Puppet::Type.newtype(:kubernetes_taint) do
     
   
     
+      
       newproperty(:value) do
+      
         
         desc "Required. The taint value corresponding to the taint key."
         
@@ -57,7 +61,9 @@ Puppet::Type.newtype(:kubernetes_taint) do
     
   
     
+      
       newproperty(:effect) do
+      
         
         desc "Required. The effect of the taint on pods that do not tolerate the taint. Valid effects are NoSchedule, PreferNoSchedule and NoExecute."
         
@@ -68,7 +74,9 @@ Puppet::Type.newtype(:kubernetes_taint) do
     
   
     
+      
       newproperty(:time_added) do
+      
         
         desc "TimeAdded represents the time at which the taint was added. It is only written for NoExecute taints."
         

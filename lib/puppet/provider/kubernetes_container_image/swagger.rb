@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_container_image).provide(:swagger, :parent => Pupp
     name: instance.metadata.name,
     
       
-        names: instance.names.respond_to?(:to_hash) ? instance.names.to_hash : instance.names,
+        
+        names: hash_arrays(instance.names),
+        
       
     
       
+        
         size_bytes: instance.sizeBytes.respond_to?(:to_hash) ? instance.sizeBytes.to_hash : instance.sizeBytes,
+        
       
     
     object: instance,

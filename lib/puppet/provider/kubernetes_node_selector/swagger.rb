@@ -15,7 +15,9 @@ Puppet::Type.type(:kubernetes_node_selector).provide(:swagger, :parent => Puppet
     name: instance.metadata.name,
     
       
-        node_selector_terms: instance.nodeSelectorTerms.respond_to?(:to_hash) ? instance.nodeSelectorTerms.to_hash : instance.nodeSelectorTerms,
+        
+        node_selector_terms: hash_arrays(instance.nodeSelectorTerms),
+        
       
     
     object: instance,

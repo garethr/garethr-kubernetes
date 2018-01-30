@@ -15,35 +15,51 @@ Puppet::Type.type(:kubernetes_deployment_status).provide(:swagger, :parent => Pu
     name: instance.metadata.name,
     
       
+        
         observed_generation: instance.observedGeneration.respond_to?(:to_hash) ? instance.observedGeneration.to_hash : instance.observedGeneration,
+        
       
     
       
+        
         replicas: instance.replicas.respond_to?(:to_hash) ? instance.replicas.to_hash : instance.replicas,
+        
       
     
       
+        
         updated_replicas: instance.updatedReplicas.respond_to?(:to_hash) ? instance.updatedReplicas.to_hash : instance.updatedReplicas,
+        
       
     
       
+        
         ready_replicas: instance.readyReplicas.respond_to?(:to_hash) ? instance.readyReplicas.to_hash : instance.readyReplicas,
+        
       
     
       
+        
         available_replicas: instance.availableReplicas.respond_to?(:to_hash) ? instance.availableReplicas.to_hash : instance.availableReplicas,
+        
       
     
       
+        
         unavailable_replicas: instance.unavailableReplicas.respond_to?(:to_hash) ? instance.unavailableReplicas.to_hash : instance.unavailableReplicas,
+        
       
     
       
-        conditions: instance.conditions.respond_to?(:to_hash) ? instance.conditions.to_hash : instance.conditions,
+        
+        conditions: hash_arrays(instance.conditions),
+        
       
     
       
+        
         collision_count: instance.collisionCount.respond_to?(:to_hash) ? instance.collisionCount.to_hash : instance.collisionCount,
+        
       
     
     object: instance,

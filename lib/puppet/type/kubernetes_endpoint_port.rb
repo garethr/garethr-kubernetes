@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_endpoint_port) do
   end
   
     
+      
       newproperty(:name) do
+      
         
         desc "The name of this port (corresponds to ServicePort.Name). Must be a DNS_LABEL. Optional only if one port is defined."
         
@@ -44,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_endpoint_port) do
     
   
     
+      
       newproperty(:port) do
+      
         
         desc "The port number of the endpoint."
         
@@ -55,7 +59,9 @@ Puppet::Type.newtype(:kubernetes_endpoint_port) do
     
   
     
+      
       newproperty(:protocol) do
+      
         
         desc "The IP protocol for this port. Must be UDP or TCP. Default is TCP."
         

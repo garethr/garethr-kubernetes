@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_load_balancer_ingress).provide(:swagger, :parent =
     name: instance.metadata.name,
     
       
+        
         ip: instance.ip.respond_to?(:to_hash) ? instance.ip.to_hash : instance.ip,
+        
       
     
       
+        
         hostname: instance.hostname.respond_to?(:to_hash) ? instance.hostname.to_hash : instance.hostname,
+        
       
     
     object: instance,

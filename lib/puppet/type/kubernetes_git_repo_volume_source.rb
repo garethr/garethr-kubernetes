@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_git_repo_volume_source) do
   end
   
     
+      
       newproperty(:repository) do
+      
         
         desc "Repository URL"
         
@@ -44,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_git_repo_volume_source) do
     
   
     
+      
       newproperty(:revision) do
+      
         
         desc "Commit hash for the specified revision."
         
@@ -55,7 +59,9 @@ Puppet::Type.newtype(:kubernetes_git_repo_volume_source) do
     
   
     
+      
       newproperty(:directory) do
+      
         
         desc "Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name."
         

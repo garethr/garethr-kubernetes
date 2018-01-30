@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_container_port) do
   end
   
     
+      
       newproperty(:name) do
+      
         
         desc "If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services."
         
@@ -44,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_container_port) do
     
   
     
+      
       newproperty(:host_port) do
+      
         
         desc "Number of port to expose on the host. If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this."
         
@@ -55,7 +59,9 @@ Puppet::Type.newtype(:kubernetes_container_port) do
     
   
     
+      
       newproperty(:container_port) do
+      
         
         desc "Number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536."
         
@@ -66,7 +72,9 @@ Puppet::Type.newtype(:kubernetes_container_port) do
     
   
     
+      
       newproperty(:protocol) do
+      
         
         desc "Protocol for port. Must be UDP or TCP. Defaults to 'TCP'."
         
@@ -77,7 +85,9 @@ Puppet::Type.newtype(:kubernetes_container_port) do
     
   
     
+      
       newproperty(:host_ip) do
+      
         
         desc "What host IP to bind the external port to."
         

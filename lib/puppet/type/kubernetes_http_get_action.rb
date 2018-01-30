@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_http_get_action) do
   end
   
     
+      
       newproperty(:path) do
+      
         
         desc "Path to access on the HTTP server."
         
@@ -44,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_http_get_action) do
     
   
     
+      
       newproperty(:port) do
+      
         
         desc "Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME."
         
@@ -55,7 +59,9 @@ Puppet::Type.newtype(:kubernetes_http_get_action) do
     
   
     
+      
       newproperty(:host) do
+      
         
         desc "Host name to connect to, defaults to the pod IP. You probably want to set 'Host' in httpHeaders instead."
         
@@ -66,7 +72,9 @@ Puppet::Type.newtype(:kubernetes_http_get_action) do
     
   
     
+      
       newproperty(:scheme) do
+      
         
         desc "Scheme to use for connecting to the host. Defaults to HTTP."
         
@@ -77,7 +85,9 @@ Puppet::Type.newtype(:kubernetes_http_get_action) do
     
   
     
-      newproperty(:http_headers) do
+      
+      newproperty(:http_headers, :array_matching => :all) do
+      
         
         desc "Custom headers to set in the request. HTTP allows repeated headers."
         

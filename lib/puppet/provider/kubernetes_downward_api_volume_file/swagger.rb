@@ -15,19 +15,27 @@ Puppet::Type.type(:kubernetes_downward_api_volume_file).provide(:swagger, :paren
     name: instance.metadata.name,
     
       
+        
         path: instance.path.respond_to?(:to_hash) ? instance.path.to_hash : instance.path,
+        
       
     
       
+        
         field_ref: instance.fieldRef.respond_to?(:to_hash) ? instance.fieldRef.to_hash : instance.fieldRef,
+        
       
     
       
+        
         resource_field_ref: instance.resourceFieldRef.respond_to?(:to_hash) ? instance.resourceFieldRef.to_hash : instance.resourceFieldRef,
+        
       
     
       
+        
         mode: instance.mode.respond_to?(:to_hash) ? instance.mode.to_hash : instance.mode,
+        
       
     
     object: instance,

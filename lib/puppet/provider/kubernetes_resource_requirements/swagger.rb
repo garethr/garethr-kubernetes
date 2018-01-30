@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_resource_requirements).provide(:swagger, :parent =
     name: instance.metadata.name,
     
       
+        
         limits: instance.limits.respond_to?(:to_hash) ? instance.limits.to_hash : instance.limits,
+        
       
     
       
+        
         requests: instance.requests.respond_to?(:to_hash) ? instance.requests.to_hash : instance.requests,
+        
       
     
     object: instance,

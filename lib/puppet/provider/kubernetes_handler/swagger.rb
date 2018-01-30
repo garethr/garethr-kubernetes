@@ -15,15 +15,21 @@ Puppet::Type.type(:kubernetes_handler).provide(:swagger, :parent => PuppetX::Pup
     name: instance.metadata.name,
     
       
+        
         exec: instance.exec.respond_to?(:to_hash) ? instance.exec.to_hash : instance.exec,
+        
       
     
       
+        
         http_get: instance.httpGet.respond_to?(:to_hash) ? instance.httpGet.to_hash : instance.httpGet,
+        
       
     
       
+        
         tcp_socket: instance.tcpSocket.respond_to?(:to_hash) ? instance.tcpSocket.to_hash : instance.tcpSocket,
+        
       
     
     object: instance,

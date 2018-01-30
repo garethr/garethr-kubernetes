@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_fc_volume_source) do
   end
   
     
-      newproperty(:target_ww_ns) do
+      
+      newproperty(:target_ww_ns, :array_matching => :all) do
+      
         
         desc "Optional: FC target worldwide names (WWNs)"
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_fc_volume_source) do
     
   
     
+      
       newproperty(:lun) do
+      
         
         desc "Optional: FC target lun number"
         
@@ -41,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_fc_volume_source) do
     
   
     
+      
       newproperty(:fs_type) do
+      
         
         desc "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. 'ext4', 'xfs', 'ntfs'. Implicitly inferred to be 'ext4' if unspecified."
         
@@ -52,7 +58,9 @@ Puppet::Type.newtype(:kubernetes_fc_volume_source) do
     
   
     
+      
       newproperty(:read_only) do
+      
         
         desc "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts."
         
@@ -63,7 +71,9 @@ Puppet::Type.newtype(:kubernetes_fc_volume_source) do
     
   
     
-      newproperty(:wwids) do
+      
+      newproperty(:wwids, :array_matching => :all) do
+      
         
         desc "Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs and lun must be set, but not both simultaneously."
         

@@ -37,7 +37,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_list) do
     
   
     
+      
       newproperty(:metadata) do
+      
         
         desc "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
         
@@ -48,7 +50,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_list) do
     
   
     
-      newproperty(:items) do
+      
+      newproperty(:items, :array_matching => :all) do
+      
         
         desc "List of persistent volumes. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes"
         

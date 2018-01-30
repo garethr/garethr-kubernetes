@@ -15,7 +15,9 @@ Puppet::Type.type(:kubernetes_session_affinity_config).provide(:swagger, :parent
     name: instance.metadata.name,
     
       
+        
         client_ip: instance.clientIP.respond_to?(:to_hash) ? instance.clientIP.to_hash : instance.clientIP,
+        
       
     
     object: instance,

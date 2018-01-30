@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_downward_api_projection) do
   end
   
     
-      newproperty(:items) do
+      
+      newproperty(:items, :array_matching => :all) do
+      
         
         desc "Items is a list of DownwardAPIVolume file"
         

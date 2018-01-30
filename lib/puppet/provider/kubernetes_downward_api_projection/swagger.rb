@@ -15,7 +15,9 @@ Puppet::Type.type(:kubernetes_downward_api_projection).provide(:swagger, :parent
     name: instance.metadata.name,
     
       
-        items: instance.items.respond_to?(:to_hash) ? instance.items.to_hash : instance.items,
+        
+        items: hash_arrays(instance.items),
+        
       
     
     object: instance,

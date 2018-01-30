@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_ip_block) do
   end
   
     
+      
       newproperty(:cidr) do
+      
         
         desc "CIDR is a string representing the IP Block Valid examples are '192.168.1.1/24'"
         
@@ -44,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_ip_block) do
     
   
     
-      newproperty(:except) do
+      
+      newproperty(:except, :array_matching => :all) do
+      
         
         desc "Except is a slice of CIDRs that should not be included within an IP Block Valid examples are '192.168.1.1/24' Except values will be rejected if they are outside the CIDR range"
         

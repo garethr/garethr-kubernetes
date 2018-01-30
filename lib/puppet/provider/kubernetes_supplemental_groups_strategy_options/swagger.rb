@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_supplemental_groups_strategy_options).provide(:swa
     name: instance.metadata.name,
     
       
+        
         rule: instance.rule.respond_to?(:to_hash) ? instance.rule.to_hash : instance.rule,
+        
       
     
       
-        ranges: instance.ranges.respond_to?(:to_hash) ? instance.ranges.to_hash : instance.ranges,
+        
+        ranges: hash_arrays(instance.ranges),
+        
       
     
     object: instance,

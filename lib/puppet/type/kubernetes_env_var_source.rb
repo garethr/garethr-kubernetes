@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_env_var_source) do
   end
   
     
+      
       newproperty(:field_ref) do
+      
         
         desc "Selects a field of the pod: supports metadata.name, metadata.namespace, metadata.labels, metadata.annotations, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP."
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_env_var_source) do
     
   
     
+      
       newproperty(:resource_field_ref) do
+      
         
         desc "Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported."
         
@@ -41,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_env_var_source) do
     
   
     
+      
       newproperty(:config_map_key_ref) do
+      
         
         desc "Selects a key of a ConfigMap."
         
@@ -52,7 +58,9 @@ Puppet::Type.newtype(:kubernetes_env_var_source) do
     
   
     
+      
       newproperty(:secret_key_ref) do
+      
         
         desc "Selects a key of a secret in the pod's namespace"
         

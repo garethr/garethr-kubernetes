@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_rollback_config) do
   end
   
     
+      
       newproperty(:revision) do
+      
         
         desc "The revision to rollback to. If set to 0, rollback to the last revision."
         

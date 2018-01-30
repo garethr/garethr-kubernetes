@@ -37,7 +37,9 @@ Puppet::Type.newtype(:kubernetes_endpoints_list) do
     
   
     
+      
       newproperty(:metadata) do
+      
         
         desc "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
         
@@ -48,7 +50,9 @@ Puppet::Type.newtype(:kubernetes_endpoints_list) do
     
   
     
-      newproperty(:items) do
+      
+      newproperty(:items, :array_matching => :all) do
+      
         
         desc "List of endpoints."
         

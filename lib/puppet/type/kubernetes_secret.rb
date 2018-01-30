@@ -23,7 +23,9 @@ Puppet::Type.newtype(:kubernetes_secret) do
     
   
     
+      
       newproperty(:metadata) do
+      
         
         desc "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
         
@@ -34,7 +36,9 @@ Puppet::Type.newtype(:kubernetes_secret) do
     
   
     
+      
       newproperty(:data) do
+      
         
         desc "Data contains the secret data. Each key must consist of alphanumeric characters, '-', '_' or '.'. The serialized form of the secret data is a base64 encoded string, representing the arbitrary (possibly non-string) data value here. Described in https://tools.ietf.org/html/rfc4648#section-4"
         
@@ -47,7 +51,9 @@ Puppet::Type.newtype(:kubernetes_secret) do
     
   
     
+      
       newproperty(:type) do
+      
         
         desc "Used to facilitate programmatic handling of secret data."
         

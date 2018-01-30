@@ -15,15 +15,21 @@ Puppet::Type.type(:kubernetes_portworx_volume_source).provide(:swagger, :parent 
     name: instance.metadata.name,
     
       
+        
         volume_id: instance.volumeID.respond_to?(:to_hash) ? instance.volumeID.to_hash : instance.volumeID,
+        
       
     
       
+        
         fs_type: instance.fsType.respond_to?(:to_hash) ? instance.fsType.to_hash : instance.fsType,
+        
       
     
       
+        
         read_only: instance.readOnly.respond_to?(:to_hash) ? instance.readOnly.to_hash : instance.readOnly,
+        
       
     
     object: instance,

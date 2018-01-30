@@ -15,7 +15,9 @@ Puppet::Type.type(:kubernetes_container_state_running).provide(:swagger, :parent
     name: instance.metadata.name,
     
       
+        
         started_at: instance.startedAt.respond_to?(:to_hash) ? instance.startedAt.to_hash : instance.startedAt,
+        
       
     
     object: instance,

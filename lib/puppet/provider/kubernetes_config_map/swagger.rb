@@ -19,11 +19,15 @@ Puppet::Type.type(:kubernetes_config_map).provide(:swagger, :parent => PuppetX::
       
     
       
+        
         metadata: instance.metadata.respond_to?(:to_hash) ? instance.metadata.to_hash : instance.metadata,
+        
       
     
       
+        
         data: instance.data.respond_to?(:to_hash) ? instance.data.to_hash : instance.data,
+        
       
     
     object: instance,

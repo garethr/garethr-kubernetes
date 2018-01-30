@@ -35,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_condition) do
   end
   
     
+      
       newproperty(:type) do
+      
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -44,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_condition) do
     
   
     
+      
       newproperty(:status) do
+      
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -53,7 +57,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_condition) do
     
   
     
+      
       newproperty(:last_probe_time) do
+      
         
         desc "Last time we probed the condition."
         
@@ -64,7 +70,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_condition) do
     
   
     
+      
       newproperty(:last_transition_time) do
+      
         
         desc "Last time the condition transitioned from one status to another."
         
@@ -75,7 +83,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_condition) do
     
   
     
+      
       newproperty(:reason) do
+      
         
         desc "Unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports 'ResizeStarted' that means the underlying persistent volume is being resized."
         
@@ -86,7 +96,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_condition) do
     
   
     
+      
       newproperty(:message) do
+      
         
         desc "Human-readable message indicating details about last transition."
         

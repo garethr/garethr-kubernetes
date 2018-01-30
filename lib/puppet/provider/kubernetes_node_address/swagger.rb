@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_node_address).provide(:swagger, :parent => PuppetX
     name: instance.metadata.name,
     
       
+        
         type: instance.type.respond_to?(:to_hash) ? instance.type.to_hash : instance.type,
+        
       
     
       
+        
         address: instance.address.respond_to?(:to_hash) ? instance.address.to_hash : instance.address,
+        
       
     
     object: instance,

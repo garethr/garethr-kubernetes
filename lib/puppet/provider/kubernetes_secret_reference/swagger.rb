@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_secret_reference).provide(:swagger, :parent => Pup
     name: instance.metadata.name,
     
       
+        
         name: instance.name.respond_to?(:to_hash) ? instance.name.to_hash : instance.name,
+        
       
     
       
+        
         namespace: instance.namespace.respond_to?(:to_hash) ? instance.namespace.to_hash : instance.namespace,
+        
       
     
     object: instance,

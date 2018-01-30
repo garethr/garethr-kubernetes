@@ -19,39 +19,57 @@ Puppet::Type.type(:kubernetes_event).provide(:swagger, :parent => PuppetX::Puppe
       
     
       
+        
         metadata: instance.metadata.respond_to?(:to_hash) ? instance.metadata.to_hash : instance.metadata,
+        
       
     
       
+        
         involved_object: instance.involvedObject.respond_to?(:to_hash) ? instance.involvedObject.to_hash : instance.involvedObject,
+        
       
     
       
+        
         reason: instance.reason.respond_to?(:to_hash) ? instance.reason.to_hash : instance.reason,
+        
       
     
       
+        
         message: instance.message.respond_to?(:to_hash) ? instance.message.to_hash : instance.message,
+        
       
     
       
+        
         source: instance.source.respond_to?(:to_hash) ? instance.source.to_hash : instance.source,
+        
       
     
       
+        
         first_timestamp: instance.firstTimestamp.respond_to?(:to_hash) ? instance.firstTimestamp.to_hash : instance.firstTimestamp,
+        
       
     
       
+        
         last_timestamp: instance.lastTimestamp.respond_to?(:to_hash) ? instance.lastTimestamp.to_hash : instance.lastTimestamp,
+        
       
     
       
+        
         count: instance.count.respond_to?(:to_hash) ? instance.count.to_hash : instance.count,
+        
       
     
       
+        
         type: instance.type.respond_to?(:to_hash) ? instance.type.to_hash : instance.type,
+        
       
     
     object: instance,

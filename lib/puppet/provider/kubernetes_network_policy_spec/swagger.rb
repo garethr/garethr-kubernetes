@@ -15,19 +15,27 @@ Puppet::Type.type(:kubernetes_network_policy_spec).provide(:swagger, :parent => 
     name: instance.metadata.name,
     
       
+        
         pod_selector: instance.podSelector.respond_to?(:to_hash) ? instance.podSelector.to_hash : instance.podSelector,
+        
       
     
       
-        ingress: instance.ingress.respond_to?(:to_hash) ? instance.ingress.to_hash : instance.ingress,
+        
+        ingress: hash_arrays(instance.ingress),
+        
       
     
       
-        egress: instance.egress.respond_to?(:to_hash) ? instance.egress.to_hash : instance.egress,
+        
+        egress: hash_arrays(instance.egress),
+        
       
     
       
-        policy_types: instance.policyTypes.respond_to?(:to_hash) ? instance.policyTypes.to_hash : instance.policyTypes,
+        
+        policy_types: hash_arrays(instance.policyTypes),
+        
       
     
     object: instance,

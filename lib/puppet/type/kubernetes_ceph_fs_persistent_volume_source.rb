@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_ceph_fs_persistent_volume_source) do
   end
   
     
-      newproperty(:monitors) do
+      
+      newproperty(:monitors, :array_matching => :all) do
+      
         
         desc "Required: Monitors is a collection of Ceph monitors More info: https://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it"
         
@@ -44,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_ceph_fs_persistent_volume_source) do
     
   
     
+      
       newproperty(:path) do
+      
         
         desc "Optional: Used as the mounted root, rather than the full Ceph tree, default is /"
         
@@ -55,7 +59,9 @@ Puppet::Type.newtype(:kubernetes_ceph_fs_persistent_volume_source) do
     
   
     
+      
       newproperty(:user) do
+      
         
         desc "Optional: User is the rados user name, default is admin More info: https://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it"
         
@@ -66,7 +72,9 @@ Puppet::Type.newtype(:kubernetes_ceph_fs_persistent_volume_source) do
     
   
     
+      
       newproperty(:secret_file) do
+      
         
         desc "Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: https://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it"
         
@@ -77,7 +85,9 @@ Puppet::Type.newtype(:kubernetes_ceph_fs_persistent_volume_source) do
     
   
     
+      
       newproperty(:secret_ref) do
+      
         
         desc "Optional: SecretRef is reference to the authentication secret for User, default is empty. More info: https://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it"
         
@@ -88,7 +98,9 @@ Puppet::Type.newtype(:kubernetes_ceph_fs_persistent_volume_source) do
     
   
     
+      
       newproperty(:read_only) do
+      
         
         desc "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it"
         

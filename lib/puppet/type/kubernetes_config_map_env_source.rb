@@ -21,7 +21,9 @@ The contents of the target ConfigMap's Data field will represent the key-value p
   end
   
     
+      
       newproperty(:name) do
+      
         
         desc "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
         
@@ -32,7 +34,9 @@ The contents of the target ConfigMap's Data field will represent the key-value p
     
   
     
+      
       newproperty(:optional) do
+      
         
         desc "Specify whether the ConfigMap must be defined"
         

@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_node_affinity).provide(:swagger, :parent => Puppet
     name: instance.metadata.name,
     
       
+        
         required_during_scheduling_ignored_during_execution: instance.requiredDuringSchedulingIgnoredDuringExecution.respond_to?(:to_hash) ? instance.requiredDuringSchedulingIgnoredDuringExecution.to_hash : instance.requiredDuringSchedulingIgnoredDuringExecution,
+        
       
     
       
-        preferred_during_scheduling_ignored_during_execution: instance.preferredDuringSchedulingIgnoredDuringExecution.respond_to?(:to_hash) ? instance.preferredDuringSchedulingIgnoredDuringExecution.to_hash : instance.preferredDuringSchedulingIgnoredDuringExecution,
+        
+        preferred_during_scheduling_ignored_during_execution: hash_arrays(instance.preferredDuringSchedulingIgnoredDuringExecution),
+        
       
     
     object: instance,

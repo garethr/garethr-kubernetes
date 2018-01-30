@@ -15,27 +15,39 @@ Puppet::Type.type(:kubernetes_ceph_fs_persistent_volume_source).provide(:swagger
     name: instance.metadata.name,
     
       
-        monitors: instance.monitors.respond_to?(:to_hash) ? instance.monitors.to_hash : instance.monitors,
+        
+        monitors: hash_arrays(instance.monitors),
+        
       
     
       
+        
         path: instance.path.respond_to?(:to_hash) ? instance.path.to_hash : instance.path,
+        
       
     
       
+        
         user: instance.user.respond_to?(:to_hash) ? instance.user.to_hash : instance.user,
+        
       
     
       
+        
         secret_file: instance.secretFile.respond_to?(:to_hash) ? instance.secretFile.to_hash : instance.secretFile,
+        
       
     
       
+        
         secret_ref: instance.secretRef.respond_to?(:to_hash) ? instance.secretRef.to_hash : instance.secretRef,
+        
       
     
       
+        
         read_only: instance.readOnly.respond_to?(:to_hash) ? instance.readOnly.to_hash : instance.readOnly,
+        
       
     
     object: instance,

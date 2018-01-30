@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_initializers).provide(:swagger, :parent => PuppetX
     name: instance.metadata.name,
     
       
-        pending: instance.pending.respond_to?(:to_hash) ? instance.pending.to_hash : instance.pending,
+        
+        pending: hash_arrays(instance.pending),
+        
       
     
       
+        
         result: instance.result.respond_to?(:to_hash) ? instance.result.to_hash : instance.result,
+        
       
     
     object: instance,

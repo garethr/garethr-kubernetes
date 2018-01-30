@@ -15,19 +15,27 @@ Puppet::Type.type(:kubernetes_azure_file_persistent_volume_source).provide(:swag
     name: instance.metadata.name,
     
       
+        
         secret_name: instance.secretName.respond_to?(:to_hash) ? instance.secretName.to_hash : instance.secretName,
+        
       
     
       
+        
         share_name: instance.shareName.respond_to?(:to_hash) ? instance.shareName.to_hash : instance.shareName,
+        
       
     
       
+        
         read_only: instance.readOnly.respond_to?(:to_hash) ? instance.readOnly.to_hash : instance.readOnly,
+        
       
     
       
+        
         secret_namespace: instance.secretNamespace.respond_to?(:to_hash) ? instance.secretNamespace.to_hash : instance.secretNamespace,
+        
       
     
     object: instance,

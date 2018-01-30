@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
   end
   
     
-      newproperty(:volumes) do
+      
+      newproperty(:volumes, :array_matching => :all) do
+      
         
         desc "List of volumes that can be mounted by containers belonging to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes"
         
@@ -44,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
-      newproperty(:init_containers) do
+      
+      newproperty(:init_containers, :array_matching => :all) do
+      
         
         desc "List of initialization containers belonging to the pod. Init containers are executed in order prior to containers being started. If any init container fails, the pod is considered to have failed and is handled according to its restartPolicy. The name for an init container or normal container must be unique among all containers. Init containers may not have Lifecycle actions, Readiness probes, or Liveness probes. The resourceRequirements of an init container are taken into account during scheduling by finding the highest request/limit for each resource type, and then using the max of of that value or the sum of the normal containers. Limits are applied to init containers in a similar fashion. Init containers cannot currently be added or removed. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/"
         
@@ -55,7 +59,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
-      newproperty(:containers) do
+      
+      newproperty(:containers, :array_matching => :all) do
+      
         
         desc "List of containers belonging to the pod. Containers cannot currently be added or removed. There must be at least one container in a Pod. Cannot be updated."
         
@@ -66,7 +72,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
+      
       newproperty(:restart_policy) do
+      
         
         desc "Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy"
         
@@ -77,7 +85,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
+      
       newproperty(:termination_grace_period_seconds) do
+      
         
         desc "Optional duration in seconds the pod needs to terminate gracefully. May be decreased in delete request. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. Defaults to 30 seconds."
         
@@ -88,7 +98,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
+      
       newproperty(:active_deadline_seconds) do
+      
         
         desc "Optional duration in seconds the pod may be active on the node relative to StartTime before the system will actively try to mark it failed and kill associated containers. Value must be a positive integer."
         
@@ -99,7 +111,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
+      
       newproperty(:dns_policy) do
+      
         
         desc "Set DNS policy for containers within the pod. One of 'ClusterFirstWithHostNet', 'ClusterFirst' or 'Default'. Defaults to 'ClusterFirst'. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'."
         
@@ -110,7 +124,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
+      
       newproperty(:node_selector) do
+      
         
         desc "NodeSelector is a selector which must be true for the pod to fit on a node. Selector which must match a node's labels for the pod to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/"
         
@@ -121,7 +137,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
+      
       newproperty(:service_account_name) do
+      
         
         desc "ServiceAccountName is the name of the ServiceAccount to use to run this pod. More info: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/"
         
@@ -132,7 +150,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
+      
       newproperty(:service_account) do
+      
         
         desc "DeprecatedServiceAccount is a depreciated alias for ServiceAccountName. Deprecated: Use serviceAccountName instead."
         
@@ -143,7 +163,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
+      
       newproperty(:automount_service_account_token) do
+      
         
         desc "AutomountServiceAccountToken indicates whether a service account token should be automatically mounted."
         
@@ -154,7 +176,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
+      
       newproperty(:node_name) do
+      
         
         desc "NodeName is a request to schedule this pod onto a specific node. If it is non-empty, the scheduler simply schedules this pod onto that node, assuming that it fits resource requirements."
         
@@ -165,7 +189,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
+      
       newproperty(:host_network) do
+      
         
         desc "Host networking requested for this pod. Use the host's network namespace. If this option is set, the ports that will be used must be specified. Default to false."
         
@@ -176,7 +202,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
+      
       newproperty(:host_pid) do
+      
         
         desc "Use the host's pid namespace. Optional: Default to false."
         
@@ -187,7 +215,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
+      
       newproperty(:host_ipc) do
+      
         
         desc "Use the host's ipc namespace. Optional: Default to false."
         
@@ -198,7 +228,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
+      
       newproperty(:security_context) do
+      
         
         desc "SecurityContext holds pod-level security attributes and common container settings. Optional: Defaults to empty.  See type description for default values of each field."
         
@@ -209,7 +241,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
-      newproperty(:image_pull_secrets) do
+      
+      newproperty(:image_pull_secrets, :array_matching => :all) do
+      
         
         desc "ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec. If specified, these secrets will be passed to individual puller implementations for them to use. For example, in the case of docker, only DockerConfig type secrets are honored. More info: https://kubernetes.io/docs/concepts/containers/images#specifying-imagepullsecrets-on-a-pod"
         
@@ -220,7 +254,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
+      
       newproperty(:hostname) do
+      
         
         desc "Specifies the hostname of the Pod If not specified, the pod's hostname will be set to a system-defined value."
         
@@ -231,7 +267,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
+      
       newproperty(:subdomain) do
+      
         
         desc "If specified, the fully qualified Pod hostname will be '<hostname>.<subdomain>.<pod namespace>.svc.<cluster domain>'. If not specified, the pod will not have a domainname at all."
         
@@ -242,7 +280,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
+      
       newproperty(:affinity) do
+      
         
         desc "If specified, the pod's scheduling constraints"
         
@@ -253,7 +293,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
+      
       newproperty(:scheduler_name) do
+      
         
         desc "If specified, the pod will be dispatched by specified scheduler. If not specified, the pod will be dispatched by default scheduler."
         
@@ -264,7 +306,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
-      newproperty(:tolerations) do
+      
+      newproperty(:tolerations, :array_matching => :all) do
+      
         
         desc "If specified, the pod's tolerations."
         
@@ -275,7 +319,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
-      newproperty(:host_aliases) do
+      
+      newproperty(:host_aliases, :array_matching => :all) do
+      
         
         desc "HostAliases is an optional list of hosts and IPs that will be injected into the pod's hosts file if specified. This is only valid for non-hostNetwork pods."
         
@@ -286,7 +332,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
+      
       newproperty(:priority_class_name) do
+      
         
         desc "If specified, indicates the pod's priority. 'SYSTEM' is a special keyword which indicates the highest priority. Any other name must be defined by creating a PriorityClass object with that name. If not specified, the pod priority will be default or zero if there is no default."
         
@@ -297,7 +345,9 @@ Puppet::Type.newtype(:kubernetes_pod_spec) do
     
   
     
+      
       newproperty(:priority) do
+      
         
         desc "The priority value. Various system components use this field to find the priority of the pod. When Priority Admission Controller is enabled, it prevents users from setting this field. The admission controller populates this field from PriorityClassName. The higher the value, the higher the priority."
         

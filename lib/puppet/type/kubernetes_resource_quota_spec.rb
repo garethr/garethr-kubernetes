@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_resource_quota_spec) do
   end
   
     
+      
       newproperty(:hard) do
+      
         
         desc "Hard is the set of desired hard limits for each named resource. More info: https://git.k8s.io/community/contributors/design-proposals/admission_control_resource_quota.md"
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_resource_quota_spec) do
     
   
     
-      newproperty(:scopes) do
+      
+      newproperty(:scopes, :array_matching => :all) do
+      
         
         desc "A collection of filters that must match each object tracked by a quota. If not specified, the quota matches all objects."
         

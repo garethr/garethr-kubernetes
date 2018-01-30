@@ -15,15 +15,21 @@ Puppet::Type.type(:kubernetes_nfs_volume_source).provide(:swagger, :parent => Pu
     name: instance.metadata.name,
     
       
+        
         server: instance.server.respond_to?(:to_hash) ? instance.server.to_hash : instance.server,
+        
       
     
       
+        
         path: instance.path.respond_to?(:to_hash) ? instance.path.to_hash : instance.path,
+        
       
     
       
+        
         read_only: instance.readOnly.respond_to?(:to_hash) ? instance.readOnly.to_hash : instance.readOnly,
+        
       
     
     object: instance,

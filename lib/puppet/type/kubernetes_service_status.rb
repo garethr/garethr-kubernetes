@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_service_status) do
   end
   
     
+      
       newproperty(:load_balancer) do
+      
         
         desc "LoadBalancer contains the current status of the load-balancer, if one is present."
         

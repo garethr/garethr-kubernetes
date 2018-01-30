@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_http_ingress_rule_value) do
   end
   
     
-      newproperty(:paths) do
+      
+      newproperty(:paths, :array_matching => :all) do
+      
         
         desc "A collection of paths that map requests to backends."
         

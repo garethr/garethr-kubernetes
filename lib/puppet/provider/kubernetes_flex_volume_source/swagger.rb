@@ -15,23 +15,33 @@ Puppet::Type.type(:kubernetes_flex_volume_source).provide(:swagger, :parent => P
     name: instance.metadata.name,
     
       
+        
         driver: instance.driver.respond_to?(:to_hash) ? instance.driver.to_hash : instance.driver,
+        
       
     
       
+        
         fs_type: instance.fsType.respond_to?(:to_hash) ? instance.fsType.to_hash : instance.fsType,
+        
       
     
       
+        
         secret_ref: instance.secretRef.respond_to?(:to_hash) ? instance.secretRef.to_hash : instance.secretRef,
+        
       
     
       
+        
         read_only: instance.readOnly.respond_to?(:to_hash) ? instance.readOnly.to_hash : instance.readOnly,
+        
       
     
       
+        
         options: instance.options.respond_to?(:to_hash) ? instance.options.to_hash : instance.options,
+        
       
     
     object: instance,

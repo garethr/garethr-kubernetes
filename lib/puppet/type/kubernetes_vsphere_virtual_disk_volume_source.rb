@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_vsphere_virtual_disk_volume_source) do
   end
   
     
+      
       newproperty(:volume_path) do
+      
         
         desc "Path that identifies vSphere volume vmdk"
         
@@ -44,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_vsphere_virtual_disk_volume_source) do
     
   
     
+      
       newproperty(:fs_type) do
+      
         
         desc "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. 'ext4', 'xfs', 'ntfs'. Implicitly inferred to be 'ext4' if unspecified."
         
@@ -55,7 +59,9 @@ Puppet::Type.newtype(:kubernetes_vsphere_virtual_disk_volume_source) do
     
   
     
+      
       newproperty(:storage_policy_name) do
+      
         
         desc "Storage Policy Based Management (SPBM) profile name."
         
@@ -66,7 +72,9 @@ Puppet::Type.newtype(:kubernetes_vsphere_virtual_disk_volume_source) do
     
   
     
+      
       newproperty(:storage_policy_id) do
+      
         
         desc "Storage Policy Based Management (SPBM) profile ID associated with the StoragePolicyName."
         

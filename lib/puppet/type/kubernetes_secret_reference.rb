@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_secret_reference) do
   end
   
     
+      
       newproperty(:name) do
+      
         
         desc "Name is unique within a namespace to reference a secret resource."
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_secret_reference) do
     
   
     
+      
       newproperty(:namespace) do
+      
         
         desc "Namespace defines the space within which the secret name must be unique."
         

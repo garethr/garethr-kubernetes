@@ -15,15 +15,21 @@ Puppet::Type.type(:kubernetes_git_repo_volume_source).provide(:swagger, :parent 
     name: instance.metadata.name,
     
       
+        
         repository: instance.repository.respond_to?(:to_hash) ? instance.repository.to_hash : instance.repository,
+        
       
     
       
+        
         revision: instance.revision.respond_to?(:to_hash) ? instance.revision.to_hash : instance.revision,
+        
       
     
       
+        
         directory: instance.directory.respond_to?(:to_hash) ? instance.directory.to_hash : instance.directory,
+        
       
     
     object: instance,

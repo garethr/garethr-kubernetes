@@ -23,7 +23,9 @@ Puppet::Type.newtype(:kubernetes_node_config_source) do
     
   
     
+      
       newproperty(:config_map_ref) do
+      
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

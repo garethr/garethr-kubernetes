@@ -35,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_ingress_backend) do
   end
   
     
+      
       newproperty(:service_name) do
+      
         
         desc "Specifies the name of the referenced service."
         
@@ -46,7 +48,9 @@ Puppet::Type.newtype(:kubernetes_ingress_backend) do
     
   
     
+      
       newproperty(:service_port) do
+      
         
         desc "Specifies the port of the referenced service."
         

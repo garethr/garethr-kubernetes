@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_container_state_terminated) do
   end
   
     
+      
       newproperty(:exit_code) do
+      
         
         desc "Exit status from the last termination of the container"
         
@@ -44,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_container_state_terminated) do
     
   
     
+      
       newproperty(:signal) do
+      
         
         desc "Signal from the last termination of the container"
         
@@ -55,7 +59,9 @@ Puppet::Type.newtype(:kubernetes_container_state_terminated) do
     
   
     
+      
       newproperty(:reason) do
+      
         
         desc "(brief) reason from the last termination of the container"
         
@@ -66,7 +72,9 @@ Puppet::Type.newtype(:kubernetes_container_state_terminated) do
     
   
     
+      
       newproperty(:message) do
+      
         
         desc "Message regarding the last termination of the container"
         
@@ -77,7 +85,9 @@ Puppet::Type.newtype(:kubernetes_container_state_terminated) do
     
   
     
+      
       newproperty(:started_at) do
+      
         
         desc "Time at which previous execution of the container started"
         
@@ -88,7 +98,9 @@ Puppet::Type.newtype(:kubernetes_container_state_terminated) do
     
   
     
+      
       newproperty(:finished_at) do
+      
         
         desc "Time at which the container last terminated"
         
@@ -99,7 +111,9 @@ Puppet::Type.newtype(:kubernetes_container_state_terminated) do
     
   
     
+      
       newproperty(:container_id) do
+      
         
         desc "Container's ID in the format 'docker://<container_id>'"
         

@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_local_volume_source) do
   end
   
     
+      
       newproperty(:path) do
+      
         
         desc "The full path to the volume on the node For alpha, this path must be a directory Once block as a source is supported, then this path can point to a block device"
         

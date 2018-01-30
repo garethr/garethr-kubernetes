@@ -15,13 +15,17 @@ Puppet::Type.type(:kubernetes_role_ref).provide(:swagger, :parent => PuppetX::Pu
     name: instance.metadata.name,
     
       
+        
         api_group: instance.apiGroup.respond_to?(:to_hash) ? instance.apiGroup.to_hash : instance.apiGroup,
+        
       
     
       
     
       
+        
         name: instance.name.respond_to?(:to_hash) ? instance.name.to_hash : instance.name,
+        
       
     
     object: instance,

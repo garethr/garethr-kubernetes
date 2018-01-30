@@ -23,7 +23,9 @@ Puppet::Type.newtype(:kubernetes_ingress) do
     
   
     
+      
       newproperty(:metadata) do
+      
         
         desc "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
         
@@ -34,7 +36,9 @@ Puppet::Type.newtype(:kubernetes_ingress) do
     
   
     
+      
       newproperty(:spec) do
+      
         
         desc "Spec is the desired state of the Ingress. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status"
         
@@ -45,7 +49,9 @@ Puppet::Type.newtype(:kubernetes_ingress) do
     
   
     
+      
       newproperty(:status) do
+      
         
         desc "Status is the current state of the Ingress. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status"
         

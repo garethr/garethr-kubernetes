@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_daemon_endpoint) do
   end
   
     
+      
       newproperty(:port) do
+      
         
         desc "Port number of the given endpoint."
         

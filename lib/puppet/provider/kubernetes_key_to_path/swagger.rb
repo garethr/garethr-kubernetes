@@ -15,15 +15,21 @@ Puppet::Type.type(:kubernetes_key_to_path).provide(:swagger, :parent => PuppetX:
     name: instance.metadata.name,
     
       
+        
         key: instance.key.respond_to?(:to_hash) ? instance.key.to_hash : instance.key,
+        
       
     
       
+        
         path: instance.path.respond_to?(:to_hash) ? instance.path.to_hash : instance.path,
+        
       
     
       
+        
         mode: instance.mode.respond_to?(:to_hash) ? instance.mode.to_hash : instance.mode,
+        
       
     
     object: instance,

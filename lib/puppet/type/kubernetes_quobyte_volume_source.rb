@@ -35,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_quobyte_volume_source) do
   end
   
     
+      
       newproperty(:registry) do
+      
         
         desc "Registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes"
         
@@ -46,7 +48,9 @@ Puppet::Type.newtype(:kubernetes_quobyte_volume_source) do
     
   
     
+      
       newproperty(:volume) do
+      
         
         desc "Volume is a string that references an already created Quobyte volume by name."
         
@@ -57,7 +61,9 @@ Puppet::Type.newtype(:kubernetes_quobyte_volume_source) do
     
   
     
+      
       newproperty(:read_only) do
+      
         
         desc "ReadOnly here will force the Quobyte volume to be mounted with read-only permissions. Defaults to false."
         
@@ -68,7 +74,9 @@ Puppet::Type.newtype(:kubernetes_quobyte_volume_source) do
     
   
     
+      
       newproperty(:user) do
+      
         
         desc "User to map volume access to Defaults to serivceaccount user"
         
@@ -79,7 +87,9 @@ Puppet::Type.newtype(:kubernetes_quobyte_volume_source) do
     
   
     
+      
       newproperty(:group) do
+      
         
         desc "Group to map volume access to Default is no group"
         

@@ -26,7 +26,9 @@ The resulting set of endpoints can be viewed as:
   end
   
     
-      newproperty(:addresses) do
+      
+      newproperty(:addresses, :array_matching => :all) do
+      
         
         desc "IP addresses which offer the related ports that are marked as ready. These endpoints should be considered safe for load balancers and clients to utilize."
         
@@ -37,7 +39,9 @@ The resulting set of endpoints can be viewed as:
     
   
     
-      newproperty(:not_ready_addresses) do
+      
+      newproperty(:not_ready_addresses, :array_matching => :all) do
+      
         
         desc "IP addresses which offer the related ports but are not currently marked as ready because they have not yet finished starting, have recently failed a readiness check, or have recently failed a liveness check."
         
@@ -48,7 +52,9 @@ The resulting set of endpoints can be viewed as:
     
   
     
-      newproperty(:ports) do
+      
+      newproperty(:ports, :array_matching => :all) do
+      
         
         desc "Port numbers available on the related IP addresses."
         

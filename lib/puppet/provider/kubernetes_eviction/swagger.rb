@@ -19,11 +19,15 @@ Puppet::Type.type(:kubernetes_eviction).provide(:swagger, :parent => PuppetX::Pu
       
     
       
+        
         metadata: instance.metadata.respond_to?(:to_hash) ? instance.metadata.to_hash : instance.metadata,
+        
       
     
       
+        
         delete_options: instance.deleteOptions.respond_to?(:to_hash) ? instance.deleteOptions.to_hash : instance.deleteOptions,
+        
       
     
     object: instance,

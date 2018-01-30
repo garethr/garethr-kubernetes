@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_limit_range_spec) do
   end
   
     
-      newproperty(:limits) do
+      
+      newproperty(:limits, :array_matching => :all) do
+      
         
         desc "Limits is the list of LimitRangeItem objects that are enforced."
         

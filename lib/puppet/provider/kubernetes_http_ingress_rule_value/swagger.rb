@@ -15,7 +15,9 @@ Puppet::Type.type(:kubernetes_http_ingress_rule_value).provide(:swagger, :parent
     name: instance.metadata.name,
     
       
-        paths: instance.paths.respond_to?(:to_hash) ? instance.paths.to_hash : instance.paths,
+        
+        paths: hash_arrays(instance.paths),
+        
       
     
     object: instance,

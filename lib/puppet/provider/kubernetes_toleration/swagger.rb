@@ -15,23 +15,33 @@ Puppet::Type.type(:kubernetes_toleration).provide(:swagger, :parent => PuppetX::
     name: instance.metadata.name,
     
       
+        
         key: instance.key.respond_to?(:to_hash) ? instance.key.to_hash : instance.key,
+        
       
     
       
+        
         operator: instance.operator.respond_to?(:to_hash) ? instance.operator.to_hash : instance.operator,
+        
       
     
       
+        
         value: instance.value.respond_to?(:to_hash) ? instance.value.to_hash : instance.value,
+        
       
     
       
+        
         effect: instance.effect.respond_to?(:to_hash) ? instance.effect.to_hash : instance.effect,
+        
       
     
       
+        
         toleration_seconds: instance.tolerationSeconds.respond_to?(:to_hash) ? instance.tolerationSeconds.to_hash : instance.tolerationSeconds,
+        
       
     
     object: instance,

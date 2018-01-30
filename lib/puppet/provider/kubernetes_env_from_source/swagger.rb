@@ -15,15 +15,21 @@ Puppet::Type.type(:kubernetes_env_from_source).provide(:swagger, :parent => Pupp
     name: instance.metadata.name,
     
       
+        
         prefix: instance.prefix.respond_to?(:to_hash) ? instance.prefix.to_hash : instance.prefix,
+        
       
     
       
+        
         config_map_ref: instance.configMapRef.respond_to?(:to_hash) ? instance.configMapRef.to_hash : instance.configMapRef,
+        
       
     
       
+        
         secret_ref: instance.secretRef.respond_to?(:to_hash) ? instance.secretRef.to_hash : instance.secretRef,
+        
       
     
     object: instance,

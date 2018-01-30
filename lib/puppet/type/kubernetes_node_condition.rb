@@ -35,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_node_condition) do
   end
   
     
+      
       newproperty(:type) do
+      
         
         desc "Type of node condition."
         
@@ -46,7 +48,9 @@ Puppet::Type.newtype(:kubernetes_node_condition) do
     
   
     
+      
       newproperty(:status) do
+      
         
         desc "Status of the condition, one of True, False, Unknown."
         
@@ -57,7 +61,9 @@ Puppet::Type.newtype(:kubernetes_node_condition) do
     
   
     
+      
       newproperty(:last_heartbeat_time) do
+      
         
         desc "Last time we got an update on a given condition."
         
@@ -68,7 +74,9 @@ Puppet::Type.newtype(:kubernetes_node_condition) do
     
   
     
+      
       newproperty(:last_transition_time) do
+      
         
         desc "Last time the condition transit from one status to another."
         
@@ -79,7 +87,9 @@ Puppet::Type.newtype(:kubernetes_node_condition) do
     
   
     
+      
       newproperty(:reason) do
+      
         
         desc "(brief) reason for the condition's last transition."
         
@@ -90,7 +100,9 @@ Puppet::Type.newtype(:kubernetes_node_condition) do
     
   
     
+      
       newproperty(:message) do
+      
         
         desc "Human readable message indicating details about last transition."
         

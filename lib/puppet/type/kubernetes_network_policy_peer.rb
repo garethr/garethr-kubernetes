@@ -17,7 +17,9 @@ Puppet::Type.newtype(:kubernetes_network_policy_peer) do
   end
   
     
+      
       newproperty(:pod_selector) do
+      
         
         desc "This is a label selector which selects Pods in this namespace. This field follows standard label selector semantics. If present but empty, this selector selects all pods in this namespace."
         
@@ -28,7 +30,9 @@ Puppet::Type.newtype(:kubernetes_network_policy_peer) do
     
   
     
+      
       newproperty(:namespace_selector) do
+      
         
         desc "Selects Namespaces using cluster scoped-labels.  This matches all pods in all namespaces selected by this label selector. This field follows standard label selector semantics. If present but empty, this selector selects all namespaces."
         
@@ -39,7 +43,9 @@ Puppet::Type.newtype(:kubernetes_network_policy_peer) do
     
   
     
+      
       newproperty(:ip_block) do
+      
         
         desc "IPBlock defines policy on a particular IPBlock"
         

@@ -15,15 +15,21 @@ Puppet::Type.type(:kubernetes_container_state).provide(:swagger, :parent => Pupp
     name: instance.metadata.name,
     
       
+        
         waiting: instance.waiting.respond_to?(:to_hash) ? instance.waiting.to_hash : instance.waiting,
+        
       
     
       
+        
         running: instance.running.respond_to?(:to_hash) ? instance.running.to_hash : instance.running,
+        
       
     
       
+        
         terminated: instance.terminated.respond_to?(:to_hash) ? instance.terminated.to_hash : instance.terminated,
+        
       
     
     object: instance,

@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_replica_set_status) do
   end
   
     
+      
       newproperty(:replicas) do
+      
         
         desc "Replicas is the most recently oberved number of replicas. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller"
         
@@ -44,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_replica_set_status) do
     
   
     
+      
       newproperty(:fully_labeled_replicas) do
+      
         
         desc "The number of pods that have labels matching the labels of the pod template of the replicaset."
         
@@ -55,7 +59,9 @@ Puppet::Type.newtype(:kubernetes_replica_set_status) do
     
   
     
+      
       newproperty(:ready_replicas) do
+      
         
         desc "The number of ready replicas for this replica set."
         
@@ -66,7 +72,9 @@ Puppet::Type.newtype(:kubernetes_replica_set_status) do
     
   
     
+      
       newproperty(:available_replicas) do
+      
         
         desc "The number of available replicas (ready for at least minReadySeconds) for this replica set."
         
@@ -77,7 +85,9 @@ Puppet::Type.newtype(:kubernetes_replica_set_status) do
     
   
     
+      
       newproperty(:observed_generation) do
+      
         
         desc "ObservedGeneration reflects the generation of the most recently observed ReplicaSet."
         
@@ -88,7 +98,9 @@ Puppet::Type.newtype(:kubernetes_replica_set_status) do
     
   
     
-      newproperty(:conditions) do
+      
+      newproperty(:conditions, :array_matching => :all) do
+      
         
         desc "Represents the latest available observations of a replica set's current state."
         

@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_node_selector) do
   end
   
     
-      newproperty(:node_selector_terms) do
+      
+      newproperty(:node_selector_terms, :array_matching => :all) do
+      
         
         desc "Required. A list of node selector terms. The terms are ORed."
         

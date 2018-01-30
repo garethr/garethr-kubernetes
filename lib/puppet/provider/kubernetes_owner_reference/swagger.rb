@@ -19,19 +19,27 @@ Puppet::Type.type(:kubernetes_owner_reference).provide(:swagger, :parent => Pupp
       
     
       
+        
         name: instance.name.respond_to?(:to_hash) ? instance.name.to_hash : instance.name,
+        
       
     
       
+        
         uid: instance.uid.respond_to?(:to_hash) ? instance.uid.to_hash : instance.uid,
+        
       
     
       
+        
         controller: instance.controller.respond_to?(:to_hash) ? instance.controller.to_hash : instance.controller,
+        
       
     
       
+        
         block_owner_deletion: instance.blockOwnerDeletion.respond_to?(:to_hash) ? instance.blockOwnerDeletion.to_hash : instance.blockOwnerDeletion,
+        
       
     
     object: instance,

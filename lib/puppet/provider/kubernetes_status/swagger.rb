@@ -19,27 +19,39 @@ Puppet::Type.type(:kubernetes_status).provide(:swagger, :parent => PuppetX::Pupp
       
     
       
+        
         metadata: instance.metadata.respond_to?(:to_hash) ? instance.metadata.to_hash : instance.metadata,
+        
       
     
       
+        
         status: instance.status.respond_to?(:to_hash) ? instance.status.to_hash : instance.status,
+        
       
     
       
+        
         message: instance.message.respond_to?(:to_hash) ? instance.message.to_hash : instance.message,
+        
       
     
       
+        
         reason: instance.reason.respond_to?(:to_hash) ? instance.reason.to_hash : instance.reason,
+        
       
     
       
+        
         details: instance.details.respond_to?(:to_hash) ? instance.details.to_hash : instance.details,
+        
       
     
       
+        
         code: instance.code.respond_to?(:to_hash) ? instance.code.to_hash : instance.code,
+        
       
     
     object: instance,

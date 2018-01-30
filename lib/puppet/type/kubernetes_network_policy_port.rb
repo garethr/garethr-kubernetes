@@ -17,7 +17,9 @@ Puppet::Type.newtype(:kubernetes_network_policy_port) do
   end
   
     
+      
       newproperty(:protocol) do
+      
         
         desc "Optional.  The protocol (TCP or UDP) which traffic must match. If not specified, this field defaults to TCP."
         
@@ -28,7 +30,9 @@ Puppet::Type.newtype(:kubernetes_network_policy_port) do
     
   
     
+      
       newproperty(:port) do
+      
         
         desc "If specified, the port on the given protocol.  This can either be a numerical or named port on a pod.  If this field is not provided, this matches all port names and numbers. If present, only traffic on the specified protocol AND port will be matched."
         

@@ -15,7 +15,9 @@ Puppet::Type.type(:kubernetes_allowed_host_path).provide(:swagger, :parent => Pu
     name: instance.metadata.name,
     
       
+        
         path_prefix: instance.pathPrefix.respond_to?(:to_hash) ? instance.pathPrefix.to_hash : instance.pathPrefix,
+        
       
     
     object: instance,

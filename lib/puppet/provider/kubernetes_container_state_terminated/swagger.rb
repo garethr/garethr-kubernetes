@@ -15,31 +15,45 @@ Puppet::Type.type(:kubernetes_container_state_terminated).provide(:swagger, :par
     name: instance.metadata.name,
     
       
+        
         exit_code: instance.exitCode.respond_to?(:to_hash) ? instance.exitCode.to_hash : instance.exitCode,
+        
       
     
       
+        
         signal: instance.signal.respond_to?(:to_hash) ? instance.signal.to_hash : instance.signal,
+        
       
     
       
+        
         reason: instance.reason.respond_to?(:to_hash) ? instance.reason.to_hash : instance.reason,
+        
       
     
       
+        
         message: instance.message.respond_to?(:to_hash) ? instance.message.to_hash : instance.message,
+        
       
     
       
+        
         started_at: instance.startedAt.respond_to?(:to_hash) ? instance.startedAt.to_hash : instance.startedAt,
+        
       
     
       
+        
         finished_at: instance.finishedAt.respond_to?(:to_hash) ? instance.finishedAt.to_hash : instance.finishedAt,
+        
       
     
       
+        
         container_id: instance.containerID.respond_to?(:to_hash) ? instance.containerID.to_hash : instance.containerID,
+        
       
     
     object: instance,

@@ -35,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_azure_disk_volume_source) do
   end
   
     
+      
       newproperty(:disk_name) do
+      
         
         desc "The Name of the data disk in the blob storage"
         
@@ -46,7 +48,9 @@ Puppet::Type.newtype(:kubernetes_azure_disk_volume_source) do
     
   
     
+      
       newproperty(:disk_uri) do
+      
         
         desc "The URI the data disk in the blob storage"
         
@@ -57,7 +61,9 @@ Puppet::Type.newtype(:kubernetes_azure_disk_volume_source) do
     
   
     
+      
       newproperty(:caching_mode) do
+      
         
         desc "Host Caching mode: None, Read Only, Read Write."
         
@@ -68,7 +74,9 @@ Puppet::Type.newtype(:kubernetes_azure_disk_volume_source) do
     
   
     
+      
       newproperty(:fs_type) do
+      
         
         desc "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. 'ext4', 'xfs', 'ntfs'. Implicitly inferred to be 'ext4' if unspecified."
         
@@ -79,7 +87,9 @@ Puppet::Type.newtype(:kubernetes_azure_disk_volume_source) do
     
   
     
+      
       newproperty(:read_only) do
+      
         
         desc "Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts."
         

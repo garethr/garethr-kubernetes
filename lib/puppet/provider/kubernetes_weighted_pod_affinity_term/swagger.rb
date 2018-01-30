@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_weighted_pod_affinity_term).provide(:swagger, :par
     name: instance.metadata.name,
     
       
+        
         weight: instance.weight.respond_to?(:to_hash) ? instance.weight.to_hash : instance.weight,
+        
       
     
       
+        
         pod_affinity_term: instance.podAffinityTerm.respond_to?(:to_hash) ? instance.podAffinityTerm.to_hash : instance.podAffinityTerm,
+        
       
     
     object: instance,

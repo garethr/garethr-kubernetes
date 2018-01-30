@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_env_from_source) do
   end
   
     
+      
       newproperty(:prefix) do
+      
         
         desc "An optional identifer to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER."
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_env_from_source) do
     
   
     
+      
       newproperty(:config_map_ref) do
+      
         
         desc "The ConfigMap to select from"
         
@@ -41,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_env_from_source) do
     
   
     
+      
       newproperty(:secret_ref) do
+      
         
         desc "The Secret to select from"
         

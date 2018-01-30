@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_network_policy_ingress_rule).provide(:swagger, :pa
     name: instance.metadata.name,
     
       
-        ports: instance.ports.respond_to?(:to_hash) ? instance.ports.to_hash : instance.ports,
+        
+        ports: hash_arrays(instance.ports),
+        
       
     
       
-        from: instance.from.respond_to?(:to_hash) ? instance.from.to_hash : instance.from,
+        
+        from: hash_arrays(instance.from),
+        
       
     
     object: instance,

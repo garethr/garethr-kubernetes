@@ -15,19 +15,27 @@ Puppet::Type.type(:kubernetes_env_var_source).provide(:swagger, :parent => Puppe
     name: instance.metadata.name,
     
       
+        
         field_ref: instance.fieldRef.respond_to?(:to_hash) ? instance.fieldRef.to_hash : instance.fieldRef,
+        
       
     
       
+        
         resource_field_ref: instance.resourceFieldRef.respond_to?(:to_hash) ? instance.resourceFieldRef.to_hash : instance.resourceFieldRef,
+        
       
     
       
+        
         config_map_key_ref: instance.configMapKeyRef.respond_to?(:to_hash) ? instance.configMapKeyRef.to_hash : instance.configMapKeyRef,
+        
       
     
       
+        
         secret_key_ref: instance.secretKeyRef.respond_to?(:to_hash) ? instance.secretKeyRef.to_hash : instance.secretKeyRef,
+        
       
     
     object: instance,

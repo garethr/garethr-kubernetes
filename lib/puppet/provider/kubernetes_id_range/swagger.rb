@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_id_range).provide(:swagger, :parent => PuppetX::Pu
     name: instance.metadata.name,
     
       
+        
         min: instance.min.respond_to?(:to_hash) ? instance.min.to_hash : instance.min,
+        
       
     
       
+        
         max: instance.max.respond_to?(:to_hash) ? instance.max.to_hash : instance.max,
+        
       
     
     object: instance,

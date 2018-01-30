@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_client_ip_config) do
   end
   
     
+      
       newproperty(:timeout_seconds) do
+      
         
         desc "timeoutSeconds specifies the seconds of ClientIP type session sticky time. The value must be >0 && <=86400(for 1 day) if ServiceAffinity == 'ClientIP'. Default value is 10800(for 3 hours)."
         

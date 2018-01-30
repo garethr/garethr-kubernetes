@@ -19,11 +19,15 @@ Puppet::Type.type(:kubernetes_pod_template).provide(:swagger, :parent => PuppetX
       
     
       
+        
         metadata: instance.metadata.respond_to?(:to_hash) ? instance.metadata.to_hash : instance.metadata,
+        
       
     
       
+        
         template: instance.template.respond_to?(:to_hash) ? instance.template.to_hash : instance.template,
+        
       
     
     object: instance,

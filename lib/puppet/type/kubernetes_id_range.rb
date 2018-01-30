@@ -35,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_id_range) do
   end
   
     
+      
       newproperty(:min) do
+      
         
         desc "Min is the start of the range, inclusive."
         
@@ -46,7 +48,9 @@ Puppet::Type.newtype(:kubernetes_id_range) do
     
   
     
+      
       newproperty(:max) do
+      
         
         desc "Max is the end of the range, inclusive."
         

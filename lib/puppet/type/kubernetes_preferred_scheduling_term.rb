@@ -35,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_preferred_scheduling_term) do
   end
   
     
+      
       newproperty(:weight) do
+      
         
         desc "Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100."
         
@@ -46,7 +48,9 @@ Puppet::Type.newtype(:kubernetes_preferred_scheduling_term) do
     
   
     
+      
       newproperty(:preference) do
+      
         
         desc "A node selector term, associated with the corresponding weight."
         

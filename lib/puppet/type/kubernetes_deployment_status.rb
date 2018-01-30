@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_deployment_status) do
   end
   
     
+      
       newproperty(:observed_generation) do
+      
         
         desc "The generation observed by the deployment controller."
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_deployment_status) do
     
   
     
+      
       newproperty(:replicas) do
+      
         
         desc "Total number of non-terminated pods targeted by this deployment (their labels match the selector)."
         
@@ -41,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_deployment_status) do
     
   
     
+      
       newproperty(:updated_replicas) do
+      
         
         desc "Total number of non-terminated pods targeted by this deployment that have the desired template spec."
         
@@ -52,7 +58,9 @@ Puppet::Type.newtype(:kubernetes_deployment_status) do
     
   
     
+      
       newproperty(:ready_replicas) do
+      
         
         desc "Total number of ready pods targeted by this deployment."
         
@@ -63,7 +71,9 @@ Puppet::Type.newtype(:kubernetes_deployment_status) do
     
   
     
+      
       newproperty(:available_replicas) do
+      
         
         desc "Total number of available pods (ready for at least minReadySeconds) targeted by this deployment."
         
@@ -74,7 +84,9 @@ Puppet::Type.newtype(:kubernetes_deployment_status) do
     
   
     
+      
       newproperty(:unavailable_replicas) do
+      
         
         desc "Total number of unavailable pods targeted by this deployment. This is the total number of pods that are still required for the deployment to have 100% available capacity. They may either be pods that are running but not yet available or pods that still have not been created."
         
@@ -85,7 +97,9 @@ Puppet::Type.newtype(:kubernetes_deployment_status) do
     
   
     
-      newproperty(:conditions) do
+      
+      newproperty(:conditions, :array_matching => :all) do
+      
         
         desc "Represents the latest available observations of a deployment's current state."
         
@@ -96,7 +110,9 @@ Puppet::Type.newtype(:kubernetes_deployment_status) do
     
   
     
+      
       newproperty(:collision_count) do
+      
         
         desc "Count of hash collisions for the Deployment. The Deployment controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ReplicaSet."
         

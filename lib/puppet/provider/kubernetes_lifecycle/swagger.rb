@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_lifecycle).provide(:swagger, :parent => PuppetX::P
     name: instance.metadata.name,
     
       
+        
         post_start: instance.postStart.respond_to?(:to_hash) ? instance.postStart.to_hash : instance.postStart,
+        
       
     
       
+        
         pre_stop: instance.preStop.respond_to?(:to_hash) ? instance.preStop.to_hash : instance.preStop,
+        
       
     
     object: instance,

@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_volume_projection) do
   end
   
     
+      
       newproperty(:secret) do
+      
         
         desc "information about the secret data to project"
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_volume_projection) do
     
   
     
+      
       newproperty(:downward_api) do
+      
         
         desc "information about the downwardAPI data to project"
         
@@ -41,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_volume_projection) do
     
   
     
+      
       newproperty(:config_map) do
+      
         
         desc "information about the configMap data to project"
         

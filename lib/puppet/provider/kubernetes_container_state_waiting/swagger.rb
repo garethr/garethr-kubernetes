@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_container_state_waiting).provide(:swagger, :parent
     name: instance.metadata.name,
     
       
+        
         reason: instance.reason.respond_to?(:to_hash) ? instance.reason.to_hash : instance.reason,
+        
       
     
       
+        
         message: instance.message.respond_to?(:to_hash) ? instance.message.to_hash : instance.message,
+        
       
     
     object: instance,

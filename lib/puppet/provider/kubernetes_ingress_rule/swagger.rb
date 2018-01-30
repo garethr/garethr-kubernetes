@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_ingress_rule).provide(:swagger, :parent => PuppetX
     name: instance.metadata.name,
     
       
+        
         host: instance.host.respond_to?(:to_hash) ? instance.host.to_hash : instance.host,
+        
       
     
       
+        
         http: instance.http.respond_to?(:to_hash) ? instance.http.to_hash : instance.http,
+        
       
     
     object: instance,

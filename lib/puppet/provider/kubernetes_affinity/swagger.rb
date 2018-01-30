@@ -15,15 +15,21 @@ Puppet::Type.type(:kubernetes_affinity).provide(:swagger, :parent => PuppetX::Pu
     name: instance.metadata.name,
     
       
+        
         node_affinity: instance.nodeAffinity.respond_to?(:to_hash) ? instance.nodeAffinity.to_hash : instance.nodeAffinity,
+        
       
     
       
+        
         pod_affinity: instance.podAffinity.respond_to?(:to_hash) ? instance.podAffinity.to_hash : instance.podAffinity,
+        
       
     
       
+        
         pod_anti_affinity: instance.podAntiAffinity.respond_to?(:to_hash) ? instance.podAntiAffinity.to_hash : instance.podAntiAffinity,
+        
       
     
     object: instance,

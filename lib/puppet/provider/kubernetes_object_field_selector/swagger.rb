@@ -17,7 +17,9 @@ Puppet::Type.type(:kubernetes_object_field_selector).provide(:swagger, :parent =
       
     
       
+        
         field_path: instance.fieldPath.respond_to?(:to_hash) ? instance.fieldPath.to_hash : instance.fieldPath,
+        
       
     
     object: instance,

@@ -37,7 +37,9 @@ Puppet::Type.newtype(:kubernetes_daemon_set_list) do
     
   
     
+      
       newproperty(:metadata) do
+      
         
         desc "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
         
@@ -48,7 +50,9 @@ Puppet::Type.newtype(:kubernetes_daemon_set_list) do
     
   
     
-      newproperty(:items) do
+      
+      newproperty(:items, :array_matching => :all) do
+      
         
         desc "A list of daemon sets."
         

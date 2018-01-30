@@ -15,35 +15,51 @@ Puppet::Type.type(:kubernetes_container_status).provide(:swagger, :parent => Pup
     name: instance.metadata.name,
     
       
+        
         name: instance.name.respond_to?(:to_hash) ? instance.name.to_hash : instance.name,
+        
       
     
       
+        
         state: instance.state.respond_to?(:to_hash) ? instance.state.to_hash : instance.state,
+        
       
     
       
+        
         last_state: instance.lastState.respond_to?(:to_hash) ? instance.lastState.to_hash : instance.lastState,
+        
       
     
       
+        
         ready: instance.ready.respond_to?(:to_hash) ? instance.ready.to_hash : instance.ready,
+        
       
     
       
+        
         restart_count: instance.restartCount.respond_to?(:to_hash) ? instance.restartCount.to_hash : instance.restartCount,
+        
       
     
       
+        
         image: instance.image.respond_to?(:to_hash) ? instance.image.to_hash : instance.image,
+        
       
     
       
+        
         image_id: instance.imageID.respond_to?(:to_hash) ? instance.imageID.to_hash : instance.imageID,
+        
       
     
       
+        
         container_id: instance.containerID.respond_to?(:to_hash) ? instance.containerID.to_hash : instance.containerID,
+        
       
     
     object: instance,

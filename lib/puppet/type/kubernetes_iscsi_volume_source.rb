@@ -37,7 +37,9 @@ Puppet::Type.newtype(:kubernetes_iscsi_volume_source) do
   end
   
     
+      
       newproperty(:target_portal) do
+      
         
         desc "iSCSI target portal. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260)."
         
@@ -48,7 +50,9 @@ Puppet::Type.newtype(:kubernetes_iscsi_volume_source) do
     
   
     
+      
       newproperty(:iqn) do
+      
         
         desc "Target iSCSI Qualified Name."
         
@@ -59,7 +63,9 @@ Puppet::Type.newtype(:kubernetes_iscsi_volume_source) do
     
   
     
+      
       newproperty(:lun) do
+      
         
         desc "iSCSI target lun number."
         
@@ -70,7 +76,9 @@ Puppet::Type.newtype(:kubernetes_iscsi_volume_source) do
     
   
     
+      
       newproperty(:iscsi_interface) do
+      
         
         desc "Optional: Defaults to 'default' (tcp). iSCSI interface name that uses an iSCSI transport."
         
@@ -81,7 +89,9 @@ Puppet::Type.newtype(:kubernetes_iscsi_volume_source) do
     
   
     
+      
       newproperty(:fs_type) do
+      
         
         desc "Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: 'ext4', 'xfs', 'ntfs'. Implicitly inferred to be 'ext4' if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi"
         
@@ -92,7 +102,9 @@ Puppet::Type.newtype(:kubernetes_iscsi_volume_source) do
     
   
     
+      
       newproperty(:read_only) do
+      
         
         desc "ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false."
         
@@ -103,7 +115,9 @@ Puppet::Type.newtype(:kubernetes_iscsi_volume_source) do
     
   
     
-      newproperty(:portals) do
+      
+      newproperty(:portals, :array_matching => :all) do
+      
         
         desc "iSCSI target portal List. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260)."
         
@@ -114,7 +128,9 @@ Puppet::Type.newtype(:kubernetes_iscsi_volume_source) do
     
   
     
+      
       newproperty(:chap_auth_discovery) do
+      
         
         desc "whether support iSCSI Discovery CHAP authentication"
         
@@ -125,7 +141,9 @@ Puppet::Type.newtype(:kubernetes_iscsi_volume_source) do
     
   
     
+      
       newproperty(:chap_auth_session) do
+      
         
         desc "whether support iSCSI Session CHAP authentication"
         
@@ -136,7 +154,9 @@ Puppet::Type.newtype(:kubernetes_iscsi_volume_source) do
     
   
     
+      
       newproperty(:secret_ref) do
+      
         
         desc "CHAP secret for iSCSI target and initiator authentication"
         
@@ -147,7 +167,9 @@ Puppet::Type.newtype(:kubernetes_iscsi_volume_source) do
     
   
     
+      
       newproperty(:initiator_name) do
+      
         
         desc "Custom iSCSI initiator name. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface <target portal>:<volume name> will be created for the connection."
         

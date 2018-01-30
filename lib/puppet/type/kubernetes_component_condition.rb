@@ -35,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_component_condition) do
   end
   
     
+      
       newproperty(:type) do
+      
         
         desc "Type of condition for a component. Valid value: 'Healthy'"
         
@@ -46,7 +48,9 @@ Puppet::Type.newtype(:kubernetes_component_condition) do
     
   
     
+      
       newproperty(:status) do
+      
         
         desc "Status of the condition for a component. Valid values for 'Healthy': 'True', 'False', or 'Unknown'."
         
@@ -57,7 +61,9 @@ Puppet::Type.newtype(:kubernetes_component_condition) do
     
   
     
+      
       newproperty(:message) do
+      
         
         desc "Message about the condition for a component. For example, information about a health check."
         
@@ -68,7 +74,9 @@ Puppet::Type.newtype(:kubernetes_component_condition) do
     
   
     
+      
       newproperty(:error) do
+      
         
         desc "Condition error code for a component. For example, a health check error code."
         

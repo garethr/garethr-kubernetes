@@ -15,19 +15,27 @@ Puppet::Type.type(:kubernetes_persistent_volume_claim_status).provide(:swagger, 
     name: instance.metadata.name,
     
       
+        
         phase: instance.phase.respond_to?(:to_hash) ? instance.phase.to_hash : instance.phase,
+        
       
     
       
-        access_modes: instance.accessModes.respond_to?(:to_hash) ? instance.accessModes.to_hash : instance.accessModes,
+        
+        access_modes: hash_arrays(instance.accessModes),
+        
       
     
       
+        
         capacity: instance.capacity.respond_to?(:to_hash) ? instance.capacity.to_hash : instance.capacity,
+        
       
     
       
-        conditions: instance.conditions.respond_to?(:to_hash) ? instance.conditions.to_hash : instance.conditions,
+        
+        conditions: hash_arrays(instance.conditions),
+        
       
     
     object: instance,

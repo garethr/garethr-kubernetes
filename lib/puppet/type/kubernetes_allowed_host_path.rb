@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_allowed_host_path) do
   end
   
     
+      
       newproperty(:path_prefix) do
+      
         
         desc "is the path prefix that the host volume must match. It does not support `*`. Trailing slashes are trimmed when validating the path prefix with a host path.
 

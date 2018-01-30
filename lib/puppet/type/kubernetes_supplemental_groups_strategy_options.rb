@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_supplemental_groups_strategy_options) do
   end
   
     
+      
       newproperty(:rule) do
+      
         
         desc "Rule is the strategy that will dictate what supplemental groups is used in the SecurityContext."
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_supplemental_groups_strategy_options) do
     
   
     
-      newproperty(:ranges) do
+      
+      newproperty(:ranges, :array_matching => :all) do
+      
         
         desc "Ranges are the allowed ranges of supplemental groups.  If you would like to force a single supplemental group then supply a single range with the same start and end."
         

@@ -23,7 +23,9 @@ Puppet::Type.newtype(:kubernetes_eviction) do
     
   
     
+      
       newproperty(:metadata) do
+      
         
         desc "ObjectMeta describes the pod that is being evicted."
         
@@ -34,7 +36,9 @@ Puppet::Type.newtype(:kubernetes_eviction) do
     
   
     
+      
       newproperty(:delete_options) do
+      
         
         desc "DeleteOptions may be provided"
         

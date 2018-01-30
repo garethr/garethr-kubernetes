@@ -15,27 +15,39 @@ Puppet::Type.type(:kubernetes_node_condition).provide(:swagger, :parent => Puppe
     name: instance.metadata.name,
     
       
+        
         type: instance.type.respond_to?(:to_hash) ? instance.type.to_hash : instance.type,
+        
       
     
       
+        
         status: instance.status.respond_to?(:to_hash) ? instance.status.to_hash : instance.status,
+        
       
     
       
+        
         last_heartbeat_time: instance.lastHeartbeatTime.respond_to?(:to_hash) ? instance.lastHeartbeatTime.to_hash : instance.lastHeartbeatTime,
+        
       
     
       
+        
         last_transition_time: instance.lastTransitionTime.respond_to?(:to_hash) ? instance.lastTransitionTime.to_hash : instance.lastTransitionTime,
+        
       
     
       
+        
         reason: instance.reason.respond_to?(:to_hash) ? instance.reason.to_hash : instance.reason,
+        
       
     
       
+        
         message: instance.message.respond_to?(:to_hash) ? instance.message.to_hash : instance.message,
+        
       
     
     object: instance,

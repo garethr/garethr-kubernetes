@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_ingress_rule) do
   end
   
     
+      
       newproperty(:host) do
+      
         
         desc "Host is the fully qualified domain name of a network host, as defined by RFC 3986. Note the following deviations from the 'host' part of the URI as defined in the RFC: 1. IPs are not allowed. Currently an IngressRuleValue can only apply to the
 	  IP in the Spec of the parent Ingress.
@@ -35,7 +37,9 @@ Both these may change in the future. Incoming requests are matched against the h
     
   
     
+      
       newproperty(:http) do
+      
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

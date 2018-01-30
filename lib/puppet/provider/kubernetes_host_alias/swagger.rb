@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_host_alias).provide(:swagger, :parent => PuppetX::
     name: instance.metadata.name,
     
       
+        
         ip: instance.ip.respond_to?(:to_hash) ? instance.ip.to_hash : instance.ip,
+        
       
     
       
-        hostnames: instance.hostnames.respond_to?(:to_hash) ? instance.hostnames.to_hash : instance.hostnames,
+        
+        hostnames: hash_arrays(instance.hostnames),
+        
       
     
     object: instance,

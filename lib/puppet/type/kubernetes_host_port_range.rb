@@ -35,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_host_port_range) do
   end
   
     
+      
       newproperty(:min) do
+      
         
         desc "min is the start of the range, inclusive."
         
@@ -46,7 +48,9 @@ Puppet::Type.newtype(:kubernetes_host_port_range) do
     
   
     
+      
       newproperty(:max) do
+      
         
         desc "max is the end of the range, inclusive."
         

@@ -37,7 +37,9 @@ Puppet::Type.newtype(:kubernetes_resource_quota_list) do
     
   
     
+      
       newproperty(:metadata) do
+      
         
         desc "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
         
@@ -48,7 +50,9 @@ Puppet::Type.newtype(:kubernetes_resource_quota_list) do
     
   
     
-      newproperty(:items) do
+      
+      newproperty(:items, :array_matching => :all) do
+      
         
         desc "Items is a list of ResourceQuota objects. More info: https://git.k8s.io/community/contributors/design-proposals/admission_control_resource_quota.md"
         

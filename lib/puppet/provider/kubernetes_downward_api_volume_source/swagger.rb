@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_downward_api_volume_source).provide(:swagger, :par
     name: instance.metadata.name,
     
       
-        items: instance.items.respond_to?(:to_hash) ? instance.items.to_hash : instance.items,
+        
+        items: hash_arrays(instance.items),
+        
       
     
       
+        
         default_mode: instance.defaultMode.respond_to?(:to_hash) ? instance.defaultMode.to_hash : instance.defaultMode,
+        
       
     
     object: instance,

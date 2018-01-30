@@ -41,7 +41,9 @@ Puppet::Type.newtype(:kubernetes_container_status) do
   end
   
     
+      
       newproperty(:name) do
+      
         
         desc "This must be a DNS_LABEL. Each container in a pod must have a unique name. Cannot be updated."
         
@@ -52,7 +54,9 @@ Puppet::Type.newtype(:kubernetes_container_status) do
     
   
     
+      
       newproperty(:state) do
+      
         
         desc "Details about the container's current condition."
         
@@ -63,7 +67,9 @@ Puppet::Type.newtype(:kubernetes_container_status) do
     
   
     
+      
       newproperty(:last_state) do
+      
         
         desc "Details about the container's last termination condition."
         
@@ -74,7 +80,9 @@ Puppet::Type.newtype(:kubernetes_container_status) do
     
   
     
+      
       newproperty(:ready) do
+      
         
         desc "Specifies whether the container has passed its readiness probe."
         
@@ -85,7 +93,9 @@ Puppet::Type.newtype(:kubernetes_container_status) do
     
   
     
+      
       newproperty(:restart_count) do
+      
         
         desc "The number of times the container has been restarted, currently based on the number of dead containers that have not yet been removed. Note that this is calculated from dead containers. But those containers are subject to garbage collection. This value will get capped at 5 by GC."
         
@@ -96,7 +106,9 @@ Puppet::Type.newtype(:kubernetes_container_status) do
     
   
     
+      
       newproperty(:image) do
+      
         
         desc "The image the container is running. More info: https://kubernetes.io/docs/concepts/containers/images"
         
@@ -107,7 +119,9 @@ Puppet::Type.newtype(:kubernetes_container_status) do
     
   
     
+      
       newproperty(:image_id) do
+      
         
         desc "ImageID of the container's image."
         
@@ -118,7 +132,9 @@ Puppet::Type.newtype(:kubernetes_container_status) do
     
   
     
+      
       newproperty(:container_id) do
+      
         
         desc "Container's ID in the format 'docker://<container_id>'."
         

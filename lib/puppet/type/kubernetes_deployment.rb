@@ -23,7 +23,9 @@ Puppet::Type.newtype(:kubernetes_deployment) do
     
   
     
+      
       newproperty(:metadata) do
+      
         
         desc "Standard object metadata."
         
@@ -34,7 +36,9 @@ Puppet::Type.newtype(:kubernetes_deployment) do
     
   
     
+      
       newproperty(:spec) do
+      
         
         desc "Specification of the desired behavior of the Deployment."
         
@@ -45,7 +49,9 @@ Puppet::Type.newtype(:kubernetes_deployment) do
     
   
     
+      
       newproperty(:status) do
+      
         
         desc "Most recently observed status of the Deployment."
         

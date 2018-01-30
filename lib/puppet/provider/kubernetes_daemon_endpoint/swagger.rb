@@ -15,7 +15,9 @@ Puppet::Type.type(:kubernetes_daemon_endpoint).provide(:swagger, :parent => Pupp
     name: instance.metadata.name,
     
       
+        
         port: instance.Port.respond_to?(:to_hash) ? instance.Port.to_hash : instance.Port,
+        
       
     
     object: instance,

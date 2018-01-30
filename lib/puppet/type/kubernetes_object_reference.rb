@@ -21,7 +21,9 @@ Puppet::Type.newtype(:kubernetes_object_reference) do
     
   
     
+      
       newproperty(:namespace) do
+      
         
         desc "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
         
@@ -32,7 +34,9 @@ Puppet::Type.newtype(:kubernetes_object_reference) do
     
   
     
+      
       newproperty(:name) do
+      
         
         desc "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
         
@@ -43,7 +47,9 @@ Puppet::Type.newtype(:kubernetes_object_reference) do
     
   
     
+      
       newproperty(:uid) do
+      
         
         desc "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids"
         
@@ -56,7 +62,9 @@ Puppet::Type.newtype(:kubernetes_object_reference) do
     
   
     
+      
       newproperty(:resource_version) do
+      
         
         desc "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
         
@@ -67,7 +75,9 @@ Puppet::Type.newtype(:kubernetes_object_reference) do
     
   
     
+      
       newproperty(:field_path) do
+      
         
         desc "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: 'spec.containers{name}' (where 'name' refers to the name of the container that triggered the event) or if no container name is specified 'spec.containers[2]' (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
         

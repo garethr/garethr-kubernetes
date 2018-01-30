@@ -15,43 +15,63 @@ Puppet::Type.type(:kubernetes_scale_io_persistent_volume_source).provide(:swagge
     name: instance.metadata.name,
     
       
+        
         gateway: instance.gateway.respond_to?(:to_hash) ? instance.gateway.to_hash : instance.gateway,
+        
       
     
       
+        
         system: instance.system.respond_to?(:to_hash) ? instance.system.to_hash : instance.system,
+        
       
     
       
+        
         secret_ref: instance.secretRef.respond_to?(:to_hash) ? instance.secretRef.to_hash : instance.secretRef,
+        
       
     
       
+        
         ssl_enabled: instance.sslEnabled.respond_to?(:to_hash) ? instance.sslEnabled.to_hash : instance.sslEnabled,
+        
       
     
       
+        
         protection_domain: instance.protectionDomain.respond_to?(:to_hash) ? instance.protectionDomain.to_hash : instance.protectionDomain,
+        
       
     
       
+        
         storage_pool: instance.storagePool.respond_to?(:to_hash) ? instance.storagePool.to_hash : instance.storagePool,
+        
       
     
       
+        
         storage_mode: instance.storageMode.respond_to?(:to_hash) ? instance.storageMode.to_hash : instance.storageMode,
+        
       
     
       
+        
         volume_name: instance.volumeName.respond_to?(:to_hash) ? instance.volumeName.to_hash : instance.volumeName,
+        
       
     
       
+        
         fs_type: instance.fsType.respond_to?(:to_hash) ? instance.fsType.to_hash : instance.fsType,
+        
       
     
       
+        
         read_only: instance.readOnly.respond_to?(:to_hash) ? instance.readOnly.to_hash : instance.readOnly,
+        
       
     
     object: instance,

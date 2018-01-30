@@ -35,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_replica_set_condition) do
   end
   
     
+      
       newproperty(:type) do
+      
         
         desc "Type of replica set condition."
         
@@ -46,7 +48,9 @@ Puppet::Type.newtype(:kubernetes_replica_set_condition) do
     
   
     
+      
       newproperty(:status) do
+      
         
         desc "Status of the condition, one of True, False, Unknown."
         
@@ -57,7 +61,9 @@ Puppet::Type.newtype(:kubernetes_replica_set_condition) do
     
   
     
+      
       newproperty(:last_transition_time) do
+      
         
         desc "The last time the condition transitioned from one status to another."
         
@@ -68,7 +74,9 @@ Puppet::Type.newtype(:kubernetes_replica_set_condition) do
     
   
     
+      
       newproperty(:reason) do
+      
         
         desc "The reason for the condition's last transition."
         
@@ -79,7 +87,9 @@ Puppet::Type.newtype(:kubernetes_replica_set_condition) do
     
   
     
+      
       newproperty(:message) do
+      
         
         desc "A human readable message indicating details about the transition."
         

@@ -37,7 +37,9 @@ Puppet::Type.newtype(:kubernetes_deployment_list) do
     
   
     
+      
       newproperty(:metadata) do
+      
         
         desc "Standard list metadata."
         
@@ -48,7 +50,9 @@ Puppet::Type.newtype(:kubernetes_deployment_list) do
     
   
     
-      newproperty(:items) do
+      
+      newproperty(:items, :array_matching => :all) do
+      
         
         desc "Items is the list of Deployments."
         

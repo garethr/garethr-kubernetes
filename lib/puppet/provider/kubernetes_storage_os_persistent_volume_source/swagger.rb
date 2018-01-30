@@ -15,23 +15,33 @@ Puppet::Type.type(:kubernetes_storage_os_persistent_volume_source).provide(:swag
     name: instance.metadata.name,
     
       
+        
         volume_name: instance.volumeName.respond_to?(:to_hash) ? instance.volumeName.to_hash : instance.volumeName,
+        
       
     
       
+        
         volume_namespace: instance.volumeNamespace.respond_to?(:to_hash) ? instance.volumeNamespace.to_hash : instance.volumeNamespace,
+        
       
     
       
+        
         fs_type: instance.fsType.respond_to?(:to_hash) ? instance.fsType.to_hash : instance.fsType,
+        
       
     
       
+        
         read_only: instance.readOnly.respond_to?(:to_hash) ? instance.readOnly.to_hash : instance.readOnly,
+        
       
     
       
+        
         secret_ref: instance.secretRef.respond_to?(:to_hash) ? instance.secretRef.to_hash : instance.secretRef,
+        
       
     
     object: instance,

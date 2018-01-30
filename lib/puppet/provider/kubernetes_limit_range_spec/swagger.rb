@@ -15,7 +15,9 @@ Puppet::Type.type(:kubernetes_limit_range_spec).provide(:swagger, :parent => Pup
     name: instance.metadata.name,
     
       
-        limits: instance.limits.respond_to?(:to_hash) ? instance.limits.to_hash : instance.limits,
+        
+        limits: hash_arrays(instance.limits),
+        
       
     
     object: instance,

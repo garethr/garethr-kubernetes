@@ -15,23 +15,33 @@ Puppet::Type.type(:kubernetes_fc_volume_source).provide(:swagger, :parent => Pup
     name: instance.metadata.name,
     
       
-        target_ww_ns: instance.targetWWNs.respond_to?(:to_hash) ? instance.targetWWNs.to_hash : instance.targetWWNs,
+        
+        target_ww_ns: hash_arrays(instance.targetWWNs),
+        
       
     
       
+        
         lun: instance.lun.respond_to?(:to_hash) ? instance.lun.to_hash : instance.lun,
+        
       
     
       
+        
         fs_type: instance.fsType.respond_to?(:to_hash) ? instance.fsType.to_hash : instance.fsType,
+        
       
     
       
+        
         read_only: instance.readOnly.respond_to?(:to_hash) ? instance.readOnly.to_hash : instance.readOnly,
+        
       
     
       
-        wwids: instance.wwids.respond_to?(:to_hash) ? instance.wwids.to_hash : instance.wwids,
+        
+        wwids: hash_arrays(instance.wwids),
+        
       
     
     object: instance,

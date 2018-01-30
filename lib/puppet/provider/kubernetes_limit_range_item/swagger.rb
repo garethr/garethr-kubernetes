@@ -15,27 +15,39 @@ Puppet::Type.type(:kubernetes_limit_range_item).provide(:swagger, :parent => Pup
     name: instance.metadata.name,
     
       
+        
         type: instance.type.respond_to?(:to_hash) ? instance.type.to_hash : instance.type,
+        
       
     
       
+        
         max: instance.max.respond_to?(:to_hash) ? instance.max.to_hash : instance.max,
+        
       
     
       
+        
         min: instance.min.respond_to?(:to_hash) ? instance.min.to_hash : instance.min,
+        
       
     
       
+        
         default: instance.default.respond_to?(:to_hash) ? instance.default.to_hash : instance.default,
+        
       
     
       
+        
         default_request: instance.defaultRequest.respond_to?(:to_hash) ? instance.defaultRequest.to_hash : instance.defaultRequest,
+        
       
     
       
+        
         max_limit_request_ratio: instance.maxLimitRequestRatio.respond_to?(:to_hash) ? instance.maxLimitRequestRatio.to_hash : instance.maxLimitRequestRatio,
+        
       
     
     object: instance,

@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_persistent_volume_claim_volume_source).provide(:sw
     name: instance.metadata.name,
     
       
+        
         claim_name: instance.claimName.respond_to?(:to_hash) ? instance.claimName.to_hash : instance.claimName,
+        
       
     
       
+        
         read_only: instance.readOnly.respond_to?(:to_hash) ? instance.readOnly.to_hash : instance.readOnly,
+        
       
     
     object: instance,

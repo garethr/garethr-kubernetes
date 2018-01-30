@@ -39,7 +39,9 @@ Puppet::Type.newtype(:kubernetes_event) do
     
   
     
+      
       newproperty(:metadata) do
+      
         
         desc "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
         
@@ -50,7 +52,9 @@ Puppet::Type.newtype(:kubernetes_event) do
     
   
     
+      
       newproperty(:involved_object) do
+      
         
         desc "The object that this event is about."
         
@@ -61,7 +65,9 @@ Puppet::Type.newtype(:kubernetes_event) do
     
   
     
+      
       newproperty(:reason) do
+      
         
         desc "This should be a short, machine understandable string that gives the reason for the transition into the object's current status."
         
@@ -72,7 +78,9 @@ Puppet::Type.newtype(:kubernetes_event) do
     
   
     
+      
       newproperty(:message) do
+      
         
         desc "A human-readable description of the status of this operation."
         
@@ -83,7 +91,9 @@ Puppet::Type.newtype(:kubernetes_event) do
     
   
     
+      
       newproperty(:source) do
+      
         
         desc "The component reporting this event. Should be a short machine understandable string."
         
@@ -94,7 +104,9 @@ Puppet::Type.newtype(:kubernetes_event) do
     
   
     
+      
       newproperty(:first_timestamp) do
+      
         
         desc "The time at which the event was first recorded. (Time of server receipt is in TypeMeta.)"
         
@@ -105,7 +117,9 @@ Puppet::Type.newtype(:kubernetes_event) do
     
   
     
+      
       newproperty(:last_timestamp) do
+      
         
         desc "The time at which the most recent occurrence of this event was recorded."
         
@@ -116,7 +130,9 @@ Puppet::Type.newtype(:kubernetes_event) do
     
   
     
+      
       newproperty(:count) do
+      
         
         desc "The number of times this event has occurred."
         
@@ -127,7 +143,9 @@ Puppet::Type.newtype(:kubernetes_event) do
     
   
     
+      
       newproperty(:type) do
+      
         
         desc "Type of this event (Normal, Warning), new types could be added in the future"
         

@@ -34,6 +34,21 @@ module PuppetX
           end
         end
 
+        def self.hash_arrays(object)
+          if object != nil
+            object = object.map { | value |
+              if value.respond_to?(:to_a)
+                self.hash_arrays(value)
+              elsif value.respond_to?(:to_hash)
+                value.to_hash
+              else
+                value
+              end
+            }
+          end
+          object
+        end
+
         def exists?
           Puppet.debug("Checking if #{resource.type}[#{name}] exists")
           @property_hash[:ensure] and @property_hash[:ensure] != :absent

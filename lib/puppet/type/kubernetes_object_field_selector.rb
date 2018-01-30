@@ -35,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_object_field_selector) do
     
   
     
+      
       newproperty(:field_path) do
+      
         
         desc "Path of the field to select in the specified API version."
         

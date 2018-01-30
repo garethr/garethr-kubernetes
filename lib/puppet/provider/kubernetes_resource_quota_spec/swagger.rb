@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_resource_quota_spec).provide(:swagger, :parent => 
     name: instance.metadata.name,
     
       
+        
         hard: instance.hard.respond_to?(:to_hash) ? instance.hard.to_hash : instance.hard,
+        
       
     
       
-        scopes: instance.scopes.respond_to?(:to_hash) ? instance.scopes.to_hash : instance.scopes,
+        
+        scopes: hash_arrays(instance.scopes),
+        
       
     
     object: instance,

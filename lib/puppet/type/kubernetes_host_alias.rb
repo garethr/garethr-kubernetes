@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_host_alias) do
   end
   
     
+      
       newproperty(:ip) do
+      
         
         desc "IP address of the host file entry."
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_host_alias) do
     
   
     
-      newproperty(:hostnames) do
+      
+      newproperty(:hostnames, :array_matching => :all) do
+      
         
         desc "Hostnames for the above IP address."
         

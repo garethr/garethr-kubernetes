@@ -15,7 +15,9 @@ Puppet::Type.type(:kubernetes_client_ip_config).provide(:swagger, :parent => Pup
     name: instance.metadata.name,
     
       
+        
         timeout_seconds: instance.timeoutSeconds.respond_to?(:to_hash) ? instance.timeoutSeconds.to_hash : instance.timeoutSeconds,
+        
       
     
     object: instance,

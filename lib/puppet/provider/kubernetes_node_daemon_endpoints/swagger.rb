@@ -15,7 +15,9 @@ Puppet::Type.type(:kubernetes_node_daemon_endpoints).provide(:swagger, :parent =
     name: instance.metadata.name,
     
       
+        
         kubelet_endpoint: instance.kubeletEndpoint.respond_to?(:to_hash) ? instance.kubeletEndpoint.to_hash : instance.kubeletEndpoint,
+        
       
     
     object: instance,

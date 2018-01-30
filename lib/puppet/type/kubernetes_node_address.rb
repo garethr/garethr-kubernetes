@@ -35,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_node_address) do
   end
   
     
+      
       newproperty(:type) do
+      
         
         desc "Node address type, one of Hostname, ExternalIP or InternalIP."
         
@@ -46,7 +48,9 @@ Puppet::Type.newtype(:kubernetes_node_address) do
     
   
     
+      
       newproperty(:address) do
+      
         
         desc "The node address."
         
