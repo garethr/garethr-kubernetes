@@ -15,43 +15,63 @@ Puppet::Type.type(:kubernetes_node_system_info).provide(:swagger, :parent => Pup
     name: instance.metadata.name,
     
       
+        
         machine_id: instance.machineID.respond_to?(:to_hash) ? instance.machineID.to_hash : instance.machineID,
+        
       
     
       
+        
         system_uuid: instance.systemUUID.respond_to?(:to_hash) ? instance.systemUUID.to_hash : instance.systemUUID,
+        
       
     
       
+        
         boot_id: instance.bootID.respond_to?(:to_hash) ? instance.bootID.to_hash : instance.bootID,
+        
       
     
       
+        
         kernel_version: instance.kernelVersion.respond_to?(:to_hash) ? instance.kernelVersion.to_hash : instance.kernelVersion,
+        
       
     
       
+        
         os_image: instance.osImage.respond_to?(:to_hash) ? instance.osImage.to_hash : instance.osImage,
+        
       
     
       
+        
         container_runtime_version: instance.containerRuntimeVersion.respond_to?(:to_hash) ? instance.containerRuntimeVersion.to_hash : instance.containerRuntimeVersion,
+        
       
     
       
+        
         kubelet_version: instance.kubeletVersion.respond_to?(:to_hash) ? instance.kubeletVersion.to_hash : instance.kubeletVersion,
+        
       
     
       
+        
         kube_proxy_version: instance.kubeProxyVersion.respond_to?(:to_hash) ? instance.kubeProxyVersion.to_hash : instance.kubeProxyVersion,
+        
       
     
       
+        
         operating_system: instance.operatingSystem.respond_to?(:to_hash) ? instance.operatingSystem.to_hash : instance.operatingSystem,
+        
       
     
       
+        
         architecture: instance.architecture.respond_to?(:to_hash) ? instance.architecture.to_hash : instance.architecture,
+        
       
     
     object: instance,

@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_node_daemon_endpoints) do
   end
   
     
+      
       newproperty(:kubelet_endpoint) do
+      
         
         desc "Endpoint on which Kubelet is listening."
         

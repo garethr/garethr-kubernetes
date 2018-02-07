@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_scale) do
   
-  @doc = "represents a scaling request for a resource."
+  @doc = "Scale represents a scaling request for a resource."
   
 
   ensurable
@@ -23,7 +23,9 @@ Puppet::Type.newtype(:kubernetes_scale) do
     
   
     
+      
       newproperty(:metadata) do
+      
         
         desc "Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata."
         
@@ -34,7 +36,9 @@ Puppet::Type.newtype(:kubernetes_scale) do
     
   
     
+      
       newproperty(:spec) do
+      
         
         desc "defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status."
         
@@ -45,7 +49,9 @@ Puppet::Type.newtype(:kubernetes_scale) do
     
   
     
+      
       newproperty(:status) do
+      
         
         desc "current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only."
         

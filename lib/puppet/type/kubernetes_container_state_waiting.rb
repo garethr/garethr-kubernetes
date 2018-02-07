@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_container_state_waiting) do
   end
   
     
+      
       newproperty(:reason) do
+      
         
         desc "(brief) reason the container is not yet running."
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_container_state_waiting) do
     
   
     
+      
       newproperty(:message) do
+      
         
         desc "Message regarding why the container is not yet running."
         

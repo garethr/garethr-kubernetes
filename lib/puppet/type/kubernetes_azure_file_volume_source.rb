@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_azure_file_volume_source) do
   validate do
     required_properties = [
     
-      secret_name,
+      :secret_name,
     
-      share_name,
+      :share_name,
     
     ]
     required_properties.each do |property|
@@ -35,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_azure_file_volume_source) do
   end
   
     
+      
       newproperty(:secret_name) do
+      
         
         desc "the name of secret that contains Azure Storage Account Name and Key"
         
@@ -46,7 +48,9 @@ Puppet::Type.newtype(:kubernetes_azure_file_volume_source) do
     
   
     
+      
       newproperty(:share_name) do
+      
         
         desc "Share Name"
         
@@ -57,7 +61,9 @@ Puppet::Type.newtype(:kubernetes_azure_file_volume_source) do
     
   
     
+      
       newproperty(:read_only) do
+      
         
         desc "Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts."
         

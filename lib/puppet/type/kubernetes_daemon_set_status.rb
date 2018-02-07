@@ -16,13 +16,13 @@ Puppet::Type.newtype(:kubernetes_daemon_set_status) do
   validate do
     required_properties = [
     
-      current_number_scheduled,
+      :current_number_scheduled,
     
-      number_misscheduled,
+      :number_misscheduled,
     
-      desired_number_scheduled,
+      :desired_number_scheduled,
     
-      number_ready,
+      :number_ready,
     
     ]
     required_properties.each do |property|
@@ -39,7 +39,9 @@ Puppet::Type.newtype(:kubernetes_daemon_set_status) do
   end
   
     
+      
       newproperty(:current_number_scheduled) do
+      
         
         desc "The number of nodes that are running at least 1 daemon pod and are supposed to run the daemon pod. More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/"
         
@@ -50,7 +52,9 @@ Puppet::Type.newtype(:kubernetes_daemon_set_status) do
     
   
     
+      
       newproperty(:number_misscheduled) do
+      
         
         desc "The number of nodes that are running the daemon pod, but are not supposed to run the daemon pod. More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/"
         
@@ -61,7 +65,9 @@ Puppet::Type.newtype(:kubernetes_daemon_set_status) do
     
   
     
+      
       newproperty(:desired_number_scheduled) do
+      
         
         desc "The total number of nodes that should be running the daemon pod (including nodes correctly running the daemon pod). More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/"
         
@@ -72,7 +78,9 @@ Puppet::Type.newtype(:kubernetes_daemon_set_status) do
     
   
     
+      
       newproperty(:number_ready) do
+      
         
         desc "The number of nodes that should be running the daemon pod and have one or more of the daemon pod running and ready."
         
@@ -83,7 +91,9 @@ Puppet::Type.newtype(:kubernetes_daemon_set_status) do
     
   
     
+      
       newproperty(:observed_generation) do
+      
         
         desc "The most recent generation observed by the daemon set controller."
         
@@ -94,7 +104,9 @@ Puppet::Type.newtype(:kubernetes_daemon_set_status) do
     
   
     
+      
       newproperty(:updated_number_scheduled) do
+      
         
         desc "The total number of nodes that are running updated daemon pod"
         
@@ -105,7 +117,9 @@ Puppet::Type.newtype(:kubernetes_daemon_set_status) do
     
   
     
+      
       newproperty(:number_available) do
+      
         
         desc "The number of nodes that should be running the daemon pod and have one or more of the daemon pod running and available (ready for at least spec.minReadySeconds)"
         
@@ -116,7 +130,9 @@ Puppet::Type.newtype(:kubernetes_daemon_set_status) do
     
   
     
+      
       newproperty(:number_unavailable) do
+      
         
         desc "The number of nodes that should be running the daemon pod and have none of the daemon pod running and available (ready for at least spec.minReadySeconds)"
         
@@ -127,7 +143,9 @@ Puppet::Type.newtype(:kubernetes_daemon_set_status) do
     
   
     
+      
       newproperty(:collision_count) do
+      
         
         desc "Count of hash collisions for the DaemonSet. The DaemonSet controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ControllerRevision."
         

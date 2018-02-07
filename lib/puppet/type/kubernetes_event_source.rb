@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_event_source) do
   end
   
     
+      
       newproperty(:component) do
+      
         
         desc "Component from which the event is generated."
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_event_source) do
     
   
     
+      
       newproperty(:host) do
+      
         
         desc "Node name on which the event is generated."
         

@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_resource_field_selector) do
   validate do
     required_properties = [
     
-      resource,
+      :resource,
     
     ]
     required_properties.each do |property|
@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_resource_field_selector) do
   end
   
     
+      
       newproperty(:container_name) do
+      
         
         desc "Container name: required for volumes, optional for env vars"
         
@@ -44,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_resource_field_selector) do
     
   
     
+      
       newproperty(:resource) do
+      
         
         desc "Required: resource to select"
         
@@ -55,7 +59,9 @@ Puppet::Type.newtype(:kubernetes_resource_field_selector) do
     
   
     
+      
       newproperty(:divisor) do
+      
         
         desc "Specifies the output format of the exposed resources, defaults to '1'"
         

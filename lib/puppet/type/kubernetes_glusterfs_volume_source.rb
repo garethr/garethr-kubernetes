@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_glusterfs_volume_source) do
   validate do
     required_properties = [
     
-      endpoints,
+      :endpoints,
     
-      path,
+      :path,
     
     ]
     required_properties.each do |property|
@@ -35,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_glusterfs_volume_source) do
   end
   
     
+      
       newproperty(:endpoints) do
+      
         
         desc "EndpointsName is the endpoint name that details Glusterfs topology. More info: https://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod"
         
@@ -46,7 +48,9 @@ Puppet::Type.newtype(:kubernetes_glusterfs_volume_source) do
     
   
     
+      
       newproperty(:path) do
+      
         
         desc "Path is the Glusterfs volume path. More info: https://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod"
         
@@ -57,7 +61,9 @@ Puppet::Type.newtype(:kubernetes_glusterfs_volume_source) do
     
   
     
+      
       newproperty(:read_only) do
+      
         
         desc "ReadOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: https://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod"
         

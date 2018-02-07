@@ -15,15 +15,21 @@ Puppet::Type.type(:kubernetes_config_map_key_selector).provide(:swagger, :parent
     name: instance.metadata.name,
     
       
+        
         name: instance.name.respond_to?(:to_hash) ? instance.name.to_hash : instance.name,
+        
       
     
       
+        
         key: instance.key.respond_to?(:to_hash) ? instance.key.to_hash : instance.key,
+        
       
     
       
+        
         optional: instance.optional.respond_to?(:to_hash) ? instance.optional.to_hash : instance.optional,
+        
       
     
     object: instance,

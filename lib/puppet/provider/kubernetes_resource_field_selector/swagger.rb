@@ -15,15 +15,21 @@ Puppet::Type.type(:kubernetes_resource_field_selector).provide(:swagger, :parent
     name: instance.metadata.name,
     
       
+        
         container_name: instance.containerName.respond_to?(:to_hash) ? instance.containerName.to_hash : instance.containerName,
+        
       
     
       
+        
         resource: instance.resource.respond_to?(:to_hash) ? instance.resource.to_hash : instance.resource,
+        
       
     
       
+        
         divisor: instance.divisor.respond_to?(:to_hash) ? instance.divisor.to_hash : instance.divisor,
+        
       
     
     object: instance,

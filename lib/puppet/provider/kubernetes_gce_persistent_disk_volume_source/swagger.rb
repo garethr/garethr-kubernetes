@@ -15,19 +15,27 @@ Puppet::Type.type(:kubernetes_gce_persistent_disk_volume_source).provide(:swagge
     name: instance.metadata.name,
     
       
+        
         pd_name: instance.pdName.respond_to?(:to_hash) ? instance.pdName.to_hash : instance.pdName,
+        
       
     
       
+        
         fs_type: instance.fsType.respond_to?(:to_hash) ? instance.fsType.to_hash : instance.fsType,
+        
       
     
       
+        
         partition: instance.partition.respond_to?(:to_hash) ? instance.partition.to_hash : instance.partition,
+        
       
     
       
+        
         read_only: instance.readOnly.respond_to?(:to_hash) ? instance.readOnly.to_hash : instance.readOnly,
+        
       
     
     object: instance,

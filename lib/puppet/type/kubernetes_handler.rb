@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_handler) do
   end
   
     
+      
       newproperty(:exec) do
+      
         
         desc "One and only one of the following should be specified. Exec specifies the action to take."
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_handler) do
     
   
     
+      
       newproperty(:http_get) do
+      
         
         desc "HTTPGet specifies the http request to perform."
         
@@ -41,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_handler) do
     
   
     
+      
       newproperty(:tcp_socket) do
+      
         
         desc "TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported"
         

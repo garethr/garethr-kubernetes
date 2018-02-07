@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_container_image) do
   validate do
     required_properties = [
     
-      names,
+      :names,
     
     ]
     required_properties.each do |property|
@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_container_image) do
   end
   
     
-      newproperty(:names) do
+      
+      newproperty(:names, :array_matching => :all) do
+      
         
         desc "Names by which this image is known. e.g. ['gcr.io/google_containers/hyperkube:v1.0.7', 'dockerhub.io/google_containers/hyperkube:v1.0.7']"
         
@@ -44,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_container_image) do
     
   
     
+      
       newproperty(:size_bytes) do
+      
         
         desc "The size of the image in bytes."
         

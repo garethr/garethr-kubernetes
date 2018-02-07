@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_event_source).provide(:swagger, :parent => PuppetX
     name: instance.metadata.name,
     
       
+        
         component: instance.component.respond_to?(:to_hash) ? instance.component.to_hash : instance.component,
+        
       
     
       
+        
         host: instance.host.respond_to?(:to_hash) ? instance.host.to_hash : instance.host,
+        
       
     
     object: instance,

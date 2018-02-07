@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_se_linux_strategy_options) do
   validate do
     required_properties = [
     
-      rule,
+      :rule,
     
     ]
     required_properties.each do |property|
@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_se_linux_strategy_options) do
   end
   
     
+      
       newproperty(:rule) do
+      
         
         desc "type is the strategy that will dictate the allowable labels that may be set."
         
@@ -44,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_se_linux_strategy_options) do
     
   
     
+      
       newproperty(:se_linux_options) do
+      
         
         desc "seLinuxOptions required to run as; required for MustRunAs More info: https://git.k8s.io/community/contributors/design-proposals/security_context.md"
         

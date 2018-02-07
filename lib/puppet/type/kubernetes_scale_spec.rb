@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_scale_spec) do
   
-  @doc = "describes the attributes of a scale subresource"
+  @doc = "ScaleSpec describes the attributes of a scale subresource."
   
 
   ensurable
@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_scale_spec) do
   end
   
     
+      
       newproperty(:replicas) do
+      
         
         desc "desired number of instances for the scaled object."
         

@@ -15,115 +15,171 @@ Puppet::Type.type(:kubernetes_volume).provide(:swagger, :parent => PuppetX::Pupp
     name: instance.metadata.name,
     
       
+        
         name: instance.name.respond_to?(:to_hash) ? instance.name.to_hash : instance.name,
+        
       
     
       
+        
         host_path: instance.hostPath.respond_to?(:to_hash) ? instance.hostPath.to_hash : instance.hostPath,
+        
       
     
       
+        
         empty_dir: instance.emptyDir.respond_to?(:to_hash) ? instance.emptyDir.to_hash : instance.emptyDir,
+        
       
     
       
+        
         gce_persistent_disk: instance.gcePersistentDisk.respond_to?(:to_hash) ? instance.gcePersistentDisk.to_hash : instance.gcePersistentDisk,
+        
       
     
       
+        
         aws_elastic_block_store: instance.awsElasticBlockStore.respond_to?(:to_hash) ? instance.awsElasticBlockStore.to_hash : instance.awsElasticBlockStore,
+        
       
     
       
+        
         git_repo: instance.gitRepo.respond_to?(:to_hash) ? instance.gitRepo.to_hash : instance.gitRepo,
+        
       
     
       
+        
         secret: instance.secret.respond_to?(:to_hash) ? instance.secret.to_hash : instance.secret,
+        
       
     
       
+        
         nfs: instance.nfs.respond_to?(:to_hash) ? instance.nfs.to_hash : instance.nfs,
+        
       
     
       
+        
         iscsi: instance.iscsi.respond_to?(:to_hash) ? instance.iscsi.to_hash : instance.iscsi,
+        
       
     
       
+        
         glusterfs: instance.glusterfs.respond_to?(:to_hash) ? instance.glusterfs.to_hash : instance.glusterfs,
+        
       
     
       
+        
         persistent_volume_claim: instance.persistentVolumeClaim.respond_to?(:to_hash) ? instance.persistentVolumeClaim.to_hash : instance.persistentVolumeClaim,
+        
       
     
       
+        
         rbd: instance.rbd.respond_to?(:to_hash) ? instance.rbd.to_hash : instance.rbd,
+        
       
     
       
+        
         flex_volume: instance.flexVolume.respond_to?(:to_hash) ? instance.flexVolume.to_hash : instance.flexVolume,
+        
       
     
       
+        
         cinder: instance.cinder.respond_to?(:to_hash) ? instance.cinder.to_hash : instance.cinder,
+        
       
     
       
+        
         cephfs: instance.cephfs.respond_to?(:to_hash) ? instance.cephfs.to_hash : instance.cephfs,
+        
       
     
       
+        
         flocker: instance.flocker.respond_to?(:to_hash) ? instance.flocker.to_hash : instance.flocker,
+        
       
     
       
+        
         downward_api: instance.downwardAPI.respond_to?(:to_hash) ? instance.downwardAPI.to_hash : instance.downwardAPI,
+        
       
     
       
+        
         fc: instance.fc.respond_to?(:to_hash) ? instance.fc.to_hash : instance.fc,
+        
       
     
       
+        
         azure_file: instance.azureFile.respond_to?(:to_hash) ? instance.azureFile.to_hash : instance.azureFile,
+        
       
     
       
+        
         config_map: instance.configMap.respond_to?(:to_hash) ? instance.configMap.to_hash : instance.configMap,
+        
       
     
       
+        
         vsphere_volume: instance.vsphereVolume.respond_to?(:to_hash) ? instance.vsphereVolume.to_hash : instance.vsphereVolume,
+        
       
     
       
+        
         quobyte: instance.quobyte.respond_to?(:to_hash) ? instance.quobyte.to_hash : instance.quobyte,
+        
       
     
       
+        
         azure_disk: instance.azureDisk.respond_to?(:to_hash) ? instance.azureDisk.to_hash : instance.azureDisk,
+        
       
     
       
+        
         photon_persistent_disk: instance.photonPersistentDisk.respond_to?(:to_hash) ? instance.photonPersistentDisk.to_hash : instance.photonPersistentDisk,
+        
       
     
       
+        
         projected: instance.projected.respond_to?(:to_hash) ? instance.projected.to_hash : instance.projected,
+        
       
     
       
+        
         portworx_volume: instance.portworxVolume.respond_to?(:to_hash) ? instance.portworxVolume.to_hash : instance.portworxVolume,
+        
       
     
       
+        
         scale_io: instance.scaleIO.respond_to?(:to_hash) ? instance.scaleIO.to_hash : instance.scaleIO,
+        
       
     
       
+        
         storageos: instance.storageos.respond_to?(:to_hash) ? instance.storageos.to_hash : instance.storageos,
+        
       
     
     object: instance,

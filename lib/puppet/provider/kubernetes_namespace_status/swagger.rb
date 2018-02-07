@@ -15,7 +15,9 @@ Puppet::Type.type(:kubernetes_namespace_status).provide(:swagger, :parent => Pup
     name: instance.metadata.name,
     
       
+        
         phase: instance.phase.respond_to?(:to_hash) ? instance.phase.to_hash : instance.phase,
+        
       
     
     object: instance,

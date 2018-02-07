@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_volume_source) do
   validate do
     required_properties = [
     
-      claim_name,
+      :claim_name,
     
     ]
     required_properties.each do |property|
@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_volume_source) do
   end
   
     
+      
       newproperty(:claim_name) do
+      
         
         desc "ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims"
         
@@ -44,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_volume_source) do
     
   
     
+      
       newproperty(:read_only) do
+      
         
         desc "Will force the ReadOnly setting in VolumeMounts. Default false."
         

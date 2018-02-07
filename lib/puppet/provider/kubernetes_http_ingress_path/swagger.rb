@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_http_ingress_path).provide(:swagger, :parent => Pu
     name: instance.metadata.name,
     
       
+        
         path: instance.path.respond_to?(:to_hash) ? instance.path.to_hash : instance.path,
+        
       
     
       
+        
         backend: instance.backend.respond_to?(:to_hash) ? instance.backend.to_hash : instance.backend,
+        
       
     
     object: instance,

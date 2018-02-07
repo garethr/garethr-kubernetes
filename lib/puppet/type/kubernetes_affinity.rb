@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_affinity) do
   end
   
     
+      
       newproperty(:node_affinity) do
+      
         
         desc "Describes node affinity scheduling rules for the pod."
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_affinity) do
     
   
     
+      
       newproperty(:pod_affinity) do
+      
         
         desc "Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s))."
         
@@ -41,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_affinity) do
     
   
     
+      
       newproperty(:pod_anti_affinity) do
+      
         
         desc "Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s))."
         

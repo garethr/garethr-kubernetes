@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_status) do
   end
   
     
+      
       newproperty(:phase) do
+      
         
         desc "Phase represents the current phase of PersistentVolumeClaim."
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_status) do
     
   
     
-      newproperty(:access_modes) do
+      
+      newproperty(:access_modes, :array_matching => :all) do
+      
         
         desc "AccessModes contains the actual access modes the volume backing the PVC has. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1"
         
@@ -41,9 +45,24 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_claim_status) do
     
   
     
+      
       newproperty(:capacity) do
+      
         
         desc "Represents the actual resources of the underlying volume."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      
+      newproperty(:conditions, :array_matching => :all) do
+      
+        
+        desc "Current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'ResizeStarted'."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

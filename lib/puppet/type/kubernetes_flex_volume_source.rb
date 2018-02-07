@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_flex_volume_source) do
   validate do
     required_properties = [
     
-      driver,
+      :driver,
     
     ]
     required_properties.each do |property|
@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_flex_volume_source) do
   end
   
     
+      
       newproperty(:driver) do
+      
         
         desc "Driver is the name of the driver to use for this volume."
         
@@ -44,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_flex_volume_source) do
     
   
     
+      
       newproperty(:fs_type) do
+      
         
         desc "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. 'ext4', 'xfs', 'ntfs'. The default filesystem depends on FlexVolume script."
         
@@ -55,7 +59,9 @@ Puppet::Type.newtype(:kubernetes_flex_volume_source) do
     
   
     
+      
       newproperty(:secret_ref) do
+      
         
         desc "Optional: SecretRef is reference to the secret object containing sensitive information to pass to the plugin scripts. This may be empty if no secret object is specified. If the secret object contains more than one secret, all secrets are passed to the plugin scripts."
         
@@ -66,7 +72,9 @@ Puppet::Type.newtype(:kubernetes_flex_volume_source) do
     
   
     
+      
       newproperty(:read_only) do
+      
         
         desc "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts."
         
@@ -77,7 +85,9 @@ Puppet::Type.newtype(:kubernetes_flex_volume_source) do
     
   
     
+      
       newproperty(:options) do
+      
         
         desc "Optional: Extra command options if any."
         

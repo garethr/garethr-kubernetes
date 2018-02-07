@@ -15,19 +15,27 @@ Puppet::Type.type(:kubernetes_taint).provide(:swagger, :parent => PuppetX::Puppe
     name: instance.metadata.name,
     
       
+        
         key: instance.key.respond_to?(:to_hash) ? instance.key.to_hash : instance.key,
+        
       
     
       
+        
         value: instance.value.respond_to?(:to_hash) ? instance.value.to_hash : instance.value,
+        
       
     
       
+        
         effect: instance.effect.respond_to?(:to_hash) ? instance.effect.to_hash : instance.effect,
+        
       
     
       
+        
         time_added: instance.timeAdded.respond_to?(:to_hash) ? instance.timeAdded.to_hash : instance.timeAdded,
+        
       
     
     object: instance,

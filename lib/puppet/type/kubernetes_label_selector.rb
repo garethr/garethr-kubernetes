@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_label_selector) do
   end
   
     
+      
       newproperty(:match_labels) do
+      
         
         desc "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'. The requirements are ANDed."
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_label_selector) do
     
   
     
-      newproperty(:match_expressions) do
+      
+      newproperty(:match_expressions, :array_matching => :all) do
+      
         
         desc "matchExpressions is a list of label selector requirements. The requirements are ANDed."
         

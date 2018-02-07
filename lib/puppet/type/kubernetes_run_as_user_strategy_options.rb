@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_run_as_user_strategy_options) do
   validate do
     required_properties = [
     
-      rule,
+      :rule,
     
     ]
     required_properties.each do |property|
@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_run_as_user_strategy_options) do
   end
   
     
+      
       newproperty(:rule) do
+      
         
         desc "Rule is the strategy that will dictate the allowable RunAsUser values that may be set."
         
@@ -44,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_run_as_user_strategy_options) do
     
   
     
-      newproperty(:ranges) do
+      
+      newproperty(:ranges, :array_matching => :all) do
+      
         
         desc "Ranges are the allowed ranges of uids that may be used."
         

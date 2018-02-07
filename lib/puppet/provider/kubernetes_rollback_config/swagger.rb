@@ -15,7 +15,9 @@ Puppet::Type.type(:kubernetes_rollback_config).provide(:swagger, :parent => Pupp
     name: instance.metadata.name,
     
       
+        
         revision: instance.revision.respond_to?(:to_hash) ? instance.revision.to_hash : instance.revision,
+        
       
     
     object: instance,

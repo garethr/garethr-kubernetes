@@ -17,7 +17,11 @@ Puppet::Type.newtype(:kubernetes_daemon_set_update_strategy) do
   end
   
     
+      
       newproperty(:type) do
+      
+        
+        desc "Type of daemon set update. Can be 'RollingUpdate' or 'OnDelete'. Default is OnDelete."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -26,7 +30,11 @@ Puppet::Type.newtype(:kubernetes_daemon_set_update_strategy) do
     
   
     
+      
       newproperty(:rolling_update) do
+      
+        
+        desc "Rolling update config params. Present only if type = 'RollingUpdate'."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

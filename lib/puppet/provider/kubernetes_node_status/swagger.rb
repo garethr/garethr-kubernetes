@@ -15,43 +15,63 @@ Puppet::Type.type(:kubernetes_node_status).provide(:swagger, :parent => PuppetX:
     name: instance.metadata.name,
     
       
+        
         capacity: instance.capacity.respond_to?(:to_hash) ? instance.capacity.to_hash : instance.capacity,
+        
       
     
       
+        
         allocatable: instance.allocatable.respond_to?(:to_hash) ? instance.allocatable.to_hash : instance.allocatable,
+        
       
     
       
+        
         phase: instance.phase.respond_to?(:to_hash) ? instance.phase.to_hash : instance.phase,
+        
       
     
       
-        conditions: instance.conditions.respond_to?(:to_hash) ? instance.conditions.to_hash : instance.conditions,
+        
+        conditions: hash_arrays(instance.conditions),
+        
       
     
       
-        addresses: instance.addresses.respond_to?(:to_hash) ? instance.addresses.to_hash : instance.addresses,
+        
+        addresses: hash_arrays(instance.addresses),
+        
       
     
       
+        
         daemon_endpoints: instance.daemonEndpoints.respond_to?(:to_hash) ? instance.daemonEndpoints.to_hash : instance.daemonEndpoints,
+        
       
     
       
+        
         node_info: instance.nodeInfo.respond_to?(:to_hash) ? instance.nodeInfo.to_hash : instance.nodeInfo,
+        
       
     
       
-        images: instance.images.respond_to?(:to_hash) ? instance.images.to_hash : instance.images,
+        
+        images: hash_arrays(instance.images),
+        
       
     
       
-        volumes_in_use: instance.volumesInUse.respond_to?(:to_hash) ? instance.volumesInUse.to_hash : instance.volumesInUse,
+        
+        volumes_in_use: hash_arrays(instance.volumesInUse),
+        
       
     
       
-        volumes_attached: instance.volumesAttached.respond_to?(:to_hash) ? instance.volumesAttached.to_hash : instance.volumesAttached,
+        
+        volumes_attached: hash_arrays(instance.volumesAttached),
+        
       
     
     object: instance,

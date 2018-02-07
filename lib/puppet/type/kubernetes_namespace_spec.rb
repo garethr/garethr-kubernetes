@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_namespace_spec) do
   end
   
     
-      newproperty(:finalizers) do
+      
+      newproperty(:finalizers, :array_matching => :all) do
+      
         
         desc "Finalizers is an opaque list of values that must be empty to permanently remove object from storage. More info: https://git.k8s.io/community/contributors/design-proposals/namespaces.md#finalizers"
         

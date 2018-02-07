@@ -23,7 +23,9 @@ Puppet::Type.newtype(:kubernetes_network_policy) do
     
   
     
+      
       newproperty(:metadata) do
+      
         
         desc "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
         
@@ -34,7 +36,9 @@ Puppet::Type.newtype(:kubernetes_network_policy) do
     
   
     
+      
       newproperty(:spec) do
+      
         
         desc "Specification of the desired behavior for this NetworkPolicy."
         

@@ -15,27 +15,39 @@ Puppet::Type.type(:kubernetes_replication_controller_status).provide(:swagger, :
     name: instance.metadata.name,
     
       
+        
         replicas: instance.replicas.respond_to?(:to_hash) ? instance.replicas.to_hash : instance.replicas,
+        
       
     
       
+        
         fully_labeled_replicas: instance.fullyLabeledReplicas.respond_to?(:to_hash) ? instance.fullyLabeledReplicas.to_hash : instance.fullyLabeledReplicas,
+        
       
     
       
+        
         ready_replicas: instance.readyReplicas.respond_to?(:to_hash) ? instance.readyReplicas.to_hash : instance.readyReplicas,
+        
       
     
       
+        
         available_replicas: instance.availableReplicas.respond_to?(:to_hash) ? instance.availableReplicas.to_hash : instance.availableReplicas,
+        
       
     
       
+        
         observed_generation: instance.observedGeneration.respond_to?(:to_hash) ? instance.observedGeneration.to_hash : instance.observedGeneration,
+        
       
     
       
-        conditions: instance.conditions.respond_to?(:to_hash) ? instance.conditions.to_hash : instance.conditions,
+        
+        conditions: hash_arrays(instance.conditions),
+        
       
     
     object: instance,

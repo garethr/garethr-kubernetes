@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_ingress_backend).provide(:swagger, :parent => Pupp
     name: instance.metadata.name,
     
       
+        
         service_name: instance.serviceName.respond_to?(:to_hash) ? instance.serviceName.to_hash : instance.serviceName,
+        
       
     
       
+        
         service_port: instance.servicePort.respond_to?(:to_hash) ? instance.servicePort.to_hash : instance.servicePort,
+        
       
     
     object: instance,

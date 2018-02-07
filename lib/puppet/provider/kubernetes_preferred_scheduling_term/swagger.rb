@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_preferred_scheduling_term).provide(:swagger, :pare
     name: instance.metadata.name,
     
       
+        
         weight: instance.weight.respond_to?(:to_hash) ? instance.weight.to_hash : instance.weight,
+        
       
     
       
+        
         preference: instance.preference.respond_to?(:to_hash) ? instance.preference.to_hash : instance.preference,
+        
       
     
     object: instance,

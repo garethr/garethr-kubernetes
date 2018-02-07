@@ -13,31 +13,17 @@ Puppet::Type.newtype(:kubernetes_fc_volume_source) do
   ensurable
 
   
-  validate do
-    required_properties = [
-    
-      target_ww_ns,
-    
-      lun,
-    
-    ]
-    required_properties.each do |property|
-      # We check for both places so as to cover the puppet resource path as well
-      if self[property].nil? and self.provider.send(property) == :absent
-        fail "You must provide a #{property}"
-      end
-    end
-  end
-  
 
   newparam(:name, namevar: true) do
     desc 'Name of the fc_volume_source.'
   end
   
     
-      newproperty(:target_ww_ns) do
+      
+      newproperty(:target_ww_ns, :array_matching => :all) do
+      
         
-        desc "Required: FC target worldwide names (WWNs)"
+        desc "Optional: FC target worldwide names (WWNs)"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -46,9 +32,11 @@ Puppet::Type.newtype(:kubernetes_fc_volume_source) do
     
   
     
+      
       newproperty(:lun) do
+      
         
-        desc "Required: FC target lun number"
+        desc "Optional: FC target lun number"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -57,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_fc_volume_source) do
     
   
     
+      
       newproperty(:fs_type) do
+      
         
         desc "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. 'ext4', 'xfs', 'ntfs'. Implicitly inferred to be 'ext4' if unspecified."
         
@@ -68,9 +58,24 @@ Puppet::Type.newtype(:kubernetes_fc_volume_source) do
     
   
     
+      
       newproperty(:read_only) do
+      
         
         desc "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      
+      newproperty(:wwids, :array_matching => :all) do
+      
+        
+        desc "Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs and lun must be set, but not both simultaneously."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

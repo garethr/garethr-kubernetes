@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_security_context) do
   end
   
     
+      
       newproperty(:capabilities) do
+      
         
         desc "The capabilities to add/drop when running containers. Defaults to the default set of capabilities granted by the container runtime."
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_security_context) do
     
   
     
+      
       newproperty(:privileged) do
+      
         
         desc "Run container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host. Defaults to false."
         
@@ -41,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_security_context) do
     
   
     
+      
       newproperty(:se_linux_options) do
+      
         
         desc "The SELinux context to be applied to the container. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence."
         
@@ -52,7 +58,9 @@ Puppet::Type.newtype(:kubernetes_security_context) do
     
   
     
+      
       newproperty(:run_as_user) do
+      
         
         desc "The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence."
         
@@ -63,7 +71,9 @@ Puppet::Type.newtype(:kubernetes_security_context) do
     
   
     
+      
       newproperty(:run_as_non_root) do
+      
         
         desc "Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence."
         
@@ -74,9 +84,24 @@ Puppet::Type.newtype(:kubernetes_security_context) do
     
   
     
+      
       newproperty(:read_only_root_filesystem) do
+      
         
         desc "Whether this container has a read-only root filesystem. Default is false."
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      
+      newproperty(:allow_privilege_escalation) do
+      
+        
+        desc "AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

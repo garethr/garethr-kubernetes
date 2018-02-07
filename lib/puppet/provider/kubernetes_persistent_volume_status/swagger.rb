@@ -15,15 +15,21 @@ Puppet::Type.type(:kubernetes_persistent_volume_status).provide(:swagger, :paren
     name: instance.metadata.name,
     
       
+        
         phase: instance.phase.respond_to?(:to_hash) ? instance.phase.to_hash : instance.phase,
+        
       
     
       
+        
         message: instance.message.respond_to?(:to_hash) ? instance.message.to_hash : instance.message,
+        
       
     
       
+        
         reason: instance.reason.respond_to?(:to_hash) ? instance.reason.to_hash : instance.reason,
+        
       
     
     object: instance,

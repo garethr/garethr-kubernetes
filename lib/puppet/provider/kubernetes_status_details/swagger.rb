@@ -15,25 +15,35 @@ Puppet::Type.type(:kubernetes_status_details).provide(:swagger, :parent => Puppe
     name: instance.metadata.name,
     
       
+        
         name: instance.name.respond_to?(:to_hash) ? instance.name.to_hash : instance.name,
+        
       
     
       
+        
         group: instance.group.respond_to?(:to_hash) ? instance.group.to_hash : instance.group,
+        
       
     
       
     
       
+        
         uid: instance.uid.respond_to?(:to_hash) ? instance.uid.to_hash : instance.uid,
+        
       
     
       
-        causes: instance.causes.respond_to?(:to_hash) ? instance.causes.to_hash : instance.causes,
+        
+        causes: hash_arrays(instance.causes),
+        
       
     
       
+        
         retry_after_seconds: instance.retryAfterSeconds.respond_to?(:to_hash) ? instance.retryAfterSeconds.to_hash : instance.retryAfterSeconds,
+        
       
     
     object: instance,

@@ -17,25 +17,35 @@ Puppet::Type.type(:kubernetes_object_reference).provide(:swagger, :parent => Pup
       
     
       
+        
         namespace: instance.namespace.respond_to?(:to_hash) ? instance.namespace.to_hash : instance.namespace,
+        
       
     
       
+        
         name: instance.name.respond_to?(:to_hash) ? instance.name.to_hash : instance.name,
+        
       
     
       
+        
         uid: instance.uid.respond_to?(:to_hash) ? instance.uid.to_hash : instance.uid,
+        
       
     
       
     
       
+        
         resource_version: instance.resourceVersion.respond_to?(:to_hash) ? instance.resourceVersion.to_hash : instance.resourceVersion,
+        
       
     
       
+        
         field_path: instance.fieldPath.respond_to?(:to_hash) ? instance.fieldPath.to_hash : instance.fieldPath,
+        
       
     
     object: instance,

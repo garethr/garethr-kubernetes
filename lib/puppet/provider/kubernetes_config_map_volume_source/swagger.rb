@@ -15,19 +15,27 @@ Puppet::Type.type(:kubernetes_config_map_volume_source).provide(:swagger, :paren
     name: instance.metadata.name,
     
       
+        
         name: instance.name.respond_to?(:to_hash) ? instance.name.to_hash : instance.name,
+        
       
     
       
-        items: instance.items.respond_to?(:to_hash) ? instance.items.to_hash : instance.items,
+        
+        items: hash_arrays(instance.items),
+        
       
     
       
+        
         default_mode: instance.defaultMode.respond_to?(:to_hash) ? instance.defaultMode.to_hash : instance.defaultMode,
+        
       
     
       
+        
         optional: instance.optional.respond_to?(:to_hash) ? instance.optional.to_hash : instance.optional,
+        
       
     
     object: instance,

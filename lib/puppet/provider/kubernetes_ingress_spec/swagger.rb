@@ -15,15 +15,21 @@ Puppet::Type.type(:kubernetes_ingress_spec).provide(:swagger, :parent => PuppetX
     name: instance.metadata.name,
     
       
+        
         backend: instance.backend.respond_to?(:to_hash) ? instance.backend.to_hash : instance.backend,
+        
       
     
       
-        tls: instance.tls.respond_to?(:to_hash) ? instance.tls.to_hash : instance.tls,
+        
+        tls: hash_arrays(instance.tls),
+        
       
     
       
-        rules: instance.rules.respond_to?(:to_hash) ? instance.rules.to_hash : instance.rules,
+        
+        rules: hash_arrays(instance.rules),
+        
       
     
     object: instance,

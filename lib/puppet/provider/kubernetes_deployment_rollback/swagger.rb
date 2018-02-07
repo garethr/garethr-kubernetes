@@ -19,15 +19,21 @@ Puppet::Type.type(:kubernetes_deployment_rollback).provide(:swagger, :parent => 
       
     
       
+        
         name: instance.name.respond_to?(:to_hash) ? instance.name.to_hash : instance.name,
+        
       
     
       
+        
         updated_annotations: instance.updatedAnnotations.respond_to?(:to_hash) ? instance.updatedAnnotations.to_hash : instance.updatedAnnotations,
+        
       
     
       
+        
         rollback_to: instance.rollbackTo.respond_to?(:to_hash) ? instance.rollbackTo.to_hash : instance.rollbackTo,
+        
       
     
     object: instance,

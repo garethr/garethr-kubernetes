@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_volume) do
   validate do
     required_properties = [
     
-      name,
+      :name,
     
     ]
     required_properties.each do |property|
@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
   end
   
     
+      
       newproperty(:name) do
+      
         
         desc "Volume's name. Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
         
@@ -44,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:host_path) do
+      
         
         desc "HostPath represents a pre-existing file or directory on the host machine that is directly exposed to the container. This is generally used for system agents or other privileged things that are allowed to see the host machine. Most containers will NOT need this. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath"
         
@@ -55,7 +59,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:empty_dir) do
+      
         
         desc "EmptyDir represents a temporary directory that shares a pod's lifetime. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir"
         
@@ -66,7 +72,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:gce_persistent_disk) do
+      
         
         desc "GCEPersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk"
         
@@ -77,7 +85,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:aws_elastic_block_store) do
+      
         
         desc "AWSElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore"
         
@@ -88,7 +98,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:git_repo) do
+      
         
         desc "GitRepo represents a git repository at a particular revision."
         
@@ -99,7 +111,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:secret) do
+      
         
         desc "Secret represents a secret that should populate this volume. More info: https://kubernetes.io/docs/concepts/storage/volumes#secret"
         
@@ -110,7 +124,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:nfs) do
+      
         
         desc "NFS represents an NFS mount on the host that shares a pod's lifetime More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs"
         
@@ -121,7 +137,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:iscsi) do
+      
         
         desc "ISCSI represents an ISCSI Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://releases.k8s.io/HEAD/examples/volumes/iscsi/README.md"
         
@@ -132,7 +150,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:glusterfs) do
+      
         
         desc "Glusterfs represents a Glusterfs mount on the host that shares a pod's lifetime. More info: https://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md"
         
@@ -143,7 +163,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:persistent_volume_claim) do
+      
         
         desc "PersistentVolumeClaimVolumeSource represents a reference to a PersistentVolumeClaim in the same namespace. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims"
         
@@ -154,7 +176,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:rbd) do
+      
         
         desc "RBD represents a Rados Block Device mount on the host that shares a pod's lifetime. More info: https://releases.k8s.io/HEAD/examples/volumes/rbd/README.md"
         
@@ -165,7 +189,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:flex_volume) do
+      
         
         desc "FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin. This is an alpha feature and may change in future."
         
@@ -176,7 +202,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:cinder) do
+      
         
         desc "Cinder represents a cinder volume attached and mounted on kubelets host machine More info: https://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md"
         
@@ -187,7 +215,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:cephfs) do
+      
         
         desc "CephFS represents a Ceph FS mount on the host that shares a pod's lifetime"
         
@@ -198,7 +228,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:flocker) do
+      
         
         desc "Flocker represents a Flocker volume attached to a kubelet's host machine. This depends on the Flocker control service being running"
         
@@ -209,7 +241,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:downward_api) do
+      
         
         desc "DownwardAPI represents downward API about the pod that should populate this volume"
         
@@ -220,7 +254,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:fc) do
+      
         
         desc "FC represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod."
         
@@ -231,7 +267,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:azure_file) do
+      
         
         desc "AzureFile represents an Azure File Service mount on the host and bind mount to the pod."
         
@@ -242,7 +280,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:config_map) do
+      
         
         desc "ConfigMap represents a configMap that should populate this volume"
         
@@ -253,7 +293,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:vsphere_volume) do
+      
         
         desc "VsphereVolume represents a vSphere volume attached and mounted on kubelets host machine"
         
@@ -264,7 +306,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:quobyte) do
+      
         
         desc "Quobyte represents a Quobyte mount on the host that shares a pod's lifetime"
         
@@ -275,7 +319,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:azure_disk) do
+      
         
         desc "AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod."
         
@@ -286,7 +332,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:photon_persistent_disk) do
+      
         
         desc "PhotonPersistentDisk represents a PhotonController persistent disk attached and mounted on kubelets host machine"
         
@@ -297,7 +345,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:projected) do
+      
         
         desc "Items for all in one resources secrets, configmaps, and downward API"
         
@@ -308,7 +358,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:portworx_volume) do
+      
         
         desc "PortworxVolume represents a portworx volume attached and mounted on kubelets host machine"
         
@@ -319,7 +371,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:scale_io) do
+      
         
         desc "ScaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes."
         
@@ -330,7 +384,9 @@ Puppet::Type.newtype(:kubernetes_volume) do
     
   
     
+      
       newproperty(:storageos) do
+      
         
         desc "StorageOS represents a StorageOS volume attached and mounted on Kubernetes nodes."
         

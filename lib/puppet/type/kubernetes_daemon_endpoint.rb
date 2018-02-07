@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_daemon_endpoint) do
   validate do
     required_properties = [
     
-      port,
+      :port,
     
     ]
     required_properties.each do |property|
@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_daemon_endpoint) do
   end
   
     
+      
       newproperty(:port) do
+      
         
         desc "Port number of the given endpoint."
         

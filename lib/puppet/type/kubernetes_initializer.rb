@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_initializer) do
   validate do
     required_properties = [
     
-      name,
+      :name,
     
     ]
     required_properties.each do |property|
@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_initializer) do
   end
   
     
+      
       newproperty(:name) do
+      
         
         desc "name of the process that is responsible for initializing this object."
         

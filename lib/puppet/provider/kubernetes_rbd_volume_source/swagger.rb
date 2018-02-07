@@ -15,35 +15,51 @@ Puppet::Type.type(:kubernetes_rbd_volume_source).provide(:swagger, :parent => Pu
     name: instance.metadata.name,
     
       
-        monitors: instance.monitors.respond_to?(:to_hash) ? instance.monitors.to_hash : instance.monitors,
+        
+        monitors: hash_arrays(instance.monitors),
+        
       
     
       
+        
         image: instance.image.respond_to?(:to_hash) ? instance.image.to_hash : instance.image,
+        
       
     
       
+        
         fs_type: instance.fsType.respond_to?(:to_hash) ? instance.fsType.to_hash : instance.fsType,
+        
       
     
       
+        
         pool: instance.pool.respond_to?(:to_hash) ? instance.pool.to_hash : instance.pool,
+        
       
     
       
+        
         user: instance.user.respond_to?(:to_hash) ? instance.user.to_hash : instance.user,
+        
       
     
       
+        
         keyring: instance.keyring.respond_to?(:to_hash) ? instance.keyring.to_hash : instance.keyring,
+        
       
     
       
+        
         secret_ref: instance.secretRef.respond_to?(:to_hash) ? instance.secretRef.to_hash : instance.secretRef,
+        
       
     
       
+        
         read_only: instance.readOnly.respond_to?(:to_hash) ? instance.readOnly.to_hash : instance.readOnly,
+        
       
     
     object: instance,

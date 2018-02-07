@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_rolling_update_deployment).provide(:swagger, :pare
     name: instance.metadata.name,
     
       
+        
         max_unavailable: instance.maxUnavailable.respond_to?(:to_hash) ? instance.maxUnavailable.to_hash : instance.maxUnavailable,
+        
       
     
       
+        
         max_surge: instance.maxSurge.respond_to?(:to_hash) ? instance.maxSurge.to_hash : instance.maxSurge,
+        
       
     
     object: instance,

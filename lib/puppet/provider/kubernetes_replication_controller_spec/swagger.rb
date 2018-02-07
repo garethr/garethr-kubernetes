@@ -15,19 +15,27 @@ Puppet::Type.type(:kubernetes_replication_controller_spec).provide(:swagger, :pa
     name: instance.metadata.name,
     
       
+        
         replicas: instance.replicas.respond_to?(:to_hash) ? instance.replicas.to_hash : instance.replicas,
+        
       
     
       
+        
         min_ready_seconds: instance.minReadySeconds.respond_to?(:to_hash) ? instance.minReadySeconds.to_hash : instance.minReadySeconds,
+        
       
     
       
+        
         selector: instance.selector.respond_to?(:to_hash) ? instance.selector.to_hash : instance.selector,
+        
       
     
       
+        
         template: instance.template.respond_to?(:to_hash) ? instance.template.to_hash : instance.template,
+        
       
     
     object: instance,

@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_replica_set) do
   
-  @doc = "ReplicaSet represents the configuration of a ReplicaSet."
+  @doc = "DEPRECATED - This group version of ReplicaSet is deprecated by apps/v1beta2/ReplicaSet. See the release notes for more information. ReplicaSet represents the configuration of a ReplicaSet."
   
 
   ensurable
@@ -23,7 +23,9 @@ Puppet::Type.newtype(:kubernetes_replica_set) do
     
   
     
+      
       newproperty(:metadata) do
+      
         
         desc "If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s) that the ReplicaSet manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
         
@@ -34,7 +36,9 @@ Puppet::Type.newtype(:kubernetes_replica_set) do
     
   
     
+      
       newproperty(:spec) do
+      
         
         desc "Spec defines the specification of the desired behavior of the ReplicaSet. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status"
         
@@ -45,7 +49,9 @@ Puppet::Type.newtype(:kubernetes_replica_set) do
     
   
     
+      
       newproperty(:status) do
+      
         
         desc "Status is the most recently observed status of the ReplicaSet. This data may be out of date by some window of time. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status"
         

@@ -15,95 +15,153 @@ Puppet::Type.type(:kubernetes_pod_spec).provide(:swagger, :parent => PuppetX::Pu
     name: instance.metadata.name,
     
       
-        volumes: instance.volumes.respond_to?(:to_hash) ? instance.volumes.to_hash : instance.volumes,
+        
+        volumes: hash_arrays(instance.volumes),
+        
       
     
       
-        init_containers: instance.initContainers.respond_to?(:to_hash) ? instance.initContainers.to_hash : instance.initContainers,
+        
+        init_containers: hash_arrays(instance.initContainers),
+        
       
     
       
-        containers: instance.containers.respond_to?(:to_hash) ? instance.containers.to_hash : instance.containers,
+        
+        containers: hash_arrays(instance.containers),
+        
       
     
       
+        
         restart_policy: instance.restartPolicy.respond_to?(:to_hash) ? instance.restartPolicy.to_hash : instance.restartPolicy,
+        
       
     
       
+        
         termination_grace_period_seconds: instance.terminationGracePeriodSeconds.respond_to?(:to_hash) ? instance.terminationGracePeriodSeconds.to_hash : instance.terminationGracePeriodSeconds,
+        
       
     
       
+        
         active_deadline_seconds: instance.activeDeadlineSeconds.respond_to?(:to_hash) ? instance.activeDeadlineSeconds.to_hash : instance.activeDeadlineSeconds,
+        
       
     
       
+        
         dns_policy: instance.dnsPolicy.respond_to?(:to_hash) ? instance.dnsPolicy.to_hash : instance.dnsPolicy,
+        
       
     
       
+        
         node_selector: instance.nodeSelector.respond_to?(:to_hash) ? instance.nodeSelector.to_hash : instance.nodeSelector,
+        
       
     
       
+        
         service_account_name: instance.serviceAccountName.respond_to?(:to_hash) ? instance.serviceAccountName.to_hash : instance.serviceAccountName,
+        
       
     
       
+        
         service_account: instance.serviceAccount.respond_to?(:to_hash) ? instance.serviceAccount.to_hash : instance.serviceAccount,
+        
       
     
       
+        
         automount_service_account_token: instance.automountServiceAccountToken.respond_to?(:to_hash) ? instance.automountServiceAccountToken.to_hash : instance.automountServiceAccountToken,
+        
       
     
       
+        
         node_name: instance.nodeName.respond_to?(:to_hash) ? instance.nodeName.to_hash : instance.nodeName,
+        
       
     
       
+        
         host_network: instance.hostNetwork.respond_to?(:to_hash) ? instance.hostNetwork.to_hash : instance.hostNetwork,
+        
       
     
       
+        
         host_pid: instance.hostPID.respond_to?(:to_hash) ? instance.hostPID.to_hash : instance.hostPID,
+        
       
     
       
+        
         host_ipc: instance.hostIPC.respond_to?(:to_hash) ? instance.hostIPC.to_hash : instance.hostIPC,
+        
       
     
       
+        
         security_context: instance.securityContext.respond_to?(:to_hash) ? instance.securityContext.to_hash : instance.securityContext,
+        
       
     
       
-        image_pull_secrets: instance.imagePullSecrets.respond_to?(:to_hash) ? instance.imagePullSecrets.to_hash : instance.imagePullSecrets,
+        
+        image_pull_secrets: hash_arrays(instance.imagePullSecrets),
+        
       
     
       
+        
         hostname: instance.hostname.respond_to?(:to_hash) ? instance.hostname.to_hash : instance.hostname,
+        
       
     
       
+        
         subdomain: instance.subdomain.respond_to?(:to_hash) ? instance.subdomain.to_hash : instance.subdomain,
+        
       
     
       
+        
         affinity: instance.affinity.respond_to?(:to_hash) ? instance.affinity.to_hash : instance.affinity,
+        
       
     
       
+        
         scheduler_name: instance.schedulerName.respond_to?(:to_hash) ? instance.schedulerName.to_hash : instance.schedulerName,
+        
       
     
       
-        tolerations: instance.tolerations.respond_to?(:to_hash) ? instance.tolerations.to_hash : instance.tolerations,
+        
+        tolerations: hash_arrays(instance.tolerations),
+        
       
     
       
-        host_aliases: instance.hostAliases.respond_to?(:to_hash) ? instance.hostAliases.to_hash : instance.hostAliases,
+        
+        host_aliases: hash_arrays(instance.hostAliases),
+        
+      
+    
+      
+        
+        priority_class_name: instance.priorityClassName.respond_to?(:to_hash) ? instance.priorityClassName.to_hash : instance.priorityClassName,
+        
+      
+    
+      
+        
+        priority: instance.priority.respond_to?(:to_hash) ? instance.priority.to_hash : instance.priority,
+        
       
     
     object: instance,
@@ -227,6 +285,14 @@ Puppet::Type.type(:kubernetes_pod_spec).provide(:swagger, :parent => PuppetX::Pu
     
       
         hostAliases: resource[:host_aliases],
+      
+    
+      
+        priorityClassName: resource[:priority_class_name],
+      
+    
+      
+        priority: resource[:priority],
       
     
     }

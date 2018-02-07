@@ -15,7 +15,9 @@ Puppet::Type.type(:kubernetes_rolling_update_daemon_set).provide(:swagger, :pare
     name: instance.metadata.name,
     
       
+        
         max_unavailable: instance.maxUnavailable.respond_to?(:to_hash) ? instance.maxUnavailable.to_hash : instance.maxUnavailable,
+        
       
     
     object: instance,

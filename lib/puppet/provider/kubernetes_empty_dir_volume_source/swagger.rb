@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_empty_dir_volume_source).provide(:swagger, :parent
     name: instance.metadata.name,
     
       
+        
         medium: instance.medium.respond_to?(:to_hash) ? instance.medium.to_hash : instance.medium,
+        
       
     
       
+        
         size_limit: instance.sizeLimit.respond_to?(:to_hash) ? instance.sizeLimit.to_hash : instance.sizeLimit,
+        
       
     
     object: instance,

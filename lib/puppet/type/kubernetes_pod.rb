@@ -23,7 +23,9 @@ Puppet::Type.newtype(:kubernetes_pod) do
     
   
     
+      
       newproperty(:metadata) do
+      
         
         desc "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
         
@@ -34,7 +36,9 @@ Puppet::Type.newtype(:kubernetes_pod) do
     
   
     
+      
       newproperty(:spec) do
+      
         
         desc "Specification of the desired behavior of the pod. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status"
         
@@ -45,7 +49,9 @@ Puppet::Type.newtype(:kubernetes_pod) do
     
   
     
+      
       newproperty(:status) do
+      
         
         desc "Most recently observed status of the pod. This data may not be up to date. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status"
         

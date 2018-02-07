@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_container_state) do
   end
   
     
+      
       newproperty(:waiting) do
+      
         
         desc "Details about a waiting container"
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_container_state) do
     
   
     
+      
       newproperty(:running) do
+      
         
         desc "Details about a running container"
         
@@ -41,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_container_state) do
     
   
     
+      
       newproperty(:terminated) do
+      
         
         desc "Details about a terminated container"
         

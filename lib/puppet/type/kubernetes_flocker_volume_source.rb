@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_flocker_volume_source) do
   end
   
     
+      
       newproperty(:dataset_name) do
+      
         
         desc "Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated"
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_flocker_volume_source) do
     
   
     
+      
       newproperty(:dataset_uuid) do
+      
         
         desc "UUID of the dataset. This is unique identifier of a Flocker dataset"
         

@@ -15,43 +15,63 @@ Puppet::Type.type(:kubernetes_pod_status).provide(:swagger, :parent => PuppetX::
     name: instance.metadata.name,
     
       
+        
         phase: instance.phase.respond_to?(:to_hash) ? instance.phase.to_hash : instance.phase,
+        
       
     
       
-        conditions: instance.conditions.respond_to?(:to_hash) ? instance.conditions.to_hash : instance.conditions,
+        
+        conditions: hash_arrays(instance.conditions),
+        
       
     
       
+        
         message: instance.message.respond_to?(:to_hash) ? instance.message.to_hash : instance.message,
+        
       
     
       
+        
         reason: instance.reason.respond_to?(:to_hash) ? instance.reason.to_hash : instance.reason,
+        
       
     
       
+        
         host_ip: instance.hostIP.respond_to?(:to_hash) ? instance.hostIP.to_hash : instance.hostIP,
+        
       
     
       
+        
         pod_ip: instance.podIP.respond_to?(:to_hash) ? instance.podIP.to_hash : instance.podIP,
+        
       
     
       
+        
         start_time: instance.startTime.respond_to?(:to_hash) ? instance.startTime.to_hash : instance.startTime,
+        
       
     
       
-        init_container_statuses: instance.initContainerStatuses.respond_to?(:to_hash) ? instance.initContainerStatuses.to_hash : instance.initContainerStatuses,
+        
+        init_container_statuses: hash_arrays(instance.initContainerStatuses),
+        
       
     
       
-        container_statuses: instance.containerStatuses.respond_to?(:to_hash) ? instance.containerStatuses.to_hash : instance.containerStatuses,
+        
+        container_statuses: hash_arrays(instance.containerStatuses),
+        
       
     
       
+        
         qos_class: instance.qosClass.respond_to?(:to_hash) ? instance.qosClass.to_hash : instance.qosClass,
+        
       
     
     object: instance,

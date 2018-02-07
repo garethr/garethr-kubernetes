@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_deployment) do
   
-  @doc = "Deployment enables declarative updates for Pods and ReplicaSets."
+  @doc = "DEPRECATED - This group version of Deployment is deprecated by apps/v1beta2/Deployment. See the release notes for more information. Deployment enables declarative updates for Pods and ReplicaSets."
   
 
   ensurable
@@ -23,7 +23,9 @@ Puppet::Type.newtype(:kubernetes_deployment) do
     
   
     
+      
       newproperty(:metadata) do
+      
         
         desc "Standard object metadata."
         
@@ -34,7 +36,9 @@ Puppet::Type.newtype(:kubernetes_deployment) do
     
   
     
+      
       newproperty(:spec) do
+      
         
         desc "Specification of the desired behavior of the Deployment."
         
@@ -45,7 +49,9 @@ Puppet::Type.newtype(:kubernetes_deployment) do
     
   
     
+      
       newproperty(:status) do
+      
         
         desc "Most recently observed status of the Deployment."
         

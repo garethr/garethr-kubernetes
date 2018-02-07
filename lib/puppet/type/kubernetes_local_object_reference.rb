@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_local_object_reference) do
   end
   
     
+      
       newproperty(:name) do
+      
         
         desc "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
         

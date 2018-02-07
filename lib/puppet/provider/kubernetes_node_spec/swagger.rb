@@ -15,23 +15,39 @@ Puppet::Type.type(:kubernetes_node_spec).provide(:swagger, :parent => PuppetX::P
     name: instance.metadata.name,
     
       
+        
         pod_cidr: instance.podCIDR.respond_to?(:to_hash) ? instance.podCIDR.to_hash : instance.podCIDR,
+        
       
     
       
+        
         external_id: instance.externalID.respond_to?(:to_hash) ? instance.externalID.to_hash : instance.externalID,
+        
       
     
       
+        
         provider_id: instance.providerID.respond_to?(:to_hash) ? instance.providerID.to_hash : instance.providerID,
+        
       
     
       
+        
         unschedulable: instance.unschedulable.respond_to?(:to_hash) ? instance.unschedulable.to_hash : instance.unschedulable,
+        
       
     
       
-        taints: instance.taints.respond_to?(:to_hash) ? instance.taints.to_hash : instance.taints,
+        
+        taints: hash_arrays(instance.taints),
+        
+      
+    
+      
+        
+        config_source: instance.configSource.respond_to?(:to_hash) ? instance.configSource.to_hash : instance.configSource,
+        
       
     
     object: instance,
@@ -83,6 +99,10 @@ Puppet::Type.type(:kubernetes_node_spec).provide(:swagger, :parent => PuppetX::P
     
       
         taints: resource[:taints],
+      
+    
+      
+        configSource: resource[:config_source],
       
     
     }

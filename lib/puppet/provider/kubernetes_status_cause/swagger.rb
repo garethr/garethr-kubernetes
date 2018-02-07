@@ -15,15 +15,21 @@ Puppet::Type.type(:kubernetes_status_cause).provide(:swagger, :parent => PuppetX
     name: instance.metadata.name,
     
       
+        
         reason: instance.reason.respond_to?(:to_hash) ? instance.reason.to_hash : instance.reason,
+        
       
     
       
+        
         message: instance.message.respond_to?(:to_hash) ? instance.message.to_hash : instance.message,
+        
       
     
       
+        
         field: instance.field.respond_to?(:to_hash) ? instance.field.to_hash : instance.field,
+        
       
     
     object: instance,

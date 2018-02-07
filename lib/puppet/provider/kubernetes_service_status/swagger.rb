@@ -15,7 +15,9 @@ Puppet::Type.type(:kubernetes_service_status).provide(:swagger, :parent => Puppe
     name: instance.metadata.name,
     
       
+        
         load_balancer: instance.loadBalancer.respond_to?(:to_hash) ? instance.loadBalancer.to_hash : instance.loadBalancer,
+        
       
     
     object: instance,

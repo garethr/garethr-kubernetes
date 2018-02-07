@@ -15,23 +15,33 @@ Puppet::Type.type(:kubernetes_quobyte_volume_source).provide(:swagger, :parent =
     name: instance.metadata.name,
     
       
+        
         registry: instance.registry.respond_to?(:to_hash) ? instance.registry.to_hash : instance.registry,
+        
       
     
       
+        
         volume: instance.volume.respond_to?(:to_hash) ? instance.volume.to_hash : instance.volume,
+        
       
     
       
+        
         read_only: instance.readOnly.respond_to?(:to_hash) ? instance.readOnly.to_hash : instance.readOnly,
+        
       
     
       
+        
         user: instance.user.respond_to?(:to_hash) ? instance.user.to_hash : instance.user,
+        
       
     
       
+        
         group: instance.group.respond_to?(:to_hash) ? instance.group.to_hash : instance.group,
+        
       
     
     object: instance,

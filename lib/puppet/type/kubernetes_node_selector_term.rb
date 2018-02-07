@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_node_selector_term) do
   validate do
     required_properties = [
     
-      match_expressions,
+      :match_expressions,
     
     ]
     required_properties.each do |property|
@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_node_selector_term) do
   end
   
     
-      newproperty(:match_expressions) do
+      
+      newproperty(:match_expressions, :array_matching => :all) do
+      
         
         desc "Required. A list of node selector requirements. The requirements are ANDed."
         

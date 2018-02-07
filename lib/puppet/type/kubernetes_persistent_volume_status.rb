@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_status) do
   end
   
     
+      
       newproperty(:phase) do
+      
         
         desc "Phase indicates if a volume is available, bound to a claim, or released by a claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase"
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_status) do
     
   
     
+      
       newproperty(:message) do
+      
         
         desc "A human-readable message indicating details about why the volume is in this state."
         
@@ -41,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_persistent_volume_status) do
     
   
     
+      
       newproperty(:reason) do
+      
         
         desc "Reason is a brief CamelCase string that describes any failure and is meant for machine parsing and tidy display in the CLI."
         

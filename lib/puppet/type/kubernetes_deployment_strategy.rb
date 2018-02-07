@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_deployment_strategy) do
   end
   
     
+      
       newproperty(:type) do
+      
         
         desc "Type of deployment. Can be 'Recreate' or 'RollingUpdate'. Default is RollingUpdate."
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_deployment_strategy) do
     
   
     
+      
       newproperty(:rolling_update) do
+      
         
         desc "Rolling update config params. Present only if DeploymentStrategyType = RollingUpdate."
         

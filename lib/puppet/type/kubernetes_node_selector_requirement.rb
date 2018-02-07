@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_node_selector_requirement) do
   validate do
     required_properties = [
     
-      key,
+      :key,
     
-      operator,
+      :operator,
     
     ]
     required_properties.each do |property|
@@ -35,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_node_selector_requirement) do
   end
   
     
+      
       newproperty(:key) do
+      
         
         desc "The label key that the selector applies to."
         
@@ -46,7 +48,9 @@ Puppet::Type.newtype(:kubernetes_node_selector_requirement) do
     
   
     
+      
       newproperty(:operator) do
+      
         
         desc "Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt."
         
@@ -57,7 +61,9 @@ Puppet::Type.newtype(:kubernetes_node_selector_requirement) do
     
   
     
-      newproperty(:values) do
+      
+      newproperty(:values, :array_matching => :all) do
+      
         
         desc "An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch."
         

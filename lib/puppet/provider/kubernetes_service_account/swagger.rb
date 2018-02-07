@@ -19,19 +19,27 @@ Puppet::Type.type(:kubernetes_service_account).provide(:swagger, :parent => Pupp
       
     
       
+        
         metadata: instance.metadata.respond_to?(:to_hash) ? instance.metadata.to_hash : instance.metadata,
+        
       
     
       
-        secrets: instance.secrets.respond_to?(:to_hash) ? instance.secrets.to_hash : instance.secrets,
+        
+        secrets: hash_arrays(instance.secrets),
+        
       
     
       
-        image_pull_secrets: instance.imagePullSecrets.respond_to?(:to_hash) ? instance.imagePullSecrets.to_hash : instance.imagePullSecrets,
+        
+        image_pull_secrets: hash_arrays(instance.imagePullSecrets),
+        
       
     
       
+        
         automount_service_account_token: instance.automountServiceAccountToken.respond_to?(:to_hash) ? instance.automountServiceAccountToken.to_hash : instance.automountServiceAccountToken,
+        
       
     
     object: instance,

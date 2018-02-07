@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_photon_persistent_disk_volume_source).provide(:swa
     name: instance.metadata.name,
     
       
+        
         pd_id: instance.pdID.respond_to?(:to_hash) ? instance.pdID.to_hash : instance.pdID,
+        
       
     
       
+        
         fs_type: instance.fsType.respond_to?(:to_hash) ? instance.fsType.to_hash : instance.fsType,
+        
       
     
     object: instance,

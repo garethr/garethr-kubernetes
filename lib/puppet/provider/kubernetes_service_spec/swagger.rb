@@ -15,47 +15,81 @@ Puppet::Type.type(:kubernetes_service_spec).provide(:swagger, :parent => PuppetX
     name: instance.metadata.name,
     
       
-        ports: instance.ports.respond_to?(:to_hash) ? instance.ports.to_hash : instance.ports,
+        
+        ports: hash_arrays(instance.ports),
+        
       
     
       
+        
         selector: instance.selector.respond_to?(:to_hash) ? instance.selector.to_hash : instance.selector,
+        
       
     
       
+        
         cluster_ip: instance.clusterIP.respond_to?(:to_hash) ? instance.clusterIP.to_hash : instance.clusterIP,
+        
       
     
       
+        
         type: instance.type.respond_to?(:to_hash) ? instance.type.to_hash : instance.type,
+        
       
     
       
-        external_i_ps: instance.externalIPs.respond_to?(:to_hash) ? instance.externalIPs.to_hash : instance.externalIPs,
+        
+        external_i_ps: hash_arrays(instance.externalIPs),
+        
       
     
       
+        
         session_affinity: instance.sessionAffinity.respond_to?(:to_hash) ? instance.sessionAffinity.to_hash : instance.sessionAffinity,
+        
       
     
       
+        
         load_balancer_ip: instance.loadBalancerIP.respond_to?(:to_hash) ? instance.loadBalancerIP.to_hash : instance.loadBalancerIP,
+        
       
     
       
-        load_balancer_source_ranges: instance.loadBalancerSourceRanges.respond_to?(:to_hash) ? instance.loadBalancerSourceRanges.to_hash : instance.loadBalancerSourceRanges,
+        
+        load_balancer_source_ranges: hash_arrays(instance.loadBalancerSourceRanges),
+        
       
     
       
+        
         external_name: instance.externalName.respond_to?(:to_hash) ? instance.externalName.to_hash : instance.externalName,
+        
       
     
       
+        
         external_traffic_policy: instance.externalTrafficPolicy.respond_to?(:to_hash) ? instance.externalTrafficPolicy.to_hash : instance.externalTrafficPolicy,
+        
       
     
       
+        
         health_check_node_port: instance.healthCheckNodePort.respond_to?(:to_hash) ? instance.healthCheckNodePort.to_hash : instance.healthCheckNodePort,
+        
+      
+    
+      
+        
+        publish_not_ready_addresses: instance.publishNotReadyAddresses.respond_to?(:to_hash) ? instance.publishNotReadyAddresses.to_hash : instance.publishNotReadyAddresses,
+        
+      
+    
+      
+        
+        session_affinity_config: instance.sessionAffinityConfig.respond_to?(:to_hash) ? instance.sessionAffinityConfig.to_hash : instance.sessionAffinityConfig,
+        
       
     
     object: instance,
@@ -131,6 +165,14 @@ Puppet::Type.type(:kubernetes_service_spec).provide(:swagger, :parent => PuppetX
     
       
         healthCheckNodePort: resource[:health_check_node_port],
+      
+    
+      
+        publishNotReadyAddresses: resource[:publish_not_ready_addresses],
+      
+    
+      
+        sessionAffinityConfig: resource[:session_affinity_config],
       
     
     }

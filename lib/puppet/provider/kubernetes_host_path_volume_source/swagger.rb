@@ -15,7 +15,15 @@ Puppet::Type.type(:kubernetes_host_path_volume_source).provide(:swagger, :parent
     name: instance.metadata.name,
     
       
+        
         path: instance.path.respond_to?(:to_hash) ? instance.path.to_hash : instance.path,
+        
+      
+    
+      
+        
+        type: instance.type.respond_to?(:to_hash) ? instance.type.to_hash : instance.type,
+        
       
     
     object: instance,
@@ -51,6 +59,10 @@ Puppet::Type.type(:kubernetes_host_path_volume_source).provide(:swagger, :parent
     
       
         path: resource[:path],
+      
+    
+      
+        type: resource[:type],
       
     
     }

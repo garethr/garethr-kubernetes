@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_pod_condition) do
   validate do
     required_properties = [
     
-      type,
+      :type,
     
-      status,
+      :status,
     
     ]
     required_properties.each do |property|
@@ -35,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_pod_condition) do
   end
   
     
+      
       newproperty(:type) do
+      
         
         desc "Type is the type of the condition. Currently only Ready. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions"
         
@@ -46,7 +48,9 @@ Puppet::Type.newtype(:kubernetes_pod_condition) do
     
   
     
+      
       newproperty(:status) do
+      
         
         desc "Status is the status of the condition. Can be True, False, Unknown. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions"
         
@@ -57,7 +61,9 @@ Puppet::Type.newtype(:kubernetes_pod_condition) do
     
   
     
+      
       newproperty(:last_probe_time) do
+      
         
         desc "Last time we probed the condition."
         
@@ -68,7 +74,9 @@ Puppet::Type.newtype(:kubernetes_pod_condition) do
     
   
     
+      
       newproperty(:last_transition_time) do
+      
         
         desc "Last time the condition transitioned from one status to another."
         
@@ -79,7 +87,9 @@ Puppet::Type.newtype(:kubernetes_pod_condition) do
     
   
     
+      
       newproperty(:reason) do
+      
         
         desc "Unique, one-word, CamelCase reason for the condition's last transition."
         
@@ -90,7 +100,9 @@ Puppet::Type.newtype(:kubernetes_pod_condition) do
     
   
     
+      
       newproperty(:message) do
+      
         
         desc "Human-readable message indicating details about last transition."
         

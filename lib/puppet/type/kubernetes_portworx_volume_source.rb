@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_portworx_volume_source) do
   validate do
     required_properties = [
     
-      volume_id,
+      :volume_id,
     
     ]
     required_properties.each do |property|
@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_portworx_volume_source) do
   end
   
     
+      
       newproperty(:volume_id) do
+      
         
         desc "VolumeID uniquely identifies a Portworx volume"
         
@@ -44,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_portworx_volume_source) do
     
   
     
+      
       newproperty(:fs_type) do
+      
         
         desc "FSType represents the filesystem type to mount Must be a filesystem type supported by the host operating system. Ex. 'ext4', 'xfs'. Implicitly inferred to be 'ext4' if unspecified."
         
@@ -55,7 +59,9 @@ Puppet::Type.newtype(:kubernetes_portworx_volume_source) do
     
   
     
+      
       newproperty(:read_only) do
+      
         
         desc "Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts."
         

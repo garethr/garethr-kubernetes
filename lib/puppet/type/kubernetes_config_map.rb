@@ -23,7 +23,9 @@ Puppet::Type.newtype(:kubernetes_config_map) do
     
   
     
+      
       newproperty(:metadata) do
+      
         
         desc "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
         
@@ -34,7 +36,9 @@ Puppet::Type.newtype(:kubernetes_config_map) do
     
   
     
+      
       newproperty(:data) do
+      
         
         desc "Data contains the configuration data. Each key must consist of alphanumeric characters, '-', '_' or '.'."
         

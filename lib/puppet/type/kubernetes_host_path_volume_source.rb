@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_host_path_volume_source) do
   validate do
     required_properties = [
     
-      path,
+      :path,
     
     ]
     required_properties.each do |property|
@@ -33,9 +33,24 @@ Puppet::Type.newtype(:kubernetes_host_path_volume_source) do
   end
   
     
+      
       newproperty(:path) do
+      
         
-        desc "Path of the directory on the host. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath"
+        desc "Path of the directory on the host. If the path is a symlink, it will follow the link to the real path. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath"
+        
+        def insync?(is)
+          PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
+        end
+      end
+    
+  
+    
+      
+      newproperty(:type) do
+      
+        
+        desc "Type for HostPath Volume Defaults to '' More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath"
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)

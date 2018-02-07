@@ -15,15 +15,21 @@ Puppet::Type.type(:kubernetes_endpoint_subset).provide(:swagger, :parent => Pupp
     name: instance.metadata.name,
     
       
-        addresses: instance.addresses.respond_to?(:to_hash) ? instance.addresses.to_hash : instance.addresses,
+        
+        addresses: hash_arrays(instance.addresses),
+        
       
     
       
-        not_ready_addresses: instance.notReadyAddresses.respond_to?(:to_hash) ? instance.notReadyAddresses.to_hash : instance.notReadyAddresses,
+        
+        not_ready_addresses: hash_arrays(instance.notReadyAddresses),
+        
       
     
       
-        ports: instance.ports.respond_to?(:to_hash) ? instance.ports.to_hash : instance.ports,
+        
+        ports: hash_arrays(instance.ports),
+        
       
     
     object: instance,

@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_ingress_tls).provide(:swagger, :parent => PuppetX:
     name: instance.metadata.name,
     
       
-        hosts: instance.hosts.respond_to?(:to_hash) ? instance.hosts.to_hash : instance.hosts,
+        
+        hosts: hash_arrays(instance.hosts),
+        
       
     
       
+        
         secret_name: instance.secretName.respond_to?(:to_hash) ? instance.secretName.to_hash : instance.secretName,
+        
       
     
     object: instance,

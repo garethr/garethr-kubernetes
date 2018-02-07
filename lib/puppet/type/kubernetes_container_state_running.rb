@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_container_state_running) do
   end
   
     
+      
       newproperty(:started_at) do
+      
         
         desc "Time at which the container was last (re-)started"
         

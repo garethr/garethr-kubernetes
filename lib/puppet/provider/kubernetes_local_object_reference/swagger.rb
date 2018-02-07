@@ -15,7 +15,9 @@ Puppet::Type.type(:kubernetes_local_object_reference).provide(:swagger, :parent 
     name: instance.metadata.name,
     
       
+        
         name: instance.name.respond_to?(:to_hash) ? instance.name.to_hash : instance.name,
+        
       
     
     object: instance,

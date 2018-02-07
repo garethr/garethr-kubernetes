@@ -19,11 +19,15 @@ Puppet::Type.type(:kubernetes_endpoints).provide(:swagger, :parent => PuppetX::P
       
     
       
+        
         metadata: instance.metadata.respond_to?(:to_hash) ? instance.metadata.to_hash : instance.metadata,
+        
       
     
       
-        subsets: instance.subsets.respond_to?(:to_hash) ? instance.subsets.to_hash : instance.subsets,
+        
+        subsets: hash_arrays(instance.subsets),
+        
       
     
     object: instance,

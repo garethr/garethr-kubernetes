@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_namespace_status) do
   end
   
     
+      
       newproperty(:phase) do
+      
         
         desc "Phase is the current lifecycle phase of the namespace. More info: https://git.k8s.io/community/contributors/design-proposals/namespaces.md#phases"
         

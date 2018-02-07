@@ -16,25 +16,25 @@ Puppet::Type.newtype(:kubernetes_node_system_info) do
   validate do
     required_properties = [
     
-      machine_id,
+      :machine_id,
     
-      system_uuid,
+      :system_uuid,
     
-      boot_id,
+      :boot_id,
     
-      kernel_version,
+      :kernel_version,
     
-      os_image,
+      :os_image,
     
-      container_runtime_version,
+      :container_runtime_version,
     
-      kubelet_version,
+      :kubelet_version,
     
-      kube_proxy_version,
+      :kube_proxy_version,
     
-      operating_system,
+      :operating_system,
     
-      architecture,
+      :architecture,
     
     ]
     required_properties.each do |property|
@@ -51,7 +51,9 @@ Puppet::Type.newtype(:kubernetes_node_system_info) do
   end
   
     
+      
       newproperty(:machine_id) do
+      
         
         desc "MachineID reported by the node. For unique machine identification in the cluster this field is preferred. Learn more from man(5) machine-id: http://man7.org/linux/man-pages/man5/machine-id.5.html"
         
@@ -62,7 +64,9 @@ Puppet::Type.newtype(:kubernetes_node_system_info) do
     
   
     
+      
       newproperty(:system_uuid) do
+      
         
         desc "SystemUUID reported by the node. For unique machine identification MachineID is preferred. This field is specific to Red Hat hosts https://access.redhat.com/documentation/en-US/Red_Hat_Subscription_Management/1/html/RHSM/getting-system-uuid.html"
         
@@ -73,7 +77,9 @@ Puppet::Type.newtype(:kubernetes_node_system_info) do
     
   
     
+      
       newproperty(:boot_id) do
+      
         
         desc "Boot ID reported by the node."
         
@@ -84,7 +90,9 @@ Puppet::Type.newtype(:kubernetes_node_system_info) do
     
   
     
+      
       newproperty(:kernel_version) do
+      
         
         desc "Kernel Version reported by the node from 'uname -r' (e.g. 3.16.0-0.bpo.4-amd64)."
         
@@ -95,7 +103,9 @@ Puppet::Type.newtype(:kubernetes_node_system_info) do
     
   
     
+      
       newproperty(:os_image) do
+      
         
         desc "OS Image reported by the node from /etc/os-release (e.g. Debian GNU/Linux 7 (wheezy))."
         
@@ -106,7 +116,9 @@ Puppet::Type.newtype(:kubernetes_node_system_info) do
     
   
     
+      
       newproperty(:container_runtime_version) do
+      
         
         desc "ContainerRuntime Version reported by the node through runtime remote API (e.g. docker://1.5.0)."
         
@@ -117,7 +129,9 @@ Puppet::Type.newtype(:kubernetes_node_system_info) do
     
   
     
+      
       newproperty(:kubelet_version) do
+      
         
         desc "Kubelet Version reported by the node."
         
@@ -128,7 +142,9 @@ Puppet::Type.newtype(:kubernetes_node_system_info) do
     
   
     
+      
       newproperty(:kube_proxy_version) do
+      
         
         desc "KubeProxy Version reported by the node."
         
@@ -139,7 +155,9 @@ Puppet::Type.newtype(:kubernetes_node_system_info) do
     
   
     
+      
       newproperty(:operating_system) do
+      
         
         desc "The Operating System reported by the node"
         
@@ -150,7 +168,9 @@ Puppet::Type.newtype(:kubernetes_node_system_info) do
     
   
     
+      
       newproperty(:architecture) do
+      
         
         desc "The Architecture reported by the node"
         

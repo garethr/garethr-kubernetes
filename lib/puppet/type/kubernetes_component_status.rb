@@ -23,7 +23,9 @@ Puppet::Type.newtype(:kubernetes_component_status) do
     
   
     
+      
       newproperty(:metadata) do
+      
         
         desc "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
         
@@ -34,7 +36,9 @@ Puppet::Type.newtype(:kubernetes_component_status) do
     
   
     
-      newproperty(:conditions) do
+      
+      newproperty(:conditions, :array_matching => :all) do
+      
         
         desc "List of component conditions observed"
         

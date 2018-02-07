@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_config_map_key_selector) do
   validate do
     required_properties = [
     
-      key,
+      :key,
     
     ]
     required_properties.each do |property|
@@ -33,7 +33,9 @@ Puppet::Type.newtype(:kubernetes_config_map_key_selector) do
   end
   
     
+      
       newproperty(:name) do
+      
         
         desc "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
         
@@ -44,7 +46,9 @@ Puppet::Type.newtype(:kubernetes_config_map_key_selector) do
     
   
     
+      
       newproperty(:key) do
+      
         
         desc "The key to select."
         
@@ -55,7 +59,9 @@ Puppet::Type.newtype(:kubernetes_config_map_key_selector) do
     
   
     
+      
       newproperty(:optional) do
+      
         
         desc "Specify whether the ConfigMap or it's key must be defined"
         

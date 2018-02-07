@@ -15,7 +15,9 @@ Puppet::Type.type(:kubernetes_exec_action).provide(:swagger, :parent => PuppetX:
     name: instance.metadata.name,
     
       
-        command: instance.command.respond_to?(:to_hash) ? instance.command.to_hash : instance.command,
+        
+        command: hash_arrays(instance.command),
+        
       
     
     object: instance,

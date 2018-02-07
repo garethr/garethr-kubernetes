@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_network_policy_port).provide(:swagger, :parent => 
     name: instance.metadata.name,
     
       
+        
         protocol: instance.protocol.respond_to?(:to_hash) ? instance.protocol.to_hash : instance.protocol,
+        
       
     
       
+        
         port: instance.port.respond_to?(:to_hash) ? instance.port.to_hash : instance.port,
+        
       
     
     object: instance,

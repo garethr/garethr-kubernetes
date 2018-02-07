@@ -15,7 +15,9 @@ Puppet::Type.type(:kubernetes_preconditions).provide(:swagger, :parent => Puppet
     name: instance.metadata.name,
     
       
+        
         uid: instance.uid.respond_to?(:to_hash) ? instance.uid.to_hash : instance.uid,
+        
       
     
     object: instance,

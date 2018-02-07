@@ -15,19 +15,27 @@ Puppet::Type.type(:kubernetes_se_linux_options).provide(:swagger, :parent => Pup
     name: instance.metadata.name,
     
       
+        
         user: instance.user.respond_to?(:to_hash) ? instance.user.to_hash : instance.user,
+        
       
     
       
+        
         role: instance.role.respond_to?(:to_hash) ? instance.role.to_hash : instance.role,
+        
       
     
       
+        
         type: instance.type.respond_to?(:to_hash) ? instance.type.to_hash : instance.type,
+        
       
     
       
+        
         level: instance.level.respond_to?(:to_hash) ? instance.level.to_hash : instance.level,
+        
       
     
     object: instance,

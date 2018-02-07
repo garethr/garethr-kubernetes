@@ -15,29 +15,53 @@ Puppet::Type.type(:kubernetes_api_resource).provide(:swagger, :parent => PuppetX
     name: instance.metadata.name,
     
       
+        
         name: instance.name.respond_to?(:to_hash) ? instance.name.to_hash : instance.name,
+        
       
     
       
+        
         singular_name: instance.singularName.respond_to?(:to_hash) ? instance.singularName.to_hash : instance.singularName,
+        
       
     
       
+        
         namespaced: instance.namespaced.respond_to?(:to_hash) ? instance.namespaced.to_hash : instance.namespaced,
+        
+      
+    
+      
+        
+        group: instance.group.respond_to?(:to_hash) ? instance.group.to_hash : instance.group,
+        
+      
+    
+      
+        
+        version: instance.version.respond_to?(:to_hash) ? instance.version.to_hash : instance.version,
+        
       
     
       
     
       
-        verbs: instance.verbs.respond_to?(:to_hash) ? instance.verbs.to_hash : instance.verbs,
+        
+        verbs: hash_arrays(instance.verbs),
+        
       
     
       
-        short_names: instance.shortNames.respond_to?(:to_hash) ? instance.shortNames.to_hash : instance.shortNames,
+        
+        short_names: hash_arrays(instance.shortNames),
+        
       
     
       
-        categories: instance.categories.respond_to?(:to_hash) ? instance.categories.to_hash : instance.categories,
+        
+        categories: hash_arrays(instance.categories),
+        
       
     
     object: instance,
@@ -81,6 +105,14 @@ Puppet::Type.type(:kubernetes_api_resource).provide(:swagger, :parent => PuppetX
     
       
         namespaced: resource[:namespaced],
+      
+    
+      
+        group: resource[:group],
+      
+    
+      
+        version: resource[:version],
       
     
       

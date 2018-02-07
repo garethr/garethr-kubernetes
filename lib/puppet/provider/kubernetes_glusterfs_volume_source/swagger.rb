@@ -15,15 +15,21 @@ Puppet::Type.type(:kubernetes_glusterfs_volume_source).provide(:swagger, :parent
     name: instance.metadata.name,
     
       
+        
         endpoints: instance.endpoints.respond_to?(:to_hash) ? instance.endpoints.to_hash : instance.endpoints,
+        
       
     
       
+        
         path: instance.path.respond_to?(:to_hash) ? instance.path.to_hash : instance.path,
+        
       
     
       
+        
         read_only: instance.readOnly.respond_to?(:to_hash) ? instance.readOnly.to_hash : instance.readOnly,
+        
       
     
     object: instance,

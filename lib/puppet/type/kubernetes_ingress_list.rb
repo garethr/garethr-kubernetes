@@ -16,7 +16,7 @@ Puppet::Type.newtype(:kubernetes_ingress_list) do
   validate do
     required_properties = [
     
-      items,
+      :items,
     
     ]
     required_properties.each do |property|
@@ -37,7 +37,9 @@ Puppet::Type.newtype(:kubernetes_ingress_list) do
     
   
     
+      
       newproperty(:metadata) do
+      
         
         desc "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
         
@@ -48,7 +50,9 @@ Puppet::Type.newtype(:kubernetes_ingress_list) do
     
   
     
-      newproperty(:items) do
+      
+      newproperty(:items, :array_matching => :all) do
+      
         
         desc "Items is the list of Ingress."
         

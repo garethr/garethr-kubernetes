@@ -15,23 +15,33 @@ Puppet::Type.type(:kubernetes_container_port).provide(:swagger, :parent => Puppe
     name: instance.metadata.name,
     
       
+        
         name: instance.name.respond_to?(:to_hash) ? instance.name.to_hash : instance.name,
+        
       
     
       
+        
         host_port: instance.hostPort.respond_to?(:to_hash) ? instance.hostPort.to_hash : instance.hostPort,
+        
       
     
       
+        
         container_port: instance.containerPort.respond_to?(:to_hash) ? instance.containerPort.to_hash : instance.containerPort,
+        
       
     
       
+        
         protocol: instance.protocol.respond_to?(:to_hash) ? instance.protocol.to_hash : instance.protocol,
+        
       
     
       
+        
         host_ip: instance.hostIP.respond_to?(:to_hash) ? instance.hostIP.to_hash : instance.hostIP,
+        
       
     
     object: instance,

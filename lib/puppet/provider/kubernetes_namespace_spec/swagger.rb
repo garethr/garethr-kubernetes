@@ -15,7 +15,9 @@ Puppet::Type.type(:kubernetes_namespace_spec).provide(:swagger, :parent => Puppe
     name: instance.metadata.name,
     
       
-        finalizers: instance.finalizers.respond_to?(:to_hash) ? instance.finalizers.to_hash : instance.finalizers,
+        
+        finalizers: hash_arrays(instance.finalizers),
+        
       
     
     object: instance,

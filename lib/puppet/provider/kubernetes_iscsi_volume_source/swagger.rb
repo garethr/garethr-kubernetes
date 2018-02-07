@@ -15,43 +15,69 @@ Puppet::Type.type(:kubernetes_iscsi_volume_source).provide(:swagger, :parent => 
     name: instance.metadata.name,
     
       
+        
         target_portal: instance.targetPortal.respond_to?(:to_hash) ? instance.targetPortal.to_hash : instance.targetPortal,
+        
       
     
       
+        
         iqn: instance.iqn.respond_to?(:to_hash) ? instance.iqn.to_hash : instance.iqn,
+        
       
     
       
+        
         lun: instance.lun.respond_to?(:to_hash) ? instance.lun.to_hash : instance.lun,
+        
       
     
       
+        
         iscsi_interface: instance.iscsiInterface.respond_to?(:to_hash) ? instance.iscsiInterface.to_hash : instance.iscsiInterface,
+        
       
     
       
+        
         fs_type: instance.fsType.respond_to?(:to_hash) ? instance.fsType.to_hash : instance.fsType,
+        
       
     
       
+        
         read_only: instance.readOnly.respond_to?(:to_hash) ? instance.readOnly.to_hash : instance.readOnly,
+        
       
     
       
-        portals: instance.portals.respond_to?(:to_hash) ? instance.portals.to_hash : instance.portals,
+        
+        portals: hash_arrays(instance.portals),
+        
       
     
       
+        
         chap_auth_discovery: instance.chapAuthDiscovery.respond_to?(:to_hash) ? instance.chapAuthDiscovery.to_hash : instance.chapAuthDiscovery,
+        
       
     
       
+        
         chap_auth_session: instance.chapAuthSession.respond_to?(:to_hash) ? instance.chapAuthSession.to_hash : instance.chapAuthSession,
+        
       
     
       
+        
         secret_ref: instance.secretRef.respond_to?(:to_hash) ? instance.secretRef.to_hash : instance.secretRef,
+        
+      
+    
+      
+        
+        initiator_name: instance.initiatorName.respond_to?(:to_hash) ? instance.initiatorName.to_hash : instance.initiatorName,
+        
       
     
     object: instance,
@@ -123,6 +149,10 @@ Puppet::Type.type(:kubernetes_iscsi_volume_source).provide(:swagger, :parent => 
     
       
         secretRef: resource[:secret_ref],
+      
+    
+      
+        initiatorName: resource[:initiator_name],
       
     
     }

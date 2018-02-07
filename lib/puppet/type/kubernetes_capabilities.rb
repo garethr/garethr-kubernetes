@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_capabilities) do
   end
   
     
-      newproperty(:add) do
+      
+      newproperty(:add, :array_matching => :all) do
+      
         
         desc "Added capabilities"
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_capabilities) do
     
   
     
-      newproperty(:drop) do
+      
+      newproperty(:drop, :array_matching => :all) do
+      
         
         desc "Removed capabilities"
         

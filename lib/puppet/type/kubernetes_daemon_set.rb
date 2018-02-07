@@ -7,7 +7,7 @@ require_relative '../../puppet_x/puppetlabs/swagger/fuzzy_compare'
 
 Puppet::Type.newtype(:kubernetes_daemon_set) do
   
-  @doc = "DaemonSet represents the configuration of a daemon set."
+  @doc = "DEPRECATED - This group version of DaemonSet is deprecated by apps/v1beta2/DaemonSet. See the release notes for more information. DaemonSet represents the configuration of a daemon set."
   
 
   ensurable
@@ -23,7 +23,9 @@ Puppet::Type.newtype(:kubernetes_daemon_set) do
     
   
     
+      
       newproperty(:metadata) do
+      
         
         desc "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
         
@@ -34,7 +36,9 @@ Puppet::Type.newtype(:kubernetes_daemon_set) do
     
   
     
+      
       newproperty(:spec) do
+      
         
         desc "The desired behavior of this daemon set. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status"
         
@@ -45,7 +49,9 @@ Puppet::Type.newtype(:kubernetes_daemon_set) do
     
   
     
+      
       newproperty(:status) do
+      
         
         desc "The current status of this daemon set. This data may be out of date by some window of time. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status"
         

@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_load_balancer_status) do
   end
   
     
-      newproperty(:ingress) do
+      
+      newproperty(:ingress, :array_matching => :all) do
+      
         
         desc "Ingress is a list containing ingress points for the load-balancer. Traffic intended for the service should be sent to these ingress points."
         

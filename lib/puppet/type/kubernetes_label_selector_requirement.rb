@@ -16,9 +16,9 @@ Puppet::Type.newtype(:kubernetes_label_selector_requirement) do
   validate do
     required_properties = [
     
-      key,
+      :key,
     
-      operator,
+      :operator,
     
     ]
     required_properties.each do |property|
@@ -35,7 +35,9 @@ Puppet::Type.newtype(:kubernetes_label_selector_requirement) do
   end
   
     
+      
       newproperty(:key) do
+      
         
         desc "key is the label key that the selector applies to."
         
@@ -46,9 +48,11 @@ Puppet::Type.newtype(:kubernetes_label_selector_requirement) do
     
   
     
+      
       newproperty(:operator) do
+      
         
-        desc "operator represents a key's relationship to a set of values. Valid operators ard In, NotIn, Exists and DoesNotExist."
+        desc "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist."
         
         def insync?(is)
           PuppetX::Puppetlabs::Swagger::Utils::fuzzy_compare(is, should)
@@ -57,7 +61,9 @@ Puppet::Type.newtype(:kubernetes_label_selector_requirement) do
     
   
     
-      newproperty(:values) do
+      
+      newproperty(:values, :array_matching => :all) do
+      
         
         desc "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch."
         

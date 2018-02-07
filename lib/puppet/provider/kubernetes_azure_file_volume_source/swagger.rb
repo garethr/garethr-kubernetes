@@ -15,15 +15,21 @@ Puppet::Type.type(:kubernetes_azure_file_volume_source).provide(:swagger, :paren
     name: instance.metadata.name,
     
       
+        
         secret_name: instance.secretName.respond_to?(:to_hash) ? instance.secretName.to_hash : instance.secretName,
+        
       
     
       
+        
         share_name: instance.shareName.respond_to?(:to_hash) ? instance.shareName.to_hash : instance.shareName,
+        
       
     
       
+        
         read_only: instance.readOnly.respond_to?(:to_hash) ? instance.readOnly.to_hash : instance.readOnly,
+        
       
     
     object: instance,

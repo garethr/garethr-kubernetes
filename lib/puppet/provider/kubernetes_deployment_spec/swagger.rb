@@ -15,39 +15,57 @@ Puppet::Type.type(:kubernetes_deployment_spec).provide(:swagger, :parent => Pupp
     name: instance.metadata.name,
     
       
+        
         replicas: instance.replicas.respond_to?(:to_hash) ? instance.replicas.to_hash : instance.replicas,
+        
       
     
       
+        
         selector: instance.selector.respond_to?(:to_hash) ? instance.selector.to_hash : instance.selector,
+        
       
     
       
+        
         template: instance.template.respond_to?(:to_hash) ? instance.template.to_hash : instance.template,
+        
       
     
       
+        
         strategy: instance.strategy.respond_to?(:to_hash) ? instance.strategy.to_hash : instance.strategy,
+        
       
     
       
+        
         min_ready_seconds: instance.minReadySeconds.respond_to?(:to_hash) ? instance.minReadySeconds.to_hash : instance.minReadySeconds,
+        
       
     
       
+        
         revision_history_limit: instance.revisionHistoryLimit.respond_to?(:to_hash) ? instance.revisionHistoryLimit.to_hash : instance.revisionHistoryLimit,
+        
       
     
       
+        
         paused: instance.paused.respond_to?(:to_hash) ? instance.paused.to_hash : instance.paused,
+        
       
     
       
+        
         rollback_to: instance.rollbackTo.respond_to?(:to_hash) ? instance.rollbackTo.to_hash : instance.rollbackTo,
+        
       
     
       
+        
         progress_deadline_seconds: instance.progressDeadlineSeconds.respond_to?(:to_hash) ? instance.progressDeadlineSeconds.to_hash : instance.progressDeadlineSeconds,
+        
       
     
     object: instance,

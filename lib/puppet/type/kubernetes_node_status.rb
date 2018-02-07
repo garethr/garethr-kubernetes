@@ -19,7 +19,9 @@ Puppet::Type.newtype(:kubernetes_node_status) do
   end
   
     
+      
       newproperty(:capacity) do
+      
         
         desc "Capacity represents the total resources of a node. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity"
         
@@ -30,7 +32,9 @@ Puppet::Type.newtype(:kubernetes_node_status) do
     
   
     
+      
       newproperty(:allocatable) do
+      
         
         desc "Allocatable represents the resources of a node that are available for scheduling. Defaults to Capacity."
         
@@ -41,7 +45,9 @@ Puppet::Type.newtype(:kubernetes_node_status) do
     
   
     
+      
       newproperty(:phase) do
+      
         
         desc "NodePhase is the recently observed lifecycle phase of the node. More info: https://kubernetes.io/docs/concepts/nodes/node/#phase The field is never populated, and now is deprecated."
         
@@ -52,7 +58,9 @@ Puppet::Type.newtype(:kubernetes_node_status) do
     
   
     
-      newproperty(:conditions) do
+      
+      newproperty(:conditions, :array_matching => :all) do
+      
         
         desc "Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/concepts/nodes/node/#condition"
         
@@ -63,7 +71,9 @@ Puppet::Type.newtype(:kubernetes_node_status) do
     
   
     
-      newproperty(:addresses) do
+      
+      newproperty(:addresses, :array_matching => :all) do
+      
         
         desc "List of addresses reachable to the node. Queried from cloud provider, if available. More info: https://kubernetes.io/docs/concepts/nodes/node/#addresses"
         
@@ -74,7 +84,9 @@ Puppet::Type.newtype(:kubernetes_node_status) do
     
   
     
+      
       newproperty(:daemon_endpoints) do
+      
         
         desc "Endpoints of daemons running on the Node."
         
@@ -85,7 +97,9 @@ Puppet::Type.newtype(:kubernetes_node_status) do
     
   
     
+      
       newproperty(:node_info) do
+      
         
         desc "Set of ids/uuids to uniquely identify the node. More info: https://kubernetes.io/docs/concepts/nodes/node/#info"
         
@@ -96,7 +110,9 @@ Puppet::Type.newtype(:kubernetes_node_status) do
     
   
     
-      newproperty(:images) do
+      
+      newproperty(:images, :array_matching => :all) do
+      
         
         desc "List of container images on this node"
         
@@ -107,7 +123,9 @@ Puppet::Type.newtype(:kubernetes_node_status) do
     
   
     
-      newproperty(:volumes_in_use) do
+      
+      newproperty(:volumes_in_use, :array_matching => :all) do
+      
         
         desc "List of attachable volumes in use (mounted) by the node."
         
@@ -118,7 +136,9 @@ Puppet::Type.newtype(:kubernetes_node_status) do
     
   
     
-      newproperty(:volumes_attached) do
+      
+      newproperty(:volumes_attached, :array_matching => :all) do
+      
         
         desc "List of volumes that are attached to the node."
         

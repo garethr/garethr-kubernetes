@@ -15,11 +15,15 @@ Puppet::Type.type(:kubernetes_tcp_socket_action).provide(:swagger, :parent => Pu
     name: instance.metadata.name,
     
       
+        
         port: instance.port.respond_to?(:to_hash) ? instance.port.to_hash : instance.port,
+        
       
     
       
+        
         host: instance.host.respond_to?(:to_hash) ? instance.host.to_hash : instance.host,
+        
       
     
     object: instance,

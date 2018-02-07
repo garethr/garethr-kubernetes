@@ -15,7 +15,9 @@ Puppet::Type.type(:kubernetes_load_balancer_status).provide(:swagger, :parent =>
     name: instance.metadata.name,
     
       
-        ingress: instance.ingress.respond_to?(:to_hash) ? instance.ingress.to_hash : instance.ingress,
+        
+        ingress: hash_arrays(instance.ingress),
+        
       
     
     object: instance,
