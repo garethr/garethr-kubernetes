@@ -70,14 +70,18 @@ module PuppetX
         end
 
         def self.list_instances_of(type)
-          call("get_#{type}s")
+          if type == 'ingress'
+            call("get_ingresses")
+          else
+            call("get_#{type}s")
+          end
         end
 
         def make_object(type, name, params)
           klass = type.split('_').collect(&:capitalize).join
           params[:metadata] = {} unless params.key?(:metadata)
           p = params.swagger_symbolize_keys.fixnumify
-          object = Object::const_get("Kubeclient::#{klass}").new(p)
+          object = Object::const_get("Kubeclient::Resource").new(p)
           object.metadata.name = name
           object.metadata.namespace = namespace unless namespace.nil?
           object
@@ -94,7 +98,7 @@ module PuppetX
             else
               if attr.class == Fixnum
                 if obj.send(:at, attr).nil?
-                  obj.append(Object::const_get("Kubeclient::#{klass}").new)
+                  obj.append(Object::const_get("Kubeclient::Resource").new)
                 end
                 obj.send(:at, attr)
               else
