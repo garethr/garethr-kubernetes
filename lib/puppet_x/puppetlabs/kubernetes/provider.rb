@@ -70,7 +70,11 @@ module PuppetX
         end
 
         def self.list_instances_of(type)
-          call("get_#{type}s")
+          if type == 'ingress'
+            call("get_ingress")
+          else
+            call("get_#{type}s")
+          end
         end
 
         def make_object(type, name, params)
