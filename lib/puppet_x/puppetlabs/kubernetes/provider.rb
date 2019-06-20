@@ -71,7 +71,7 @@ module PuppetX
 
         def self.list_instances_of(type)
           if type == 'ingress'
-            call("get_ingress")
+            call("get_ingresses")
           else
             call("get_#{type}s")
           end
